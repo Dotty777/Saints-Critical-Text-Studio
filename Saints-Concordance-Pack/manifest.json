@@ -1,0 +1,248 @@
+{
+ "schema": "saints-concordance-pack/v3",
+ "files": {
+  "heb-lex": "saints-concordance-heb-lex.json.gz",
+  "heb": "saints-concordance-heb.json.gz",
+  "grc-lex": "saints-concordance-grc-lex.json.gz",
+  "grc": "saints-concordance-grc.json.gz",
+  "lat-lex": "saints-concordance-lat-lex.json.gz",
+  "lat": "saints-concordance-lat.json.gz",
+  "hubs": "saints-concordance-hubs.json.gz",
+  "decoder": "saints-concordance-decoder.js",
+  "csv": "saints-concordance-hub-occurrences.csv"
+ },
+ "licences": {
+  "saints-concordance-heb-lex.json.gz": "CC BY 4.0",
+  "saints-concordance-heb.json.gz": "CC BY 4.0",
+  "saints-concordance-grc-lex.json.gz": "CC BY-SA 4.0",
+  "saints-concordance-grc.json.gz": "CC BY-SA 4.0",
+  "saints-concordance-lat-lex.json.gz": "CC BY-SA 4.0",
+  "saints-concordance-lat.json.gz": "CC BY-SA 4.0",
+  "saints-concordance-hubs.json.gz": "CC BY 4.0",
+  "saints-concordance-decoder.js": "MIT (Saints.Bible code)"
+ },
+ "measured": {
+  "heb": {
+   "indexed_tokens": 230855,
+   "lemmas": 9033,
+   "roots": 5564,
+   "surface_forms": 105456,
+   "lemma_verse_pairs": 208018,
+   "surface_verse_pairs": 229228,
+   "raw_bytes": 1900137,
+   "gz_bytes": 806013,
+   "surface_baseline_postings_gz_bytes": 1132065
+  },
+  "grc": {
+   "indexed_tokens": 392612,
+   "lemmas": 13832,
+   "roots": 10121,
+   "surface_forms": 55473,
+   "lemma_verse_pairs": 353699,
+   "surface_verse_pairs": 369353,
+   "raw_bytes": 3394952,
+   "gz_bytes": 1399548,
+   "surface_baseline_postings_gz_bytes": 1204020
+  },
+  "lat": {
+   "indexed_tokens": 329366,
+   "lemmas": 10964,
+   "roots": 6268,
+   "surface_forms": 48481,
+   "lemma_verse_pairs": 309336,
+   "surface_verse_pairs": 320336,
+   "raw_bytes": 2886153,
+   "gz_bytes": 1242975,
+   "surface_baseline_postings_gz_bytes": 1136594
+  },
+  "hubs": {
+   "hubs": 7,
+   "raw_bytes": 22595,
+   "gz_bytes": 14543
+  },
+  "csv_rows": 6068
+ },
+ "coverage": {
+  "hebrew": {
+   "tokens": 305476,
+   "verses": 23213,
+   "content_words": 233388,
+   "with_morph": 305144,
+   "indexed": 305454,
+   "method:gold-aligned": 305424,
+   "function_words": 72066,
+   "extra_site_verses": 264,
+   "method:gold-form": 30,
+   "untagged": 22,
+   "indexed_share_of_tokens": 0.9999,
+   "content_share_of_tokens": 0.764,
+   "morph_share_of_indexed": 0.999,
+   "untagged_share_of_tokens": 0.0001,
+   "unmapped_examples": []
+  },
+  "greek": {
+   "tokens": 669756,
+   "verses": 34190,
+   "content_words": 393069,
+   "with_morph": 639225,
+   "indexed": 669389,
+   "method:gold-aligned": 662865,
+   "function_words": 276320,
+   "method:gold-form": 5616,
+   "method:glaux-aligned": 758,
+   "untagged": 208,
+   "method:glaux-form": 150,
+   "skipped_duplicate_verses": 20,
+   "tokens_in_duplicate_verses": 159,
+   "extra_site_verses": 31,
+   "indexed_share_of_tokens": 0.9995,
+   "content_share_of_tokens": 0.5869,
+   "morph_share_of_indexed": 0.9549,
+   "untagged_share_of_tokens": 0.0003,
+   "unmapped_examples": []
+  },
+  "latin": {
+   "tokens": 589568,
+   "verses": 34437,
+   "extra_site_verses": 259,
+   "skipped_duplicate_verses": 9,
+   "tokens_in_duplicate_verses": 65,
+   "parallel_resolved": 2242,
+   "parallel:propn:linked_existing": 54,
+   "parallel:propn:disambig": 19,
+   "parallel:ambig:empirical_pmi": 456,
+   "parallel:propn:new_attested": 42,
+   "parallel:big5:quam": 187,
+   "parallel:ambig:vpp_vs_pa": 90,
+   "parallel:ambig:shared_root_pos": 329,
+   "parallel:ambig:root_pmi": 41,
+   "parallel:big5:cum": 218,
+   "parallel:big5:quod": 533,
+   "parallel:ambig:gloss_overlap": 127,
+   "parallel:adv_e:superlative": 25,
+   "parallel:big5:quo": 42,
+   "parallel:adv_e:ls_adverb": 42,
+   "parallel:adv_e:vocative": 24,
+   "parallel:ambig:prep_nominal": 4,
+   "parallel:big5:uestrum": 9,
+   "content_words": 331723,
+   "with_morph": 587294,
+   "indexed": 587294,
+   "method:paradigm": 578380,
+   "method:gold-form": 6672,
+   "function_words": 255571,
+   "untagged": 2209,
+   "method:parallel-aligned": 2242,
+   "indexed_share_of_tokens": 0.9961,
+   "content_share_of_tokens": 0.5627,
+   "morph_share_of_indexed": 1.0,
+   "untagged_share_of_tokens": 0.0037,
+   "unmapped_examples": []
+  }
+ },
+ "attribution": [
+  {
+   "data": "Hebrew/Aramaic lemmas and morphology",
+   "source": "OpenScriptures Hebrew Bible (OSHB) morphology of the WLC",
+   "licence": "CC BY 4.0",
+   "link": "https://hb.openscriptures.org"
+  },
+  {
+   "data": "Hebrew roots (BDB) and lemma glosses",
+   "source": "OpenScriptures Hebrew Lexicon (lexical index of Brown-Driver-Briggs)",
+   "licence": "CC BY 4.0",
+   "link": "https://github.com/openscriptures/HebrewLexicon"
+  },
+  {
+   "data": "Greek NT lemmas",
+   "source": "STEPBible TAGNT, Tyndale House Cambridge",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "Brief lexicon glosses (Gloss column only)",
+   "source": "STEPBible TBESH/TBESG, Tyndale House Cambridge",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "Septuagint lemmas",
+   "source": "Open Scriptures Septuagint Project (LxxLemmas)",
+   "licence": "CC BY 4.0",
+   "link": "https://github.com/openscriptures/GreekResources"
+  },
+  {
+   "data": "Greek word families",
+   "source": "Strong's Greek Dictionary in XML (U. Sandborg-Petersen)",
+   "licence": "CC0",
+   "link": "https://github.com/morphgnt/strongs-dictionary-xml"
+  },
+  {
+   "data": "Latin lemmas and word families",
+   "source": "Lewis & Short, A Latin Dictionary (Perseus Digital Library TEI)",
+   "licence": "CC BY-SA 4.0",
+   "link": "https://github.com/PerseusDL/lexica"
+  },
+  {
+   "data": "Greek word families (derivations)",
+   "source": "MorphGNT morphological-lexicon derivation.yaml (J. Tauber)",
+   "licence": "CC BY-SA 3.0",
+   "link": "https://github.com/morphgnt/morphological-lexicon"
+  },
+  {
+   "data": "Greek lemma keys and word families (src field)",
+   "source": "Open Scriptures Greek Word List (GreekResources)",
+   "licence": "CC BY 4.0",
+   "link": "https://github.com/openscriptures/GreekResources"
+  },
+  {
+   "data": "Septuagint parsing (word layer)",
+   "source": "GLAUx corpus, A. Keersmaekers (Keersmaekers 2021, LChange); LXX source texts from el.wikisource; aligned word by word to the Saints Critical Greek Text",
+   "licence": "CC BY-SA 4.0 (source texts CC BY-SA 3.0)",
+   "link": "https://github.com/alekkeersmaekers/glaux"
+  },
+  {
+   "data": "Parsing of Hebrew and Greek NT words (word layer)",
+   "source": "OSHB morphology; STEPBible TAGNT, TEHMC, TEGMC",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "Latin and Hebrew proper names",
+   "source": "STEPBible TIPNR, Tyndale House Cambridge",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "Verse-number correspondences",
+   "source": "OSHB VerseMap.xml, STEPBible TVTMS and the Saints.Bible verse map",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "English-word links (alignment dictionary)",
+   "source": "STEPBible TAGNT, Translators Amalgamated Greek NT (STEPBible.org / Tyndale House Cambridge, CC BY 4.0): per-word English used as alignment dictionary",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "English-word links (alignment dictionary)",
+   "source": "STEPBible TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org / Tyndale House Cambridge, CC BY 4.0): per-morpheme English used as alignment dictionary",
+   "licence": "CC BY 4.0",
+   "link": "https://STEPBible.github.io/STEPBible-Data"
+  },
+  {
+   "data": "English-word links (alignment dictionary)",
+   "source": "MACULA Greek SBLGNT (Biblica, CC BY 4.0; english by Cherith CC BY 4.0, gloss Berean PD): english/gloss columns",
+   "licence": "CC BY 4.0",
+   "link": "https://github.com/Clear-Bible/macula-greek"
+  },
+  {
+   "data": "English-word links (alignment dictionary)",
+   "source": "MACULA Hebrew WLC (Biblica, CC BY 4.0; english by Cherith CC BY 4.0): english/gloss and greekstrong columns",
+   "licence": "CC BY 4.0",
+   "link": "https://github.com/Clear-Bible/macula-hebrew"
+  }
+ ],
+ "changes": "Changes made by Saints.Bible: lemma tags were aligned word by word to the Saints critical texts (which differ from the tagged editions in places; unmatched words are left untagged), verse numbers were converted to the Saints.Bible (Greek/Septuagint) numbering, Strong's numbers were reduced to base numbers for linking, and families were derived from the cited lexica. Only the brief 'Gloss' column of TBESH/TBESG is used."
+}

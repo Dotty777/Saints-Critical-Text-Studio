@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Local runtime state & private API keys (never commit secrets!)
+data/
+
+# Large multi-gigabyte raw witness research corpora inside Saints-*-Critical-Text
+# (Remain on disk inside Saints-Critical-Text-Studio for 100% self-contained offline operation,
+# while keeping Git commits lightweight and tracking the reconstructed Saints Critical Text chapters!)
+Saints-*-Critical-Text/*_Tier*/
+Saints-*-Critical-Text/*-base/
+Saints-*-Critical-Text/*.zip
+Saints-Latin-Critical-Text/Latin/
+Saints-Latin-Critical-Text/saints-latin-column/
+Saints-Greek-Critical-Text/LOCAL_CORPUS_INVENTORY.csv
+Saints-Greek-Critical-Text/MASTER_GREEK_SOURCES_REGISTER.csv
+Saints-Greek-Critical-Text/saints-corpus-setup-*.sh
+
+# Companion multi-witness diff cache, local-only study reports & internal prompt/spec files
+witness-cache/
+witness-audit*/
+CLAUDE_TRILINGUAL_STUDIO_PROMPT.md
+docs/RAHLFS-CHECK-*
+docs/BOUNDARY-SCAN-*
+docs/AUDIT-*
+docs/OPENAI-*
+docs/CONCORDANCE-SITE-SPEC.md
+docs/*-EVIDENCE-*.json
+docs/*-SAVED-*.json
+docs/LOCAL-CODEX-*
+docs/MATTHEW-1-18-*
+docs/TEXT-VERIFICATION-*
+docs/DIRECT-CORPUS-*
+docs/SOURCE-REVIEW-*

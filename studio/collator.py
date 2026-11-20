@@ -1,0 +1,1137 @@
+"""Token-Level Multi-Witness Collation & Substantive vs. Noise Classifier.
+
+Each verse is aligned word-by-word against the highest-weight witness (the pivot). Every
+variation slot is then classified as unanimous, orthographic noise (logged, never hidden), or a
+substantive variant (goes to the apparatus). Comparison uses a *canonical key* per token:
+
+* Greek – lower case, final/lunate sigma unified, all accents/breathings removed (so unaccented
+  manuscripts compare with accented editions); nomina sacra (``ιυ̅``) are resolved to the full word
+  attested elsewhere in the verse; letter-numerals (``ιδʹ``) are recognised.
+* Hebrew – cantillation, meteg, rafe, paseq and dots removed; qamats qatan = qamats; the
+  Tetragrammaton compares by consonants (MAM writes a holem that the WLC omits); a ketiv in
+  parentheses compares as the ketiv.
+* Latin – u/v, i/j, æ/ae, œ/oe and diacritics unified.
+"""
+
+from __future__ import annotations
+import difflib
+import re
+import unicodedata
+from dataclasses import dataclass, field
+from typing import Any, Dict, Iterable, List, Optional, Set, Tuple
+
+from .parsers import DOUBTFUL_CLOSE, DOUBTFUL_OPEN, GAP_WORD, LACUNA_MARK
+
+PUNCT_RE = re.compile(r"[.,;··;:!?\"'«»“”‘’ʼ᾽()\[\]{}⟨⟩⟦⟧⸀⸁⸂⸃⸄⸅¶˚¦־׃׀—–\-᾿῾]+")
+NOMEN_SACRUM_MARK = "̅"   # combining overline used by the CNTR transcriptions
+NUMERAL_MARK = "ʹ"        # Greek numeral sign (letter-numerals such as ιδʹ = 14)
+
+# Full-word stems that early manuscripts contract as nomina sacra.
+NOMINA_SACRA_STEMS = (
+    "θε", "κυρι", "ιησ", "χριστ", "χρηστ", "πνευμ", "ανθρωπ", "υι", "πατηρ", "πατερ", "πατρ",
+    "μητηρ", "μητερ", "μητρ", "σταυρ", "δαυιδ", "δαυειδ", "ισραηλ", "ιερουσαλημ", "ουραν", "σωτηρ",
+)
+
+# Known Koine / uncial itacisms (Swete prints Vaticanus's spelling) normalised in the critical text.
+# Keys are lower-case forms; the grave/acute of the source is preserved for Δαυείδ.
+# Diplomatic itacisms of one and the same form only. Never ἴδετε → εἴδετε: ἴδετε is the aorist
+# imperative ("see!", Matt 28:6, Gal 6:11, Deut 32:39), εἴδετε the indicative ("you saw").
+GREEK_ITACISM_CANONICAL = {
+    "ἴδεν": "εἶδεν",
+    "ἴδον": "εἶδον",
+    "ἴδαμεν": "εἴδομεν",
+    "δαυεὶδ": "Δαυὶδ",
+    "δαυείδ": "Δαυίδ",
+}
+
+# Uncial / drop-cap incipits in Swete and Brenton that have no accented counterpart in the verse
+_GREEK_INCIPIT_FALLBACK = {"ΕΝ": "Ἐν", "ἘΝ": "Ἐν", "ΑΡΧΗ": "ἀρχῇ", "ΚΑΙ": "Καὶ"}
+
+_DOUBLE_CONSONANT = re.compile(r"([λνμρσπτκ])\1")
+
+# Movable final sigma: these words appear with and without it.
+_MOVABLE_SIGMA = {"ουτω", "αχρι", "μεχρι", "αντικρυ"}
+
+
+@dataclass
+class VariationSlot:
+    index: int
+    readings: Dict[str, List[str]]   # punctuation-stripped reading -> witness sigla
+    raw_forms: Dict[str, List[str]]  # exact raw form -> witness sigla
+    kind: str                        # "unanimous", "orthographic_noise", "substantive_variant"
+    notes: str = ""
+    form_keys: Dict[str, str] = field(default_factory=dict)  # raw form / reading -> canonical key
+    is_insertion: bool = False
+
+
+@dataclass
+class CollatedVerse:
+    verse: int
+    witness_texts: Dict[str, str]           # siglum -> verbatim text
+    witness_weights: Dict[str, float]       # siglum -> weight
+    slots: List[VariationSlot] = field(default_factory=list)
+    external_apparatus: List[str] = field(default_factory=list)
+    absent_witnesses: List[str] = field(default_factory=list)     # extant but lacking the verse
+    doubtful_witnesses: List[str] = field(default_factory=list)   # edition brackets the verse ⟦ ⟧
+    fragmentary_witnesses: List[str] = field(default_factory=list)  # lacuna inside the verse
+    witness_refs: Dict[str, str] = field(default_factory=dict)     # siglum -> own "ch:v" when re-aligned
+    witness_families: Dict[str, str] = field(default_factory=dict)  # siglum -> edition family
+    base_siglum: str = ""                   # orthographic base edition
+    lexicon: Any = None                     # corpus frequencies (studio.lexicon.Lexicon) or None
+    testament: str = ""                     # "OT" / "NT"
+    single_stream: str = ""                 # note when only one text stream has the verse (Greek NT)
+    # Apparatus-only witnesses (catalog.APPARATUS_ONLY): their re-aligned text ("" = no such verse) and own
+    # "ch:v" when re-aligned. They are not in witness_texts and never vote.
+    apparatus_texts: Dict[str, str] = field(default_factory=dict)
+    apparatus_refs: Dict[str, str] = field(default_factory=dict)
+
+
+def strip_punct(token: str) -> str:
+    return PUNCT_RE.sub("", token).strip()
+
+
+def strip_diacritics(s: str) -> str:
+    nfd = unicodedata.normalize("NFD", s)
+    base = "".join(ch for ch in nfd if unicodedata.category(ch) != "Mn")
+    return unicodedata.normalize("NFC", base)
+
+
+def is_nomen_sacrum(token: str) -> bool:
+    return NOMEN_SACRUM_MARK in token
+
+
+def is_letter_numeral(token: str) -> bool:
+    if _greek_letter_value(token) is None:
+        return False
+    # A plain apostrophe can also mark elision (δ᾽ = δέ, not necessarily four).
+    # Explicit keraia/thousands marks are unambiguous; tolerate Swete's koronis
+    # only when this is not an ordinary elided word.
+    return (any(m in token for m in (NUMERAL_MARK, "ʹ", "͵", "΄", "´"))
+            or canonical_compare_key(token, "greek") not in _ELIDED)
+
+
+_GREEK_DIGITS = dict(zip("αβγδεϛζηθικλμνξοπϟρστυφχψωϡ", (1, 2, 3, 4, 5, 6, 7, 8, 9,
+                       10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900)))
+_GREEK_DIGITS.update({"ς": 6, "ϝ": 6, "ϙ": 90})
+
+
+def _greek_letter_value(token: str) -> Optional[int]:
+    """Read a strictly formed alphabetic numeral; never guess from an accent alone."""
+    raw = token.strip(".,;··;:!?\"«»“”()[]⟦⟧").lower()
+    match = re.fullmatch(r"(͵?[α-ωϛϝϟϙϡ]+)[ʹʹ΄´᾽’']", raw)
+    if match:
+        digits = match[1]
+    elif re.fullmatch(r"͵[α-θϛϝ][α-ωϛϝϟϙϡ]*", raw):
+        digits = raw
+    else:
+        return None
+    thousands = digits.startswith("͵")
+    if thousands:
+        digits = digits[1:]
+    values = [_GREEK_DIGITS.get(c, 0) for c in digits]
+    if not values or 0 in values:
+        return None
+    if thousands:
+        if values[0] > 9:
+            return None
+        values[0] *= 1000
+    # One digit per place, in descending order: ιβ = 12, not βι or ας = 201.
+    places = [len(str(v)) for v in values]
+    if any(a <= b for a, b in zip(places, places[1:])):
+        return None
+    return sum(values)
+
+
+_GREEK_NUMBER_WORDS = {
+    "δυο": 2, "δυσι": 2, "δυσιν": 2, "δυοιν": 2,
+    "τρεισ": 3, "τρια": 3, "τριων": 3, "τρισι": 3, "τρισιν": 3,
+    "τεσσαρεσ": 4, "τεσσερεσ": 4, "τεσσαρα": 4, "τεσσερα": 4, "τεσσαρων": 4, "τεσσερων": 4,
+    "τεσσαρασ": 4, "τεσσερασ": 4,
+    "πεντε": 5, "εξ": 6, "επτα": 7, "οκτω": 8, "εννεα": 9, "δεκα": 10,
+    "ενδεκα": 11, "δωδεκα": 12, "δεκαδυο": 12, "δεκατρεισ": 13, "δεκατρια": 13,
+    "δεκατεσσαρεσ": 14, "δεκατεσσαρα": 14, "δεκατεσσερεσ": 14, "δεκατεσσερα": 14,
+    "δεκατεσσαρασ": 14, "δεκατεσσερασ": 14, "δεκατεσσαρων": 14, "δεκατεσσερων": 14,
+    "δεκαπεντε": 15, "δεκαεξ": 16, "δεκαεπτα": 17, "δεκαοκτω": 18, "οκτωκαιδεκα": 18,
+    "δεκαεννεα": 19, "εννεακαιδεκα": 19,
+    "εικοσι": 20, "εικοσιν": 20, "τριακοντα": 30, "τεσσαρακοντα": 40, "τεσσερακοντα": 40,
+    "πεντηκοντα": 50, "εξηκοντα": 60, "εβδομηκοντα": 70, "ογδοηκοντα": 80, "ενενηκοντα": 90,
+    "εκατον": 100,
+}
+
+
+def _greek_number_word_value(token: str) -> Optional[int]:
+    """Recognised single-word number forms only; unknowns remain textual variants."""
+    k = canonical_compare_key(token, "greek")
+    if k in _GREEK_NUMBER_WORDS:
+        # ἐξ is the preposition; only accented ἕξ (or an unaccented transcription)
+        # may provide the written-out counterpart of a numeral six.
+        if k == "εξ" and "ἐ" in token.lower():
+            return None
+        return _GREEK_NUMBER_WORDS[k]
+    for stem, value in (("διακοσ", 200), ("τριακοσ", 300), ("τετρακοσ", 400),
+                        ("πεντακοσ", 500), ("εξακοσ", 600), ("επτακοσ", 700),
+                        ("οκτακοσ", 800), ("εννακοσ", 900), ("εννεακοσ", 900),
+                        ("χιλ", 1000), ("δισχιλ", 2000)):
+        if k.startswith(stem) and k[len(stem):] in {"ιοι", "ιαι", "ια", "ιουσ", "ιασ", "ιων", "ιοισ", "ιαισ"}:
+            return value
+    # Fused cardinals: πεντηκονταεπτά = 57, εἰκοσιεννέα = 29.
+    for prefix, value in _GREEK_NUMBER_WORDS.items():
+        if 20 <= value <= 90 and k.startswith(prefix):
+            rest = k[len(prefix):].removeprefix("και")
+            tail = _GREEK_NUMBER_WORDS.get(rest)
+            if tail is not None and 2 <= tail <= 9:
+                return value + tail
+    # A numeral can abbreviate an ordinal; keep differing written-out forms
+    # separate in classify_forms, even when their numeric values agree.
+    for stem, value in (("πρωτ", 1), ("δευτερ", 2), ("τριτ", 3), ("τεταρτ", 4),
+                        ("πεμπτ", 5), ("εκτ", 6), ("εβδομ", 7), ("ογδο", 8),
+                        ("ενατ", 9), ("δεκατ", 10), ("ενδεκατ", 11), ("δωδεκατ", 12)):
+        if k.startswith(stem) and k[len(stem):] in {"οσ", "ον", "η", "α", "ου", "ησ", "ασ", "ω", "ην", "αν"}:
+            return value
+    return None
+
+
+def _hebrew_key(clean: str) -> str:
+    # MAM writes Jerusalem's patah+hiriq with a zero-width joiner / grapheme joiner between them.
+    nfd = unicodedata.normalize("NFD", clean.replace("‍", "").replace("͏", ""))
+    kept = []
+    for ch in nfd:
+        cp = ord(ch)
+        if 0x0591 <= cp <= 0x05AF or cp in (0x05BD, 0x05BF, 0x05C0, 0x05C4, 0x05C5):
+            continue
+        kept.append("ָ" if cp == 0x05C7 else ch)  # qamats qatan -> qamats
+        if cp == 0x05BA:
+            kept[-1] = "ֹ"  # holem haser for vav = holem
+    key = "".join(kept)
+    consonants = "".join(ch for ch in key if "א" <= ch <= "ת")
+    if "יהוה" in consonants or "יהוִה" in key:
+        # The divine name is pointed differently by different editions (MAM writes a holem);
+        # compare it by consonants.
+        key = consonants
+    return unicodedata.normalize("NFC", key)
+
+
+def canonical_compare_key(token: str, language: str) -> str:
+    """Key that groups pure capitalisation, punctuation, accent and encoding differences."""
+    clean = strip_punct(token)
+    if not clean:
+        return ""
+    lang = language.lower()
+    if lang == "greek":
+        low = unicodedata.normalize("NFC", clean.lower()).replace("ς", "σ").replace("ϲ", "σ")
+        return strip_diacritics(low)
+    if lang == "latin":
+        low = clean.lower().replace("æ", "ae").replace("œ", "oe").replace("ę", "ae").replace("j", "i").replace("v", "u")
+        return strip_diacritics(low)
+    if lang == "hebrew":
+        return _hebrew_key(clean)
+    return clean.lower()
+
+
+# ---------------------------------------------------------------------------
+# Secondary (orthographic) keys
+# ---------------------------------------------------------------------------
+
+def _latin_ortho_key(k: str) -> str:
+    """Spelling-level Latin normalisation (Amiatinus vs Clementine conventions)."""
+    s = k.replace("michi", "mihi").replace("nichil", "nihil")
+    if s in ("aput", "adque"):
+        s = {"aput": "apud", "adque": "atque"}[s]
+    s = {"cherubin": "cherubim", "seraphin": "seraphim", "turrem": "turrim"}.get(s, s)
+    s = re.sub(r"^adp", "app", s)
+    s = re.sub(r"^ad([cfglnqrst])", r"a\1\1", s)
+    s = re.sub(r"^acq", "aq", s)                      # adquiesco / acquiesco
+    s = re.sub(r"^in([mp])", r"im\1", s)
+    s = re.sub(r"^in([lr])", r"i\1\1", s)            # inluminent / illuminent, inrigans / irrigans
+    s = re.sub(r"^con([lmr])", r"co\1\1", s)
+    s = re.sub(r"^con([pb])", r"com\1", s)            # conpleuit / compleuit
+    s = re.sub(r"^ob([p])", r"op\1", s)
+    s = re.sub(r"^sub([cfgmpr])", r"su\1\1", s)      # subripuit / surripuit, submitto / summitto
+    s = re.sub(r"^exs", "ex", s)
+    s = re.sub(r"^adulesc", "adolesc", s)
+    s = re.sub(r"^sescent", "sexcent", s)
+    s = re.sub(r"^intelleg", "intellig", s)
+    s = re.sub(r"^(at)?tempt", r"\1tent", s)          # temptauit / tentauit
+    s = s.replace("quicqu", "quidqu").replace("md", "nd")  # quicquam / quidquam, eorumdem / eorundem
+    # Aspiration first, so Israhel / Israël and Ismahel / Ismaël meet before ae → e.
+    s = s.replace("ph", "f").replace("th", "t").replace("ch", "c").replace("h", "")
+    s = s.replace("ae", "e").replace("oe", "e").replace("y", "i")
+    s = re.sub(r"ci(?=[aeiou])", "ti", s)
+    s = s.replace("mpt", "mt").replace("mps", "ms").replace("quu", "qu")
+    # Doubled consonants and ii only: doubled u is consonantal u + u (paruum = parvum ≠ parum, suum ≠ sum).
+    s = re.sub(r"([^aeiou])\1", r"\1", s).replace("ii", "i")
+    return s
+
+
+# Distinct Latin words that the spelling key would otherwise merge.
+_LATIN_DISTINCT = {
+    frozenset(p) for p in (
+        ("summus", "sumus"), ("annus", "anus"), ("anni", "ani"), ("annos", "anos"), ("hos", "os"),
+        ("hora", "ora"), ("horam", "oram"), ("hostium", "ostium"), ("hostia", "ostia"), ("coepit", "cepit"),
+        ("habeam", "abeam"), ("habes", "abes"), ("habet", "abet"), ("habit", "abit"), ("mitte", "mite"),
+        ("aes", "es"), ("aeris", "eris"), ("ferrum", "ferum"), ("cella", "cela"), ("callis", "calis"),
+        ("vallis", "valis"), ("pullus", "pulus"), ("hic", "ic"), ("haec", "ec"), ("hoc", "oc"),
+        ("hostis", "ostis"), ("aequus", "equus"), ("aequum", "equum"), ("caelum", "celum"),
+    )
+}
+
+
+def _latin_distinct(keys: Iterable[str]) -> bool:
+    words = [k.split() for k in keys]
+    for column in zip(*words) if len({len(w) for w in words}) == 1 else []:
+        for a in column:
+            for b in column:
+                if a != b and frozenset((a, b)) in _LATIN_DISTINCT:
+                    return True
+    return False
+
+
+def _hebrew_matres_key(raw: str) -> str:
+    """Hebrew key with matres lectionis folded (plene vs defective spelling)."""
+    k = unicodedata.normalize("NFD", _hebrew_key(strip_punct(raw)))
+    k = re.sub("וֹ", "ֹ", k)              # holem male -> holem
+    k = re.sub("(?<=.)וּ", "ֻ", k)         # shuruq (not word-initial) -> qibbuts
+    # hiriq/tsere (+ dagesh or shin/sin dot, which NFD may order after the vowel) + yod -> vowel
+    k = re.sub("([ִֵ])([ּׁׂ]*)י(?![ְ-ּׁׂ])", r"\1\2", k)
+    return unicodedata.normalize("NFC", k)
+
+
+def _latin_betacism(forms: List[str]) -> bool:
+    """b/u(v) interchange only (corbum / corvum, delebit / delevit): same length, every difference
+    a b against a u/v. Compared after the spelling key, so an assimilation plus a b/u difference
+    (conportavis / comportabis) is caught too."""
+    keys = [_latin_ortho_key(canonical_compare_key(f, "latin")) for f in forms]
+    if len({len(k) for k in keys}) != 1 or len(set(keys)) < 2 or any(" " in k for k in keys):
+        return False
+    first = keys[0]
+    for other in keys[1:]:
+        diffs = [(a, b) for a, b in zip(first, other) if a != b]
+        # one interchange per word only: bibit / uiuit are two different verbs
+        if len(diffs) != 1 or {diffs[0][0], diffs[0][1]} != {"b", "u"}:
+            return False
+    return True
+
+
+_HEB_SHEWA, _HEB_DAGESH, _HEB_HOLEM, _HEB_PATAH = "\u05b0", "\u05bc", "\u05b9", "\u05b7"
+_HEB_HATAF = {"\u05b1": "\u05b6", "\u05b2": "\u05b7", "\u05b3": "\u05b8"}
+_HEB_SHIN_SIN = ("\u05c1", "\u05c2")
+
+
+def _hebrew_clusters(word: str) -> List[Tuple[str, Set[str]]]:
+    out: List[Tuple[str, Set[str]]] = []
+    for ch in unicodedata.normalize("NFD", _hebrew_key(strip_punct(word))):
+        if "\u05d0" <= ch <= "\u05ea":
+            out.append((ch, set()))
+        elif out and unicodedata.category(ch) == "Mn":
+            out[-1][1].add(ch)
+    return out
+
+
+def hebrew_pointing_convention(forms: List[str]) -> str:
+    """Same consonants, and every pointing difference is one the Aleppo-tradition and Leningrad
+    editions handle by convention: dagesh (other than a suffix mappiq), vocal/silent shewa, hataf
+    against the full vowel, holem placement, or a point one edition leaves out. Vowel-quality
+    differences (אַל / אֶל), a suffix mappiq (לְדַעְתָּהּ / לְדַעְתָּה) and shin/sin swaps return ""
+    (they stay in the apparatus). Returns the reason, or "" when it is not a convention."""
+    words = [f.split() for f in forms]
+    if len({len(w) for w in words}) != 1:
+        return ""
+    kinds: Set[str] = set()
+    dots = set(_HEB_SHIN_SIN)
+    for column in zip(*words):
+        clusters = [_hebrew_clusters(w) for w in column]
+        if len({tuple(c for c, _m in cl) for cl in clusters}) != 1:
+            return ""
+        if len({tuple(frozenset(m) for _c, m in cl) for cl in clusters}) == 1:
+            continue
+        if any(all(not m for _c, m in cl) for cl in clusters):
+            kinds.add("bare consonants (ketiv) against the pointed form")
+            continue
+        # Holem placement (on the vav or on the letter before it) is a convention only when both
+        # forms write the same number of holems.
+        holem_free = len({sum(_HEB_HOLEM in m for _c, m in cl) for cl in clusters}) == 1
+        last = len(clusters[0]) - 1
+        for pos, letters in enumerate(zip(*clusters)):
+            letter = letters[0][0]
+            raw = [set(m) for _c, m in letters]
+            if len({frozenset(r) for r in raw}) == 1:
+                continue
+            mappiq = {pos == last and letter == "ה" and _HEB_DAGESH in r and _HEB_PATAH not in r for r in raw}
+            if len(mappiq) > 1:
+                return ""  # suffix mappiq marks the suffix (her / its): a real difference
+            # A dot in vav is shuruq (a vowel), never a mere dagesh.
+            drop = ({_HEB_DAGESH} if letter != "ו" else set()) | ({_HEB_HOLEM} if holem_free else set())
+            base = [r - drop for r in raw]
+            shin = [b & dots for b in base]
+            if all(shin) and len({frozenset(d) for d in shin}) > 1:
+                return ""  # shin / sin
+            vow = [b - dots for b in base]
+            diff = set().union(*raw) - set.intersection(*raw)
+            if len({frozenset(v) for v in vow}) == 1:
+                if _HEB_DAGESH in diff:
+                    kinds.add("dagesh")
+                if _HEB_HOLEM in diff:
+                    kinds.add("holem placement")
+                if diff & dots:
+                    kinds.add("shin/sin dot left out")
+                continue
+            reduced = {_HEB_SHEWA} | set(_HEB_HATAF)
+            if len({frozenset(_HEB_HATAF.get(x, x) for x in v) for v in vow}) == 1:
+                kinds.add("hataf against the full vowel")  # חֲ / חַ
+                continue
+            if all(v <= reduced for v in vow):
+                kinds.add("shewa / hataf")  # vocal or silent shewa, or hataf, against shewa or nothing
+                continue
+            if any(not r for r in raw):
+                kinds.add("a vowel point left out by one edition")  # one edition leaves the letter bare
+                continue
+            return ""  # different vowels, or shewa against a full vowel (שְׁמַע / שָׁמַע)
+    if not kinds:
+        return ""
+    return "Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): " + ", ".join(sorted(kinds))
+
+
+def _greek_ortho_variant(keys: Set[str]) -> str:
+    """Return a reason if the differing Greek keys are a recognised spelling variant."""
+    if len(keys) < 2:
+        return ""
+    if (all(_greek_number_word_value(k) is not None for k in keys)
+            and len({k.replace("τεσσερ", "τεσσαρ") for k in keys}) == 1):
+        return "Number-word spelling convention (τεσσαρ- / τεσσερ-)"
+    stems = {re.sub(r"ν$", "", k) for k in keys}
+    if len(stems) == 1 and _movable_nu_stem(next(iter(stems))):
+        return "Euphonic movable-nu (-ν) variation"
+    if {re.sub(r"σ$", "", k) for k in keys} <= _MOVABLE_SIGMA and len({re.sub(r"σ$", "", k) for k in keys}) == 1:
+        return "Movable final sigma (οὕτω/οὕτως type)"
+    if len({k.replace("ει", "ι") for k in keys}) == 1:
+        return "Koine/Uncial itacistic spelling (ει / ι equivalence)"
+    if len({re.sub(r"^(δα|λε)β(ει|ι)", r"\1υ\2", k).replace("ει", "ι") for k in keys}) == 1:
+        return "Semitic proper-name transliteration convention (Δαυίδ / Δαυεὶδ / Δαβίδ, Λευί / Λεβί)"
+    combined = {re.sub(r"ν$", "", k.replace("ει", "ι")) for k in keys}
+    if (len(combined) == 1 and min(len(k) for k in keys) >= 3
+            and all(_movable_nu_stem(re.sub(r"ν$", "", k)) or not k.endswith("ν") for k in keys)
+            and any(_movable_nu_stem(re.sub(r"ν$", "", k)) for k in keys)):
+        return "Itacistic spelling with movable ν (ἴδεν / εἶδε type)"
+    if len({k.replace("μψ", "ψ").replace("μφθ", "φθ") for k in keys}) == 1:
+        return "Nasal spelling (λημψ- / ληψ-)"
+    if len({_greek_assimilate(k) for k in keys}) == 1:
+        return "Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)"
+    # Doubled ρ/π/κ/σ, and νν only in Ἰωάννης/Ἄννα: λλ and other doublings separate tenses and words
+    # (βάλλειν / βαλεῖν, ἀποστέλλει / ἀποστελεῖ, μέλλει / μέλει, γέννημα / γένημα).
+    if min(len(k) for k in keys) >= 5 and len({_DOUBLE_SPELLING.sub(r"\1", k) for k in keys}) == 1:
+        return "Single / double consonant spelling (Ἰωάνης / Ἰωάννης type)"
+    if len({_greek_ν_names(k) for k in keys}) == 1 and any("νν" in k for k in keys):
+        return "Single / double consonant spelling (Ἰωάνης / Ἰωάννης type)"
+    # A witness can combine both conventions in one word: Sinaiticus's first hand
+    # has μνησστευθισησ in Matt 1:18 (σσ + ι for ει). Compose only the existing
+    # restricted ρ/π/κ/σ doubling rule with ει/ι; λλ/νν and other vowels can
+    # distinguish tenses or words and must not be collapsed by this rule.
+    # χειμάρρων (torrents) / χιμάρων (young goats), Mic 6:7, is a lexical
+    # contrast despite matching after both substitutions.
+    if (min(len(k) for k in keys) >= 5
+            and not any(k.startswith(("χειμαρ", "χιμαρ")) for k in keys)
+            and len({_DOUBLE_SPELLING.sub(r"\1", k).replace("ει", "ι") for k in keys}) == 1):
+        return "Combined single / double consonant and itacistic spelling (ει / ι)"
+    full = {_ELIDED.get(k, k) for k in keys}
+    if len(full) == 1:
+        return "Elision (κατὰ / κατ’ type)"
+    return ""
+
+
+_DOUBLE_SPELLING = re.compile(r"([ρπκσ])\1")
+_ELIDABLE = ("δια", "κατα", "μετα", "παρα", "αλλα", "απο", "επι", "υπο", "ινα", "ουδε", "μηδε", "αντι",
+             "αμφι", "δε", "τε", "γε", "ουτε", "μητε")
+_ELIDED = {w[:-1]: w for w in _ELIDABLE}
+_ELIDED.update({"καθ": "κατα", "μεθ": "μετα", "αφ": "απο", "εφ": "επι", "υφ": "υπο", "ανθ": "αντι"})
+
+
+def _movable_nu_stem(stem: str) -> bool:
+    """Movable ν follows -σι (dative plural, 3rd plural -ουσι), a verb ending in -ε (ἔλεγε, εἶπε),
+    and ἐστί / εἴκοσι — never -ει, where λέγει / λέγειν are two forms (3rd singular, infinitive)."""
+    if len(stem) < 3:
+        return False
+    return stem.endswith("σι") or stem in ("εστι", "εικοσι") or (stem.endswith("ε") and not stem.endswith("ει"))
+
+
+def _greek_ν_names(k: str) -> str:
+    return re.sub(r"^ιωανν", "ιωαν", k)
+
+
+def _greek_assimilate(k: str) -> str:
+    """Spell nasal prefixes the assimilated way (B and Swete often leave συν-/ἐν- unassimilated)."""
+    k = re.sub(r"^(συ|ε|παλι)ν(?=[πβφψμ])", r"\1μ", k)
+    k = re.sub(r"^(συ|ε|παλι)ν(?=[κγχξ])", r"\1γ", k)
+    k = re.sub(r"^συν(?=λ)", "συλ", k)
+    k = re.sub(r"^συν(?=ρ)", "συρ", k)
+    k = re.sub(r"^συν(?=σ)", "συσ", k)
+    return k
+
+
+IOTA_SUBSCRIPT_NOTE = "Iota subscript differs (a case difference such as γῆ / γῇ, not an accent convention)"
+
+
+def _subscript_positions(form: str) -> Tuple[int, ...]:
+    """Letters that carry an iota subscript, ignoring a capital first letter (editions write the
+    capital's iota differently: Ἧ, ᾟ, Ἧι), so only a lower-case difference counts."""
+    out, idx = [], -1
+    letters = strip_punct(form)
+    for ch in unicodedata.normalize("NFD", letters):
+        if unicodedata.category(ch) != "Mn":
+            idx += 1
+        elif ch == "ͅ" and not (idx == 0 and letters[:1].isupper()):
+            out.append(idx)
+    return tuple(out)
+
+
+def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str) -> Tuple[bool, str]:
+    """Decide whether differing surface forms are orthographic noise.
+
+    ``raw_forms`` excludes omissions; ``keys`` maps each raw form to its canonical key."""
+    forms = list(raw_forms)
+    form_keys = {keys.get(f, canonical_compare_key(f, language)) for f in forms}
+    if language == "greek" and any(is_letter_numeral(t) for f in forms for t in f.split()):
+        # Check numbers before punctuation/diacritic equivalence: η᾽ (eight)
+        # and ἢ (or) otherwise share a key. Elided δ᾽ is not a numeral four.
+        words = [f.split() for f in forms]
+        if len({len(w) for w in words}) == 1:
+            equivalent = True
+            for column in zip(*words):
+                if not any(is_letter_numeral(t) for t in column):
+                    continue
+                values = [_greek_letter_value(t) if is_letter_numeral(t)
+                          else _greek_number_word_value(t) for t in column]
+                written = {canonical_compare_key(t, language) for t in column if not is_letter_numeral(t)}
+                if (None in values or len(set(values)) != 1
+                        or (len(written) > 1 and not _greek_ortho_variant(written))):
+                    equivalent = False
+                    break
+            # Phrases must also have identical aligned wording and order.
+            if equivalent and (len(words[0]) == 1 or len(form_keys) == 1):
+                return True, "Letter-numeral abbreviation matched to an attested number of the same value"
+        return False, "Numeral readings differ in value, wording, or cannot be verified as equivalent"
+    if len({strip_punct(f) for f in forms}) <= 1:
+        return True, "Punctuation / spacing difference only"
+    if len(form_keys) == 1:
+        if language == "greek":
+            if any(f.isupper() and len(strip_punct(f)) > 1 for f in forms):
+                return True, "Diplomatic uncial capitalisation vs. critical mixed-case accentuation"
+            if any(is_nomen_sacrum(f) for f in forms):
+                return True, "Nomen sacrum (contracted sacred name) for the full word"
+            accented = [f for f in forms if any(unicodedata.category(c) == "Mn" for c in unicodedata.normalize("NFD", f))]
+            # Iota subscript marks the dative (γῆ / γῇ, μεγάλη / μεγάλῃ): a difference of case, not of accent.
+            if len(accented) > 1 and len({_subscript_positions(f) for f in accented}) > 1:
+                return False, IOTA_SUBSCRIPT_NOTE
+            acute_only = {unicodedata.normalize("NFC", unicodedata.normalize("NFD", strip_punct(f).lower()).replace("̀", "́")) for f in accented}
+            if len(acute_only) > 1:
+                return True, "Accent or breathing differs between accented editions (editorial interpretation)"
+            return True, "Accentuation / capitalisation / breathing convention"
+        if language == "latin":
+            return True, "Latin orthographic convention (u/v, i/j, æ/ae, capitalisation)"
+        if language == "hebrew":
+            if any(f.startswith("(") for f in forms):
+                return True, "Ketiv (written form) given by both; MAM also prints the qere"
+            return True, "Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention"
+        return True, "Capitalisation / diacritic convention"
+
+    words_per_form = {len(f.split()) for f in forms}
+    if len(words_per_form) != 1:
+        joined = {k.replace(" ", "") for k in form_keys}
+        if len(joined) == 1:
+            # Same letters, different word division (Greek OCR "αὖ. τοὺς" for αὐτοὺς; Hebrew פַּת בַּג / פַּתְבַּג)
+            return True, "Word division differs (same letters written as one word or two)"
+        if language == "greek" and words_per_form == {1, 2}:
+            one_w = {k for k in form_keys if " " not in k}
+            two_w = [k.split() for k in form_keys if len(k.split()) == 2]
+            if two_w and all(_movable_nu_stem(re.sub(r"ν$", "", a)) for a, _b in two_w):
+                expanded = {re.sub(r"ν$", "", a) + mid + b for a, b in two_w for mid in ("", "ν")}
+                if one_w <= expanded and len({(re.sub(r"ν$", "", a), b) for a, b in two_w}) == 1:
+                    return True, "Word division differs with movable ν (e.g. ἐπάταξεντὸν / ἐπάταξε τὸν)"
+        return False, ""
+    if language == "greek":
+        reason = _greek_ortho_variant(form_keys)
+        if reason and all(len(f.split()) == 1 for f in forms):
+            return True, reason
+    elif language == "latin":
+        if _latin_distinct(form_keys):
+            return False, ""
+        if len({" ".join(_latin_ortho_key(w) for w in k.split()) for k in form_keys}) == 1:
+            return True, "Latin spelling variation (assimilation, aspiration, ae/e, -ci-/-ti- type)"
+        if _latin_betacism(forms):
+            return True, "b/u interchange (betacism); the Clementine spelling is printed — check the tense where it differs (delebit / delevit)"
+    elif language == "hebrew":
+        if len({_hebrew_matres_key(f) for f in forms}) == 1:
+            return True, "Plene / defective spelling (mater lectionis)"
+        reason = hebrew_pointing_convention(forms)
+        if reason:
+            return True, reason
+    return False, ""
+
+
+def is_orthographic_equivalence(forms: List[str], language: str) -> Tuple[bool, str]:
+    """Backwards-compatible wrapper: True if the forms differ only orthographically.
+    An empty form means one witness omits the word, which is never orthographic."""
+    if any(not strip_punct(f) for f in forms):
+        return False, ""
+    return classify_forms(forms, {f: canonical_compare_key(f, language) for f in forms}, language)
+
+
+def normalize_critical_token(raw_tok: str, is_sentence_start: bool, language: str, next_tok: str = "") -> str:
+    """Normalise a few known uncial incipits and itacisms into standard critical orthography."""
+    if language != "greek":
+        return raw_tok
+    m = re.match(r"^(\[?)([^\s.,;·:!?]+?)(\]?)([.,;·:!?]*)$", raw_tok)
+    if not m:
+        return raw_tok
+    lbr, core, rbr, punct = m.groups()
+    if core in _GREEK_INCIPIT_FALLBACK:
+        repl = _GREEK_INCIPIT_FALLBACK[core]
+        core = repl if is_sentence_start else repl[0].lower() + repl[1:]
+    elif core.lower() in GREEK_ITACISM_CANONICAL:
+        repl = GREEK_ITACISM_CANONICAL[core.lower()]
+        if core[0].isupper() and not repl[0].isupper():
+            repl = capitalize_first(repl)
+        core = repl
+    return f"{lbr}{core}{rbr}{punct}"
+
+
+def capitalize_first(s: str) -> str:
+    """Capitalise the first letter. str.title() on one character keeps ᾗ/ᾧ as one letter (ᾟ),
+    where str.upper() would give two (ἯΙ)."""
+    return s[:1].title() + s[1:] if s else s
+
+
+def tokenize_for_alignment(text: str, language: str) -> List[str]:
+    text = text.replace(DOUBTFUL_OPEN, " ").replace(DOUBTFUL_CLOSE, " ")
+    if language == "hebrew":
+        # Editions differ on whether words are joined by maqaf; compare word by word and keep
+        # the maqaf on the first word (the brain rejoins "X־ Y" as "X־Y").
+        text = text.replace("־", "־ ")
+    return [t for t in text.split() if t and t != LACUNA_MARK and strip_punct(t) != "" or (t and language == "hebrew" and t == "׀")]
+
+
+def split_words(text: str, language: str) -> List[str]:
+    """Words as the apparatus counts them (Hebrew maqaf compounds count as separate words)."""
+    if language == "hebrew":
+        text = text.replace("־", "־ ")
+    return text.split()
+
+
+def join_words(words: List[str], language: str) -> str:
+    line = " ".join(w for w in words if w).strip()
+    if language == "hebrew":
+        line = line.replace("־ ", "־")
+    return line
+
+
+def _resolve_nomina_sacra(tokens_by_sig: Dict[str, List[str]], keys_by_sig: Dict[str, List[str]]) -> None:
+    """Replace the key of each contracted sacred name with the full-word key attested in the verse.
+
+    A contraction such as ``ιυ`` matches a full word that starts with a nomen-sacrum stem
+    (``ιησ…``), begins with the contraction's first letter, ends with its last letter, and contains
+    the contraction's letters in order (``ιησου``)."""
+    vocab: Dict[str, int] = {}
+    for sig, toks in tokens_by_sig.items():
+        for t, k in zip(toks, keys_by_sig[sig]):
+            if not is_nomen_sacrum(t) and k.startswith(NOMINA_SACRA_STEMS):
+                vocab[k] = vocab.get(k, 0) + 1
+
+    def is_subseq(short: str, long: str) -> bool:
+        it = iter(long)
+        return all(c in it for c in short)
+
+    for sig, toks in tokens_by_sig.items():
+        for i, t in enumerate(toks):
+            if not is_nomen_sacrum(t):
+                continue
+            c = keys_by_sig[sig][i]
+            if len(c) < 2:
+                continue
+            matches = [w for w in vocab if w[0] == c[0] and w[-1] == c[-1] and len(w) > len(c) and is_subseq(c, w)]
+            if matches:
+                keys_by_sig[sig][i] = max(matches, key=lambda w: (vocab[w], -len(w)))
+
+
+def _resolve_letter_numerals(tokens_by_sig: Dict[str, List[str]], keys_by_sig: Dict[str, List[str]]) -> None:
+    """Align an abbreviation to its attested expansion, never to a different value.
+
+    Distinct grammatical forms of the same number are ambiguous: leave the
+    abbreviation unresolved instead of guessing its grammatical role. Known
+    spelling equivalents such as τεσσαράκοντα / τεσσεράκοντα can share a key.
+    """
+    vocab: Dict[int, Set[str]] = {}
+    for sig, tokens in tokens_by_sig.items():
+        for token, key in zip(tokens, keys_by_sig[sig]):
+            if not is_letter_numeral(token):
+                value = _greek_number_word_value(token)
+                if value is not None:
+                    vocab.setdefault(value, set()).add(key)
+    for sig, tokens in tokens_by_sig.items():
+        for i, token in enumerate(tokens):
+            if is_letter_numeral(token):
+                matches = vocab.get(_greek_letter_value(token), set())
+                if len(matches) == 1 or (matches and _greek_ortho_variant(matches)):
+                    keys_by_sig[sig][i] = min(matches)
+                else:
+                    # Keep an unresolved numeral distinct from ordinary letters
+                    # (η᾽ / ἢ) and from a different value (ςʹ = 6 / σʹ = 200).
+                    keys_by_sig[sig][i] = f"num:{_greek_letter_value(token)}"
+
+
+def align_witnesses_for_verse(
+    verse_num: int,
+    witness_texts: Dict[str, str],
+    witness_weights: Dict[str, float],
+    language: str,
+    external_apparatus: List[str] | None = None,
+    pivot_preference: Optional[List[str]] = None,
+) -> CollatedVerse:
+    """Align all witness texts for one verse into word/phrase variation slots."""
+    cv = CollatedVerse(
+        verse=verse_num,
+        witness_texts=witness_texts,
+        witness_weights=witness_weights,
+        external_apparatus=external_apparatus or [],
+    )
+    if not witness_texts:
+        return cv
+
+    tokens_by_sig = {sig: tokenize_for_alignment(txt, language) for sig, txt in witness_texts.items()}
+    keys_by_sig = {sig: [canonical_compare_key(t, language) for t in toks] for sig, toks in tokens_by_sig.items()}
+    if language == "greek":
+        _resolve_nomina_sacra(tokens_by_sig, keys_by_sig)
+        _resolve_letter_numerals(tokens_by_sig, keys_by_sig)
+    # "…" = lost text of unknown extent (the witness's omissions in this verse are not evidence);
+    # "[…]" = one known lost/illegible word, handled per slot below.
+    fragmentary = {sig for sig, txt in witness_texts.items() if LACUNA_MARK in txt.replace(GAP_WORD, "")}
+    # A lacuna only at the start or end of a witness's verse (words lost at a chapter break) silences
+    # just that edge: the witness's omissions elsewhere in the verse still count.
+    edge: Dict[str, Tuple[bool, bool]] = {}
+    for sig in list(fragmentary):
+        toks = [t for t in witness_texts[sig].replace(GAP_WORD, "").split() if t]
+        inner = toks[1:-1] if len(toks) > 1 else []
+        if toks and LACUNA_MARK not in inner and any(t != LACUNA_MARK for t in toks):
+            edge[sig] = (toks[0] == LACUNA_MARK, toks[-1] == LACUNA_MARK and len(toks) > 1)
+            fragmentary.discard(sig)
+    cv.fragmentary_witnesses = sorted(fragmentary)
+
+    ordered_sigla = sorted(witness_texts.keys(), key=lambda s: (-witness_weights.get(s, 0.5), s))
+    preferred = [s for s in (pivot_preference or []) if s in tokens_by_sig and tokens_by_sig[s]]
+    complete = [s for s in ordered_sigla if s not in fragmentary and tokens_by_sig[s]]
+    pivot_sig = (preferred or complete or ordered_sigla)[0]
+    others = [s for s in ordered_sigla if s != pivot_sig]
+    pivot_tokens = tokens_by_sig[pivot_sig]
+    pivot_keys = keys_by_sig[pivot_sig]
+
+    n = len(pivot_tokens)
+    pos_map: List[Dict[str, Tuple[str, str]]] = [{pivot_sig: (pivot_tokens[i], pivot_keys[i])} for i in range(n)]
+    ins_map: List[Dict[str, Tuple[str, str]]] = [{} for _ in range(n + 1)]
+
+    for sig in others:
+        w_tokens, w_keys = tokens_by_sig[sig], keys_by_sig[sig]
+        matcher = difflib.SequenceMatcher(a=pivot_keys, b=w_keys, autojunk=False)
+        for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+            if tag == "equal":
+                for off in range(i2 - i1):
+                    pos_map[i1 + off][sig] = (w_tokens[j1 + off], w_keys[j1 + off])
+            elif tag == "replace":
+                p_len, w_len = i2 - i1, j2 - j1
+                common = min(p_len, w_len)
+                for off in range(common):
+                    pos_map[i1 + off][sig] = (w_tokens[j1 + off], w_keys[j1 + off])
+                if p_len > w_len:
+                    for off in range(common, p_len):
+                        pos_map[i1 + off][sig] = ("", "")
+                elif w_len > p_len:
+                    # Attach the extra words to the last replaced token so phrase variants stay coherent
+                    target = i1 + common - 1
+                    tok, key = pos_map[target][sig]
+                    extra_t = " ".join(w_tokens[j1 + common: j2])
+                    extra_k = " ".join(w_keys[j1 + common: j2])
+                    pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
+            elif tag == "delete":
+                for i in range(i1, i2):
+                    pos_map[i][sig] = ("", "")
+            elif tag == "insert":
+                ins_map[i1][sig] = (" ".join(w_tokens[j1:j2]), " ".join(w_keys[j1:j2]))
+
+    def build_slot(entries: Dict[str, Tuple[str, str]], idx: int, insertion: bool) -> Optional[VariationSlot]:
+        raw_by_form: Dict[str, List[str]] = {}
+        stripped_by_form: Dict[str, List[str]] = {}
+        form_keys: Dict[str, str] = {}
+        skip = set(entries.get(_SKIP_KEY, ("", ""))[0].split("|")) if _SKIP_KEY in entries else set()
+        for sig in ordered_sigla:
+            if sig in skip or (sig not in entries and not insertion):
+                continue
+            raw, key = entries.get(sig, ("", ""))
+            if not raw and sig in fragmentary:
+                continue  # a lacuna is not evidence of omission
+            if GAP_WORD in raw:
+                continue  # an illegible or editor-supplied word casts no vote
+            disp_raw = raw or "om."
+            raw_by_form.setdefault(disp_raw, []).append(sig)
+            stripped = " ".join(strip_punct(x) for x in raw.split()).strip() if raw else "om."
+            stripped = stripped or raw or "om."
+            stripped_by_form.setdefault(stripped, []).append(sig)
+            form_keys[disp_raw] = key if raw else "om."
+            form_keys[stripped] = key if raw else "om."
+        if not raw_by_form or (insertion and set(raw_by_form) == {"om."}):
+            return None
+        present = [f for f in raw_by_form if f != "om."]
+        if len(raw_by_form) == 1:
+            kind, note = "unanimous", ""
+        elif language == "hebrew" and "om." in raw_by_form and all(set(f.split()) <= {"׀"} for f in present):
+            kind, note = "orthographic_noise", "Paseq / legarmeh stroke (an accent sign) printed by one edition only"
+        elif language == "hebrew" and "om." in raw_by_form and all(
+            all(w.startswith("[") and w.rstrip("׃").endswith("]") for w in f.split()) for f in present
+        ):
+            kind, note = "orthographic_noise", "Qere wela ketiv (read but not written): MAM prints it in brackets, the WLC export omits it"
+        elif "om." in raw_by_form:
+            kind = "substantive_variant"
+            note = "Addition / omission between witnesses" if insertion else "Omission in some witnesses"
+        else:
+            is_ortho, reason = classify_forms(raw_by_form.keys(), form_keys, language)
+            kind, note = ("orthographic_noise", reason) if is_ortho else ("substantive_variant", "Lexical, morphological, or word-order variant")
+            if reason == IOTA_SUBSCRIPT_NOTE:
+                # Same letters, but the subscript makes it another case: give it its own key so it is weighed.
+                note = reason
+                for f in list(raw_by_form):
+                    if _subscript_positions(f):
+                        stripped_f = " ".join(strip_punct(x) for x in f.split()).strip() or f
+                        words, wkeys = f.split(), form_keys.get(f, "").split()
+                        if len(words) == len(wkeys):
+                            # mark each word that carries a subscript, so τῆ ἡμέρᾳ and τῇ ἡμέρᾳ stay apart
+                            form_keys[f] = " ".join(k + ("ι" if _subscript_positions(w) else "") for w, k in zip(words, wkeys))
+                        else:
+                            form_keys[f] = form_keys.get(f, "") + "ι"
+                        form_keys[stripped_f] = form_keys[f]
+            if not is_ortho and language == "hebrew":
+                skeletons = {"".join(c for c in strip_punct(f) if "א" <= c <= "ת") for f in raw_by_form}
+                if len(skeletons) == 1:
+                    note = "Vocalisation / pointing difference (same consonantal text)"
+        return VariationSlot(index=idx, readings=stripped_by_form, raw_forms=raw_by_form, kind=kind, notes=note, form_keys=form_keys, is_insertion=insertion)
+
+    # The edge region of each edge-lacuna witness: pivot positions before its first word / after its last.
+    first_pos: Dict[str, int] = {}
+    last_pos: Dict[str, int] = {}
+    for sig in edge:
+        here = [i for i in range(n) if pos_map[i].get(sig, ("", ""))[0]]
+        first_pos[sig], last_pos[sig] = (here[0], here[-1]) if here else (n, -1)
+
+    def silence(entries: Dict[str, Tuple[str, str]], i: int, insertion: bool) -> Dict[str, Tuple[str, str]]:
+        quiet = []
+        for sig, (at_start, at_end) in edge.items():
+            raw, key = entries.get(sig, ("", ""))
+            if raw:
+                # a word cut off at the lacuna (Gen 8:22 'κατα' for καταπαύσουσι) is no evidence either
+                others = [k for s2, (r2, k2) in entries.items() if s2 != sig and s2 != _SKIP_KEY and r2 for k in [k2]]
+                nu = lambda w: re.sub(r"ν$", "", w)  # noqa: E731
+                kw = key.split()
+                cut_end = at_end and not insertion and i == last_pos[sig] and len(key) >= 3 and any(
+                    o != key and (o.split()[0].startswith(kw[-1])
+                                  # the others go on past the witness's last word (Exod 5:23 ἐκάκωσεν | ἐκάκωσε τὸν λαὸν…)
+                                  or (len(o.split()) > len(kw) and [nu(w) for w in o.split()[:len(kw)]] == [nu(w) for w in kw]))
+                    for o in others if o)
+                cut_start = at_start and not insertion and i == first_pos[sig] and len(key) >= 3 and any(
+                    o != key and o.split()[-1].endswith(key.split()[0]) for o in others if o)
+                if cut_end or cut_start:
+                    quiet.append(sig)
+                continue
+            lead = at_start and (i <= first_pos[sig] if insertion else i < first_pos[sig])
+            trail = at_end and i > last_pos[sig]
+            if lead or trail:
+                quiet.append(sig)
+        if not quiet:
+            return entries
+        out = {k: v for k, v in entries.items() if k not in quiet}
+        out[_SKIP_KEY] = ("|".join(quiet), "")
+        return out
+
+    slot_entries: List[Tuple[Dict[str, Tuple[str, str]], bool]] = []
+    for i in range(n + 1):
+        if ins_map[i] or (edge and i in (0, n)):
+            ins = silence(ins_map[i], i, True) if edge else ins_map[i]
+            if ins_map[i]:
+                slot_entries.append((ins, True))
+        if i == n:
+            break
+        slot_entries.append((silence(pos_map[i], i, False) if edge else pos_map[i], False))
+
+    built = [(build_slot(e, 0, insertion=ins), e, ins) for e, ins in slot_entries]
+    built = [(s, e, ins) for s, e, ins in built if s]
+    merged = _merge_variation_units(built, ordered_sigla, fragmentary, build_slot)
+    for slot_idx, slot in enumerate(merged):
+        slot.index = slot_idx
+        cv.slots.append(slot)
+    return cv
+
+
+MAX_MERGED_UNIT_WORDS = 8
+_SKIP_KEY = "<silent>"  # entries key listing witnesses that cast no vote in a slot (edge lacuna)
+
+
+def _partition(entries: Dict[str, Tuple[str, str]], sigla: List[str], insertion: bool) -> Optional[frozenset]:
+    groups: Dict[str, Set[str]] = {}
+    for sig in sigla:
+        if sig not in entries and not insertion:
+            return None
+        _raw, key = entries.get(sig, ("", ""))
+        groups.setdefault(key or "om.", set()).add(sig)
+    return frozenset(frozenset(g) for g in groups.values())
+
+
+def _merge_variation_units(built, sigla: List[str], fragmentary: Set[str], build_slot) -> List[VariationSlot]:
+    """Join neighbouring substantive slots that divide the witnesses in exactly the same way into
+    one variation unit, as a printed apparatus does — also across one agreed word between them.
+
+    Without this, an omitted clause becomes one unit per word (1 John 2:23), a transposition becomes
+    an addition plus an omission (Matthew 1:18), and eye-skip or parallels cannot be recognised."""
+    usable = [s for s in sigla if s not in fragmentary]
+    out: List[VariationSlot] = []
+    i = 0
+    while i < len(built):
+        slot, entries, ins = built[i]
+        if slot.kind != "substantive_variant":
+            out.append(slot)
+            i += 1
+            continue
+        part = _partition(entries, usable, ins)
+        acc = dict(entries)
+        j = i
+        while part is not None:
+            nxt = built[j + 1] if j + 1 < len(built) else None
+            after = built[j + 2] if j + 2 < len(built) else None
+            take: List[Tuple[Dict[str, Tuple[str, str]], bool]] = []
+            if nxt and nxt[0].kind == "substantive_variant" and _partition(nxt[1], usable, nxt[2]) == part:
+                take = [(nxt[1], nxt[2])]
+            elif (
+                nxt and after and nxt[0].kind != "substantive_variant" and after[0].kind == "substantive_variant"
+                and _partition(after[1], usable, after[2]) == part
+            ):
+                take = [(nxt[1], nxt[2]), (after[1], after[2])]
+            if not take:
+                break
+            candidate = dict(acc)
+            for e, e_ins in take:
+                for sig in sigla:
+                    a_raw, a_key = candidate.get(sig, ("", ""))
+                    b_raw, b_key = e.get(sig, ("", ""))
+                    candidate[sig] = ((a_raw + " " + b_raw).strip(), (a_key + " " + b_key).strip())
+                # a witness silenced at a lacuna stays silent only if it is silent in both parts
+                both = set(candidate.get(_SKIP_KEY, ("", ""))[0].split("|")) & set(e.get(_SKIP_KEY, ("", ""))[0].split("|"))
+                both.discard("")
+                candidate.pop(_SKIP_KEY, None)
+                if both:
+                    candidate[_SKIP_KEY] = ("|".join(sorted(both)), "")
+                for sig in both:
+                    candidate.pop(sig, None)
+            longest = max((len(v[0].split()) for v in candidate.values()), default=0)
+            if longest > MAX_MERGED_UNIT_WORDS:
+                break
+            acc = candidate
+            j += len(take)
+        if j > i:
+            merged = build_slot(acc, 0, insertion=True)
+            if merged:
+                if merged.kind == "substantive_variant":
+                    merged.notes = "Variation unit spanning several words"
+                out.append(merged)
+            i = j + 1
+        else:
+            out.append(slot)
+            i += 1
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Verse-number (versification) alignment between witnesses
+# ---------------------------------------------------------------------------
+
+_KEYSET_MEMO: Dict[Tuple[str, str], frozenset] = {}
+
+
+def _keyset(text: str, language: str) -> frozenset:
+    memo_key = (language, text)
+    ks = _KEYSET_MEMO.get(memo_key)
+    if ks is None:
+        if len(_KEYSET_MEMO) > 50000:
+            _KEYSET_MEMO.clear()
+        ks = frozenset(k for k in (canonical_compare_key(t, language) for t in text.split()) if k)
+        _KEYSET_MEMO[memo_key] = ks
+    return ks
+
+
+def verse_similarity(a: str, b: str, language: str) -> float:
+    """Dice coefficient on canonical word keys (0..1)."""
+    ka, kb = _keyset(a, language), _keyset(b, language)
+    if not ka or not kb:
+        return 0.0
+    return 2 * len(ka & kb) / (len(ka) + len(kb))
+
+
+REMAP_MIN = 0.5             # content match needed to move a verse to a different number
+SAME_NUMBER_BONUS = 0.1     # a same-numbered verse must be beaten by this much to be displaced
+SAME_NUMBER_FLOOR = 0.15    # below this, a same-numbered verse is treated as a different verse
+
+
+def align_versification(
+    reference: Dict[int, str],
+    chapter: int,
+    candidates: Dict[Tuple[int, int], str],
+    language: str,
+    same_number_floor: float = SAME_NUMBER_FLOOR,
+    neighbour_reference: Optional[Dict[Tuple[int, int], str]] = None,
+) -> Tuple[Dict[int, str], Dict[int, str], List[str]]:
+    """Map one witness's verses onto the reference chapter's verse numbers by content.
+
+    ``candidates`` holds the witness's verses from this and neighbouring chapters keyed by
+    ``(chapter, verse)``. Every (reference verse, candidate verse) pair is scored by word overlap,
+    with a small bonus for the same number, and pairs are assigned best-first so a near-identical
+    match always wins over a merely similar one (formulaic chapters such as the census lists of
+    Numbers 1). Absent markers (empty strings) only map to the same number.
+    Returns ``(mapped_texts, own_refs_for_moved_verses, notes)``."""
+    mapped: Dict[int, str] = {}
+    moved: Dict[int, str] = {}
+    notes: List[str] = []
+    used: Set[Tuple[int, int]] = set()
+    # Formulaic verses can resemble a different chapter more than a damaged
+    # same-numbered transcription does. A strong, better match to the neighbour's
+    # own anchor verse protects it from being borrowed here (Josh 19:16/18:28).
+    # Editions can differ even at the correct location: 2 Kgs 13:13 has 0.8
+    # overlap with its anchor, versus 0.615 with 14:29. Requiring 0.9 steals it.
+    own_scores = {ck: verse_similarity(txt, (neighbour_reference or {}).get(ck, ""), language)
+                  for ck, txt in candidates.items() if ck[0] != chapter}
+    cross_nb_scores: Dict[Tuple[int, int], float] = {}
+    if neighbour_reference:
+        same_ch_v = [v for c, v in candidates if c == chapter and candidates[(c, v)]]
+        edge_v = ({min(same_ch_v), max(same_ch_v)} if same_ch_v else set())
+        for v_edge in edge_v:
+            txt_edge = candidates[(chapter, v_edge)]
+            cross_nb_scores[(chapter, v_edge)] = max(
+                (verse_similarity(txt_edge, nb_txt, language) for nb_txt in neighbour_reference.values() if nb_txt),
+                default=0.0,
+            )
+    protected: Set[Tuple[int, int]] = set()
+
+    pairs: List[Tuple[float, int, int, Tuple[int, int]]] = []
+    for v, ref_txt in reference.items():
+        if not ref_txt:
+            continue
+        for ck, txt in candidates.items():
+            if not txt:
+                continue
+            same = ck == (chapter, v)
+            s = verse_similarity(ref_txt, txt, language)
+            if own_scores.get(ck, 0.0) >= 0.8 and own_scores[ck] > s + SAME_NUMBER_BONUS:
+                protected.add(ck)
+                continue
+            if cross_nb_scores.get(ck, 0.0) >= 0.85 and s < 0.5 and cross_nb_scores[ck] > s + SAME_NUMBER_BONUS:
+                protected.add(ck)
+                continue
+            if (same and s >= same_number_floor) or s >= REMAP_MIN:
+                pairs.append((s + (SAME_NUMBER_BONUS if same else 0.0), 1 if same else 0, v, ck))
+    target_of: Dict[Tuple[int, int], int] = {}
+    for _score, _same, v, ck in sorted(pairs, key=lambda p: (-p[0], -p[1], p[2])):
+        if v in mapped or ck in used:
+            continue
+        mapped[v] = candidates[ck]
+        used.add(ck)
+        target_of[ck] = v
+        if ck != (chapter, v):
+            moved[v] = f"{ck[0]}:{ck[1]}"
+    # Protected neighbours must not re-enter through leftover/folding repairs.
+    candidates = {ck: txt for ck, txt in candidates.items() if ck not in protected or ck in used}
+    notes.extend(f"{c}:{v} kept in its own chapter (stronger match to its own reference verse)"
+                 for c, v in sorted(protected - used))
+
+    # A witness verse left without a partner whose words the reference prints inside the verse its
+    # neighbour was matched to (the witness divides the text more finely: Swete's Joshua 9:3-8 are
+    # Brenton's 9:2, RP's 2 Cor 13:13 is SBLGNT's 13:12b): fold it into that verse instead of
+    # dropping it, so the witness is not counted as omitting words it prints.
+    def fold(order: List[Tuple[int, int]], step: int) -> None:
+        for ck in order:
+            txt = candidates.get(ck, "")
+            if ck in used or not txt:
+                continue
+            # the nearest non-empty neighbour (Swete's Prov 24:23 is empty between 24:22 and 24:24)
+            nb = (ck[0], ck[1] - step)
+            if nb not in target_of and not candidates.get(nb) and (ck[0], ck[1] - 2 * step) in target_of:
+                nb = (ck[0], ck[1] - 2 * step)
+            if nb not in target_of and step == 1 and ck[1] == 1:
+                # across the chapter break: the previous chapter's last verse
+                prev_ch = [v for c, v in candidates if c == ck[0] - 1]
+                nb = (ck[0] - 1, max(prev_ch)) if prev_ch else nb
+            if nb not in target_of and step == -1 and not any(c == ck[0] and v > ck[1] for c, v in candidates):
+                nb = (ck[0] + 1, 1)
+            u = target_of.get(nb)
+            if u is None or not reference.get(u):
+                continue
+            keys, ref_keys = _keyset(txt, language), _keyset(reference[u], language)
+            if not keys or len(keys & ref_keys) / len(keys) < 0.6:
+                continue
+            joined = f"{mapped[u]} {txt}" if step == 1 else f"{txt} {mapped[u]}"
+            if verse_similarity(reference[u], joined, language) <= verse_similarity(reference[u], mapped[u], language):
+                continue
+            mapped[u] = joined
+            used.add(ck)
+            target_of[ck] = u
+            if nb != (chapter, u):
+                moved.setdefault(u, f"{nb[0]}:{nb[1]}")
+            notes.append(f"{ck[0]}:{ck[1]} folded into verse {u} (the reference prints these words there)")
+
+    fold(sorted(candidates), 1)
+    fold(sorted(candidates, reverse=True), -1)
+
+    # A short leftover whose words one reference verse prints and the witness's copy of that verse
+    # lacks (Swete's Sir 33:16 "Κἀγὼ ἔσχατος ἠγρύπνησα" is the start of Brenton's 36:16).
+    for ck in sorted(candidates):
+        txt = candidates.get(ck, "")
+        if ck in used or not txt:
+            continue
+        keys = _keyset(txt, language)
+        if len(keys) < 2 or len(txt.split()) > 25:
+            continue
+        best_u = None
+        for u, ref_txt in reference.items():
+            if not ref_txt or u not in mapped or not mapped[u]:
+                continue
+            ref_keys, have = _keyset(ref_txt, language), _keyset(mapped[u], language)
+            if len(keys & ref_keys) / len(keys) >= 0.7 and len(keys & have) / len(keys) < 0.5:
+                gain = max(verse_similarity(ref_txt, f"{txt} {mapped[u]}", language),
+                           verse_similarity(ref_txt, f"{mapped[u]} {txt}", language)) - verse_similarity(ref_txt, mapped[u], language)
+                if gain > 0 and (best_u is None or gain > best_u[0]):
+                    best_u = (gain, u)
+        if best_u:
+            u = best_u[1]
+            rk_seq = [k for k in (canonical_compare_key(w, language) for w in reference[u].split()) if k]
+            b_seq = [k for k in (canonical_compare_key(w, language) for w in f"{txt} {mapped[u]}".split()) if k]
+            a_seq = [k for k in (canonical_compare_key(w, language) for w in f"{mapped[u]} {txt}".split()) if k]
+            before = difflib.SequenceMatcher(a=rk_seq, b=b_seq, autojunk=False).ratio()
+            after = difflib.SequenceMatcher(a=rk_seq, b=a_seq, autojunk=False).ratio()
+            mapped[u] = f"{txt} {mapped[u]}" if before > after else f"{mapped[u]} {txt}"
+            used.add(ck)
+            target_of[ck] = u
+            notes.append(f"{ck[0]}:{ck[1]} folded into verse {u} (the reference prints these words there)")
+
+    for v, ref_txt in reference.items():
+        if v in mapped:
+            continue
+        ck = (chapter, v)
+        if ck in used or ck not in candidates:
+            continue
+        txt = candidates[ck]
+        if txt == "" or ref_txt == "":
+            mapped[v] = txt  # verse-absent marker, or nothing to compare against
+            used.add(ck)
+        else:
+            notes.append(f"{chapter}:{v} not collated (wording does not match the reference verse)")
+
+    # Verses of this chapter the reference does not have at all (e.g. Romans 16:25–27); never a "verse 0"
+    for (c, v), txt in candidates.items():
+        if c == chapter and v > 0 and (c, v) not in used and v not in reference and v not in mapped:
+            mapped[v] = txt
+            used.add((c, v))
+    # Nothing disappears silently: a verse of this chapter that found no place is logged.
+    for (c, v), txt in sorted(candidates.items()):
+        if c == chapter and txt and (c, v) not in used and not any(n.startswith(f"{c}:{v} ") for n in notes):
+            notes.append(f"{c}:{v} not collated (no verse of the reference matches its wording)")
+    return mapped, moved, notes
