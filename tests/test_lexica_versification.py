@@ -233,8 +233,8 @@ class LatinRegressions(unittest.TestCase):
         ("leviticus", (11, 5), [(11, 6)]),          # Choerogryllus
         ("leviticus", (11, 6), [(11, 5)]),          # Lepus
         ("leviticus", (11, 15), [(11, 15)]),        # corvini generis
-        ("numbers", (1, 28), [(1, 30)]),            # Studio Latin has the Ephraim header at 1:28
-        ("numbers", (1, 30), [(1, 28)]),
+        ("numbers", (1, 28), [(1, 28)]),            # Studio Latin now matches Saints (1:28 Zabulon, 1:30 Ephraim)
+        ("numbers", (1, 30), [(1, 30)]),
         ("numbers", (27, 3), [(27, 3), (27, 4), (27, 5), (27, 6), (27, 7), (27, 8)]),
         ("deuteronomy", (5, 17), [(5, 17)]),        # Latin and site both have adultery first
         ("deuteronomy", (29, 1), [(29, 1)]),
@@ -571,7 +571,7 @@ class SiteEnglish(unittest.TestCase):
             ("hebrew", "leviticus", (11, 15), "raven"),
             ("hebrew", "deuteronomy", (14, 14), "raven"),
             ("hebrew", "2-chronicles", (3, 12), "cherub"),
-            ("latin", "numbers", (1, 28), "Ephraim"),
+            ("latin", "numbers", (1, 30), "Ephraim"),
             ("greek", "numbers", (27, 4), "brought their case"),
             ("hebrew", "proverbs", (16, 6), "mercy and faithfulness"),
             ("hebrew", "proverbs", (16, 4), "evil day"),
@@ -688,7 +688,7 @@ class LiveDatabase(unittest.TestCase):
             ("latin", "sirach", (31, 12), (34, 12), "mensam", "τραπεζησ"),
             ("latin", "sirach", (19, 1), (19, 1), "ebriosus", "μεθυσοσ"),
             ("latin", "esther", (10, 4), (10, 3), "mardochaeus", "μαρδοχαιοσ"),
-            ("latin", "numbers", (1, 28), (1, 30), "ephraim", "εφραιμ"),
+            ("latin", "numbers", (1, 30), (1, 30), "ephraim", "εφραιμ"),
             ("latin", "leviticus", (11, 6), (11, 5), "lepus", "δασυποδα"),
         ]
         from studio.lexica import latin_bare

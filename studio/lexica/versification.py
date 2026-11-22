@@ -17,7 +17,7 @@ The mapping is done in two steps, each kept as its own table:
    CC BY 4.0, cross-checked with STEPBible TVTMS, CC BY 4.0), the site's KJV -> Saints map, the Latin
    column's own numbering, a content alignment of Latin Sirach, and reading of the disputed verses.
    Corrected 18 Nov 2026 after an independent review (Prov 15-16 and 20:9, Lev 11:5-6 and 11:15-16,
-   Jer 25:13 and 49:34, 1 Kgs 7:18-19/26/47, Isa 40:8, Latin Num 1:28/30, Luke 4:19, the Latin Song of the
+   Jer 25:13 and 49:34, 1 Kgs 7:18-19/26/47, Isa 40:8, Luke 4:19, the Latin Song of the
    Three 3:54-55/58-59/77-78, and 210 Latin Sirach verses that had been left unmapped although their Greek
    counterpart is present: 181 at the same chapter:verse, the rest re-read and re-paired).
 2. ``_RULES['greek']``: Studio Greek -> live site.  Identity wherever the site has the same verse with the
@@ -793,8 +793,6 @@ leviticus 11:5 = 11:6
 leviticus 11:6 = 11:5
 leviticus 11:15 -
 leviticus 11:16 > 11:15-16
-numbers 1:28 = 1:30
-numbers 1:30 = 1:28
 numbers 3:9 > 3:10,3:9
 numbers 5:23 > 5:26,5:23-25
 numbers 15:4 > 15:4-7
