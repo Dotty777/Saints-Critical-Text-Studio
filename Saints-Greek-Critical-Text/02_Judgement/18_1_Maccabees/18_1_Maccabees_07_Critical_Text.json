@@ -7,7 +7,7 @@
   "usfm_code": "1MA",
   "chapter": 7,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-18T03:10:59Z",
+  "updated_at": "2026-11-22T12:03:28Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -377,18 +377,18 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "Swete-Amicarelli",
-      "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
-      "tier": 1,
-      "weight": 0.93,
-      "license": "GPL-3.0"
-    },
-    {
       "siglum": "1st1K-LXX",
       "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
       "tier": 1,
       "weight": 0.92,
       "license": "CC BY-SA 4.0"
+    },
+    {
+      "siglum": "Swete-Amicarelli",
+      "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
+      "tier": 1,
+      "weight": 0.93,
+      "license": "GPL-3.0"
     },
     {
       "siglum": "Swete (B/A/א)",
@@ -431,9 +431,39 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
+        {
+          "slot_index": -1,
+          "lemma": "πεντηκοστοῦ",
+          "lemma_witnesses": [
+            "1st1K-LXX",
+            "Sixtine/Brenton",
+            "Swete (B/A/א)",
+            "Swete-Amicarelli"
+          ],
+          "variants": [
+            {
+              "reading": "πεντηκοστοῦ καὶ ἑκατοστοῦ",
+              "witnesses": [
+                "LXX-Orthodox (Οʹ)"
+              ],
+              "weight_sum": 0.0
+            }
+          ],
+          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
+          "word_index": 3,
+          "word_count": 1,
+          "kind": "word",
+          "variant_type": "",
+          "analysis": [],
+          "lemma_key": "πεντηκοστου",
+          "confidence": 0.529,
+          "credited_witnesses": []
+        },
         {
           "slot_index": 4,
           "lemma": "ἐξῆλθεν",
@@ -512,7 +542,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -533,7 +565,7 @@
               "weight_sum": 0.0
             }
           ],
-          "note": "Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.",
+          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
           "word_index": 9,
           "word_count": 0,
           "kind": "word",
@@ -633,7 +665,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -695,17 +729,6 @@
             "Swete (B/A/א)"
           ],
           "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "εἶπεν / εἶπε·"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).",
@@ -729,7 +752,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -754,17 +779,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἐκάθισεν / ἐκάθισε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation).",
@@ -788,7 +802,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -892,7 +908,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -1053,12 +1071,14 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
-          "slot_index": 10,
-          "lemma": "ἐξολέθρευσιν ἅπασαν",
+          "slot_index": 11,
+          "lemma": "ἅπασαν",
           "lemma_witnesses": [
             "Swete-Amicarelli",
             "1st1K-LXX",
@@ -1066,8 +1086,8 @@
           ],
           "variants": [
             {
-              "reading": "ἐξολόθρευσιν πᾶσαν",
-              "adopt_text": "ἐξολόθρευσιν πᾶσαν",
+              "reading": "πᾶσαν",
+              "adopt_text": "πᾶσαν",
               "witnesses": [
                 "Sixtine/Brenton",
                 "LXX-Orthodox (Οʹ)"
@@ -1075,9 +1095,9 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'ἐξολέθρευσιν ἅπασαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐξολόθρευσιν πᾶσαν (Sixtine/Brenton).",
-          "word_index": 10,
-          "word_count": 2,
+          "note": "[Lexical, morphological, or word-order variant] Adopted 'ἅπασαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over πᾶσαν (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
+          "word_index": 11,
+          "word_count": 1,
           "kind": "word",
           "variant_type": "lexical substitution",
           "analysis": [
@@ -1098,12 +1118,12 @@
               "strength": "info"
             }
           ],
-          "lemma_key": "εξολεθρευσιν απασαν",
+          "lemma_key": "απασαν",
           "confidence": 0.529,
           "credited_witnesses": []
         },
         {
-          "slot_index": 20,
+          "slot_index": 21,
           "lemma": "ἐκολάσατο",
           "lemma_witnesses": [
             "Swete-Amicarelli",
@@ -1160,9 +1180,20 @@
             "Sixtine/Brenton"
           ],
           "reason": "Accentuation / capitalisation / breathing convention"
+        },
+        {
+          "slot_index": 10,
+          "kept_form": "ἐξολέθρευσιν",
+          "disregarded_forms": [
+            "ἐξολόθρευσιν"
+          ],
+          "witnesses": [
+            "Sixtine/Brenton"
+          ],
+          "reason": "Koine orthographic doublet (ἐξολεθρ-/οὐθείς/ἔνατος/γιγν-/τετραάρχ-/ἁλεεῖς type)"
         }
       ],
-      "rationale": "[Variation unit spanning several words] Adopted 'ἐξολέθρευσιν ἅπασαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐξολόθρευσιν πᾶσαν (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'ἐκολάσατο' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over κολασάτω (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).",
+      "rationale": "[Lexical, morphological, or word-order variant] Adopted 'ἅπασαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over πᾶσαν (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'ἐκολάσατο' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over κολασάτω (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).",
       "human_locked": false,
       "analysis": [
         {
@@ -1192,7 +1223,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1262,7 +1295,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -1284,7 +1319,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Lexical, morphological, or word-order variant] Adopted 'ἔστησαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἔστησεν (Sixtine/Brenton).",
+          "note": "[Lexical, morphological, or word-order variant] Adopted 'ἔστησαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἔστησεν (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 8,
           "word_count": 1,
           "kind": "word",
@@ -1355,7 +1390,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -1377,7 +1414,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'ἀπῆλθεν καὶ ἦλθεν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀπῇραν καὶ ἦλθον (Sixtine/Brenton).",
+          "note": "[Variation unit spanning several words] Adopted 'ἀπῆλθεν καὶ ἦλθεν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀπῇραν καὶ ἦλθον (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 1,
           "word_count": 3,
           "kind": "word",
@@ -1516,7 +1553,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -1634,7 +1673,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1682,7 +1723,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1752,7 +1795,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1799,17 +1844,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "δυνάμεσιν, / δυνάμεσι"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation).",
@@ -1833,7 +1867,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -1849,19 +1885,13 @@
               "reading": "λόγους εἰρηνικοὺς",
               "adopt_text": "λόγους εἰρηνικοὺς",
               "witnesses": [
-                "Sixtine/Brenton"
-              ],
-              "weight_sum": 0.84
-            },
-            {
-              "reading": "εἰρηνικοὺς",
-              "witnesses": [
+                "Sixtine/Brenton",
                 "LXX-Orthodox (Οʹ)"
               ],
-              "weight_sum": 0.0
+              "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'εἰρηνικοὺς λόγους' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over λόγους εἰρηνικοὺς (Sixtine/Brenton). [Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.]",
+          "note": "[Variation unit spanning several words] Adopted 'εἰρηνικοὺς λόγους' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over λόγους εἰρηνικοὺς (Sixtine/Brenton).",
           "word_index": 4,
           "word_count": 2,
           "kind": "word",
@@ -2014,17 +2044,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Accentuation / capitalisation / breathing convention"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἐλάλησεν / ἐλάλησε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "[Variation unit spanning several words] Adopted 'εἰρηνικοὺς λόγους' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over λόγους εἰρηνικοὺς (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'τοῖς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τοῦ (Sixtine/Brenton). Also normalised 7 orthographic/surface variation(s).",
@@ -2057,7 +2076,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -2183,7 +2204,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2231,7 +2254,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -2346,7 +2371,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -2367,7 +2394,7 @@
               "weight_sum": 0.0
             }
           ],
-          "note": "Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.",
+          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
           "word_index": 8,
           "word_count": 1,
           "kind": "word",
@@ -2501,19 +2528,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Punctuation / spacing difference only"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἀπῆρεν / ἀπῇρε",
-            "ἀπέστειλεν / ἀπέστειλε",
-            "συνέλαβεν / συνέλαβε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "[Lexical, morphological, or word-order variant] Adopted 'μετ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀπ (Sixtine/Brenton). Also normalised 7 orthographic/surface variation(s).",
@@ -2546,7 +2560,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2606,19 +2622,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "κατέστησεν / κατέστησε",
-            "ἀφῆκεν / ἀφῆκε",
-            "ἀπῆλθεν / ἀπῆλθε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).",
@@ -2642,7 +2645,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2679,7 +2684,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2716,7 +2723,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2779,7 +2788,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -2893,7 +2904,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'πορευθῆναι εἰς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over πορεύεσθαι εἰς τὴν (Sixtine/Brenton).",
+          "note": "[Variation unit spanning several words] Adopted 'πορευθῆναι εἰς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over πορεύεσθαι εἰς τὴν (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 22,
           "word_count": 2,
           "kind": "word",
@@ -2943,17 +2954,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "αὐτομολήσασιν, / αὐτομολήσασι,"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "[Omission in some witnesses] Adopted 'καὶ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Omission in some witnesses] Adopted 'καὶ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'πορευθῆναι εἰς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over πορεύεσθαι εἰς τὴν (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).",
@@ -2986,7 +2986,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3107,17 +3109,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Punctuation / spacing difference only"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἐπέστρεψεν / ἐπέστρεψε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "[Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over οὐ (Sixtine/Brenton). Also normalised 6 orthographic/surface variation(s).",
@@ -3150,7 +3141,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3187,7 +3180,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3245,18 +3240,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Punctuation / spacing difference only"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἦλθεν / ἦλθε",
-            "ἀπέστειλεν / ἀπέστειλε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).",
@@ -3280,7 +3263,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3301,7 +3286,7 @@
               "weight_sum": 0.0
             }
           ],
-          "note": "Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.",
+          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
           "word_index": 2,
           "word_count": 3,
           "kind": "word",
@@ -3324,19 +3309,13 @@
               "reading": "ὑμῶν ἴδω",
               "adopt_text": "ὑμῶν ἴδω",
               "witnesses": [
-                "Sixtine/Brenton"
-              ],
-              "weight_sum": 0.84
-            },
-            {
-              "reading": "ἴδω",
-              "witnesses": [
+                "Sixtine/Brenton",
                 "LXX-Orthodox (Οʹ)"
               ],
-              "weight_sum": 0.0
+              "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'ἴδω ὑμῶν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ὑμῶν ἴδω (Sixtine/Brenton). [Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.]",
+          "note": "[Variation unit spanning several words] Adopted 'ἴδω ὑμῶν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ὑμῶν ἴδω (Sixtine/Brenton).",
           "word_index": 13,
           "word_count": 2,
           "kind": "word",
@@ -3431,7 +3410,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3456,17 +3437,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἦλθεν / ἦλθε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation).",
@@ -3490,7 +3460,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3609,7 +3581,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3625,19 +3599,13 @@
               "reading": "ἐν πολέμῳ κατὰ Χαφαρσαλαμά",
               "adopt_text": "ἐν πολέμῳ κατὰ Χαφαρσαλαμά",
               "witnesses": [
-                "Sixtine/Brenton"
-              ],
-              "weight_sum": 0.84
-            },
-            {
-              "reading": "κατὰ Χαφαρσαλαμά.",
-              "witnesses": [
+                "Sixtine/Brenton",
                 "LXX-Orthodox (Οʹ)"
               ],
-              "weight_sum": 0.0
+              "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'κατὰ Χαρφαρσαραμά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐν πολέμῳ κατὰ Χαφαρσαλαμά (Sixtine/Brenton). [Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.]",
+          "note": "[Variation unit spanning several words] Adopted 'κατὰ Χαρφαρσαραμά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐν πολέμῳ κατὰ Χαφαρσαλαμά (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 14,
           "word_count": 2,
           "kind": "word",
@@ -3720,7 +3688,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3872,7 +3842,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -3894,7 +3866,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Lexical, morphological, or word-order variant] Adopted 'ἐξῆλθαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐξῆλθον (Sixtine/Brenton).",
+          "note": "[Lexical, morphological, or word-order variant] Adopted 'ἐξῆλθαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐξῆλθον (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 12,
           "word_count": 1,
           "kind": "word",
@@ -3953,7 +3925,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -4000,7 +3974,7 @@
       "id": 17171,
       "verse": 35,
       "critical_text": "καὶ ὤμοσεν μετὰ θυμοῦ λέγων Ἐὰν μὴ παραδοθῇ Ἰούδας καὶ ἡ παρεμβολὴ αὐτοῦ τὸ νῦν εἰς χεῖράς μου, καὶ ἔσται ἐὰν ἐπιστρέψω ἐν εἰρήνῃ, ἐνπυριῶ τὸν οἶκον τοῦτον. καὶ ἐξῆλθεν μετὰ θυμοῦ.",
-      "confidence": 0.148,
+      "confidence": 0.28,
       "decision_source": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
       "witness_readings": {
         "Swete-Amicarelli": "καὶ ὤμοσεν μετὰ θυμοῦ λέγων Ἐὰν μὴ παραδοθῇ Ἰούδας καὶ ἡ παρεμβολὴ αὐτοῦ τὸ νῦν εἰς χεῖράς μου, καὶ ἔσται ἐὰν ἐπιστρέψω ἐν εἰρήνῃ, ἐνπυριῶ τὸν οἶκον τοῦτον. καὶ ἐξῆλθεν μετὰ θυμοῦ.",
@@ -4012,7 +3986,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -4042,7 +4018,7 @@
           "analysis": [
             {
               "canon": "variant type: transposition",
-              "note": "Units 'τὸ νῦν' and 'om.' together form one word-order variant (Sixtine/Brenton transpose).",
+              "note": "Units 'τὸ νῦν', 'om.' together form one word-order variant (Sixtine/Brenton transpose).",
               "favours": "neither",
               "reading": "",
               "key": "",
@@ -4096,7 +4072,7 @@
           "analysis": [
             {
               "canon": "variant type: transposition",
-              "note": "Units 'τὸ νῦν' and 'om.' together form one word-order variant (Sixtine/Brenton transpose).",
+              "note": "Units 'τὸ νῦν', 'om.' together form one word-order variant (Sixtine/Brenton transpose).",
               "favours": "neither",
               "reading": "",
               "key": "",
@@ -4246,7 +4222,7 @@
           "witnesses": [
             "Sixtine/Brenton"
           ],
-          "reason": "Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)"
+          "reason": "Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type)"
         },
         {
           "slot_index": 27,
@@ -4285,24 +4261,13 @@
           "slot_index": -1,
           "kept_form": "(adopted text)",
           "disregarded_forms": [
-            "ὤμοσεν / ὤμοσε",
-            "ἐξῆλθεν / ἐξῆλθε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
+            "ἐνπυριῶ / ἐμπυριῶ",
             "ἐνπυριῶ / ἐμπυριῶ"
           ],
           "witnesses": [
             "LXX-Orthodox (Οʹ)"
           ],
-          "reason": "Apparatus witness, not a variant: Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)"
+          "reason": "Apparatus witness, not a variant: Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type)"
         }
       ],
       "rationale": "[Variation unit spanning several words] Adopted 'τὸ νῦν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τὸ νῦν (Sixtine/Brenton). [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over μεγάλου (Sixtine/Brenton). Also normalised 10 orthographic/surface variation(s).",
@@ -4310,7 +4275,7 @@
       "analysis": [
         {
           "canon": "confidence",
-          "note": "Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).",
+          "note": "Verse confidence 28% = product of 2 unit confidence(s); 1 split-transposition duplicate(s) counted once; not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).",
           "favours": "neither",
           "reading": "",
           "strength": "info",
@@ -4335,7 +4300,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -4450,7 +4417,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -4518,7 +4487,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Lexical, morphological, or word-order variant] Adopted 'αὐτόν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over αὐτῷ (Sixtine/Brenton).",
+          "note": "[Lexical, morphological, or word-order variant] Adopted 'αὐτόν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over αὐτῷ (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 10,
           "word_count": 1,
           "kind": "word",
@@ -4602,7 +4571,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -4669,7 +4640,7 @@
               "weight_sum": 0.0
             }
           ],
-          "note": "Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.",
+          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
           "word_index": 17,
           "word_count": 1,
           "kind": "word",
@@ -4735,7 +4706,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -4819,17 +4792,6 @@
             "Swete (B/A/א)"
           ],
           "reason": "Accent or breathing differs between accented editions (editorial interpretation)"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἐξῆλθεν / ἐξῆλθε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "[Variation unit spanning several words] Adopted 'παρενέβαλον ἐν Βεθωρών' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over παρενέβαλεν ἐν Βαιθωρὼν (Sixtine/Brenton). Also normalised 3 orthographic/surface variation(s).",
@@ -4862,7 +4824,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -4909,17 +4873,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Punctuation / spacing difference only"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἀνδράσιν· / ἀνδράσι·"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).",
@@ -4943,7 +4896,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -5161,7 +5116,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -5287,7 +5244,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -5349,7 +5308,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [
@@ -5387,17 +5348,6 @@
             "Sixtine/Brenton"
           ],
           "reason": "Euphonic movable-nu (-ν) variation"
-        },
-        {
-          "slot_index": -1,
-          "kept_form": "(adopted text)",
-          "disregarded_forms": [
-            "ἔπεσεν / ἔπεσε"
-          ],
-          "witnesses": [
-            "LXX-Orthodox (Οʹ)"
-          ],
-          "reason": "Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation"
         }
       ],
       "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Koine/Uncial itacistic spelling (ει / ι equivalence)).",
@@ -5409,7 +5359,7 @@
       "id": 17181,
       "verse": 45,
       "critical_text": "καὶ κατεδίωκον αὐτοὺς ὁδὸν ἡμέρας μιᾶς ἀπὸ Ἀδασὰ ἕως τοῦ ἐλθεῖν εἰς Γαζηρά, καὶ ἐσάλπισαν ὀπίσω αὐτῶν ταῖς σάλπιγξιν τῶν σημασιῶν.",
-      "confidence": 0.529,
+      "confidence": 0.99,
       "decision_source": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
       "witness_readings": {
         "Swete-Amicarelli": "καὶ κατεδίωκον αὐτοὺς ὁδὸν ἡμέρας μιᾶς ἀπὸ Ἀδασὰ ἕως τοῦ ἐλθεῖν εἰς Γαζηρά, καὶ ἐσάλπισαν ὀπίσω αὐτῶν ταῖς σάλπιγξιν τῶν σημασιῶν.",
@@ -5421,56 +5371,11 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
-      "apparatus": [
-        {
-          "slot_index": 18,
-          "lemma": "σάλπιγξιν",
-          "lemma_witnesses": [
-            "Swete-Amicarelli",
-            "1st1K-LXX",
-            "Swete (B/A/א)"
-          ],
-          "variants": [
-            {
-              "reading": "σάλπιγξι",
-              "adopt_text": "σάλπιγξι",
-              "witnesses": [
-                "Sixtine/Brenton",
-                "LXX-Orthodox (Οʹ)"
-              ],
-              "weight_sum": 0.84
-            }
-          ],
-          "note": "[Lexical, morphological, or word-order variant] Adopted 'σάλπιγξιν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over σάλπιγξι (Sixtine/Brenton).",
-          "word_index": 18,
-          "word_count": 1,
-          "kind": "word",
-          "variant_type": "inflection or spelling (same stem)",
-          "analysis": [
-            {
-              "canon": "external: independent streams",
-              "note": "Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.",
-              "favours": "neither",
-              "reading": "",
-              "key": "",
-              "strength": "info"
-            },
-            {
-              "canon": "external: two-stream policy",
-              "note": "Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.",
-              "favours": "neither",
-              "reading": "",
-              "key": "",
-              "strength": "info"
-            }
-          ],
-          "lemma_key": "σαλπιγξιν",
-          "confidence": 0.529,
-          "credited_witnesses": []
-        }
-      ],
+      "apparatus": [],
       "disregarded": [
         {
           "slot_index": 0,
@@ -5493,20 +5398,22 @@
             "Sixtine/Brenton"
           ],
           "reason": "Accent or breathing differs between accented editions (editorial interpretation)"
-        }
-      ],
-      "rationale": "[Lexical, morphological, or word-order variant] Adopted 'σάλπιγξιν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over σάλπιγξι (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).",
-      "human_locked": false,
-      "analysis": [
+        },
         {
-          "canon": "confidence",
-          "note": "Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).",
-          "favours": "neither",
-          "reading": "",
-          "strength": "info",
-          "key": ""
+          "slot_index": 18,
+          "kept_form": "σάλπιγξιν",
+          "disregarded_forms": [
+            "σάλπιγξι"
+          ],
+          "witnesses": [
+            "Sixtine/Brenton"
+          ],
+          "reason": "Euphonic movable-nu (-ν) variation"
         }
       ],
+      "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation).",
+      "human_locked": false,
+      "analysis": [],
       "needs_review": false
     },
     {
@@ -5525,7 +5432,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -5667,7 +5576,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -5816,7 +5727,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -5844,7 +5757,7 @@
               "weight_sum": 0.0
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'ηὐφράνθη ὁ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over εὐφράνθη δ (Sixtine/Brenton). [Reading of an apparatus witness (a Majority or ecclesiastical edition): recorded here, it does not vote on the text.]",
+          "note": "[Variation unit spanning several words] Adopted 'ηὐφράνθη ὁ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over εὐφράνθη δ (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 1,
           "word_count": 2,
           "kind": "word",
@@ -5961,7 +5874,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [
         {
@@ -6029,7 +5944,7 @@
               "weight_sum": 0.84
             }
           ],
-          "note": "[Variation unit spanning several words] Adopted 'τῇ τρισκαιδεκάτῃ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τὴν τρισκαιδεκάτην (Sixtine/Brenton).",
+          "note": "[Variation unit spanning several words] Adopted 'τῇ τρισκαιδεκάτῃ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τὴν τρισκαιδεκάτην (Sixtine/Brenton). [Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).]",
           "word_index": 9,
           "word_count": 2,
           "kind": "word",
@@ -6122,7 +6037,9 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)"
+        "LXX-Orthodox (Οʹ)",
+        "Rahlfs (1935)",
+        "א (01) [CSP-OT]"
       ],
       "apparatus": [],
       "disregarded": [

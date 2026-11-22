@@ -1,6 +1,6 @@
 # Jeremiah 32 — Saints Hebrew Critical Text
 
-**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:46Z`
+**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:46Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -83,11 +92,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Jeremiah 32:1
+- **Apparatus:** `בַּשָּׁנָה֙` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(בשנת)` over `בשנת` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `בַּשָּׁנָה֙` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(בשנת) / *בִּשְׁנַת` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(בשנת) בַּשָּׁנָה֙ / בַּשָּׁנָת֙` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `בַּשָּׁנָה֙` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 
 ### Jeremiah 32:2
 - *Disregarded Surface Variant:* kept `יְרוּשָׁלָ֑‍ִם` over `יְרוּשָׁלִָ֑ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -98,7 +106,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 32:4
 - *Disregarded Surface Variant:* kept `עֵינָ֥ו` over `עינו` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עֵינָ֥ו / *עֵינוֹ (עֵינָ֥יו)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over ` / (עֵינָ֥יו)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Jeremiah 32:5
 - *Disregarded Surface Variant:* kept `פׇּקְדִ֥י` over `פָּקְדִ֥י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -107,9 +115,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Jeremiah 32:6
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Jeremiah 32:7
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּעֲנָת֔וֹת / בָּֽעֲנָת֔וֹת` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Jeremiah 32:8
 - *Disregarded Surface Variant:* kept `אֵ֠לַ֠י` over `אֵ֠לַי` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָה֮` over `יְהוָה֮` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -117,12 +122,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 32:9
 - *Disregarded Surface Variant:* kept `וָֽאֶשְׁקְלָה־` over `וָֽאֶשְׁקֲלָה־` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): shewa / hataf*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וָֽאֶשְׁקְלָה־ לּוֹ֙ / וָֽאֶשְׁקֲלָה־ לֹּו֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּעֲנָת֑וֹת וָֽאֶשְׁקְלָה־ / בַּֽעֲנָתֹ֑ת וָֽאֶשְׁקֲלָה־` (Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
 
 ### Jeremiah 32:12
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיֹּשְׁבִ֖ים / הַיּֽשְׁבִ֖ים` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:13
 - *Disregarded Surface Variant:* kept `וָאֲצַוֶּה֙` over `וָֽאֲצַוֶּה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -145,22 +147,19 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 32:18
 - *Disregarded Surface Variant:* kept `יְהֹוָ֥ה` over `יְהוָ֥ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַגִּבּ֔וֹר / הַגִּבֹּ֔ור`, `עֲוֺ֣ן / עֲֺו֣ן` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:19
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Jeremiah 32:20
 - *Disregarded Surface Variant:* kept `וּבָאָדָ֑ם` over `וּבָֽאָדָ֑ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּ֣וֹם / הַיֹּ֣ום`, `כַּיּ֥וֹם / כַּיֹּ֥ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:23
 - *Disregarded Surface Variant:* kept `(ובתרותך)` over `ובתרותך` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `וּבְתוֹרָתְךָ֣` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `וּבְתוֹרָתְךָ֣` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ובתרותך) / *וּבְתֹרוֹתֶךָ`, `לַעֲשׂ֖וֹת / לַעֲשֹׂ֖ות` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ובתרותך) וּבְתוֹרָתְךָ֣ / וּבְתֹרָֽותְךָ֣` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `(ובתרותך) / `, `(ובתרותך) / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Jeremiah 32:24
 - *Disregarded Surface Variant:* kept `לְלׇכְדָהּ֒` over `לְלָכְדָהּ֒` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -184,14 +183,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 32:29
 - *Disregarded Surface Variant:* kept `גַּגּוֹתֵיהֶ֜ם` over `גַּגּֽוֹתֵיהֶ֜ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `גַּגּוֹתֵיהֶ֜ם / גַּגֹּֽותֵיהֶ֜ם` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:30
 - *Disregarded Surface Variant:* kept `בְנֵי־` over `בְנֵֽי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָֽה׃` over `יְהוָֽה׃` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-
-### Jeremiah 32:31
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּוֹם֙ / הַיֹּום֙`, `הַיּ֣וֹם / הַיֹּ֣ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:32
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -199,7 +194,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `שָׂרֵיהֶ֔ם` over `שָֽׂרֵיהֶ֔ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וּנְבִיאֵיהֶ֑ם` over `וּנְבִֽיאֵיהֶ֑ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְרוּשָׁלָֽ‍ִם׃` over `יְרוּשָׁלִָֽם׃` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְיֹשְׁבֵ֖י / וְיֽשְׁבֵ֖י` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:34
 - *Disregarded Surface Variant:* kept `שִׁקּוּצֵיהֶ֗ם` over `שִׁקּֽוּצֵיהֶ֗ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -208,8 +202,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `לְ֠הַעֲבִ֠יר` over `לְ֠הַעֲבִיר` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לַמֹּ֒לֶךְ֒` over `לַמֹּלֶךְ֒` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `הַחֲטִ֥י` over `החטי` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לַעֲשׂ֖וֹת הַתּוֹעֵבָ֣ה / לַעֲשֹׂ֖ות הַתֹּועֵבָ֣ה` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַחֲטִ֥י / *הַחֲטִי (הַחֲטִ֥יא)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over ` / (הַחֲטִ֥יא)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Jeremiah 32:36
 - *Disregarded Surface Variant:* kept `כֹּה־` over `כֹּֽה־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -219,7 +212,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 32:37
 - *Disregarded Surface Variant:* kept `מִכׇּל־` over `מִכָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְהֹשַׁבְתִּ֖ים / וְהֽשַׁבְתִּ֖ים` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:39
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -233,7 +225,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַטּוֹבָ֔ה / הַטֹּובָ֔ה` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Jeremiah 32:44
 - *Disregarded Surface Variant:* kept `יְרוּשָׁלַ֗‍ִם` over `יְרוּשָׁלִַ֗ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -249,7 +240,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: הַדָּבָ֞ר אֲשֶׁר־הָיָ֤ה אֶֽל־יִרְמְיָ֙הוּ֙ מֵאֵ֣ת יְהוָ֔ה בשנת הָעֲשִׂרִ֔ית לְצִדְקִיָּ֖הוּ מֶ֣לֶךְ יְהוּדָ֑ה הִ֧יא הַשָּׁנָ֛ה שְׁמֹנֶֽה־עֶשְׂרֵ֥ה שָׁנָ֖ה לִנְבֽוּכַדְרֶאצַּֽר׃
   - `BenChayyim (1525)`: הַדָּבָ֞ר אֲשֶׁר־הָיָ֤ה אֶֽל־יִרְמְיָ֙הוּ֙ מֵאֵ֣ת יְהוָ֔ה *בִּשְׁנַת (בַּשָּׁנָה֙) הָעֲשִׂרִ֔ית לְצִדְקִיָּ֖הוּ מֶ֣לֶךְ יְהוּדָ֑ה הִ֧יא הַשָּׁנָ֛ה שְׁמֹנֶֽה־עֶשְׂרֵ֥ה שָׁנָ֖ה לִנְבֽוּכַדְרֶאצַּֽר׃
   - `Letteris (1852)`: הַדָּבָ֞ר אֲשֶׁ֨ר הָיָ֤ה אֶֽל־יִרְמְיָ֨הוּ֨ מֵאֵ֣ת יְהֹוָ֔ה בַּשָּׁנָת֙ הָֽעֲשִׂרִ֔ית לְצִדְקִיָּ֖הוּ מֶ֣לֶךְ יְהוּדָ֑ה הִ֧יא הַשָּׁנָ֛ה שְׁמֹנֶֽה־עֶשְׂרֵ֥ה שָׁנָ֖ה לִנְבֽוּכַדְרֶאצַּֽר׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וְאָ֗ז חֵ֚יל מֶ֣לֶךְ בָּבֶ֔ל צָרִ֖ים עַל־יְרוּשָׁלָ֑‍ִם וְיִרְמְיָ֣הוּ הַנָּבִ֗יא הָיָ֤ה כָלוּא֙ בַּחֲצַ֣ר הַמַּטָּרָ֔ה אֲשֶׁ֖ר בֵּֽית־מֶ֥לֶךְ יְהוּדָֽה׃
@@ -425,7 +416,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וַיָּבֹ֜אוּ וַיִּֽרְשׁ֣וּ אֹתָ֗הּ וְלֹֽא־שָׁמְע֤וּ בְקוֹלֶ֙ךָ֙ ובתרותך לֹא־הָלָ֔כוּ אֵת֩ כָּל־אֲשֶׁ֨ר צִוִּ֧יתָה לָהֶ֛ם לַעֲשׂ֖וֹת לֹ֣א עָשׂ֑וּ וַתַּקְרֵ֣א אֹתָ֔ם אֵ֥ת כָּל־הָרָעָ֖ה הַזֹּֽאת׃
   - `BenChayyim (1525)`: וַיָּבֹ֜אוּ וַיִּֽרְשׁ֣וּ אֹתָ֗הּ וְלֹֽא־שָׁמְע֤וּ בְקוֹלֶ֙ךָ֙ *וּבְתֹרוֹתֶךָ (וּבְתוֹרָתְךָ֣) לֹא־הָלָ֔כוּ אֵת֩ כָּל־אֲשֶׁ֨ר צִוִּ֧יתָה לָהֶ֛ם לַעֲשֹׂ֖ות לֹ֣א עָשׂ֑וּ וַתַּקְרֵ֣א אֹתָ֔ם אֵ֥ת כָּל־הָרָעָ֖ה הַזֹּֽאת׃
   - `Letteris (1852)`: וַיָּבֹ֜אוּ וַיִּֽרְשׁ֣וּ אֹתָ֗הּ וְלֹא־שָֽׁמְע֤וּ בְקוֹלֶ֨ךָ֙ וּבְתֹרָֽותְךָ֣ לֹא־הָלָ֔כוּ אֵת֩ כָּל־אֲשֶׁ֨ר צִוִּ֧יתָה לָהֶ֛ם לַעֲשׂ֖וֹת לֹ֣א עָשׂ֑וּ וַתַּקְרֵ֣א אֹתָ֔ם אֵ֥ת כָּל־הָרָעָ֖ה הַזֹּֽאת׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 
 ### Verse 24 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** הִנֵּ֣ה הַסֹּלְל֗וֹת בָּ֣אוּ הָעִיר֮ לְלׇכְדָהּ֒ וְהָעִ֣יר נִתְּנָ֗ה בְּיַ֤ד הַכַּשְׂדִּים֙ הַנִּלְחָמִ֣ים עָלֶ֔יהָ מִפְּנֵ֛י הַחֶ֥רֶב וְהָרָעָ֖ב וְהַדָּ֑בֶר וַאֲשֶׁ֥ר דִּבַּ֛רְתָּ הָיָ֖ה וְהִנְּךָ֥ רֹאֶֽה׃

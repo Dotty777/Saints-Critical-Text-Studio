@@ -916,14 +916,14 @@ class TestRealCorpus(unittest.TestCase):
 
     def test_coverage_messages_and_available_neighbours(self) -> None:
         for lang, book, ch, explanation in (
-            ("hebrew", "sirach", 1, "source-coverage gap"),
-            ("hebrew", "psalms", 151, "no chapter 151"),
+            ("hebrew", "sirach", 2, "No extant Hebrew manuscript"),
             ("latin", "psalms", 151, "no chapter 151"),
         ):
             with self.assertRaisesRegex(LookupError, explanation):
                 self.engine.build_collation(lang, book, ch)
         for lang, book, ch in (("greek", "psalms", 151), ("greek", "proverbs", 30), ("greek", "proverbs", 31),
-                               ("hebrew", "psalms", 150), ("latin", "psalms", 150)):
+                               ("hebrew", "psalms", 150), ("hebrew", "psalms", 151),
+                               ("hebrew", "sirach", 42), ("latin", "psalms", 150)):
             self.assertTrue(self.engine.build_collation(lang, book, ch)["collated"])
 
     def test_new_coverage_is_not_blocked_by_known_gap_explanation(self) -> None:
@@ -1023,7 +1023,8 @@ class TestRealCorpus(unittest.TestCase):
         readings = [x["reading"] for v in res["verses"] for a in v["apparatus"] for x in a["variants"]]
         self.assertTrue(all("(= " in r for r in readings if chr(0x305) in r), "contracted names are shown expanded")
         self.assertFalse([r for r in readings if "|" in r or "$" in r], "MES markup leaked into readings")
-        self.assertLess(sum(len(v["apparatus"]) for v in res["verses"]), 60)
+        self.assertLess(sum(1 for v in res["verses"] for a in v["apparatus"] if a["slot_index"] != -1), 60)
+        self.assertLess(sum(len(v["apparatus"]) for v in res["verses"]), 100)
 
     def test_byzantine_witness_is_loaded_for_every_nt_book(self) -> None:
         res = self.engine.collate_and_adjudicate("greek", "matthew", 1)
@@ -1047,8 +1048,9 @@ class TestRealCorpus(unittest.TestCase):
         self.assertEqual(heb["verse_count"], 31)
         self.assertTrue(self.verse(heb, 1)["critical_text"].startswith(nfc("בְּרֵאשִׁ֖ית")))
         # Once conventions (qamats qatan, divine-name pointing, paragraph marks) are normalised, the only
-        # differences left between MAM (Aleppo) and WLC (Leningrad) in Genesis 1 are real pointing differences.
-        notes = [a["note"] for v in heb["verses"] for a in v["apparatus"]]
+        # voting differences left between MAM (Aleppo) and WLC (Leningrad) in Genesis 1 are real pointing differences
+        # (apparatus-only Samaritan Pentateuch variants carry slot_index == -1).
+        notes = [a["note"] for v in heb["verses"] for a in v["apparatus"] if a["slot_index"] >= 0]
         self.assertLessEqual(len(notes), 2, notes)
         self.assertTrue(all("Vocalisation" in n for n in notes), notes)
         gen8 = self.engine.collate_and_adjudicate("hebrew", "genesis", 8)
@@ -1062,8 +1064,12 @@ class TestRealCorpus(unittest.TestCase):
         g50 = self.engine.collate_and_adjudicate("latin", "genesis", 50)
         self.assertNotIn("explicit", self.verse(g50, 26)["critical_text"])
         lam1 = self.engine.collate_and_adjudicate("latin", "lamentations", 1)
-        self.assertEqual(self.verse(lam1, 1)["apparatus"], [], "acrostic and prologue formatting inside Clementine/Sixtine is not a variant")
-        self.assertLessEqual(lam1["variant_verse_count"], 2, "only real VulgSistina 1590 variants (e.g. Iuda vs Judas in 1:3) appear")
+        non_stut = [a for a in self.verse(lam1, 1)["apparatus"]
+                    if not all(w == "Stuttgart-BSV" for x in a["variants"] for w in x["witnesses"])]
+        self.assertEqual(non_stut, [], "acrostic and prologue formatting inside Clementine/Sixtine is not a variant")
+        self.assertTrue(any("Stuttgart-BSV" in x["witnesses"] and x["reading"] == "om."
+                            for a in self.verse(lam1, 1)["apparatus"] for x in a["variants"]),
+                        "Stuttgart-BSV genuinely omits the LXX/Clementine Lamentations prologue")
 
     def test_adopt_variant_is_positional_and_locks(self) -> None:
         res = self.engine.collate_and_adjudicate("greek", "matthew", 1)
@@ -1205,7 +1211,7 @@ class TestRealCorpus(unittest.TestCase):
         lev11 = self.engine.collate_and_adjudicate("hebrew", "leviticus", 11)
         v42 = self.verse(lev11, 42)
         self.assertNotIn("'", v42["witness_readings"]["WLC (L)"])
-        self.assertEqual(v42["apparatus"], [])
+        self.assertEqual([a for a in v42["apparatus"] if a["slot_index"] >= 0], [])
 
     def test_latin_restored_verses_and_editorial_cleanup(self) -> None:
         jhn6 = self.engine.collate_and_adjudicate("latin", "john", 6)
@@ -1259,12 +1265,12 @@ class TestRealCorpus(unittest.TestCase):
         self.assertTrue(v2["witness_readings"]["BenChayyim (1525)"].split()[1].endswith("א"))
         self.assertTrue(v2["disregarded"] or v2["apparatus"])
 
-        # 4. Latin OT/NT: Hetzenauer (1906), Conte (2009), Sixtine (1590), plus Stuttgart quarantined
+        # 4. Latin OT/NT: Hetzenauer (1906), Conte (2009), Sixtine (1590), plus Stuttgart-BSV as apparatus-only
         lat_gen1 = self.engine.collate_and_adjudicate("latin", "genesis", 1)
         v2_lat = self.verse(lat_gen1, 2)
-        for sig in ("VulgHetzenauer (1906)", "VulgConte (2009)", "VulgSistina (1590)"):
+        for sig in ("VulgHetzenauer (1906)", "VulgConte (2009)", "VulgSistina (1590)", "Stuttgart-BSV"):
             self.assertIn(sig, v2_lat["witness_readings"])
-        self.assertNotIn("Stuttgart-BSV [QUARANTINED]", v2_lat["witness_readings"])
+        self.assertIn("Stuttgart-BSV", v2_lat["apparatus_witnesses"])
         self.assertTrue(any("Domini" in x["reading"] for a in v2_lat["apparatus"] for x in a["variants"]))
 
     def test_majority_editions_are_apparatus_witnesses_that_never_vote(self) -> None:
@@ -1292,6 +1298,83 @@ class TestRealCorpus(unittest.TestCase):
         # The Hetzenauer/Conte files lack Lamentations' prologue: not recorded as their omission.
         lam1 = self.verse(self.engine.collate_and_adjudicate("latin", "lamentations", 1), 1)
         self.assertFalse(any("VulgHetzenauer (1906)" in v["witnesses"] for a in lam1["apparatus"] for v in a["variants"]))
+
+    def test_newly_wired_historic_editions_early_mss_and_amiatinus_nt(self) -> None:
+        from studio.catalog import APPARATUS_ONLY, BOOKS_BY_SLUG
+        from studio.parsers import _clean_intf_ab_fragment, load_book_from_witness
+
+        # 1. INTF TEI-NTMSS unit check: first-hand <rdg type="orig"> only, nomina sacra, numerals, <ex>, lacunae
+        frag = (
+            '<w>βιβλος</w> <w><abbr type="nomSac"><hi rend="overline">ιυ</hi></abbr></w> '
+            '<w><abbr type="num"><hi rend="overline">ιβ</hi></abbr></w> '
+            '<w><abbr type="num"><hi rend="overline">ουνον</hi></abbr></w> '
+            '<w>ιακωβ<ex>ου</ex></w> '
+            '<app><rdg type="orig" hand="firsthand"><w>γενομαι</w></rdg>'
+            '<rdg type="corr" hand="corrector"><w>γενωμαι</w></rdg></app> '
+            '<w><supplied reason="lacuna">χαρις</supplied></w>'
+        )
+        cleaned = _clean_intf_ab_fragment(frag)
+        self.assertEqual(cleaned, "βιβλος ιυ\u0305 ιβ\u02b9 ουνον\u0305 ιακωβου γενομαι […]")
+
+        # 2. Greek NT: WH1881, Tisch8, TR-Stephanus (1550), CNTR early papyri/uncials, INTF NTVMR MSS
+        for wid in (
+            "grk-nt-wh1881", "grk-nt-tisch8", "grk-nt-tr-stephanus",
+            "grk-nt-cntr-02", "grk-nt-cntr-04", "grk-nt-cntr-05", "grk-nt-cntr-032",
+            "grk-nt-cntr-p45", "grk-nt-cntr-p46", "grk-nt-cntr-p47", "grk-nt-cntr-p52",
+            "grk-nt-cntr-p66", "grk-nt-cntr-p72", "grk-nt-cntr-p75",
+            "grk-nt-intf-019", "grk-nt-intf-038", "grk-nt-intf-33", "grk-nt-intf-1739",
+            "grk-nt-intf-1", "grk-nt-intf-13", "lat-amiatinus-nt",
+        ):
+            self.assertIn(wid, APPARATUS_ONLY)
+
+        # Matthew 1: Bezae (05), Koridethi (038), Regius (019), Washingtonianus (032), Ephraemi (04), 1 (f¹), 33, WH1881, Tisch8, TR-Stephanus
+        m1 = self.engine.collate_and_adjudicate("greek", "matthew", 1)
+        v22 = self.verse(m1, 22)
+        for sig in ("WH1881", "Tisch8", "TR-Stephanus (1550)", "C (04)", "D (05)", "W (032)", "L (019)", "33", "1 (f¹)"):
+            self.assertIn(sig, v22["witness_readings"])
+        self.assertTrue(any("ησαιου" in x["reading"] and "D (05)" in x["witnesses"]
+                            for a in v22["apparatus"] for x in a["variants"]))
+        # D (05) opens mid-verse in Matt 1:20 (edge lacuna): must NOT be recorded as omitting earlier words
+        v20 = self.verse(m1, 20)
+        self.assertFalse(any(x["reading"] == "om." and "D (05)" in x["witnesses"] and a["lemma"] in ("Ἰωσὴφ", "φοβηθῇς")
+                             for a in v20["apparatus"] for x in a["variants"]))
+
+        # John 18: 𝔓52 (Rylands fragment) + 𝔓66 (Bodmer II) + A (02)
+        j18 = self.engine.collate_and_adjudicate("greek", "john", 18)
+        v31 = self.verse(j18, 31)
+        self.assertIn("𝔓52", v31["witness_readings"])
+        self.assertIn("𝔓66", v31["witness_readings"])
+        self.assertIn("A (02)", v31["witness_readings"])
+
+        # Acts 1 (1739), Mark 1 (13 f¹³, Θ 038), Romans 8 (𝔓46), Revelation 7 (Stephanus $ numeral cleaned)
+        act1 = self.engine.collate_and_adjudicate("greek", "acts", 1)
+        self.assertIn("1739", self.verse(act1, 1)["witness_readings"])
+        mrk1 = self.engine.collate_and_adjudicate("greek", "mark", 1)
+        self.assertIn("13 (f¹³)", self.verse(mrk1, 1)["witness_readings"])
+        self.assertIn("Θ (038)", self.verse(mrk1, 1)["witness_readings"])
+        rom8 = self.engine.collate_and_adjudicate("greek", "romans", 8)
+        self.assertIn("𝔓46", self.verse(rom8, 18)["witness_readings"])
+        rev7 = self.engine.collate_and_adjudicate("greek", "revelation", 7)
+        self.assertNotIn("$", self.verse(rev7, 4)["witness_readings"]["TR-Stephanus (1550)"])
+
+        # 1 Peter 1 (𝔓72), Luke 11 (𝔓45, 𝔓75), Revelation 13 (𝔓47)
+        self.assertIn("𝔓72", self.verse(self.engine.collate_and_adjudicate("greek", "1-peter", 1), 1)["witness_readings"])
+        self.assertIn("𝔓75", self.verse(self.engine.collate_and_adjudicate("greek", "luke", 11), 2)["witness_readings"])
+        self.assertIn("𝔓45", self.verse(self.engine.collate_and_adjudicate("greek", "luke", 11), 11)["witness_readings"])
+        self.assertIn("𝔓47", self.verse(self.engine.collate_and_adjudicate("greek", "revelation", 13), 18)["witness_readings"])
+
+        # 3. Latin NT: Codex Amiatinus full 27-book TEI (including single-chapter Philemon / 1 John 5:7-8)
+        am_nt = next(w for w in self.engine.list_witnesses("latin") if w["id"] == "lat-amiatinus-nt")
+        phm = load_book_from_witness(am_nt, BOOKS_BY_SLUG["philemon"])
+        self.assertEqual(len(phm.get(1, {})), 25)
+        self.assertIn("Paulus", phm[1][1])
+        j1_5 = self.engine.collate_and_adjudicate("latin", "1-john", 5)
+        v7_lat = self.verse(j1_5, 7)
+        self.assertIn("Amiatinus (A)", v7_lat["witness_readings"])
+        self.assertIn("Amiatinus (A)", v7_lat["apparatus_witnesses"])
+        # Amiatinus lacks the Comma Johanneum (recorded in apparatus; Clementine NT text stays intact)
+        self.assertIn("cælo", v7_lat["critical_text"])
+        self.assertTrue(any("Amiatinus (A)" in x["witnesses"] for a in v7_lat["apparatus"] for x in a["variants"]))
 
     def test_orthodox_septuagint_file_cleanup(self) -> None:
         from studio.catalog import BOOKS_BY_SLUG, WITNESS_BOOK_EXCLUSIONS
@@ -1336,6 +1419,68 @@ class TestRealCorpus(unittest.TestCase):
         luk2 = self.engine.collate_and_adjudicate("greek", "luke", 2)
         self.assertIn("(αὕτη", self.verse(luk2, 36)["critical_text"])
         self.assertIn("τεσσάρων,)", self.verse(luk2, 37)["critical_text"])
+
+    def test_v9_phase1_to_3_and_study_witnesses(self) -> None:
+        from studio.catalog import APPARATUS_ONLY
+        # Every Tier 5 / study-only witness stays strictly APPARATUS_ONLY (never votes in critical_text)
+        for wid in (
+            "grk-quarantine-rahlfs", "grk-quarantine-pickering", "grk-quarantine-sinaiticus-xml",
+            "grk-nt-na28-tagnt", "grk-nt-thgnt-tagnt", "grk-nt-tregelles1879", "grk-nt-tr-elzevir",
+            "grk-nt-zacynthius-040", "grk-nt-igntp-06", "grk-nt-igntp-010", "grk-nt-igntp-012",
+            "heb-bhsa-bhs", "heb-samaritan-tf", "heb-dss-1qisaa", "heb-dss-1qisab",
+            "heb-dss-4qsama", "heb-dss-11qpsa", "heb-dss-torah",
+            "lat-quarantine-stuttgart", "lat-psalter-pianum", "lat-nt-vl5-bezae",
+            "lat-nt-vl75", "lat-nt-vl2-john",
+        ):
+            self.assertIn(wid, APPARATUS_ONLY)
+
+        # 1. Greek OT: Rahlfs 1935 (exact verse index, zero drift past Hosea), Sinaiticus OT, Ottley Isaiah, OG Daniel
+        isa7 = self.verse(self.engine.collate_and_adjudicate("greek", "isaiah", 7), 14)
+        self.assertTrue(isa7["witness_readings"]["Rahlfs (1935)"].startswith("διὰ τοῦτο δώσει κύριος"))
+        self.assertIn("παρθενοϲ", isa7["witness_readings"]["א (01) [CSP-OT]"])
+        self.assertNotIn("<", isa7["witness_readings"]["A-Ottley (Isaiah)"])
+        dan7 = self.verse(self.engine.collate_and_adjudicate("greek", "daniel", 7), 13)
+        self.assertIn("OG-Daniel", dan7["witness_readings"])
+        self.assertIn("Rahlfs (1935)", dan7["witness_readings"])
+
+        # 2. Greek NT: NA28 vs THGNT (John 1:18), Tregelles, Pickering f35, Elzevir, Zacynthius (040), IGNTP Paul
+        jhn1 = self.verse(self.engine.collate_and_adjudicate("greek", "john", 1), 18)
+        self.assertIn("μονογενὴς θεὸς", jhn1["witness_readings"]["NA28 (TAGNT)"])
+        self.assertIn("μονογενὴς υἱὸς", jhn1["witness_readings"]["THGNT"])
+        for sig in ("Tregelles (1879)", "Pickering-f35", "TR-Elzevir (1624)", "Δ (037)"):
+            self.assertIn(sig, jhn1["witness_readings"])
+        luk1 = self.verse(self.engine.collate_and_adjudicate("greek", "luke", 1), 2)
+        self.assertIn("αυτοπται", luk1["witness_readings"]["Ξ (040)"])
+        eph1 = self.verse(self.engine.collate_and_adjudicate("greek", "ephesians", 1), 1)
+        for sig in ("Dᵖ (06)", "Fᵖ (010)", "Gᵖ (012)", "Ψ (044)", "33", "81", "1739", "1881"):
+            self.assertIn(sig, eph1["witness_readings"])
+
+        # 3. Hebrew OT: BHS, Samaritan Pentateuch, DSS (1QIsaᵃ/ᵇ, 4QSamᵃ, 4QDeutq, 11QPsᵃ Ps 151), Ben Sira
+        gen4 = self.verse(self.engine.collate_and_adjudicate("hebrew", "genesis", 4), 8)
+        self.assertIn("נלכה השדה", gen4["witness_readings"]["SP (Samaritan)"])
+        self.assertIn("BHS (BHSA)", gen4["witness_readings"])
+        isa53 = self.verse(self.engine.collate_and_adjudicate("hebrew", "isaiah", 53), 11)
+        self.assertIn("יראה אור", isa53["witness_readings"]["1QIsaᵃ"])
+        self.assertIn("יראה אור", isa53["witness_readings"]["1QIsaᵇ (1Q8)"])
+        deu32 = self.verse(self.engine.collate_and_adjudicate("hebrew", "deuteronomy", 32), 43)
+        self.assertIn("כל אלהים", deu32["witness_readings"]["DSS-Torah (4Q)"])
+        ps151 = self.verse(self.engine.collate_and_adjudicate("hebrew", "psalms", 151), 1)
+        self.assertIn("מן אחי", ps151["critical_text"])
+        sir42 = self.verse(self.engine.collate_and_adjudicate("hebrew", "sirach", 42), 15)
+        self.assertIn("Mas1h", sir42["witness_readings"])
+        self.assertIn("BenSira-B", sir42["witness_readings"])
+        sir32 = self.verse(self.engine.collate_and_adjudicate("hebrew", "sirach", 32), 1)
+        self.assertTrue(sir32["witness_readings"]["BenSira-B"].startswith("היה להם"))
+
+        # 4. Latin OT & NT: Pianum Psalter, Bezae Latin (VL 5), Vetus Latina John (VL 2–15), COMPAUL Paul
+        ps1 = self.verse(self.engine.collate_and_adjudicate("latin", "psalms", 1), 1)
+        self.assertIn("Psalt-Pianum (1945)", ps1["witness_readings"])
+        jhn3 = self.verse(self.engine.collate_and_adjudicate("latin", "john", 3), 16)
+        for sig in ("Stuttgart-BSV", "VL 5 (d)", "VL 2 (e)", "VL 8 (ff²)", "VL 14 (r¹)"):
+            self.assertIn(sig, jhn3["witness_readings"])
+        rom8 = self.verse(self.engine.collate_and_adjudicate("latin", "romans", 8), 28)
+        for sig in ("VL 75 (d)", "VL 77 (g)", "VL 89", "AMst", "PEL"):
+            self.assertIn(sig, rom8["witness_readings"])
 
 
 class TestOpenAIReview(unittest.TestCase):
@@ -1656,6 +1801,528 @@ class TestOpenAIReview(unittest.TestCase):
         # Leave the shared sandbox chapter in its baseline state for unrelated tests.
         engine.config = BrainConfig()
         engine.collate_and_adjudicate("latin", "genesis", 1, preserve_human_locks=False)
+
+
+@unittest.skipUnless(HAVE_CORPORA, "research corpora not present")
+class TestV9AccuracyAuditRepairs(unittest.TestCase):
+    """Regressions for the 21 Nov 2026 full 91,869-verse accuracy audit across all 4 corpora."""
+
+    @classmethod
+    def setUpClass(cls):
+        from studio.engine import CriticalTextEngine
+        cls.engine = CriticalTextEngine()
+        cls.engine.config = BrainConfig(provider_id="textual_analysis", offline_locked=True)
+
+    @classmethod
+    def tearDownClass(cls):
+        from studio.brains import textual_analysis as _ta
+        _ta._PARALLELS = _ta.ParallelIndex()
+
+    def _gen(self, lang: str, book: str, ch: int):
+        res = self.engine.collate_and_adjudicate(lang, book, ch, preserve_human_locks=False)
+        return {v["verse"]: v["critical_text"] for v in res["verses"]}
+
+    def test_greek_ot_ocr_and_homoeoteleuton_repairs(self):
+        # Sirach 24:34: ἅποσιν OCR slip masked; emphatic ἅπασιν preserved (not misread as πᾶσιν)
+        s24 = self._gen("greek", "sirach", 24)
+        self.assertIn("ἀλλ᾽ ἅπασιν", s24[34])
+        self.assertNotIn("ἅποσιν", s24[34])
+        # 1 Chr 6: τπερισπόρια & φυγαδευτρηίων OCR/keying typos removed
+        c6 = self._gen("greek", "1-chronicles", 6)
+        self.assertIn("περισπόρια", c6[54])
+        all_c6 = " ".join(c6.values())
+        self.assertNotIn("τπερισπόρια", all_c6)
+        self.assertNotIn("φυγαδευτρηίων", all_c6)
+        # 1 Kgs 12:24m: Amicarelli 10-word homoeoteleuton skip & 3 OCR typos restored
+        k12 = self._gen("greek", "1-kings", 12)
+        self.assertIn("Ἵνα τί μοι ἐνήνοχας ἄρτους καὶ σταφυλὴν καὶ κολλύρια καὶ στάμνον μέλιτος;", k12[24])
+        # Judges 19:2: single-letter numeral δ᾽ (= 4) never turned into δὲ before consonant
+        j19 = self._gen("greek", "judges", 19)
+        self.assertIn("δ᾽ μηνῶν", j19[2])
+
+    def test_greek_nt_elision_bridging_and_polytonic_repairs(self):
+        # Hebrews 12:15: elided preposition harmonised before consonant-initial ταύτης
+        heb12 = self._gen("greek", "hebrews", 12)
+        self.assertIn("διὰ ταύτης", heb12[15])
+        self.assertNotIn("διʼ ταύτης", heb12[15])
+        # Revelation 16:3: 1-agreed-slot attested-run bridge removes unattested hybrid 'ζῶσα [ἀπέθανεν] τὰ'
+        rev16 = self._gen("greek", "revelation", 16)
+        self.assertIn("ψυχὴ ζωῆς ἀπέθανεν τὰ", rev16[3])
+        # Bracketed NT polytonic typos repaired (KJTR Acts 8:37, 24:7, Luke 17:36; SBLGNT John 8:3)
+        a8 = self._gen("greek", "acts", 8)[37]
+        for good in ("Εἶπε", "τῆς", "εἶπε", "Υἱὸν", "εἶναι"):
+            self.assertIn(good, a8)
+        for bad in ("Εἰπε", "τὴς", "εἷπε", "Ὑιὸν", "ἐιναι"):
+            self.assertNotIn(bad, a8)
+        self.assertIn("ὁ χιλίαρχος,", self._gen("greek", "acts", 24)[7])
+        self.assertIn("ὁ εἷς", self._gen("greek", "luke", 17)[36])
+        self.assertIn("καταληφθεῖσαν", self._gen("greek", "john", 8)[3])
+
+    def test_tagnt_and_bhsa_apparatus_parser_repairs(self):
+        from studio.catalog import BOOKS_BY_SLUG
+        from studio.parsers import load_chapter_from_witness
+        grk = {w["id"]: w for w in self.engine.list_witnesses("greek")}
+        heb = {w["id"]: w for w in self.engine.list_witnesses("hebrew")}
+        thgnt = grk.get("grk-nt-thgnt-tagnt")
+        if thgnt:
+            c8 = load_chapter_from_witness(thgnt, BOOKS_BY_SLUG["1-corinthians"], 8)[8]
+            self.assertNotIn("¶", c8)
+            self.assertLess(c8.find("περισσεύομεν"), c8.find("ὑστερούμεθα"))
+            c13 = load_chapter_from_witness(thgnt, BOOKS_BY_SLUG["1-corinthians"], 13)[3]
+            self.assertIn("ἵνα καυθήσομαι", c13)
+            self.assertNotIn("|", c13)
+        bhsa = next((w for wid, w in heb.items() if "bhsa" in wid.lower()), None)
+        if bhsa:
+            d2 = load_chapter_from_witness(bhsa, BOOKS_BY_SLUG["deuteronomy"], 2)[8]
+            n10 = load_chapter_from_witness(bhsa, BOOKS_BY_SLUG["numbers"], 10)[35]
+            for marker in (" ס ", " פ ", " נ "):
+                self.assertNotIn(marker, d2)
+                self.assertNotIn(marker, n10)
+
+    def test_latin_sirach_and_genesis_repairs(self):
+        # Latin Sirach 29:13: sole truncated verse in the 34,446-verse Latin Bible restored from Clem1598-USFX
+        s29 = self._gen("latin", "sirach", 29)
+        self.assertEqual(s29[13], "Super scutum potentis et super lanceam adversus inimicum tuum pugnabit.")
+        # Latin Genesis 5: Roman numerals normalised to spelled-out Latin numbers
+        g5 = self._gen("latin", "genesis", 5)
+        self.assertIn("centum triginta", g5[3])
+        self.assertIn("nongenti triginta", g5[5])
+        self.assertIn("octingentis septem", g5[7])
+        self.assertIn("nongenti decem", g5[14])
+        self.assertIn("octingenti nonaginta quinque", g5[17])
+        # Gen 7:5 double-pronoun conflation removed; Gen 12:7 & 26:12 vowel-u verbs untouched
+        self.assertNotIn("ei Dominus illi", self._gen("latin", "genesis", 7)[5])
+        self.assertIn("Apparuitque", self._gen("latin", "genesis", 12)[7])
+        self.assertIn("Seruit", self._gen("latin", "genesis", 26)[12])
+        # Gen 14, 15, 30, 36, 39, 44: e-caudata, safe u→v, proper-name capitalisation, broken XML word
+        self.assertIn("servierant Godorlahomor", self._gen("latin", "genesis", 14)[4])
+        self.assertIn("Cetmonæos", self._gen("latin", "genesis", 15)[19])
+        g30 = self._gen("latin", "genesis", 30)
+        self.assertIn("fulvum", g30[32])
+        self.assertIn("fulva", g30[33])
+        g36 = self._gen("latin", "genesis", 36)
+        self.assertIn("Omor", g36[15])
+        self.assertIn("Sephum", g36[15])
+        self.assertIn("Horrei et Theman", g36[22])
+        self.assertIn("Alvam", g36[23])
+        self.assertIn("hebræum", self._gen("latin", "genesis", 39)[14])
+        self.assertIn("parvum", self._gen("latin", "genesis", 44)[25])
+
+
+class TestPhase2ZeroScuffAudit(unittest.TestCase):
+    """Regression tests for every Phase 2 P0/P1 fix and every Verifier anti-scuff safeguard."""
+
+    def test_p0_2_pivot_prefers_gap_free_witness_and_replace_guard(self) -> None:
+        # Without pivot_preference, prefer a complete witness free of GAP_WORD over a heavier gapped witness
+        cv = align_witnesses_for_verse(
+            13,
+            {
+                "Amiatinus (A)": "sicut facere ante […]",
+                "Clem1598-USFX": "sicut ante facere consueveras.",
+            },
+            {"Amiatinus (A)": 0.97, "Clem1598-USFX": 0.88},
+            "latin",
+        )
+        brain = OfflinePhilologicalBrain()
+        adj = brain._adjudicate_single_verse("latin", cv)
+        self.assertIn("consueveras.", adj.critical_text)
+        self.assertNotIn("[…]", adj.critical_text)
+
+        # Gen 1:29 & Gen 9:19 GAP_WORD replace-block guards (zero dropped words)
+        cv129 = align_witnesses_for_verse(
+            29,
+            {
+                "Clem1598-USFX": "in semetipsis sementem generis sui",
+                "Amiatinus (A)": "in semet ipsis […] generis sui",
+            },
+            {"Clem1598-USFX": 0.88, "Amiatinus (A)": 0.97},
+            "latin",
+            pivot_preference=["Clem1598-USFX"],
+        )
+        adj129 = brain._adjudicate_single_verse("latin", cv129)
+        self.assertIn("semet", adj129.critical_text)
+        self.assertIn("ipsis", adj129.critical_text)
+        self.assertIn("sementem", adj129.critical_text)
+
+        cv919 = align_witnesses_for_verse(
+            19,
+            {
+                "Clem1598-USFX": "disseminatum est omne genus hominum super terram.",
+                "Amiatinus (A)": "disseminatum est […] hominum genus super terram",
+            },
+            {"Clem1598-USFX": 0.88, "Amiatinus (A)": 0.97},
+            "latin",
+            pivot_preference=["Clem1598-USFX"],
+        )
+        adj919 = brain._adjudicate_single_verse("latin", cv919)
+        self.assertIn("omne hominum genus", adj919.critical_text)
+
+    def test_p0_5_latin_base_spelling_distinct_guard(self) -> None:
+        # Gen 30:26: habeam vs abeam must never collapse into self-contradicting 'abeam vs abeam'
+        cv = align_witnesses_for_verse(
+            26,
+            {
+                "Clem1598-USFX": "pro quibus servivi tibi, ut abeam:",
+                "Amiatinus (A)": "pro quibus seruiui tibi ut habeam",
+            },
+            {"Clem1598-USFX": 0.88, "Amiatinus (A)": 0.97},
+            "latin",
+            pivot_preference=["Clem1598-USFX"],
+        )
+        cv.base_siglum = "Clem1598-USFX"
+        adj = OfflinePhilologicalBrain()._adjudicate_single_verse("latin", cv)
+        self.assertIn("ut habeam:", adj.critical_text)
+        self.assertTrue(any(a.lemma == "habeam" and any(v["reading"] == "abeam" for v in a.variants) for a in adj.apparatus))
+
+    def test_p0_7b_and_hebrew_p1_h1_to_h5_and_safeguards(self) -> None:
+        from studio.collator import is_biblical_aramaic_verse
+
+        # P0-7b: duplicate qamats after U+05C7 -> U+05B8 (Num 11:32, Jer 28:4)
+        self.assertEqual(canonical_compare_key("הַֽמָׇּחֳרָ֗ת", "hebrew"), canonical_compare_key("הַֽמָּחֳרָ֗ת", "hebrew"))
+        self.assertEqual(canonical_compare_key("יְ֠הוּדָׇ֠ה", "hebrew"), canonical_compare_key("יְ֠הוּדָה", "hebrew"))
+
+        # P1-H1: Pre-merge Ketiv/Qere in BOTH orders + zero 0.99^n penalty on multi-K/Q verse
+        cv_kq = align_witnesses_for_verse(
+            23,
+            {
+                "MAM (Aleppo)": "אֶל־נָי֖וֹת (נוית) בָּרָמָ֑ה עַד־בֹּא֖וֹ (בנוית) בְּנָי֥וֹת בָּרָמָֽה׃",
+                "WLC (L)": "אֶל־נוית בָּרָמָ֑ה עַד־בֹּא֖וֹ בנוית בָּרָמָֽה׃",
+            },
+            {"MAM (Aleppo)": 0.98, "WLC (L)": 0.96},
+            "hebrew",
+            pivot_preference=["MAM (Aleppo)"],
+        )
+        cv_kq.base_siglum = "MAM (Aleppo)"
+        adj_kq = OfflinePhilologicalBrain()._adjudicate_single_verse("hebrew", cv_kq)
+        self.assertEqual(adj_kq.apparatus, [])
+        self.assertEqual(adj_kq.confidence, 0.99)
+
+        # P1-H2: word division + boundary silent shewa
+        self.assertTrue(is_orthographic_equivalence(["רַבְשָׁקֵה", "רַב שָׁקֵה"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["פַּת בַּג", "פַּתְבַּג"], "hebrew")[0])
+
+        # P1-H3: consonantal vav dagesh vs shuruq safeguard + -ֶינָה/-ֶנָה vs -ֶךָ/-ֶיךָ safeguard
+        self.assertTrue(is_orthographic_equivalence(["וּפֻוָ֖ה", "וּפֻוָּ֖ה"], "hebrew")[0])
+        self.assertFalse(is_orthographic_equivalence(["וּמִשׇּׁמְר֤וֹ", "וּמִשָּׁמְר֤וּ"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["תַעֲשֶׂ֥נָה", "תַעֲשֶׂ֥ינָה"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["רִאישֹׁנָֽה", "רִיאשֹׁנָֽה"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["מֵחַטֹּ֧את", "מֵחַטֹּ֧אות"], "hebrew")[0])
+        # VERIFIER SAFEGUARD: NEVER fold -ֶךָ / -ֶיךָ or -ֶהָ / -ֶיהָ pronominal suffix yods!
+        self.assertFalse(is_orthographic_equivalence(["אֹיְבֶ֗ךָ", "אֹיְבֶ֗יךָ"], "hebrew")[0])
+        self.assertFalse(is_orthographic_equivalence(["גְּדוּדֶ֑הָ", "גְּדוּדֶ֑יהָ"], "hebrew")[0])
+
+        # P1-H4: Qere Perpetuum הִוא/הִיא, Decalogue double-vocalisation, Jerusalem, Gen 4:18 adjacent-yod
+        self.assertTrue(is_orthographic_equivalence(["וְהִ֣וא", "וְהִ֣יא"], "hebrew")[0])
+        self.assertFalse(is_orthographic_equivalence(["הוּא", "הִיא"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["מִתַָּ֑֜חַת", "מִתָּ֑חַת"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["יְרוּשָׁלָ֔‍ִם", "יְרוּשָׁלִַ֔ם"], "hebrew")[0])
+        self.assertTrue(is_orthographic_equivalence(["וּמְחִיָּיאֵ֗ל", "וּמְחִיּיָאֵ֗ל"], "hebrew")[0])
+
+        # P1-H5 VERIFIER SAFEGUARD: Biblical Aramaic -א/-ה ONLY in Aramaic pericopes, NEVER in Hebrew, NEVER with mappiq!
+        self.assertTrue(is_biblical_aramaic_verse("daniel", 2, 18))
+        self.assertTrue(is_biblical_aramaic_verse("ezra", 5, 3))
+        self.assertTrue(is_biblical_aramaic_verse("genesis", 31, 47))
+        self.assertTrue(is_biblical_aramaic_verse("jeremiah", 10, 11))
+        self.assertFalse(is_biblical_aramaic_verse("genesis", 1, 1))
+        self.assertFalse(is_biblical_aramaic_verse("daniel", 1, 8))
+        self.assertFalse(is_biblical_aramaic_verse("daniel", 8, 1))
+        self.assertFalse(is_biblical_aramaic_verse("", 0, 0))
+        # Dan 2:18 Aramaic: orthographic when is_aramaic=True, substantive when is_aramaic=False
+        self.assertTrue(is_orthographic_equivalence(["רָזָ֖א", "רָזָ֖ה"], "hebrew", is_aramaic=True)[0])
+        self.assertFalse(is_orthographic_equivalence(["רָזָ֖א", "רָזָ֖ה"], "hebrew", is_aramaic=False)[0])
+        # Hebrew III-Alef vs III-He (קָרָא vs קָרָה) in Genesis MUST stay substantive!
+        cv_heb = align_witnesses_for_verse(
+            1, {"MAM (Aleppo)": "קָרָא", "WLC (L)": "קָרָה"},
+            {"MAM (Aleppo)": 0.98, "WLC (L)": 0.96}, "hebrew", book_slug="genesis", chapter=1,
+        )
+        self.assertTrue(any(s.kind == "substantive_variant" for s in cv_heb.slots))
+        # Dan 3:29 mappiq (אֱלָהּ vs אֱלָה) MUST stay substantive even inside Aramaic pericope!
+        self.assertFalse(is_orthographic_equivalence(["אֱלָ֣הּ", "אֱלָ֣ה"], "hebrew", is_aramaic=True)[0])
+
+    def test_greek_p1_g1_to_g7_and_safeguards(self) -> None:
+        from studio.brains.textual_analysis import TextualAnalysisBrain
+
+        # P1-G1: movable-nu on -ξι/-ψι/-εστι
+        self.assertTrue(is_orthographic_equivalence(["σάλπιγξιν", "σάλπιγξι"], "greek")[0])
+        self.assertTrue(is_orthographic_equivalence(["γυναιξὶν", "γυναιξὶ"], "greek")[0])
+        self.assertTrue(is_orthographic_equivalence(["ἔξεστιν", "ἔξεστι"], "greek")[0])
+
+        # P1-G2: Koine pairs, crasis, nasal assimilation, word-div+ortho, multi-word ortho, Σεμεεὶ/Σεμεῒ
+        for a, b in (
+            ("ἐξολεθρεύσει", "ἐξολοθρεύσει"),
+            ("οὐθείς", "οὐδείς"),
+            ("μηθέν", "μηδέν"),
+            ("ἐχθές", "χθές"),
+            ("ἔνατος", "ἔννατος"),
+            ("γίγνεται", "γίνεται"),
+            ("τετραάρχης", "τετράρχης"),
+            ("ἁλεεῖς", "ἁλιεῖς"),
+            ("καὶ ἐγώ", "κἀγώ"),
+            ("καὶ ἐκεῖ", "κἀκεῖ"),
+            ("συνζητεῖν", "συζητεῖν"),
+            ("Κενχρεαῖς", "Κεγχρεαῖς"),
+            ("τεσσεράκοντα δύο", "τεσσαρακονταδύο"),
+            ("ἐνενήκοντα πέντε", "ἐννενηκονταπέντε"),
+            ("Δαυίδ ἐστιν", "Δαυείδ ἐστιν"),
+            ("Σεμεεὶ", "Σεμεῒ"),
+        ):
+            self.assertTrue(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+
+        # P1-G2 VERIFIER SAFEGUARDS: NEVER collapse δέει/δεῖ, -αν/-ον, ἐάν/ἄν, ἑαυτοῦ/αὐτοῦ, γένημα/γέννημα, ἴδετε/εἴδετε!
+        for a, b in (
+            ("δέει", "δεῖ"),
+            ("εἶπαν", "εἶπον"),
+            ("ἐάν", "ἄν"),
+            ("ἑαυτοῦ", "αὐτοῦ"),
+            ("γένημα", "γέννημα"),
+            ("ἴδετε", "εἴδετε"),
+        ):
+            self.assertFalse(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+
+        # P1-G3: Non-morphological iota subscripts orthographic; ALL case/mood pairs MUST stay substantive!
+        for a, b in (
+            ("ἀπῆραν", "ἀπῇραν"),
+            ("ἦρα", "ᾖρα"),
+            ("ἐξῆρεν", "ἐξῇρεν"),
+            ("κἀγώ", "κᾀγώ"),
+            ("ἀθῷος", "ἀθῶος"),
+            ("ζῷον", "ζῶον"),
+            ("ᾠδή", "ὠδή"),
+            ("σῴζω", "σώζω"),
+        ):
+            self.assertTrue(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+        for a, b in (("γῆ", "γῇ"), ("ᾖ", "ἡ"), ("ᾗ", "ἡ"), ("τῇ", "τῆ"), ("ᾠδή", "ᾠδῇ"), ("ζῶ", "ζῷ")):
+            self.assertFalse(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+
+        # P1-G4: Multi-word Greek letter numerals exact integer match; differing values stay substantive
+        self.assertTrue(is_orthographic_equivalence(["σν᾽", "διακοσίους πεντήκοντα"], "greek")[0])
+        self.assertTrue(is_orthographic_equivalence(["ιδ᾽", "τέσσαρας καὶ δέκα"], "greek")[0])
+        self.assertTrue(is_orthographic_equivalence(["η᾽ καὶ ι᾽", "ὀκτωκαίδεκα"], "greek")[0])
+        self.assertFalse(is_orthographic_equivalence(["χ᾽", "τετρακόσιοι"], "greek")[0])
+
+        # P1-G5: Loser-side impossible-token OCR guard (γἱοὶ filtered into disregarded)
+        cv_ocr = align_witnesses_for_verse(
+            26,
+            {"Swete-Amicarelli": "υἱοὶ Ἰσραὴλ", "Sixtine/Brenton": "γἱοὶ Ἰσραὴλ"},
+            {"Swete-Amicarelli": 0.93, "Sixtine/Brenton": 0.84},
+            "greek",
+            pivot_preference=["Swete-Amicarelli"],
+        )
+        cv_ocr.base_siglum = "Swete-Amicarelli"
+        adj_ocr = OfflinePhilologicalBrain()._adjudicate_single_verse("greek", cv_ocr)
+        self.assertEqual(adj_ocr.apparatus, [])
+        self.assertEqual(adj_ocr.confidence, 0.99)
+        self.assertTrue(any("Loser-side OCR defect" in d.reason for d in adj_ocr.disregarded))
+
+        # P1-G6: Split-transposition confidence de-duplication (counted ONCE, not squared)
+        cv_tr = align_witnesses_for_verse(
+            1,
+            {"Swete-Amicarelli": "καὶ εἶπεν θεὸς κύριος", "Sixtine/Brenton": "καὶ εἶπεν κύριος θεὸς"},
+            {"Swete-Amicarelli": 0.93, "Sixtine/Brenton": 0.84},
+            "greek",
+            pivot_preference=["Swete-Amicarelli"],
+        )
+        adj_tr = OfflinePhilologicalBrain()._adjudicate_single_verse("greek", cv_tr)
+        self.assertGreaterEqual(adj_tr.confidence, 0.52)  # 0.529 once, NOT 0.529^2 = 0.280
+
+        # P1-G7: Revelation review flag cleared ONLY by open-licence (tier < 5) early MS, NEVER by Tier 5!
+        cv_rev = align_witnesses_for_verse(
+            15,
+            {
+                "SBLGNT": "καὶ οἱ πόδες αὐτοῦ",
+                "SRGNT": "καὶ οἱ πόδες αὐτοῦ",
+                "א (01)": "και οι ποδεσ αυτων",
+            },
+            {"SBLGNT": 0.94, "SRGNT": 0.95, "א (01)": 0.96},
+            "greek",
+            pivot_preference=["SBLGNT"],
+        )
+        cv_rev.testament = "NT"
+        tb = TextualAnalysisBrain()
+        tb.set_context(book_slug="revelation", testament="NT", witnesses=[], families={})
+        adj_rev = tb.adjudicate_chapter("greek", "Revelation", 1, [cv_rev])[0]
+        self.assertTrue(adj_rev.needs_review)
+        # Attaching a Tier 5 witness (NOT in open_apparatus_sigla) MUST NOT clear needs_review
+        adj_rev.apparatus[0].lemma_witnesses.append("Tregelles (1879)")
+        tb.refresh_verse_review(adj_rev, cv_rev, "greek")
+        self.assertTrue(adj_rev.needs_review)
+        # Attaching an open-licence (tier < 5) early papyrus 𝔓47 (stream 'early papyri') ALSO clears false alarm
+        cv_rev.open_apparatus_sigla = {"𝔓47"}
+        adj_rev.apparatus[0].lemma_witnesses.append("𝔓47")
+        tb.refresh_verse_review(adj_rev, cv_rev, "greek")
+        self.assertFalse(adj_rev.needs_review)
+        # Attaching an open-licence (tier < 5) early MS A (02) in open_apparatus_sigla CLEARS false alarm
+        adj_rev.apparatus[0].lemma_witnesses.remove("𝔓47")
+        cv_rev.open_apparatus_sigla = {"A (02)"}
+        adj_rev.apparatus[0].lemma_witnesses.append("A (02)")
+        tb.refresh_verse_review(adj_rev, cv_rev, "greek")
+        self.assertFalse(adj_rev.needs_review)
+
+    def test_latin_p1_l1_l2_and_hiatus_safeguards(self) -> None:
+        from studio.brains.offline_philological import _latin_u_to_v
+
+        # P1-L1: post-prefix u->v, guarded ae->æ / oe->œ, unambiguous i->j
+        self.assertEqual(_latin_u_to_v("aduersum"), "adversum")
+        self.assertEqual(_latin_u_to_v("obuias"), "obvias")
+        self.assertEqual(_latin_u_to_v("inuentus"), "inventus")
+        self.assertEqual(_latin_u_to_v("Aegypti"), "Ægypti")
+        self.assertEqual(_latin_u_to_v("coeta"), "cœta")
+        self.assertEqual(_latin_u_to_v("iussisti"), "jussisti")
+        self.assertEqual(_latin_u_to_v("Iacob"), "Jacob")
+
+        # P1-L1 VERIFIER SAFEGUARD: hiatus words MUST NOT become æ / œ!
+        for safe_word in (
+            "Israel", "Ismael", "Raphael", "Michael", "Phanuël", "Abimael",
+            "Noe", "Joel", "aer", "aër", "coercere", "coegit", "coemit", "poeta",
+        ):
+            self.assertEqual(_latin_u_to_v(safe_word), safe_word, safe_word)
+
+        # P1-L2: 13 strictly safe pure Latin spelling doublets
+        for a, b in (
+            ("obcumberet", "occumberet"),
+            ("tincxerunt", "tinxerunt"),
+            ("cotidie", "quotidie"),
+            ("caerimonias", "cæremonias"),
+            ("botyrum", "butyrum"),
+            ("bubus", "bobus"),
+            ("formonsae", "formosæ"),
+            ("deverterent", "diverterent"),
+            ("reliquid", "reliquit"),
+            ("armellas", "armillas"),
+            ("vendedit", "vendidit"),
+            ("stereles", "steriles"),
+        ):
+            self.assertTrue(is_orthographic_equivalence([a, b], "latin")[0], (a, b))
+        # Genuine Latin morphological pairs MUST stay substantive
+        for a, b in (("vivet", "vivit"), ("possit", "posset"), ("altari", "altare")):
+            self.assertFalse(is_orthographic_equivalence([a, b], "latin")[0], (a, b))
+
+    def test_phase3_word_div_itacism_and_conjunction_punct_regressions(self) -> None:
+        from studio.apparatus_witnesses import _is_spelling
+
+        # Greek word-division + itacism guard: short lexical contrasts MUST stay substantive
+        # in BOTH collator.classify_forms AND apparatus_witnesses._is_spelling
+        for a, b in (
+            ("Εἰ δὲ", "Ἴδε"),       # Rom 2:17, Jas 3:3
+            ("εἰ δὲ", "ιδε"),       # Job 34:16, Matt 6:30, Luke 12:28
+            ("οὐδὲ εἰς", "οὐδείς"), # Phil 2:16 ("nor into" vs "no one")
+        ):
+            self.assertFalse(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+            self.assertFalse(_is_spelling(a, b, "greek")[0], (a, b))
+
+        # Positive guards: >= 8 char compounds & 1-letter OCR fragments MUST still fold
+        for a, b in (
+            ("τεσσεράκοντα πέντε", "τεσσαρακονταπέντε"),
+            ("ἑκατὸν εἴκοσι", "ἑκατονίκοσι"),
+            ("Ἰ ωσεία", "Ἰωσεία"),
+            ("Ἰ ωσεία", "Ἰωσία"),
+            ("π ρωτοτοκεῖα", "πρωτοτοκία"),
+        ):
+            self.assertTrue(is_orthographic_equivalence([a, b], "greek")[0], (a, b))
+            self.assertTrue(_is_spelling(a, b, "greek")[0], (a, b))
+
+        # Latin Gen 50:18: trailing punctuation on previous word must NOT move onto an
+        # inserted phrase ending in a clause-initial conjunction (et, ac, atque, καὶ)
+        cv_g50 = align_witnesses_for_verse(
+            18,
+            {
+                "Clem1598-USFX": "veneruntque ad eum fratres sui: et proni in terram, dixerunt: Servi tui sumus.",
+                "Amiatinus (A)": "ueneruntque ad eum fratres sui et proni in terram adorauerunt et dixerunt serui tui sumus",
+            },
+            {"Clem1598-USFX": 0.88, "Amiatinus (A)": 0.97},
+            "latin",
+            pivot_preference=["Clem1598-USFX"],
+        )
+        cv_g50.base_siglum = "Clem1598-USFX"
+        adj_g50 = OfflinePhilologicalBrain()._adjudicate_single_verse("latin", cv_g50)
+        self.assertIn("in terram, adoraverunt et dixerunt:", adj_g50.critical_text)
+        self.assertNotIn("et, dixerunt", adj_g50.critical_text)
+
+    @unittest.skipUnless(HAVE_CORPORA, "Local research corpora not present")
+    def test_phase2_live_corpus_regressions(self) -> None:
+        from studio.brains import textual_analysis as _ta
+        from studio.engine import CriticalTextEngine
+
+        # Isolate global _PARALLELS cache so synthetic unit tests running later are never affected
+        saved_built = set(_ta._PARALLELS.built_for)
+        try:
+            eng = CriticalTextEngine()
+            eng.config.provider_id = "textual_analysis"
+
+            def ch_map(lang: str, book: str, ch: int):
+                saved = eng.collate_and_adjudicate(lang, book, ch)
+                return {v["verse"]: v for v in saved["verses"]}
+
+            # Latin live P0/P1 & Phase 3 regression
+            g40 = ch_map("latin", "genesis", 40)
+            self.assertTrue(g40[13]["critical_text"].endswith("consueveras."))
+            g45 = ch_map("latin", "genesis", 45)
+            self.assertNotIn("post ausi sunt", g45[15]["critical_text"])
+            g30 = ch_map("latin", "genesis", 30)
+            self.assertIn("ut habeam:", g30[26]["critical_text"])
+            g41 = ch_map("latin", "genesis", 41)
+            self.assertIn("terra Ægypti: aperuitque", g41[56]["critical_text"])
+            g50 = ch_map("latin", "genesis", 50)
+            self.assertIn("in terram, adoraverunt et dixerunt:", g50[18]["critical_text"])
+            self.assertNotIn("et, dixerunt", g50[18]["critical_text"])
+            num1 = ch_map("latin", "numbers", 1)
+            self.assertIn("Zabulon", num1[28]["critical_text"])
+            self.assertIn("Ephraim", num1[30]["critical_text"])
+
+            # Greek live P0/P1 & Phase 3 regressions
+            neh7 = ch_map("greek", "nehemiah", 7)
+            self.assertIn("υἱοὶ", neh7[26]["critical_text"])
+            self.assertNotIn("γἱοὶ", neh7[26]["critical_text"])
+            n17 = ch_map("greek", "numbers", 17)
+            self.assertIn("δώδεκα", n17[21]["critical_text"])
+            self.assertNotIn("ιβ", n17[21]["critical_text"])
+            lk12 = ch_map("greek", "luke", 12)
+            self.assertGreaterEqual(lk12[1]["confidence"], 0.70)
+            rev1 = ch_map("greek", "revelation", 1)
+            self.assertFalse(rev1[15]["needs_review"])
+            rom2 = ch_map("greek", "romans", 2)
+            self.assertTrue(rom2[17]["critical_text"].startswith("Εἰ δὲ"), rom2[17]["critical_text"])
+            rom2_eide = next(
+                (a for a in rom2[17]["apparatus"] if a["lemma"] == "Εἰ δὲ" and any("Ἴδε" in v["reading"] for v in a["variants"])),
+                None,
+            )
+            self.assertIsNotNone(rom2_eide, rom2[17]["apparatus"])
+            self.assertIn("NA28 (TAGNT)", rom2_eide["lemma_witnesses"])
+            self.assertIn("THGNT", rom2_eide["lemma_witnesses"])
+            self.assertIn("A (02)", rom2_eide["lemma_witnesses"])
+            self.assertIn("Dᵖ (06)", rom2_eide["lemma_witnesses"])
+            jas3 = ch_map("greek", "james", 3)
+            self.assertTrue(jas3[3]["critical_text"].startswith("εἰ δὲ"), jas3[3]["critical_text"])
+            jas3_eide = next(
+                (a for a in jas3[3]["apparatus"] if a["lemma"] == "εἰ δὲ" and any("Ἴδε" in v["reading"] for v in a["variants"])),
+                None,
+            )
+            self.assertIsNotNone(jas3_eide, jas3[3]["apparatus"])
+            self.assertIn("NA28 (TAGNT)", jas3_eide["lemma_witnesses"])
+            self.assertIn("THGNT", jas3_eide["lemma_witnesses"])
+            self.assertIn("A (02)", jas3_eide["lemma_witnesses"])
+            phil2 = ch_map("greek", "philippians", 2)
+            self.assertTrue(
+                any(
+                    "οὐδὲ" in a["lemma"] and any("ουδεισ" in v["reading"] or "οὐδείς" in v["reading"] for v in a["variants"])
+                    for a in phil2[16]["apparatus"]
+                ),
+                phil2[16]["apparatus"],
+            )
+
+            # Hebrew & Aramaic live P0/P1 + anti-scuff boundaries
+            dan2 = ch_map("hebrew", "daniel", 2)
+            self.assertEqual(dan2[18]["confidence"], 0.99)
+            dan3 = ch_map("hebrew", "daniel", 3)
+            self.assertLess(dan3[5]["confidence"], 0.80)   # genuine Ketiv divergence preserved
+            self.assertLess(dan3[29]["confidence"], 0.80)  # genuine mappiq preserved
+            pr23 = ch_map("hebrew", "proverbs", 23)
+            self.assertLess(pr23[24]["confidence"], 0.80)  # genuine Ketiv divergence preserved
+            deut20 = ch_map("hebrew", "deuteronomy", 20)
+            self.assertLess(deut20[1]["confidence"], 0.80)  # -ֶךָ/-ֶיךָ preserved
+        finally:
+            _ta._PARALLELS.built_for.clear()
+            _ta._PARALLELS.built_for.update(saved_built)
 
 
 if __name__ == "__main__":

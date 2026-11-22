@@ -39,7 +39,9 @@ from .offline_philological import (
     OfflinePhilologicalBrain,
     _family_count,
     _family_weighted_sum,
+    _is_transposition_pair,
     _itacism_key,
+    _transposition_components,
 )
 
 # ---------------------------------------------------------------------------
@@ -767,17 +769,20 @@ class TextualAnalysisBrain(OfflinePhilologicalBrain):
             a.variant_type = _classify(lemma_keys, var_keys, a.lemma, [v["reading"] for v in a.variants], language, name_like)
             if a.variant_type == "word-order transposition":
                 _drop_moved_findings(a)
-        # Transpositions: the collator splits "A B" vs "B A" into an addition and an omission.
-        for i, a in enumerate(words_units):
-            for b in words_units[i + 1:]:
-                if _is_transposition_pair(a, b, language):
-                    a.variant_type = b.variant_type = "word-order transposition"
-                    for u in (a, b):  # a moved word is neither an expansion nor an eye-skip omission
-                        _drop_moved_findings(u)
-                    note = (f"Units '{a.lemma}' and '{b.lemma}' together form one word-order variant "
-                            f"({', '.join(sorted({s for v in a.variants for s in v['witnesses']}))} transpose).")
-                    a.analysis.append(_finding("variant type: transposition", note, "neither", strength="info"))
-                    b.analysis.append(_finding("variant type: transposition", note, "neither", strength="info"))
+        # Transpositions: the collator splits "A B" vs "B A" into an addition and an omission
+        # (including 1-to-k multi-fragment splits such as Luke 12:1 'τῶν Φαρισαίων').
+        for comp in _transposition_components(words_units, language):
+            if len(comp) < 2:
+                continue
+            group = [words_units[k] for k in comp]
+            for u in group:
+                u.variant_type = "word-order transposition"
+                _drop_moved_findings(u)
+            labels = ", ".join(f"'{u.lemma}'" for u in group)
+            transp_sigs = sorted({s for u in group for v in u.variants for s in v["witnesses"]})
+            note = f"Units {labels} together form one word-order variant ({', '.join(transp_sigs)} transpose)."
+            for u in group:
+                u.analysis.append(_finding("variant type: transposition", note, "neither", strength="info"))
         conflations = _conflations(words_units, language, cv)
         for a, reading, key in conflations:
             a.analysis.append(_finding(
@@ -803,18 +808,29 @@ class TextualAnalysisBrain(OfflinePhilologicalBrain):
 
     def _verse_level_review(self, adj: VerseAdjudication, cv: CollatedVerse, language: str) -> None:
         reasons: List[str] = []
+        voting_sigla = set(cv.witness_texts) | set(cv.absent_witnesses)
+        open_app = set(getattr(cv, "open_apparatus_sigla", None) or set())
+        allowed_sigla = voting_sigla | open_app
         if any(a.kind == "verse" for a in adj.apparatus) and adj.critical_text.startswith("⟦"):
             reasons.append("whole verse printed in ⟦ ⟧ against some witnesses")
         for a in adj.apparatus:
             if a.kind != "word":
+                continue
+            # Apparatus-only units added by record_apparatus_witnesses carry no voting variants: skip them.
+            voting_lemma = [s for s in a.lemma_witnesses if s in voting_sigla] if voting_sigla else list(a.lemma_witnesses)
+            voting_vars = [
+                v for v in a.variants
+                if not voting_sigla or any(s in voting_sigla for s in v.get("witnesses", []))
+            ]
+            if not voting_vars:
                 continue
             # the brain's own key: the display lemma may be a contraction (ισ̅) whose letters differ
             lemma_key = a.lemma_key or ("om." if a.lemma == "om." else " ".join(_keys(a.lemma, language)))
             weighty = [f for f in a.analysis if f.get("strength") in ("moderate", "strong")]
             against = [f for f in weighty if f.get("favours") == "against" and f.get("key") == lemma_key]
             favours_variant = [f for f in weighty if f.get("favours") == "reading" and f.get("key") and f.get("key") != lemma_key]
-            lemma_w = _family_weighted_sum(a.lemma_witnesses, cv.witness_weights, cv.witness_families)
-            best_var = max((float(v.get("weight_sum", 0)) for v in a.variants), default=0.0)
+            lemma_w = _family_weighted_sum(voting_lemma, cv.witness_weights, cv.witness_families)
+            best_var = max((float(v.get("weight_sum", 0)) for v in voting_vars), default=0.0)
             close = lemma_w - best_var < 0.5
             if (against or favours_variant) and close:
                 reasons.append(f"unit '{a.lemma}': close vote and internal evidence favours another reading")
@@ -822,17 +838,38 @@ class TextualAnalysisBrain(OfflinePhilologicalBrain):
             # agrees with them: only readings that differ beyond ει/ι, αι/ε, η/ι, ω/ο count against.
             shown_key = "om." if a.lemma == "om." else " ".join(_keys(a.lemma, language))
             differing = []
-            for v in a.variants:
+            for v in voting_vars:
                 vk = "om." if v["reading"] == "om." else " ".join(_keys(v.get("adopt_text") or v["reading"], language))
                 if not (_itacism_equal(lemma_key, vk) or _itacism_equal(shown_key, vk)):
                     differing.append(v)
-            lemma_streams, var_streams = set(_streams(a.lemma_witnesses)), set(_streams(s for v in differing for s in v["witnesses"]))
-            if lemma_streams == {"modern critical editions"} and "early manuscripts" in var_streams:
+            # Open-licence (tier < 5) early manuscripts attached by record_apparatus_witnesses (e.g.
+            # A/02, C/04, 𝔓47 in Revelation where B/03 is lacunose) count as early-MS corroboration
+            # of the adopted lemma; non-early apparatus editions (WH1881, Tisch8, Byz) and Tier 5
+            # study-only witnesses NEVER clear the flag.
+            voting_lemma_streams = set(_streams(voting_lemma))
+            open_early_corroboration = any(
+                s in open_app and _stream(s) in ("early manuscripts", "early papyri", "early Alexandrian uncials")
+                for s in a.lemma_witnesses
+            )
+            var_for_streams = [s for v in differing for s in v["witnesses"] if not voting_sigla or s in voting_sigla]
+            var_streams = set(_streams(var_for_streams))
+            if (voting_lemma_streams == {"modern critical editions"}
+                    and not open_early_corroboration
+                    and "early manuscripts" in var_streams):
                 reasons.append(f"unit '{a.lemma}': adopted on modern editions alone against the early manuscripts")
         if reasons:
             adj.needs_review = True
             adj.analysis.append(_finding("review flag", "; ".join(reasons) + ".", "neither", strength="info"))
         adj.decision_source = self.display_name
+
+    def refresh_verse_review(self, adj: VerseAdjudication, cv: CollatedVerse, language: str) -> None:
+        """Re-evaluate verse-level review flags after record_apparatus_witnesses attaches open-licence
+        (tier < 5) early manuscripts such as A (02), C (04), and 𝔓47."""
+        claude_flags = [f for f in adj.analysis if f.get("canon") == "review flag" and "Claude review" in f.get("note", "")]
+        adj.analysis = [f for f in adj.analysis if f.get("canon") != "review flag"]
+        adj.needs_review = bool(claude_flags)
+        self._verse_level_review(adj, cv, language)
+        adj.analysis.extend(claude_flags)
 
     # ------------------------------------------------------------------
     # Optional Claude review
@@ -1051,29 +1088,6 @@ def _classify(lemma: List[str], variants: List[List[str]], lemma_raw: str, varia
 def _edit(a: str, b: str) -> int:
     from ..lexicon import edit_distance
     return edit_distance(a, b, limit=3)
-
-
-def _is_transposition_pair(a: ApparatusItem, b: ApparatusItem, language: str) -> bool:
-    """Unit a adds what unit b omits (or vice versa), supported by the same witnesses."""
-    def adds(u: ApparatusItem) -> Optional[Tuple[Tuple[str, ...], frozenset]]:
-        if u.lemma == "om.":
-            for v in u.variants:
-                if v["reading"] != "om.":
-                    return tuple(_keys(v.get("adopt_text") or v["reading"], language)), frozenset(v["witnesses"])
-        return None
-
-    def omits(u: ApparatusItem) -> Optional[Tuple[Tuple[str, ...], frozenset]]:
-        if u.lemma != "om.":
-            for v in u.variants:
-                if v["reading"] == "om.":
-                    return tuple(_keys(u.lemma, language)), frozenset(v["witnesses"])
-        return None
-
-    for x, y in ((a, b), (b, a)):
-        ad, om = adds(x), omits(y)
-        if ad and om and ad[0] and ad[0] == om[0] and ad[1] & om[1]:
-            return True
-    return False
 
 
 def _fragment_nearby(cv: CollatedVerse, idx: int, comp_sigla: List[str], missing: List[str], whole_sigla: List[str],

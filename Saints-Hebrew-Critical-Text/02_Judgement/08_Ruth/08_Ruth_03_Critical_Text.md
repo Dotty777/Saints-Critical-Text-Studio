@@ -1,6 +1,6 @@
 # Ruth 03 — Saints Hebrew Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:14:56Z`
+**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:48Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -61,28 +70,24 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `בִּתִּ֕י` over `בִּתִּ֞י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Ruth 3:3
+- **Apparatus:** `שִׂמְלֹתַ֛יִךְ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
+- **Apparatus:** `וְיָרַ֣דְתְּ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `(שמלתך)` over `שמלתך` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `שִׂמְלֹתַ֛יִךְ` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `שִׂמְלֹתַ֛יִךְ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `(וירדתי)` over `וירדתי` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `וְיָרַ֣דְתְּ` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(שמלתך) / *שִׂמְלֹתֵךְ`, `(וירדתי) / *וְיָרַדְתִּי`, `וְלִשְׁתּֽוֹת׃ / וְלִשְׁתֹּֽות׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(שמלתך) / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(וירדתי) וְיָרַ֣דְתְּ / וְיָרַ֣דְתְּי` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `וְיָרַ֣דְתְּ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 
 ### Ruth 3:4
+- **Apparatus:** `וְשָׁכָ֑בְתְּ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `בְשׇׁכְב֗וֹ` over `בְשָׁכְב֗וֹ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(ושכבתי)` over `ושכבתי` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `וְשָׁכָ֑בְתְּ` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `וְשָׁכָ֑בְתְּ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `תַּעֲשִֽׂין׃` over `תַּעַשִֽׂין׃` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ושכבתי) / *וְשָׁכָבְתִּי` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ושכבתי) וְשָׁכָ֑בְתְּ / וְשָׁכָ֑בְתְּי` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
 
 ### Ruth 3:5
 - **Apparatus:** `[אֵלַ֖י]` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **ֵַ֖** Letteris (1852)
-- *Disregarded Surface Variant:* kept `(adopted text)` over ` / *` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-
-### Ruth 3:7
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לִבּ֔וֹ / לִבֹּ֔ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
+- *Disregarded Surface Variant:* kept `[אֵלַ֖י]` over `om.` (WLC (L)) — *Qere wela ketiv (read but not written): MAM prints it in brackets, the WLC export omits it*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `[אֵלַ֖י] / `, ` / *` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ruth 3:8
 - *Disregarded Surface Variant:* kept `וַֽיְהִי֙` over `וַיְהִי֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -90,12 +95,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Ruth 3:9
 - *Disregarded Surface Variant:* kept `אָ֑תְּ` over `אָ֑תּ` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): shewa / hataf*
 - *Disregarded Surface Variant:* kept `אָֽנֹכִי֙` over `אָנֹכִי֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אָ֑תְּ / אָ֑תּ`, `אָ֑תְּ / אָ֑תּ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ruth 3:10
 - *Disregarded Surface Variant:* kept `לַֽיהֹוָה֙` over `לַֽיהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `אַֽחֲרֵי֙` over `אַחֲרֵי֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הָרִאשׁ֑וֹן / הָרִאשֹׁ֑ון` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ruth 3:11
 - *Disregarded Surface Variant:* kept `אֶעֱשֶׂה־` over `אֶֽעֱשֶׂה־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -104,21 +107,17 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Ruth 3:12
 - *Disregarded Surface Variant:* kept `אׇמְנָ֔ם` over `אָמְנָ֔ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `((אם))` over `אם` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `((אם)) / *אִם` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ruth 3:13
 - *Disregarded Surface Variant:* kept `לְגׇאֳלֵ֛ךְ` over `לְגָֽאֳלֵ֛ךְ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָ֑ה` over `יְהוָ֑ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Ruth 3:14
-- **Apparatus:** `מַרְגְּלוֹתָו֙` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **מרגלתו** WLC (L) *(lexical substitution)*
-  - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
-  - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
+- *Disregarded Surface Variant:* kept `מַרְגְּלוֹתָו֙` over `מרגלתו` (WLC (L)) — *Plene / defective spelling with pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
 - *Disregarded Surface Variant:* kept `וַתָּ֕קׇם` over `וַתָּ֕קָם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(בטרום)` over `בטרום` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `בְּטֶ֛רֶם` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(בטרום) / *בִּטְרוֹם` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(בטרום) בְּטֶ֛רֶם / בְּטֶ֛רֶום` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `בְּטֶ֛רֶם` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `(בטרום) / `, ` / *מַרְגְּלָתַו`, `(בטרום) / ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ruth 3:15
 - *Disregarded Surface Variant:* kept `הָ֠בִ֠י` over `הָ֠בִי` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -131,10 +130,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Ruth 3:17
 - **Apparatus:** `[אֵלַ֔י]` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **ֵַ֔** Letteris (1852)
-- *Disregarded Surface Variant:* kept `(adopted text)` over ` / *` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-
-### Ruth 3:18
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּֽוֹם׃ / הַיֹּֽום׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
+- *Disregarded Surface Variant:* kept `[אֵלַ֔י]` over `om.` (WLC (L)) — *Qere wela ketiv (read but not written): MAM prints it in brackets, the WLC export omits it*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `[אֵלַ֔י] / `, ` / *` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ---
 
@@ -156,14 +153,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: וְעַתָּ֗ה הֲלֹ֥א בֹ֨עַז֨ מֹֽדַעְתָּ֔נוּ אֲשֶׁ֥ר הָיִ֖ית אֶת־נַֽעֲרוֹתָ֑יו הִנֵּה־ה֗וּא זֹרֶ֛ה אֶת־גֹּ֥רֶן הַשְּׂעֹרִ֖ים הַלָּֽיְלָה׃
 - **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
 
-### Verse 3 (Confidence: `98.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 3 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וְרָחַ֣צְתְּ ׀ וָסַ֗כְתְּ וְשַׂ֧מְתְּ (שמלתך) שִׂמְלֹתַ֛יִךְ עָלַ֖יִךְ (וירדתי) וְיָרַ֣דְתְּ הַגֹּ֑רֶן אַל־תִּוָּדְעִ֣י לָאִ֔ישׁ עַ֥ד כַּלֹּת֖וֹ לֶאֱכֹ֥ל וְלִשְׁתּֽוֹת׃
   - `MAM (Aleppo)`: וְרָחַ֣צְתְּ ׀ וָסַ֗כְתְּ וְשַׂ֧מְתְּ (שמלתך) שִׂמְלֹתַ֛יִךְ עָלַ֖יִךְ (וירדתי) וְיָרַ֣דְתְּ הַגֹּ֑רֶן אַל־תִּוָּדְעִ֣י לָאִ֔ישׁ עַ֥ד כַּלֹּת֖וֹ לֶאֱכֹ֥ל וְלִשְׁתּֽוֹת׃
   - `WLC (L)`: וְרָחַ֣צְתְּ ׀ וָסַ֗כְתְּ וְשַׂ֧מְתְּ שמלתך עָלַ֖יִךְ וירדתי הַגֹּ֑רֶן אַל־תִּוָּדְעִ֣י לָאִ֔ישׁ עַ֥ד כַּלֹּת֖וֹ לֶאֱכֹ֥ל וְלִשְׁתּֽוֹת׃
   - `BenChayyim (1525)`: וְרָחַ֣צְתְּ ׀ וָסַ֗כְתְּ וְשַׂ֧מְתְּ *שִׂמְלֹתֵךְ (שִׂמְלֹתַ֛יִךְ) עָלַ֖יִךְ *וְיָרַדְתִּי (וְיָרַ֣דְתְּ) הַגֹּ֑רֶן אַל־תִּוָּדְעִ֣י לָאִ֔ישׁ עַ֥ד כַּלֹּת֖וֹ לֶאֱכֹ֥ל וְלִשְׁתֹּֽות׃
   - `Letteris (1852)`: וְרָחַ֣צְתְּ ׀ וָסַ֗כְתְּ וְשַׂ֧מְתְּ שִׂמְלֹתַ֛יִךְ עָלַ֖יִךְ וְיָרַ֣דְתְּי הַגֹּ֑רֶן אַל־תִּוָּֽדְעִ֣י לָאִ֔ישׁ עַ֥ד כַּלֹּת֖וֹ לֶֽאֱכֹ֥ל וְלִשְׁתּֽוֹת׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
-- *confidence:* Verse confidence 98% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Punctuation / spacing difference only).
 
 ### Verse 4 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וִיהִ֣י בְשׇׁכְב֗וֹ וְיָדַ֙עַתְּ֙ אֶת־הַמָּקוֹם֙ אֲשֶׁ֣ר יִשְׁכַּב־שָׁ֔ם וּבָ֛את וְגִלִּ֥ית מַרְגְּלֹתָ֖יו (ושכבתי) וְשָׁכָ֑בְתְּ וְהוּא֙ יַגִּ֣יד לָ֔ךְ אֵ֖ת אֲשֶׁ֥ר תַּעֲשִֽׂין׃
@@ -171,7 +167,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וִיהִ֣י בְשָׁכְב֗וֹ וְיָדַ֙עַתְּ֙ אֶת־הַמָּקוֹם֙ אֲשֶׁ֣ר יִשְׁכַּב־שָׁ֔ם וּבָ֛את וְגִלִּ֥ית מַרְגְּלֹתָ֖יו ושכבתי וְהוּא֙ יַגִּ֣יד לָ֔ךְ אֵ֖ת אֲשֶׁ֥ר תַּעַשִֽׂין׃
   - `BenChayyim (1525)`: וִיהִ֣י בְשָׁכְב֗וֹ וְיָדַ֙עַתְּ֙ אֶת־הַמָּקוֹם֙ אֲשֶׁ֣ר יִשְׁכַּב־שָׁ֔ם וּבָ֛את וְגִלִּ֥ית מַרְגְּלֹתָ֖יו *וְשָׁכָבְתִּי (וְשָׁכָ֑בְתְּ) וְהוּא֙ יַגִּ֣יד לָ֔ךְ אֵ֖ת אֲשֶׁ֥ר תַּעֲשִֽׂין׃
   - `Letteris (1852)`: וִיהִ֣י בְשָׁכְב֗וֹ וְיָדַ֨עַתְּ֙ אֶת־הַמָּקוֹם֙ אֲשֶׁ֣ר יִשְׁכַּב־שָׁ֔ם וּבָ֛את וְגִלִּ֥ית מַרְגְּלֹתָ֖יו וְשָׁכָ֑בְתְּי וְהוּא֙ יַגִּ֣יד לָ֔ךְ אֵ֖ת אֲשֶׁ֥ר תַּֽעֲשִֽׂין׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel; Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel; Punctuation / spacing difference only).
 
 ### Verse 5 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַתֹּ֖אמֶר אֵלֶ֑יהָ כֹּ֛ל אֲשֶׁר־תֹּאמְרִ֥י [אֵלַ֖י] אֶֽעֱשֶֽׂה׃
@@ -179,7 +175,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וַתֹּ֖אמֶר אֵלֶ֑יהָ כֹּ֛ל אֲשֶׁר־תֹּאמְרִ֥י אֶֽעֱשֶֽׂה׃
   - `BenChayyim (1525)`: וַתֹּ֖אמֶר אֵלֶ֑יהָ כֹּ֛ל אֲשֶׁר־תֹּאמְרִ֥י * (אֵלַ֖י) אֶֽעֱשֶֽׂה׃
   - `Letteris (1852)`: וַתֹּ֖אמֶר אֵלֶ֑יהָ כֹּ֛ל אֲשֶׁר־תֹּאמְרִ֥י ֵַ֖ אֶֽעֱשֶֽׂה׃
-- **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 1 surface variation(s) (Qere wela ketiv (read but not written): MAM prints it in brackets, the WLC export omits it).
 
 ### Verse 6 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַתֵּ֖רֶד הַגֹּ֑רֶן וַתַּ֕עַשׂ כְּכֹ֥ל אֲשֶׁר־צִוַּ֖תָּה חֲמוֹתָֽהּ׃
@@ -245,14 +241,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: לִ֣ינִי ׀ הַלַּ֗יְלָה וְהָיָ֤ה בַבֹּ֨קֶר֨ אִם־יִגְאָלֵ֥ךְ טוֹב֙ יִגְאָ֔ל וְאִם־לֹ֨א יַחְפֹּ֧ץ לְגָֽאֳלֵ֛ךְ וּגְאַלְתִּ֥יךְ אָנֹ֖כִי חַי־יְהֺוָ֑ה שִׁכְבִ֖י עַד־הַבֹּֽקֶר׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 2 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention).
 
-### Verse 14 (Confidence: `50.1%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 14 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַתִּשְׁכַּ֤ב מַרְגְּלוֹתָו֙ עַד־הַבֹּ֔קֶר וַתָּ֕קׇם (בטרום) בְּטֶ֛רֶם יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑הוּ וַיֹּ֙אמֶר֙ אַל־יִוָּדַ֔ע כִּי־בָ֥אָה הָאִשָּׁ֖ה הַגֹּֽרֶן׃
   - `MAM (Aleppo)`: וַתִּשְׁכַּ֤ב מַרְגְּלוֹתָו֙ עַד־הַבֹּ֔קֶר וַתָּ֕קׇם (בטרום) בְּטֶ֛רֶם יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑הוּ וַיֹּ֙אמֶר֙ אַל־יִוָּדַ֔ע כִּי־בָ֥אָה הָאִשָּׁ֖ה הַגֹּֽרֶן׃
   - `WLC (L)`: וַתִּשְׁכַּ֤ב מרגלתו עַד־הַבֹּ֔קֶר וַתָּ֕קָם בטרום יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑הוּ וַיֹּ֙אמֶר֙ אַל־יִוָּדַ֔ע כִּי־בָ֥אָה הָאִשָּׁ֖ה הַגֹּֽרֶן׃
   - `BenChayyim (1525)`: וַתִּשְׁכַּ֤ב *מַרְגְּלָתַו (מַרְגְּלוֹתָיו֙) עַד־הַבֹּ֔קֶר וַתָּ֕קָם *בִּטְרוֹם (בְּטֶ֛רֶם) יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑הוּ וַיֹּ֙אמֶר֙ אַל־יִוָּדַ֔ע כִּי־בָ֥אָה הָאִשָּׁ֖ה הַגֹּֽרֶן׃
   - `Letteris (1852)`: וַתִּשְׁכַּ֤ב מַרְגְּלוֹתָו֙ עַד־הַבֹּ֔קֶר וַתָּ֕קָם בְּטֶ֛רֶום יַכִּ֥יר אִ֖ישׁ אֶת־רֵעֵ֑הוּ וַיֹּ֨אמֶר֨ אַל־יִוָּדַ֔ע כִּֽי־בָ֥אָה הָֽאִשָּׁ֖ה הַגֹּֽרֶן׃
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'מַרְגְּלוֹתָו֙' [MAM (Aleppo)] (weight 0.98, confidence 51%) over מרגלתו (WLC (L)). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 50% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Plene / defective spelling with pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form; Punctuation / spacing difference only).
 
 ### Verse 15 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַיֹּ֗אמֶר הָ֠בִ֠י הַמִּטְפַּ֧חַת אֲשֶׁר־עָלַ֛יִךְ וְאֶחֳזִי־בָ֖הּ וַתֹּ֣אחֶז בָּ֑הּ וַיָּ֤מׇד שֵׁשׁ־שְׂעֹרִים֙ וַיָּ֣שֶׁת עָלֶ֔יהָ וַיָּבֹ֖א הָעִֽיר׃
@@ -276,7 +271,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וַתֹּ֕אמֶר שֵׁשׁ־הַשְּׂעֹרִ֥ים הָאֵ֖לֶּה נָ֣תַן לִ֑י כִּ֚י אָמַ֣ר אַל־תָּב֥וֹאִי רֵיקָ֖ם אֶל־חֲמוֹתֵֽךְ׃
   - `BenChayyim (1525)`: וַתֹּ֕אמֶר שֵׁשׁ־הַשְּׂעֹרִ֥ים הָאֵ֖לֶּה נָ֣תַן לִ֑י כִּ֚י אָמַ֣ר * (אֵלַ֔י) אַל־תָּב֥וֹאִי רֵיקָ֖ם אֶל־חֲמוֹתֵֽךְ׃
   - `Letteris (1852)`: וַתֹּ֕אמֶר שֵֽׁשׁ־הַשְּׂעֹרִ֥ים הָאֵ֖לֶּה נָ֣תַן לִ֑י כִּ֚י אָמַ֣ר ֵַ֔ אַל־תָּב֥וֹאִי רֵיקָ֖ם אֶל־חֲמוֹתֵֽךְ׃
-- **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 1 surface variation(s) (Qere wela ketiv (read but not written): MAM prints it in brackets, the WLC export omits it).
 
 ### Verse 18 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַתֹּ֙אמֶר֙ שְׁבִ֣י בִתִּ֔י עַ֚ד אֲשֶׁ֣ר תֵּֽדְעִ֔ין אֵ֖יךְ יִפֹּ֣ל דָּבָ֑ר כִּ֣י לֹ֤א יִשְׁקֹט֙ הָאִ֔ישׁ כִּֽי־אִם־כִּלָּ֥ה הַדָּבָ֖ר הַיּֽוֹם׃

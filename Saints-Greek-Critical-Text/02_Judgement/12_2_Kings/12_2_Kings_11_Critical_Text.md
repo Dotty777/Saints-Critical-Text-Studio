@@ -1,6 +1,6 @@
 # 2 Kings (4 Kingdoms) 11 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:10:13Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,12 +13,12 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
+| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,8 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Rahlfs1935 [QUARANTINED] | `QUARANTINED_NC` | DISREGARDED FROM OPEN CRITICAL TEXT (Tier 5 Quarantine): Protected editorial edition (Deutsche Bibelgesellschaft). Blocked from direct ingestion to guarantee 100% clean open-source copyright status for the Saints Critical Text. |
-| CSP-XML [NC-NOTICE] | `QUARANTINED_NC` | AI GATEKEEPER CATCH — QUARANTINED BY DEFAULT: Although placed in Tier 4, XML header <availability> declares CC BY-NC-SA (NonCommercial). CNTR CC BY-SA 01.txt is used instead for clean open-license NT Sinaiticus collation; enable only if ShareAlike/NC is acceptable. |
+| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 10:1 kept in its own chapter (stronger match to its own reference verse)
@@ -227,8 +229,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ὀχοζείου` over `Ὀχοζίου` (Sixtine/Brenton) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `ὅτι` over `ὄτι` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `ἀπώλεσεν` over `ἀπώλεσε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `Ὀχοζείου / Ὀχοζίου` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Koine/Uncial itacistic spelling (ει / ι equivalence)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἀπώλεσεν / ἀπώλεσε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:2
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -239,7 +239,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `τῶν` over `τὼν` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `ἔκρυψεν` over `ένων αὐτὸν καὶ τὴν τροφὸν αὐτοῦ ἐν τῷ ταμείῳ τῶν κλινῶν καὶ Β ν` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `Γοθολίας` over `Γοθολίας,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `Ὀχοζείου / Ὀχοζίου` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Koine/Uncial itacistic spelling (ει / ι equivalence)*
 
 ### 2 Kings (4 Kingdoms) 11:3
 - **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **κρυβόμενος** Sixtine/Brenton LXX-Orthodox (Οʹ) *(omission / addition)*
@@ -261,6 +260,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Apparatus:** `τὸν Ῥασείν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **τῶν Ῥασίμ** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- **Apparatus:** `ὥρκωσεν.` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **ὥρκωσεν αὐτοὺς ἐνώπιον Κυρίου** LXX-Orthodox (Οʹ)
 - **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **αὐτοὺς ἐνώπιον Κυρίου** LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `Ἰωδᾶε` over `Ἰωδαὲ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `ἔλαβεν` over `ἔλαβε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
@@ -269,7 +269,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Κυρίου` over `Κυρίου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `ὥρκωσεν.` over `ὤρκωσεν.`, `ὥρκωσε·` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `Ἰωδᾶε` over `Ἰωδαὲ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἔλαβεν / ἔλαβε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:5
 - **Apparatus:** `καὶ φυλάξετε φυλακὴν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **om.** Sixtine/Brenton LXX-Orthodox (Οʹ) *(omission / addition)*
@@ -303,7 +302,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `om.` over `καὶ` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `φυλάξουσιν` over `φυλάξουσι` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `φυλάξουσιν / φυλάξουσι` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:8
 - **Apparatus:** `ἀηδὼθ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **τὰς σαδηρὼθ** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
@@ -318,7 +316,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἀποθανεῖται` over `ἀποκαὶ ι` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 
 ### 2 Kings (4 Kingdoms) 11:9
-- **Apparatus:** `καὶ εἰσῆλθεν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **μετὰ τῶν ἐκπορευομένων τὸ σάββατον καὶ εἰσῆλθον** Sixtine/Brenton ; **καὶ εἰσῆλθον** LXX-Orthodox (Οʹ) *(partial substitution)*
+- **Apparatus:** `καὶ εἰσῆλθεν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **μετὰ τῶν ἐκπορευομένων τὸ σάββατον καὶ εἰσῆλθον** Sixtine/Brenton LXX-Orthodox (Οʹ) *(partial substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -359,25 +357,20 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἐπ᾽` over `ἐπ’`, `ἐπʼ` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `χειρὶ` over `χειρὶ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Ζήτω` over `ζήτω` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἐξαπέστειλεν / ἐξαπέστειλε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:13
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἤκουσεν` over `ἤκουσε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `εἰσῆλθεν` over `εἰσῆλθε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `Κυρίου.` over `Κυρίου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἤκουσεν / ἤκουσε`, `εἰσῆλθεν / εἰσῆλθε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:14
-- **Apparatus:** `σάλπιγξιν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **σάλπιγξι** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `εἶδεν,` over `εἶδε,` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `κρίμα,` over `κρίμα·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
+- *Disregarded Surface Variant:* kept `σάλπιγξιν·` over `σάλπιγξι·` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `διέρρηξεν` over `διέῤῥηξε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `ἐβόησεν` over `ἐβόησε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `Σύνδεσμος,` over `σύνδεσμος,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `εἶδεν, / εἶδε`, `διέρρηξεν / διέρρηξε`, `ἐβόησεν / ἐβόησε·` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:15
 - **Apparatus:** `ἑκατοντάρχαις` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **ἑκατοντάρχοις** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
@@ -397,7 +390,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ὅτι` over `ὄτι` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `ἱερεύς` over `ἱερεύς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Καὶ` over `καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `εἶπεν / εἶπε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:16
 - **Apparatus:** `εἰσῆλθον` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **εἰσῆλθεν** LXX-Orthodox (Οʹ)
@@ -429,7 +421,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `αὐτόν,` over `αὐτὸν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Βάαλ` over `ἀπέκτειναν` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `Κυρίου.` over `κυρίου.` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `εἰσῆλθεν / εἰσῆλθε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### 2 Kings (4 Kingdoms) 11:19
 - **Apparatus:** `εἰσῆλθεν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **εἰσῆλθον** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
@@ -446,16 +437,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ῥασσεὶμ` over `Ῥασὶμ,` (Sixtine/Brenton) — *Combined single / double consonant and itacistic spelling (ει / ι)*
 - *Disregarded Surface Variant:* kept `Κυρίου,` over `Κυρίου·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `βασιλέως` over `βα` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἔλαβεν / ἔλαβε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `Χορρεὶ / Χορρὶ` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Koine/Uncial itacistic spelling (ει / ι equivalence)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `Ῥασσεὶμ / Ρασὶμ` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Combined single / double consonant and itacistic spelling (ει / ι)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `Ῥασσεὶμ / Ρασὶμ`, `Ῥασσεὶμ / Ρασιμ` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Combined single / double consonant and itacistic spelling (ει / ι)*
 
 ### 2 Kings (4 Kingdoms) 11:20
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἐχάρη` over `om.` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `ἡσύχασεν·` over `ἡσύχασε·` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `ῥομφαίᾳ ἐν οἴκῳ` over `ῥομφαία ἐν οἴκω` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ἡσύχασεν· / ἡσύχασε·` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ---
 
@@ -586,15 +574,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `LXX-Orthodox (Οʹ)`: καὶ ἤκουσε Γοθολία τὴν φωνὴν τῶν τρεχόντων τοῦ λαοῦ καὶ εἰσῆλθε πρὸς τὸν λαὸν εἰς οἶκον Κυρίου.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
-### Verse 14 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 14 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ εἶδεν, καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα, καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξιν· καὶ διέρρηξεν Γοθολία τὰ ἱμάτια ἑαυτῆς, καὶ ἐβόησεν Σύνδεσμος, σύνδεσμος.
   - `Swete-Amicarelli`: καὶ εἶδεν, καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα, καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξιν· καὶ διέρρηξεν Γοθολία τὰ ἱμάτια ἑαυτῆς, καὶ ἐβόησεν Σύνδεσμος, σύνδεσμος.
   - `1st1K-LXX`: καὶ εἶδεν, καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα, καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξιν· καὶ διέρρηξεν Γοθολία τὰ ἱμάτια ἑαυτῆς, καὶ ἐβόησεν Σύνδεσμος, σύνδεσμος.
   - `Swete (B/A/א)`: καὶ εἶδεν, καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα, καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξιν· καὶ διέρρηξεν Γοθολία τὰ ἱμάτια ἑαυτῆς, καὶ ἐβόησεν Σύνδεσμος, σύνδεσμος.
   - `Sixtine/Brenton`: καὶ εἶδε, καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα· καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξι· καὶ διέῤῥηξε Γοθολία τὰ ἱμάτια ἑαυτῆς, καὶ ἐβόησε σύνδεσμος, σύνδεσμος.
   - `LXX-Orthodox (Οʹ)`: καὶ εἶδε καὶ ἰδοὺ ὁ βασιλεὺς εἱστήκει ἐπὶ τοῦ στύλου κατὰ τὸ κρίμα, καὶ οἱ ᾠδοὶ καὶ αἱ σάλπιγγες πρὸς τὸν βασιλέα, καὶ πᾶς ὁ λαὸς τῆς γῆς χαίρων καὶ σαλπίζων ἐν σάλπιγξι· καὶ διέρρηξε Γοθολία τὰ ἱμάτια ἑαυτῆς καὶ ἐβόησε· σύνδεσμος σύνδεσμος.
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'σάλπιγξιν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over σάλπιγξι (Sixtine/Brenton). Also normalised 5 orthographic/surface variation(s).
-- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
 ### Verse 15 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ ἐνετείλατο Ἰωδᾶε ὁ ἱερεὺς τοῖς ἑκατοντάρχαις τοῖς ἐπισκόποις τῆς δυνάμεως καὶ εἶπεν πρὸς αὐτούς Ἐξάγαγε αὐτοὺς ἔσωθεν τὸν ἀσηρὼθ, καὶ ὁ εἰσπορευόμενος ὀπίσω αὐτῆς θανάτῳ θανατωθήσεται ῥομφαίᾳ· ὅτι εἶπεν ὁ ἱερεύς Καὶ μὴ ἀποθάνῃ ἐν οἴκῳ Κυρίου.

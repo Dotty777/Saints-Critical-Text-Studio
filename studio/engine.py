@@ -810,6 +810,8 @@ class CriticalTextEngine:
                 language=lang,
                 external_apparatus=ext_app.get(v, []),
                 pivot_preference=[base_sig] if base_sig else None,
+                book_slug=book.slug,
+                chapter=chapter,
             )
             cv.absent_witnesses = absent
             cv.doubtful_witnesses = sorted(s for s, t in texts.items() if t.startswith(DOUBTFUL_OPEN) and t.endswith(DOUBTFUL_CLOSE))
@@ -822,6 +824,7 @@ class CriticalTextEngine:
             cv.single_stream = single_stream_notes.get(v, "")
             cv.apparatus_texts = {s: m[v] for s, m in appar_by_sig.items() if v in m}
             cv.apparatus_refs = {s: appar_moved[s][v] for s in cv.apparatus_texts if v in appar_moved.get(s, {})}
+            cv.open_apparatus_sigla = {str(w["siglum"]) for w in appar_meta if int(w.get("tier", 5)) < 5}
             collated.append(cv)
 
         return {
@@ -988,6 +991,8 @@ class CriticalTextEngine:
         adjudications = brain.adjudicate_chapter(lang, book.title, chapter, collated_list)
         for cv, adj in zip(collated_list, adjudications):
             record_apparatus_witnesses(cv, adj, lang)
+            if hasattr(brain, "refresh_verse_review"):
+                brain.refresh_verse_review(adj, cv, lang)
 
         now = utc_now()
         with get_conn() as conn:

@@ -1,6 +1,6 @@
 # Ezekiel 33 — Saints Hebrew Critical Text
 
-**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:52Z`
+**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:45Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -74,35 +83,24 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Ezekiel 33:1
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Ezekiel 33:3
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּשּׁוֹפָ֖ר / בַּשֹּׁופָ֖ר` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Ezekiel 33:4
 - *Disregarded Surface Variant:* kept `דָּמ֖וֹ` over `דָּמ֥וֹ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `בְּרֹאשׁ֥וֹ` over `בְרֹאשׁ֖וֹ` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַשּׁוֹפָר֙ / הַשֹּׁופָר֙`, `בְּרֹאשׁ֥וֹ / בְרֹאשֹׁ֖ו`, `בְּרֹאשׁ֥וֹ / בְרֹאשׁ֖וֹ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Ezekiel 33:5
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַשּׁוֹפָ֤ר / הַשֹּׁופָ֤ר`, `בּ֣וֹ / בֹּ֣ו`, `נַפְשׁ֥וֹ / נַפְשֹׁ֥ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:6
 - *Disregarded Surface Variant:* kept `וְ֠הַצֹּפֶ֠ה` over `וְ֠הַצֹּפֶה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כִּי־` over `כִּֽי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּשּׁוֹפָר֙ / בַּשֹּׁופָר֙`, `בַּעֲוֺנ֣וֹ / בַּֽעֲֺונ֣וֹ`, `אֶדְרֹֽשׁ׃ / אֶדְרֽשׁ׃` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:8
 - *Disregarded Surface Variant:* kept `בְּאׇמְרִ֣י` over `בְּאָמְרִ֣י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `בַעֲוֺנ֣וֹ` over `בַּעֲוֺנ֣וֹ` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִדַּרְכּ֑וֹ / מִדַּרְכֹּ֑ו`, `בַעֲוֺנ֣וֹ / בַּעֲוֹנ֣וֹ`, `בַעֲוֺנ֣וֹ / בַּֽעֲֺונ֣וֹ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:9
 - *Disregarded Surface Variant:* kept `וְ֠אַתָּ֠ה` over `וְ֠אַתָּה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כִּי־` over `כִּֽי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִדַּרְכּוֹ֙ / מִדַּרְכֹּו֙`, `מִדַּרְכּ֑וֹ / מִדַּרְכֹּ֑ו`, `בַּעֲוֺנ֣וֹ / בַּֽעֲֺונ֣וֹ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:11
 - *Disregarded Surface Variant:* kept `יֱהֹוִ֗ה` over `יְהוִ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִדַּרְכּ֖וֹ / מִדַּרְכֹּ֖ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:12
 - *Disregarded Surface Variant:* kept `לֹא־` over `לֹֽא־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -111,20 +109,16 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `בְּאׇמְרִ֤י` over `בְּאָמְרִ֤י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `צִדְקֹתָו֙` over `צדקתו` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `צִדְקֹתָו֙ / *צִדְקָתוֹ (צִדְקֹתָיו֙)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בּ֥וֹ / בֹּ֥ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over ` / (צִדְקֹתָיו֙)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ezekiel 33:14
 - *Disregarded Surface Variant:* kept `וּבְאׇמְרִ֥י` over `וּבְאָמְרִ֥י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לָרָשָׁ֖ע` over `לָֽרָשָׁ֖ע` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Ezekiel 33:15
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בְּחֻקּ֤וֹת / בְּחֻקֹּ֤ות`, `עֲשׂ֣וֹת / עֲשֹׂ֣ות` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Ezekiel 33:16
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `חַטֹּאתָו֙` over `חטאתו` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `חַטֹּאתָו֙ / *חַטָּאתוֹ (חַטֹּאתָיו֙)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over ` / *חַטָּאתוֹ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ezekiel 33:17
 - *Disregarded Surface Variant:* kept `וְאָֽמְרוּ֙` over `וְאָמְרוּ֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -132,7 +126,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Ezekiel 33:20
 - *Disregarded Surface Variant:* kept `יִשְׂרָאֵֽל׃` over `יִשְׂרָאֵֽל` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אֶשְׁפּ֥וֹט / אֶשְׁפֹּ֥וט` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:21
 - *Disregarded Surface Variant:* kept `בַּֽחֲמִשָּׁ֥ה` over `בַּחֲמִשָּׁ֥ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -140,20 +133,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Ezekiel 33:22
 - *Disregarded Surface Variant:* kept `יְהֹוָה֩` over `יְהוָה֩` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בּ֣וֹא / בֹּ֣וא`, `בּ֥וֹא / בֹּ֥וא` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:24
 - *Disregarded Surface Variant:* kept `יֹ֠שְׁבֵ֠י` over `יֹ֠שְׁבֵי` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `יֹ֠שְׁבֵ֠י / יֽ֠שְׁבֵי` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:25
 - *Disregarded Surface Variant:* kept `אֲלֵהֶ֜ם` over `אֲלֵיהֶ֜ם` (WLC (L)) — *Plene / defective spelling (mater lectionis)*
 - *Disregarded Surface Variant:* kept `כֹּה־` over `כֹּֽה־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יֱהֹוִ֗ה` over `יְהֹוִ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אֲלֵהֶ֜ם / אֲלֵיהֶ֜ם`, `אֲלֵהֶ֜ם / אֲלֵיהֶ֜ם` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
-
-### Ezekiel 33:26
-- *Disregarded Surface Variant:* kept `(adopted text)` over `תּוֹעֵבָ֔ה / תֹּועֵבָ֔ה` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:27
 - *Disregarded Surface Variant:* kept `כֹּה־` over `כֹּֽה־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -167,12 +154,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Ezekiel 33:29
 - *Disregarded Surface Variant:* kept `יְהֹוָ֑ה` over `יְהוָ֑ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `תּוֹעֲבֹתָ֖ם / תֹּועֲבֹתָ֖ם` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:30
 - *Disregarded Surface Variant:* kept `בֹּאוּ־` over `בֹּֽאוּ־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָֽה׃` over `יְהוָֽה׃` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּוֹצֵ֖א / הַיֹּוצֵ֖א` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ezekiel 33:31
 - *Disregarded Surface Variant:* kept `אֵ֠לֶ֠יךָ` over `אֵ֠לֶיךָ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*

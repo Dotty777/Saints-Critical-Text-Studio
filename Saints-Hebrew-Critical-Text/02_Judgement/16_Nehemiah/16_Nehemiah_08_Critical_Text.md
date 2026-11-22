@@ -1,6 +1,6 @@
 # Nehemiah 08 — Saints Hebrew Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:19Z`
+**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:47Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -59,16 +68,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Nehemiah 8:1
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `תּוֹרַ֣ת / תֹּורַ֣ת`, `מֹשֶׁ֔ה / משֶׁ֔ה` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:2
 - *Disregarded Surface Variant:* kept `הַ֠כֹּהֵ֠ן` over `הַ֠כֹּהֵן` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַתּוֹרָ֞ה / הַתֹּורָ֞ה`, `לִשְׁמֹ֑עַ / לִשְׁמ֑עַ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:3
 - *Disregarded Surface Variant:* kept `וְאׇזְנֵ֥י` over `וְאָזְנֵ֥י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּ֔וֹם / הַיֹּ֔ום`, `הַתּוֹרָֽה׃ / הַתֹּורָֽה׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:4
 - *Disregarded Surface Variant:* kept `וַ֠עֲנָיָ֠ה` over `וַ֠עֲנָיָה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -80,66 +86,49 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Nehemiah 8:6
-- **Apparatus:** `וַיִּֽשְׁתַּחֲו֛וּ` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **וַיִּשְׁתַּחֲוֻּ֛** WLC (L) *(inflection or spelling (same stem))*
-  - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
-  - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
 - *Disregarded Surface Variant:* kept `יְהֹוָ֥ה` over `יְהוָ֥ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
+- *Disregarded Surface Variant:* kept `וַיִּֽשְׁתַּחֲו֛וּ` over `וַיִּשְׁתַּחֲוֻּ֛` (WLC (L)) — *Plene / defective spelling with pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
 - *Disregarded Surface Variant:* kept `לַיהֹוָ֖ה` over `לַיהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וַיִּֽשְׁתַּחֲו֛וּ / וַיִּשְׁתַּחֲוֻּ֛` (BenChayyim (1525)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
 
 ### Nehemiah 8:7
 - *Disregarded Surface Variant:* kept `עׇמְדָֽם׃` over `עָמְדָֽם׃` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לַתּוֹרָ֑ה / לַתֹּורָ֑ה` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Nehemiah 8:8
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְשׂ֣וֹם / וְשֹׂ֣ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:9
 - *Disregarded Surface Variant:* kept `לְכׇל־` over `לְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לַיהֹוָ֣ה` over `לַיהוָ֣ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כְּשׇׁמְעָ֖ם` over `כְּשָׁמְעָ֖ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּ֤וֹם / הַיֹּ֤ום`, `הַתּוֹרָֽה׃ / הַתֹּורָֽה׃`, `קָדֹֽשׁ־ / קָֽדשׁ־` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `׀ / ` (Letteris (1852)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `׀ / `, `׀ / ` (Letteris (1852)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 
 ### Nehemiah 8:10
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּ֖וֹם / הַיֹּ֖ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:11
 - *Disregarded Surface Variant:* kept `לְכׇל־` over `לְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַיּ֖וֹם / הַיֹּ֖ום`, `קָדֹ֑שׁ / קָד֑שׁ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:12
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְלִשְׁתּוֹת֙ / וְלִשְׁתֹּות֙`, `וְלַעֲשׂ֖וֹת / וְלַעֲשֹׂ֖ות` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:13
 - *Disregarded Surface Variant:* kept `לְכׇל־` over `לְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וּבַיּ֣וֹם / וּבַיֹּ֣ום`, `הַתּוֹרָֽה׃ / הַתֹּורָֽה׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:14
 - *Disregarded Surface Variant:* kept `יְהֹוָה֙` over `יְהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּתּוֹרָ֑ה / בַּתֹּורָ֑ה`, `בַּסֻּכּ֛וֹת / בַּסֻּכֹּ֛ות`, `מֹשֶׁ֔ה / משֶׁ֔ה` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:15
 - *Disregarded Surface Variant:* kept `בְּכׇל־` over `בְּכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וּבִירוּשָׁלַ֣‍ִם` over `וּבִירוּשָׁלִַ֣ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לַעֲשֹׂ֥ת / לַֽעֲשׂ֥ת` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:16
 - *Disregarded Surface Variant:* kept `וַיָּבִ֒יאוּ֒` over `וַיָּבִיאוּ֒` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `סֻכּ֜וֹת / סֻכֹּ֜ות`, `גַּגּוֹ֙ / גַּגֹּו֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:17
 - *Disregarded Surface Variant:* kept `כׇֽל־` over `כָֽל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `הַ֠קָּהָ֠ל` over `הַ֠קָּהָל` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `סֻכּוֹת֮ / סֻכֹּות֮`, `בַסֻּכּוֹת֒ / בַסֻּכֹּות֒`, `הַיּ֣וֹם / הַיֹּ֣ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Nehemiah 8:18
 - *Disregarded Surface Variant:* kept `וַ֠יִּקְרָ֠א` over `וַ֠יִּקְרָא` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `תּוֹרַ֤ת / תֹּורַ֤ת`, `הַיּוֹם֙ הָֽרִאשׁ֔וֹן / הַיֹּום֙ הָֽרִאשֹׁ֔ון`, `הַיּ֣וֹם / הַיֹּ֣ום`, `וּבַיּ֧וֹם / וּבַיֹּ֧ום` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ---
 
@@ -185,14 +174,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: וַיִּפְתַּ֨ח עֶזְרָ֤א הַסֵּ֨פֶר֙ לְעֵינֵ֣י כָל־הָעָ֔ם כִּֽי־מֵעַ֥ל כָּל־הָעָ֖ם הָיָ֑ה וּכְפִתְח֖וֹ עָֽמְד֥וּ כָל־הָעָֽם׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention).
 
-### Verse 6 (Confidence: `50.6%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 6 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַיְבָ֣רֶךְ עֶזְרָ֔א אֶת־יְהֹוָ֥ה הָאֱלֹהִ֖ים הַגָּד֑וֹל וַיַּֽעֲנ֨וּ כׇל־הָעָ֜ם אָמֵ֤ן ׀ אָמֵן֙ בְּמֹ֣עַל יְדֵיהֶ֔ם וַיִּקְּד֧וּ וַיִּֽשְׁתַּחֲו֛וּ לַיהֹוָ֖ה אַפַּ֥יִם אָֽרְצָה׃
   - `MAM (Aleppo)`: וַיְבָ֣רֶךְ עֶזְרָ֔א אֶת־יְהֹוָ֥ה הָאֱלֹהִ֖ים הַגָּד֑וֹל וַיַּֽעֲנ֨וּ כׇל־הָעָ֜ם אָמֵ֤ן ׀ אָמֵן֙ בְּמֹ֣עַל יְדֵיהֶ֔ם וַיִּקְּד֧וּ וַיִּֽשְׁתַּחֲו֛וּ לַיהֹוָ֖ה אַפַּ֥יִם אָֽרְצָה׃
   - `WLC (L)`: וַיְבָ֣רֶךְ עֶזְרָ֔א אֶת־יְהוָ֥ה הָאֱלֹהִ֖ים הַגָּד֑וֹל וַיַּֽעֲנ֨וּ כָל־הָעָ֜ם אָמֵ֤ן ׀ אָמֵן֙ בְּמֹ֣עַל יְדֵיהֶ֔ם וַיִּקְּד֧וּ וַיִּשְׁתַּחֲוֻּ֛ לַיהוָ֖ה אַפַּ֥יִם אָֽרְצָה׃
   - `BenChayyim (1525)`: וַיְבָ֣רֶךְ עֶזְרָ֔א אֶת־יְהוָ֥ה הָאֱלֹהִ֖ים הַגָּד֑וֹל וַיַּֽעֲנ֨וּ כָל־הָעָ֜ם אָמֵ֤ן ׀ אָמֵן֙ בְּמֹ֣עַל יְדֵיהֶ֔ם וַיִּקְּד֧וּ וַיִּשְׁתַּחֲוֻּ֛ לַיהוָ֖ה אַפַּ֥יִם אָֽרְצָה׃
   - `Letteris (1852)`: וַיְבָ֣רֶךְ עֶזְרָ֔א אֶת־יְהֹוָ֥ה הָֽאֱלֹהִ֖ים הַגָּד֑וֹל וַיַּֽעֲנ֨וּ כָל־הָעָ֜ם אָמֵ֤ן ׀ אָמֵן֙ בְּמֹ֣עַל יְדֵיהֶ֔ם וַיִּקְּד֧וּ וַיִּשְׁתַּֽחֲו֛וּ לַֽיהֹוָ֖ה אַפַּ֥יִם אָֽרְצָה׃
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'וַיִּֽשְׁתַּחֲו֛וּ' [MAM (Aleppo)] (weight 0.98, confidence 51%) over וַיִּשְׁתַּחֲוֻּ֛ (WLC (L)). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 51% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Plene / defective spelling with pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh).
 
 ### Verse 7 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וְיֵשׁ֡וּעַ וּבָנִ֡י וְשֵׁרֵ֥בְיָ֣ה ׀ יָמִ֡ין עַקּ֡וּב שַׁבְּתַ֣י ׀ הֽוֹדִיָּ֡ה מַעֲשֵׂיָ֡ה קְלִיטָ֣א עֲזַרְיָה֩ יוֹזָבָ֨ד חָנָ֤ן פְּלָאיָה֙ וְהַלְוִיִּ֔ם מְבִינִ֥ים אֶת־הָעָ֖ם לַתּוֹרָ֑ה וְהָעָ֖ם עַל־עׇמְדָֽם׃

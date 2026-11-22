@@ -16,7 +16,31 @@ _OCR_COPIES = {
     "grk-swete-lxx": "swete_clean",
 }
 _SWETE_COPIES = dict(_OCR_COPIES, **{"grk-swete-csv": "swete_csv"})
-_ANCHOR_COPIES = {"grk-brenton-sixtine": "brenton_usfm"}  # the numbering anchor: numbering repairs only
+_ANCHOR_COPIES = {"grk-brenton-sixtine": "brenton_usfm"}  # numbering anchor: documented OCR & division repairs
+_NT_KEYING_COPIES = {
+    "grk-nt-kjtr": "cntr_edition",
+    "grk-nt-sblgnt": "sblgnt_txt",
+}
+_LATIN_NUM1_COPIES = (
+    "lat-clementine-usfx",
+    "lat-vulg-hetzenauer",
+    "lat-vulg-conte",
+    "lat-vulg-sistina",
+    "lat-quarantine-stuttgart",
+)
+_LATIN_REPAIR_COPIES = {
+    "lat-amiatinus": "amiatinus_tei",
+    "lat-clementine-usfx": "usfx_xml",
+    "lat-saints-staging": "latin_saints_json",
+    "lat-vulg-hetzenauer": "scrollmapper_csv",
+    "lat-vulg-conte": "scrollmapper_csv",
+    "lat-vulg-sistina": "scrollmapper_csv",
+    "lat-quarantine-stuttgart": "scrollmapper_csv",
+}
+_HEBREW_REPAIR_COPIES = {
+    "heb-mam-aleppo": "mam_osis",
+}
+_REPAIRABLE_COPIES = {**_SWETE_COPIES, **_ANCHOR_COPIES, **_NT_KEYING_COPIES, **_LATIN_REPAIR_COPIES, **_HEBREW_REPAIR_COPIES}
 # Digital files that leave out text their printed edition has: the gap is marked lost ("…"), so it is not
 # recorded as the edition's omission. (witness id, parser kind) -> [(book, chapter, verse, exact opening, what is lost)]
 _FILE_GAPS = {
@@ -93,6 +117,101 @@ _SLIPS: Tuple[Tuple[Tuple[str, ...], str, int, int, str, str, str], ...] = (
     # Swete Clean lost Swete's prologue to Lamentations in conversion (First1KGreek, the same OCR, has it).
     (("grk-swete-lxx",), "lamentations", 1, 1, "^Ἄλεφ. Πῶς ἐκάθισεν", f"{LACUNA_MARK} Ἄλεφ. Πῶς ἐκάθισεν",
      "ΚΑΙ ἐγένετο … καὶ εἶπεν Ἄλεφ. (prologue lost in conversion: not evidence that Swete lacks it)"),
+    # Accuracy Audit (21 Nov 2026) — verified OCR / keying / XML-markup import repairs across Greek OT, Greek NT, Latin:
+    (_OCR, "sirach", 24, 34, "ἅποσιν", _G, "ἅπασιν (OCR ο for α; Swete-Amicarelli and Rahlfs print ἅπασιν)"),
+    (_OCR, "1-chronicles", 6, 81, "τπερισπόρια", _G, "περισπόρια (stray initial τ in OCR; Swete-Amicarelli prints περισπόρια)"),
+    (_CSV, "1-chronicles", 6, 67, "φυγαδευτρηίων", _G, "φυγαδευτηρίων (transposed ρη/ηρ in Amicarelli transcription)"),
+    (_CSV, "1-kings", 12, 24, "πρὸς τὸν ἄνθρωπον τοῦ θεοῦ, καὶ κολλύρια",
+     f"πρὸς τὸν ἄνθρωπον τοῦ θεοῦ, {LACUNA_MARK} καὶ κολλύρια",
+     "πρὸς τὸν ἄνθρωπον τοῦ θεοῦ, καὶ εἶπεν αὐτῇ Ἀχειά Ἵνα τί μοι ἐνήνοχας ἄρτους καὶ σταφυλὴν καὶ κολλύρια (10-word homoeoteleuton skip in Amicarelli transcription)"),
+    (_OCR, "1-kings", 12, 24, "Ἵωα τί μοι ἐνήνοχας ἄπτους καὶ σταφυλὴν καὶ κολλύρια καὶ στάμον",
+     f"Ἵνα τί μοι ἐνήνοχας ἄρτους καὶ σταφυλὴν καὶ κολλύρια καὶ {_G}",
+     "Ἵνα … ἄρτους … στάμνον (three single-letter OCR typos in 3 Kgdms 12:24m addition; corroborated by Swete II p. 719, Rahlfs, & Larger Cambridge B)"),
+    (("grk-nt-kjtr",), "acts", 8, 37,
+     "Εἰπε δὲ ὁ Φίλιππος, Εἰ πιστεύεις ἐξ ὅλης τὴς καρδίας, ἔξεστιν. Ἀποκριθεὶς δὲ εἷπε, Πιστεύω τὸν Ὑιὸν τοῦ Θεοῦ ἐιναι",
+     "Εἶπε δὲ ὁ Φίλιππος, Εἰ πιστεύεις ἐξ ὅλης τῆς καρδίας, ἔξεστιν. Ἀποκριθεὶς δὲ εἶπε, Πιστεύω τὸν Υἱὸν τοῦ Θεοῦ εἶναι",
+     "polytonic accent/breathing typos in CNTR KJTR (corroborated verbatim by Scrivener 1894 & Boyd TR)"),
+    (("grk-nt-kjtr",), "acts", 24, 7, "ὁ χιλιαρχος,", "ὁ χιλίαρχος,",
+     "missing acute accent on χιλίαρχος in CNTR KJTR (corroborated by Scrivener 1894 & Boyd TR)"),
+    (("grk-nt-kjtr",), "luke", 17, 36, "ὁ εἴς παραληφθήσεται", "ὁ εἷς παραληφθήσεται",
+     "acute+smooth typo εἴς for numeral εἷς in CNTR KJTR (corroborated by Scrivener 1894 & Boyd TR)"),
+    (("grk-nt-sblgnt",), "john", 8, 3, "καταλήφθεισαν·", "καταληφθεῖσαν·",
+     "upstream SBLGNT 2010 accent slip; feminine aorist passive participle is properispomenon καταληφθεῖσαν (RP2018, NA28)"),
+    (("lat-amiatinus",), "genesis", 7, 5, "praeceperat […] dominus illi", "praeceperat dominus illi",
+     "DLL <supplied reason=\"omitted\" source=\"#s\">ei</supplied> marks Amiatinus's transposition ei → illi after dominus, not a physical lacuna"),
+    (("lat-amiatinus",), "genesis", 39, 14, "haebrę um", "haebręum",
+     "missing break=\"no\" on <lb rend=\"indent\"/> inside haebręum in DLL Amiatinus XML"),
+    (("lat-saints-staging",), "sirach", 29, 13, "^Super scutum potentis$", f"Super scutum potentis {LACUNA_MARK}",
+     "Saints Latin JSON omits Vulgate 29:17–18 ('et super lanceam adversus inimicum tuum pugnabit.'); marked truncated so Clem1598-USFX supplies the complete verse"),
+    # Phase 2 Audit (22 Nov 2026) — verified Latin USFX typos, Greek Brenton OCR/breathing slips, and Hebrew MAM XML tagging slip:
+    (("lat-clementine-usfx",), "numbers", 35, 1, "in campes tribus Moab", "in campestribus Moab",
+     "in campestribus Moab (split-word typo in Clem1598-USFX; corroborated by Clem-Saints, VulgHetzenauer, VulgSistina, Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "matthew", 25, 42, "non desistis mihi potum:", "non dedistis mihi potum:",
+     "non dedistis mihi potum: (typesetting/OCR slip in Clem1598-USFX; corroborated by Clem-Saints, VulgSistina, Amiatinus NT, Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "mark", 3, 18, "Andræam,", "Andream,",
+     "Andream, (erroneous æ ligature in Clem1598-USFX for Greek Ἀνδρέας; corroborated by Clem-Saints, VulgSistina, Amiatinus NT, Stuttgart-BSV)"),
+    (("grk-brenton-sixtine",), "1-chronicles", 5, 30, "τὸν Αβισοὺ,", "τὸν Ἀβισοὺ,",
+     "Ἀβισού (missing initial smooth breathing in Brenton USFM; corroborated by LXX-Orthodox & Rahlfs)"),
+    (("grk-brenton-sixtine",), "1-chronicles", 5, 31, "^Αβισοὺ ἐγέννησεν", "Ἀβισοὺ ἐγέννησεν",
+     "Ἀβισού (missing initial smooth breathing in Brenton USFM; corroborated by LXX-Orthodox & Rahlfs)"),
+    (("heb-mam-aleppo",), "jeremiah", 3, 7, "וְלֹא־שָׁ֑בָה ותראה וַתֵּ֛רֶא", "וְלֹא־שָׁ֑בָה (ותראה) וַתֵּ֛רֶא",
+     "(ותראה) וַתֵּ֛רֶא (upstream MAPM_Masorah.xml omitted <seg type=\"x-ketiv\"> around ketiv ותראה; corroborated by WLC/BHS/OSHB)"),
+    # 48 verified Brenton USFM OCR slips printing γἱ/νἱ (impossible rough breathing after consonant) for υἱ- (υἱοὶ/υἱῶν/υἱοὺς/υἱὸς);
+    # every locus occurs once in its verse and is corroborated verbatim by LXX-Orthodox, Swete (where extant), and Rahlfs.
+    *(
+        (("grk-brenton-sixtine",), _book, _ch, _v, _old, _new,
+         f"{_new} (Brenton USFM OCR slip '{_old}' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)")
+        for _book, _ch, _v, _old, _new in (
+            ("genesis", 46, 9, "γἱοὶ", "υἱοὶ"),
+            ("leviticus", 16, 34, "νἱῶν", "υἱῶν"),
+            ("joshua", 5, 1, "νἱῶν", "υἱῶν"),
+            ("joshua", 16, 9, "νἱῶν", "υἱῶν"),
+            ("joshua", 17, 14, "νἱοὶ", "υἱοὶ"),
+            ("judges", 6, 8, "νἱοὺς", "υἱοὺς"),
+            ("2-kings", 18, 18, "νἱὸς", "υἱὸς"),
+            ("1-chronicles", 15, 17, "νἱῶν", "υἱῶν"),
+            ("1-chronicles", 19, 2, "νἱῶν", "υἱῶν"),
+            ("1-chronicles", 23, 8, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 9, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 12, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 13, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 15, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 16, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 18, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 19, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 20, "γἱοὶ", "υἱοὶ"),
+            ("1-chronicles", 23, 21, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 8, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 9, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 10, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 11, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 12, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 13, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 14, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 15, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 16, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 17, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 18, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 19, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 20, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 21, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 22, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 23, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 24, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 25, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 26, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 27, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 35, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 36, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 37, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 38, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 42, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 57, "γἱοὶ", "υἱοὶ"),
+            ("nehemiah", 7, 62, "γἱοὶ", "υἱοὶ"),
+            ("psalms", 61, 10, "νἱοὶ", "υἱοὶ"),
+            ("isaiah", 17, 9, "νἱῶν", "υἱῶν"),
+        )
+    ),
 )
 
 # Swete divides some verses differently from Brenton, the numbering anchor, and the content
@@ -115,16 +234,22 @@ _DIVISIONS: Tuple[Tuple[Tuple[str, ...], str, Tuple[int, int], str, str, Tuple[i
     (_CSV, "song-of-songs", (7, 1), "head", "Τί ὄψεσθε ἐν τῇ Σουμανείτιδι; ἡ ἐρχομένη ὡς χοροὶ τῶν παρεμβολῶν.", (6, 12), "append"),
     (_OCR, "song-of-songs", (7, 1), "head", "Τί δψεοθε ἐν τῆ Σουμανείτιδις ἡ ἐρχομένη ὡς χοροὶ τῶν παρεμβολῶν.", (6, 12), "append"),
     (_CSV, "sirach", (1, 8), "tail", "Κύριος", (1, 9), "prepend"),
+    (("lat-clementine-usfx",), "sirach", (29, 17), "head", "et super lanceam", (29, 16), "append"),
+    (("lat-clementine-usfx",), "sirach", (29, 18), "head", "adversus inimicum tuum pugnabit.", (29, 16), "append"),
+    (("grk-brenton-sixtine",), "nehemiah", (12, 18), "head", "Τῷ Ἰωαρὶβ,", (12, 19), "prepend"),
+    (("grk-brenton-sixtine",), "nehemiah", (12, 17), "tail", "τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·", (12, 18), "new"),
 )
 _DIVISION_WHY = {
     "numbers": "Swete numbers Brenton's 17:1–15 as 16:36–50 and Brenton's 17:16–28 as 17:1–13; the formulaic "
                "verse 'Καὶ ἐλάλησεν Κύριος πρὸς Μωυσῆν λέγων' was paired with Brenton's 17:1 by its number",
     "joshua": "the list of kings in 12:20–22 is divided differently in each copy and in Brenton",
     "judges": "Swete opens 2:15 with 'ἐν πᾶσιν οἷς ἐξεπορεύοντο', which Brenton ends 2:14 with",
+    "nehemiah": "Brenton USFM ran 12:18 into the tail of 12:17 and split 12:19 across 12:18 ('Τῷ Ἰωαρὶβ,') and 12:19; "
+                "restored to the standard LXX/Rahlfs/Orthodox verse boundaries",
     "proverbs": "Swete prints Brenton's 31:27 ('τὸ στόμα δὲ ἀνοίγει … ἡ δὲ ἐλεημοσύνη αὐτῆς') inside its 29:45–46",
     "ecclesiastes": "Swete's verse divisions in 7:24–25, 8:2–3 and 9:1–2 differ from Brenton's",
     "song-of-songs": "Swete opens 7:1 with 'Τί ὄψεσθε … παρεμβολῶν', which Brenton ends 7:1 (Swete 6:12) with",
-    "sirach": "the transcription ends 1:8 with the 'Κύριος' that opens 1:9",
+    "sirach": "Swete ends 1:8 with 'Κύριος' opening 1:9; Clementine Vulgate splits Sirach 29:13 across 29:16–18",
     "daniel": "Swete prints the springs (3:77) before the seas and rivers (3:78); Brenton numbers them the other way round",
 }
 # Whole runs renumbered to Brenton's numbering, in order: (witness id, book) -> [(chapter, first, last,
@@ -172,8 +297,9 @@ def _apply_slips(wid, book_slug, chapters, original, notes):
         if not text:
             continue
         anchored = old.startswith("^")
-        needle = old[1:] if anchored else old
-        if text.count(needle) != 1 or (anchored and not text.startswith(needle)):
+        end_anchored = old.endswith("$")
+        needle = old[1 if anchored else 0 : (-1 if end_anchored else None)]
+        if text.count(needle) != 1 or (anchored and not text.startswith(needle)) or (end_anchored and not text.endswith(needle)):
             continue
         result = _copy_chapter(result, original, ch)
         result[ch][v] = text.replace(needle, new, 1)
@@ -243,6 +369,20 @@ def _apply_divisions(wid, book_slug, chapters, original, notes):
             result[3][77], result[3][78] = b, a
             notes.setdefault(3, []).append(
                 f"Source division repair: 3:77 and 3:78 exchanged ({_DIVISION_WHY['daniel']}). Original file unchanged.")
+    if wid in _LATIN_NUM1_COPIES and book_slug == "numbers":
+        ch1 = result.get(1, {})
+        if (all(ch1.get(v) for v in range(24, 38))
+                and "Gad" in ch1[24] and "Juda" not in ch1[24] and "Iuda" not in ch1[24]
+                and "Zabulon" in ch1[30] and "Ephraim" in ch1[32]):
+            result = _copy_chapter(result, original, 1)
+            snap = {v: result[1][v] for v in range(24, 38)}
+            for v in range(26, 38):
+                result[1][v - 2] = snap[v]
+            result[1][36], result[1][37] = snap[24], snap[25]
+            notes.setdefault(1, []).append(
+                "Source division repair: verses 1:24–25 (Gad) moved to 1:36–37 and 1:26–37 (Juda–Benjamin) "
+                "renumbered 1:24–35 to match Clem-Saints's LXX tribe order (preventing formulaic census alignment "
+                "from swapping Zabulon 1:28 and Ephraim 1:30). Original file unchanged.")
     for copies, book, (ch, v), part, clause, (tch, tv), how in _DIVISIONS:
         if wid not in copies or book != book_slug:
             continue
@@ -282,9 +422,10 @@ Content-based alignment still handles the erroneous source number 88:84.
 Each repair checks the exact recorded text first, so applying it twice changes nothing.
 """
     wid = str(witness["id"])
+    notes: Dict[int, List[str]] = {}
+    result = chapters
     gaps = _FILE_GAPS.get((wid, witness["parser_kind"]), [])
     if gaps:
-        result, notes = chapters, {}
         for book, ch, v, opening, lost in gaps:
             text = result.get(ch, {}).get(v, "") if book == book_slug else ""
             if text.startswith(opening):
@@ -293,11 +434,8 @@ Each repair checks the exact recorded text first, so applying it twice changes n
                 notes.setdefault(ch, []).append(
                     f"Source file gap, {ch}:{v}: the file leaves out {lost}, which the printed edition has; marked "
                     "lost (…), so it is not recorded as the edition's omission. Original file unchanged.")
+    if _REPAIRABLE_COPIES.get(wid) != witness["parser_kind"]:
         return result, notes
-    if dict(_SWETE_COPIES, **_ANCHOR_COPIES).get(wid) != witness["parser_kind"]:
-        return chapters, {}
-    notes: Dict[int, List[str]] = {}
-    result = chapters
     if wid in _OCR_COPIES and book_slug == "2-kings" and chapters.get(23, {}).get(31) == _KINGS_PREFIX + _KINGS_TAIL:
         result = _copy_chapter(result, chapters, 23)
         result[23][31] = LACUNA_MARK + " " + _KINGS_TAIL
@@ -325,7 +463,12 @@ Each repair checks the exact recorded text first, so applying it twice changes n
 def coverage_gap_detail(language, book_slug, chapter):
     """Explain known local gaps only after all admitted witnesses were checked."""
     if language == "hebrew" and book_slug == "sirach":
-        return ("No admitted local Hebrew Sirach transcription is loaded. This is "
+        if int(chapter) in (2, 17, 24, 28, 29):
+            return (f"No extant Hebrew manuscript of Sirach preserves chapter {chapter} "
+                    "(chapters 2, 17, 24, 28, and 29 survive only in ancient translations such as "
+                    "Greek, Syriac, and Latin). This is a historical manuscript-survival gap, not "
+                    "evidence that Hebrew Sirach never existed; Greek or Latin text cannot supply a Hebrew witness.")
+        return ("No admitted local Hebrew Sirach transcription is loaded for this chapter. This is "
                 "a source-coverage gap, not evidence that Hebrew Sirach never existed; "
                 "Greek or Latin text cannot supply a Hebrew witness.")
     if language in {"hebrew", "latin"} and book_slug == "psalms" and chapter == 151:

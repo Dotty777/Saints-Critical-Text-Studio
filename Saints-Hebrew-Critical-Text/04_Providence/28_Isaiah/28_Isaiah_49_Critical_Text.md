@@ -1,6 +1,6 @@
 # Isaiah 49 — Saints Hebrew Critical Text
 
-**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:41Z`
+**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:46Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -72,28 +81,24 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Isaiah 49:5
+- **Apparatus:** `ל֣וֹ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `יְהֹוָ֗ה` over `יְהוָ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יֽוֹצְרִ֤י` over `יֹצְרִ֤י` (WLC (L)) — *Plene / defective spelling (mater lectionis)*
 - *Disregarded Surface Variant:* kept `(לא)` over `לא` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `ל֣וֹ` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `ל֣וֹ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `יֽוֹצְרִ֤י / יֹצְרִ֤י`, `יֽוֹצְרִ֤י / יֹֽצְרִ֤י` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לְשׁוֹבֵ֤ב / לְשֹׁובֵ֤ב`, `(לא) / *לֹא` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(לא) ל֣וֹ / לֹ֣א` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
 
 ### Isaiah 49:6
 - *Disregarded Surface Variant:* kept `יַֽעֲקֹ֔ב` over `יַעֲקֹ֔ב` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(ונצירי)` over `ונצירי` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `וּנְצוּרֵ֥י` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `וּנְצוּרֵ֥י` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `לִהְי֥וֹת` over `לִֽהְי֥וֹת` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ונצירי) / *וּנְצִירֵי`, `גּוֹיִ֔ם / גֹּויִ֔ם` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(ונצירי) וּנְצוּרֵ֥י / וּנְציּרֵ֥י` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `(ונצירי) / `, `(ונצירי) / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Isaiah 49:7
 - *Disregarded Surface Variant:* kept `יְהֹוָה֩` over `יְהוָה֩` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וְיִֽשְׁתַּחֲו֑וּ` over `וְיִֽשְׁתַּחֲוּ֑וּ` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): a vowel point left out by one edition*
 - *Disregarded Surface Variant:* kept `יְהֹוָה֙` over `יְהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `קְדוֹשׁ֗וֹ / קְדוֹשֹׁ֗ו`, `גּוֹי֙ / גֹּוי֙`, `וְיִֽשְׁתַּחֲו֑וּ / וְיִֽשְׁתַּחֲוּ֑וּ`, `מֹשְׁלִ֔ים / מֽשְׁלִ֔ים`, `קְדֹ֥שׁ / קְד֥שׁ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:8
 - *Disregarded Surface Variant:* kept `יְהֹוָ֗ה` over `יְהוָ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -101,30 +106,25 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Isaiah 49:9
 - *Disregarded Surface Variant:* kept `וּבְכׇל־` over `וּבְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּחֹ֖שֶׁךְ / בַּח֖שֶׁךְ` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:11
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Isaiah 49:13
+- **Apparatus:** `וּפִצְח֥וּ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - **Apparatus:** `וַעֲנִיָּ֖יו` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **וַעֲנִיָּ֖ו** WLC (L) *(inflection or spelling (same stem))*
   - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
   - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
 - *Disregarded Surface Variant:* kept `(יפצחו)` over `יפצחו` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `וּפִצְח֥וּ` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
+- *Disregarded Surface Variant:* kept `וּפִצְח֥וּ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `יְהֹוָה֙` over `יְהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(יפצחו) / *יִפְצְחוּ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עַמּ֔וֹ וַעֲנִיָּ֖יו / עַמֹּ֔ו וַעֲנִיָּ֖ו`, `וַעֲנִיָּ֖יו / וַֽעֲנִיָּ֖ו` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(יפצחו) וּפִצְח֥וּ / יּפִצְח֥וּ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
 
 ### Isaiah 49:14
 - *Disregarded Surface Variant:* kept `יְהֹוָ֑ה` over `יְהוָ֑ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `צִיּ֖וֹן / צִיֹּ֖ון` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:17
 - *Disregarded Surface Variant:* kept `מִהֲר֖וּ` over `מִֽהֲר֖וּ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וּמַחֲרִיבַ֖יִךְ` over `וּמַחֲרִבַ֖יִךְ` (WLC (L)) — *Plene / defective spelling (mater lectionis)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וּמַחֲרִיבַ֖יִךְ / וּמַחֲרִבַ֖יִךְ`, `וּמַחֲרִיבַ֖יִךְ / וּמַֽחֲרִבַ֖יִךְ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
 
 ### Isaiah 49:18
 - *Disregarded Surface Variant:* kept `יְהֹוָ֗ה` over `יְהוָ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -132,15 +132,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Isaiah 49:19
 - *Disregarded Surface Variant:* kept `חׇרְבֹתַ֙יִךְ֙` over `חָרְבֹתַ֙יִךְ֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `הֲרִסֻתֵ֑ךְ` over `הֲרִֽסֻתֵ֑יךְ` (WLC (L)) — *Plene / defective spelling (mater lectionis)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הֲרִסֻתֵ֑ךְ / הֲרִֽסֻתֵ֑יךְ`, `הֲרִסֻתֵ֑ךְ / הֲרִֽסֻתֵ֑יךְ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Plene / defective spelling (vav or yod as a vowel letter)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִיּוֹשֵׁ֔ב / מִיֹּושֵׁ֔ב` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:20
 - *Disregarded Surface Variant:* kept `בְאׇזְנַ֔יִךְ` over `בְאָזְנַ֔יִךְ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Isaiah 49:22
 - *Disregarded Surface Variant:* kept `יֱהֹוִ֗ה` over `יְהוִ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `גּוֹיִם֙ / גֹּויִם֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:23
 - *Disregarded Surface Variant:* kept `אֹמְנַ֗יִךְ` over `אֹֽמְנַ֗יִךְ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -148,14 +145,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לֹא־` over `לֹֽא־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `קֹוָֽי׃` over `קוָֹֽי׃` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): holem placement*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `יֵבֹ֖שׁוּ / יֵב֖שׁוּ` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Isaiah 49:24
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִגִּבּ֖וֹר / מִגִּבֹּ֖ור`, `הֲיֻקַּ֥ח / הֲיֻּקַּ֥ח` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:25
 - *Disregarded Surface Variant:* kept `יְהֹוָ֗ה` over `יְהוָ֗ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `גִבּוֹר֙ / גִבֹּור֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Isaiah 49:26
 - *Disregarded Surface Variant:* kept `כׇל־` over `כָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -203,7 +195,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וְעַתָּ֣ה ׀ אָמַ֣ר יְהוָ֗ה יֹצְרִ֤י מִבֶּ֙טֶן֙ לְעֶ֣בֶד ל֔וֹ לְשׁוֹבֵ֤ב יַֽעֲקֹב֙ אֵלָ֔יו וְיִשְׂרָאֵ֖ל לא יֵאָסֵ֑ף וְאֶכָּבֵד֙ בְּעֵינֵ֣י יְהוָ֔ה וֵאלֹהַ֖י הָיָ֥ה עֻזִּֽי׃
   - `BenChayyim (1525)`: וְעַתָּ֣ה ׀ אָמַ֣ר יְהוָ֗ה יֹצְרִ֤י מִבֶּ֙טֶן֙ לְעֶ֣בֶד ל֔וֹ לְשֹׁובֵ֤ב יַֽעֲקֹב֙ אֵלָ֔יו וְיִשְׂרָאֵ֖ל *לֹא (ל֣וֹ) יֵאָסֵ֑ף וְאֶכָּבֵד֙ בְּעֵינֵ֣י יְהוָ֔ה וֵאלֹהַ֖י הָיָ֥ה עֻזִּֽי׃
   - `Letteris (1852)`: וְעַתָּ֣ה ׀ אָמַ֣ר יְהֹוָ֗ה יֹֽצְרִ֤י מִבֶּ֨טֶן֨ לְעֶ֣בֶד ל֔וֹ לְשׁוֹבֵ֤ב יַֽעֲקֹב֨ אֵלָ֔יו וְיִשְׂרָאֵ֖ל לֹ֣א יֵֽאָסֵ֑ף וְאֶכָּבֵד֙ בְּעֵינֵ֣י יְהֹוָ֔ה וֵֽאלֹהַ֖י הָיָ֥ה עֻזִּֽי׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 5 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Plene / defective spelling (mater lectionis); Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 5 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Plene / defective spelling (mater lectionis); Punctuation / spacing difference only).
 
 ### Verse 6 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַיֹּ֗אמֶר נָקֵ֨ל מִֽהְיוֹתְךָ֥ לִי֙ עֶ֔בֶד לְהָקִים֙ אֶת־שִׁבְטֵ֣י יַֽעֲקֹ֔ב (ונצירי) וּנְצוּרֵ֥י יִשְׂרָאֵ֖ל לְהָשִׁ֑יב וּנְתַתִּ֙יךָ֙ לְא֣וֹר גּוֹיִ֔ם לִהְי֥וֹת יְשׁוּעָתִ֖י עַד־קְצֵ֥ה הָאָֽרֶץ׃
@@ -211,7 +203,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וַיֹּ֗אמֶר נָקֵ֨ל מִֽהְיוֹתְךָ֥ לִי֙ עֶ֔בֶד לְהָקִים֙ אֶת־שִׁבְטֵ֣י יַעֲקֹ֔ב ונצירי יִשְׂרָאֵ֖ל לְהָשִׁ֑יב וּנְתַתִּ֙יךָ֙ לְא֣וֹר גּוֹיִ֔ם לִֽהְי֥וֹת יְשׁוּעָתִ֖י עַד־קְצֵ֥ה הָאָֽרֶץ׃
   - `BenChayyim (1525)`: וַיֹּ֗אמֶר נָקֵ֨ל מִֽהְיוֹתְךָ֥ לִי֙ עֶ֔בֶד לְהָקִים֙ אֶת־שִׁבְטֵ֣י יַעֲקֹ֔ב *וּנְצִירֵי (וּנְצוּרֵ֥י) יִשְׂרָאֵ֖ל לְהָשִׁ֑יב וּנְתַתִּ֙יךָ֙ לְא֣וֹר גֹּויִ֔ם לִֽהְי֥וֹת יְשׁוּעָתִ֖י עַד־קְצֵ֥ה הָאָֽרֶץ׃
   - `Letteris (1852)`: וַיֹּ֗אמֶר נָקֵ֨ל מִֽהְיֽוֹתְךָ֥ לִי֙ עֶ֔בֶד לְהָקִים֨ אֶת־שִׁבְטֵ֣י יַעֲקֹ֔ב וּנְציּרֵ֥י יִשְׂרָאֵ֖ל לְהָשִׁ֑יב וּנְתַתִּ֨יךָ֙ לְא֣וֹר גּוֹיִ֔ם לִֽהְי֥וֹת יְשֽׁוּעָתִ֖י עַד־קְצֵ֥ה הָאָֽרֶץ׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 
 ### Verse 7 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** כֹּ֣ה אָֽמַר־יְהֹוָה֩ גֹּאֵ֨ל יִשְׂרָאֵ֜ל קְדוֹשׁ֗וֹ לִבְזֹה־נֶ֜פֶשׁ לִמְתָ֤עֵֽב גּוֹי֙ לְעֶ֣בֶד מֹשְׁלִ֔ים מְלָכִים֙ יִרְא֣וּ וָקָ֔מוּ שָׂרִ֖ים וְיִֽשְׁתַּחֲו֑וּ לְמַ֤עַן יְהֹוָה֙ אֲשֶׁ֣ר נֶאֱמָ֔ן קְדֹ֥שׁ יִשְׂרָאֵ֖ל וַיִּבְחָרֶֽךָּ׃
@@ -261,14 +253,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: הִנֵּה־אֵ֕לֶּה מֵֽרָח֖וֹק יָבֹ֑אוּ וְהִנֵּה־אֵ֨לֶּה֨ מִצָּפ֣וֹן וּמִיָּ֔ם וְאֵ֖לֶּה מֵאֶ֥רֶץ סִינִֽים׃
 - **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
 
-### Verse 13 (Confidence: `50.1%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 13 (Confidence: `50.6%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** רָנּ֤וּ שָׁמַ֙יִם֙ וְגִ֣ילִי אָ֔רֶץ (יפצחו) וּפִצְח֥וּ הָרִ֖ים רִנָּ֑ה כִּֽי־נִחַ֤ם יְהֹוָה֙ עַמּ֔וֹ וַעֲנִיָּ֖יו יְרַחֵֽם׃
   - `MAM (Aleppo)`: רָנּ֤וּ שָׁמַ֙יִם֙ וְגִ֣ילִי אָ֔רֶץ (יפצחו) וּפִצְח֥וּ הָרִ֖ים רִנָּ֑ה כִּֽי־נִחַ֤ם יְהֹוָה֙ עַמּ֔וֹ וַעֲנִיָּ֖יו יְרַחֵֽם׃
   - `WLC (L)`: רָנּ֤וּ שָׁמַ֙יִם֙ וְגִ֣ילִי אָ֔רֶץ יפצחו הָרִ֖ים רִנָּ֑ה כִּֽי־נִחַ֤ם יְהוָה֙ עַמּ֔וֹ וַעֲנִיָּ֖ו יְרַחֵֽם׃
   - `BenChayyim (1525)`: רָנּ֤וּ שָׁמַ֙יִם֙ וְגִ֣ילִי אָ֔רֶץ *יִפְצְחוּ (וּפִצְח֥וּ) הָרִ֖ים רִנָּ֑ה כִּֽי־נִחַ֤ם יְהוָה֙ עַמֹּ֔ו וַעֲנִיָּ֖ו יְרַחֵֽם׃
   - `Letteris (1852)`: רָנּ֤וּ שָׁמַ֙יִם֙ וְגִ֣ילִי אָ֔רֶץ יּפִצְח֥וּ הָרִ֖ים רִנָּ֑ה כִּֽי־נִחַ֤ם יְהֹוָה֙ עַמּ֔וֹ וַֽעֲנִיָּ֖ו יְרַחֵֽם׃
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'וַעֲנִיָּ֖יו' [MAM (Aleppo)] (weight 0.98, confidence 51%) over וַעֲנִיָּ֖ו (WLC (L)). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 50% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- *confidence:* Verse confidence 51% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
 
 ### Verse 14 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וַתֹּ֥אמֶר צִיּ֖וֹן עֲזָבַ֣נִי יְהֹוָ֑ה וַאדֹנָ֖י שְׁכֵחָֽנִי׃

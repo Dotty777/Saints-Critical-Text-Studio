@@ -20,6 +20,7 @@ Conventions shared by all parsers
 from __future__ import annotations
 import csv
 import functools
+import html
 import json
 import re
 import unicodedata
@@ -88,6 +89,18 @@ def clear_caches() -> None:
     _swete_csv_index.cache_clear()
     _scrivener_json_index.cache_clear()
     _scrollmapper_csv_index.cache_clear()
+    _tischendorf_osis_index.cache_clear()
+    _intf_ntvmr_index.cache_clear()
+    _compaul_latin_index.cache_clear()
+    _bensira_tei_index.cache_clear()
+    _rahlfs_csv_index.cache_clear()
+    _sinaiticus_tei_index.cache_clear()
+    _tagnt_edition_index.cache_clear()
+    _tregelles_txt_index.cache_clear()
+    _bhsa_tf_index.cache_clear()
+    _samaritan_tf_index.cache_clear()
+    _dss_tf_index.cache_clear()
+    _vl_john_synopsis_index.cache_clear()
 
 
 def _split_2esdras(book: BookSpec, chapters: BookText, offset: int) -> BookText:
@@ -190,6 +203,54 @@ def _load_book_cached(kind: str, path_str: str, _mtime: int, book: BookSpec) -> 
         return _parse_letteris_book(base_path, book)
     if kind == "scrollmapper_csv":
         return _scrollmapper_csv_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "tischendorf_osis":
+        return _tischendorf_osis_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "intf_ntvmr_xml":
+        return _parse_intf_ntvmr_book(base_path, book)
+    if kind == "igntp_paul_xml":
+        return _parse_igntp_paul_xml(base_path, book)
+    if kind == "compaul_latin_tei":
+        return _parse_compaul_latin_tei(base_path, book)
+    if kind == "bensira_tei":
+        if book.slug != "sirach":
+            return {}
+        return _bensira_tei_index(*_mtime_key(base_path))
+    if kind == "rahlfs_csv":
+        return _rahlfs_csv_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "sinaiticus_tei":
+        return _sinaiticus_tei_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "first1k_og_daniel":
+        return _parse_first1k_og_daniel(base_path, book)
+    if kind == "ottley_isaiah":
+        if book.slug != "isaiah":
+            return {}
+        raw_bk = _parse_swete_clean(base_path, book)
+        return {
+            ch: {v: norm_ws(re.sub(r"[<>]", "", t)) for v, t in vs.items() if norm_ws(re.sub(r"[<>]", "", t))}
+            for ch, vs in raw_bk.items()
+        }
+    if kind == "tagnt_na28":
+        return _tagnt_edition_index(*_mtime_key(base_path), "NA28").get(book.usfm_code, {})
+    if kind == "tagnt_thgnt":
+        return _tagnt_edition_index(*_mtime_key(base_path), "Tyn").get(book.usfm_code, {})
+    if kind == "tregelles_txt":
+        return _tregelles_txt_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "elzevir_uel":
+        return _parse_elzevir_uel(base_path, book)
+    if kind == "bhsa_tf":
+        return _bhsa_tf_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind == "samaritan_tf":
+        return _samaritan_tf_index(*_mtime_key(base_path)).get(book.usfm_code, {})
+    if kind.startswith("dss_"):
+        return _parse_dss_scroll(base_path, kind, book)
+    if kind.startswith("vl_john_"):
+        if book.slug != "john":
+            return {}
+        return _vl_john_synopsis_index(*_mtime_key(base_path)).get(kind[len("vl_john_"):], {})
+    if kind == "divinum_psalter":
+        if book.slug != "psalms":
+            return {}
+        return _parse_divinum_psalter(base_path)
     if kind == "custom_auto":
         return parse_custom_witness_book(base_path, book)
     return {}
@@ -688,8 +749,8 @@ def _parse_cntr_file(fp: Path, book_num: int, clean) -> BookText:
 
 
 def _clean_cntr_edition_line(raw: str) -> str:
-    # ¶ paragraph, ˚ nomen-sacrum flag, ¦ and ⋄ (alternate verse division) are layout marks, not text.
-    return norm_ws(raw.replace("¶", " ").replace("˚", "").replace("¦", " ").replace("⋄", " "))
+    # ¶ paragraph, ˚ nomen-sacrum flag, ¦ and ⋄ (alternate verse division), and $ numeral prefix are layout marks.
+    return norm_ws(raw.replace("¶", " ").replace("˚", "").replace("¦", " ").replace("⋄", " ").replace("$", ""))
 
 
 GAP_WORD = "[…]"  # one word known to be lost or unreadable at this point: casts no vote in its slot
@@ -908,7 +969,7 @@ def _mam_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
         # them first so the ketiv seg is matched whole.
         v_xml = re.sub(r'</?seg type="x-(?:big|small|suspended|large|reversednun|symbol|space)"[^>]*>', "", v_xml)
         v_xml = v_xml.replace("♫", " ")
-        v_xml = re.sub(r'<seg type="x-ketiv">(.*?)</seg>', lambda k: "(" + "_".join(re.sub(r"<[^>]+>", "", k.group(1)).split()) + ")", v_xml, flags=re.DOTALL)
+        v_xml = re.sub(r'<seg type="x-ketiv">(.*?)</seg>', lambda k: "(" + " ".join(re.sub(r"<[^>]+>", "", k.group(1)).split()) + ")", v_xml, flags=re.DOTALL)
         v_xml = re.sub(r"</?seg\b[^>]*>", "", v_xml)  # inline: large/small/suspended letters stay in the word
         v_txt = norm_ws(_strip_hebrew_layout(re.sub(r"<[^>]+>", " ", v_xml)))
         if v_txt:
@@ -1050,19 +1111,21 @@ def _render_amiatinus_fragment(xml_frag: str) -> str:
     # Words the scribe left out and the transcription supplies (from the Stuttgart edition): the
     # manuscript has a gap there, which must not count as an omission vote. One gap per supplied word;
     # letters supplied inside a word make the whole word a gap (truncated word).
-    s = re.sub(
-        r"<supplied\b[^>]*>(.*?)</supplied>",
-        lambda m: "§GAP" + str(max(1, len(re.sub(r"<[^>]+>", " ", m.group(1)).split()))) + "§",
-        s, flags=re.DOTALL,
-    )
-    for tag in ("fw", "note", "del", "am", "corr", "reg", "rdg"):
+    def _supplied_to_gap(m: re.Match[str]) -> str:
+        words = re.sub(r"<[^>]+>", " ", m.group(1)).split()
+        return ("§GAP" + str(len(words)) + "§") if words else " "
+
+    s = re.sub(r"<supplied\b[^>]*>(.*?)</supplied>", _supplied_to_gap, s, flags=re.DOTALL)
+    for tag in ("fw", "note", "del", "am", "corr", "reg", "rdg", "listTranspose"):
         s = re.sub(rf"<{tag}\b[^>]*/>", "", s)
         s = re.sub(rf"<{tag}\b.*?</{tag}>", "", s, flags=re.DOTALL)
+    # Standalone <gap/> outside <del> marks illegible manuscript text (casts no vote).
+    s = re.sub(r"<gap\b[^>]*/>", " §GAP1§ ", s)
     s = re.sub(r'\s*<lb\b[^>]*break="no"[^>]*/\s*>\s*', "", s)  # word-internal line break
-    s = re.sub(r"<(?:lb|pb|cb|gb|space|label|supplied)\b[^>]*/\s*>", " ", s)
-    # <name> wraps whole proper nouns (Gen 25:3 "</name>fuerunt"): keep a word boundary outside it.
-    s = re.sub(r"(?<=\w)<name\b[^>]*>", " ", s)
-    s = re.sub(r"</name>(?=\w)", " ", s)
+    s = re.sub(r"<(?:lb|pb|cb|gb|space|label|supplied|g)\b[^>]*/\s*>", " ", s)
+    # <name> / <placeName> wrap whole proper nouns (Gen 25:3 "</name>fuerunt"): keep a word boundary outside them.
+    s = re.sub(r"(?<=\w)<(?:name|placeName)\b[^>]*>", " ", s)
+    s = re.sub(r"</(?:name|placeName)>(?=\w)", " ", s)
     s = re.sub(r"<[^>]+>", "", s)
     out: List[str] = []
     for tok in norm_ws(s).split():
@@ -1082,25 +1145,76 @@ def _render_amiatinus_fragment(xml_frag: str) -> str:
     return " ".join(out)
 
 
+_AMIATINUS_BOOK_FILES: Dict[str, str] = {
+    "genesis": "0011r-genesis.xml",
+    "matthew": "0805r-mattheum.xml",
+    "mark": "0832v-marcum.xml",
+    "luke": "0852r-lucam.xml",
+    "john": "0883r-iohannem.xml",
+    "acts": "0905v-actus-apostolorum.xml",
+    "romans": "0938r-romanos.xml",
+    "1-corinthians": "0949v-corintheos-i.xml",
+    "2-corinthians": "0960v-corintheos-ii.xml",
+    "galatians": "0968v-galatas.xml",
+    "ephesians": "0972v-ephesios.xml",
+    "philippians": "0976v-philippenses.xml",
+    "colossians": "0979v-colossenes.xml",
+    "1-thessalonians": "0982v-thessalonicenses-i.xml",
+    "2-thessalonians": "0985r-thessalonicenses-ii.xml",
+    "1-timothy": "0986v-timotheum-i.xml",
+    "2-timothy": "0990r-timotheum-ii.xml",
+    "titus": "0992v-titum.xml",
+    "philemon": "0993v-philemonem.xml",
+    "hebrews": "0995r-hebraeos.xml",
+    "james": "1003v-iacobi.xml",
+    "1-peter": "1006v-petri-i.xml",
+    "2-peter": "1009v-petri-ii.xml",
+    "1-john": "1012r-iohannis-i.xml",
+    "2-john": "1014v-iohannis-ii.xml",
+    "3-john": "1015r-iohannis-iii.xml",
+    "jude": "1015v-iudae.xml",
+    "revelation": "1016v-apocalypsis-iohannis.xml",
+}
+
+
 def _parse_amiatinus_tei(fp: Path, book: BookSpec) -> BookText:
     target_fp: Optional[Path] = None
-    if fp.is_file() and book.slug in fp.stem.lower().split("-", 1)[-1]:
-        target_fp = fp
-    elif fp.parent.exists():
-        target_fp = next((p for p in sorted(fp.parent.glob("*.xml")) if p.stem.lower().split("-", 1)[-1] == book.slug), None)
+    mapped_name = _AMIATINUS_BOOK_FILES.get(book.slug)
+    if fp.is_dir():
+        if mapped_name and (fp / mapped_name).exists():
+            target_fp = fp / mapped_name
+        elif mapped_name and (fp / "text" / mapped_name).exists():
+            target_fp = fp / "text" / mapped_name
+        else:
+            search_dir = fp / "text" if (fp / "text").is_dir() else fp
+            target_fp = next(
+                (p for p in sorted(search_dir.glob("*.xml"))
+                 if not re.search(r"-(cap|prol|praef)\.xml$", p.name)
+                 and p.stem.lower().split("-", 1)[-1] == book.slug),
+                None,
+            )
+    elif fp.is_file():
+        if book.slug in fp.stem.lower().split("-", 1)[-1] or (mapped_name and fp.name == mapped_name):
+            target_fp = fp
+        elif mapped_name and (fp.parent / mapped_name).exists():
+            target_fp = fp.parent / mapped_name
+        elif fp.parent.exists():
+            target_fp = next((p for p in sorted(fp.parent.glob("*.xml")) if p.stem.lower().split("-", 1)[-1] == book.slug), None)
     if not target_fp or not target_fp.exists():
         return {}
     raw = read_text(target_fp)
     if "<TEI" not in raw[:5000]:
         return {}
-    marks = list(re.finditer(r'<milestone\s+unit="v"\s+n="(\d+)\.(\d+)"\s*/>', raw))
+    # Multi-chapter books use n="1.1"; single-chapter books (Philemon, 2–3 John, Jude) use n="1".
+    marks = list(re.finditer(r'<milestone\s+unit="v"\s+n="(?:(\d+)\.)?(\d+)"\s*/>', raw))
     out: BookText = {}
     for idx, m in enumerate(marks):
         start = m.end()
         end = marks[idx + 1].start() if idx + 1 < len(marks) else raw.find("</body>", start)
         text = _render_amiatinus_fragment(raw[start: (end if end != -1 else len(raw))])
         if text:
-            out.setdefault(int(m.group(1)), {})[int(m.group(2))] = text
+            ch_num = int(m.group(1)) if m.group(1) else 1
+            out.setdefault(ch_num, {})[int(m.group(2))] = text
     return out
 
 
@@ -1307,6 +1421,1342 @@ def _scrollmapper_csv_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
 
 
 # ---------------------------------------------------------------------------
+# Historic Critical & INTF NTVMR Direct Manuscript Parsers (Greek NT)
+# ---------------------------------------------------------------------------
+
+_TISCHENDORF_OSIS_TO_USFM: Dict[str, str] = {
+    "Matt": "MAT", "Mark": "MRK", "Luke": "LUK", "John": "JHN", "Acts": "ACT",
+    "Rom": "ROM", "1Cor": "1CO", "2Cor": "2CO", "Gal": "GAL", "Eph": "EPH",
+    "Phil": "PHP", "Col": "COL", "1Thess": "1TH", "2Thess": "2TH", "1Tim": "1TI",
+    "2Tim": "2TI", "Titus": "TIT", "Phlm": "PHM", "Heb": "HEB", "Jas": "JAS",
+    "1Pet": "1PE", "2Pet": "2PE", "1John": "1JN", "2John": "2JN", "3John": "3JN",
+    "Jude": "JUD", "Rev": "REV",
+}
+
+
+@functools.lru_cache(maxsize=4)
+def _tischendorf_osis_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse Tischendorf 8th Edition polytonic OSIS-XML (``tischendorfmorph.OSIS.xml``)."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    out: Dict[str, BookText] = {}
+    for m in re.finditer(
+        r'<verse\s+osisID="([1-3]?[A-Za-z]+)\.(\d+)\.(\d+)"\s+sID="[^"]+"\s*/>(.*?)<verse\s+eID="[^"]+"\s*/>',
+        raw,
+        flags=re.DOTALL,
+    ):
+        usfm = _TISCHENDORF_OSIS_TO_USFM.get(m.group(1))
+        if not usfm:
+            continue
+        ch, v = int(m.group(2)), int(m.group(3))
+        words = re.findall(r"<w\b[^>]*>(.*?)</w>", m.group(4), flags=re.DOTALL)
+        if not words:
+            continue
+        # Strip Tischendorf's single editorial uncertainty brackets while preserving the attested words.
+        cleaned = [re.sub(r"[\[\]]", "", re.sub(r"<[^>]+>", "", w)).strip() for w in words]
+        txt = norm_ws(" ".join(w for w in cleaned if w))
+        if txt:
+            out.setdefault(usfm, {}).setdefault(ch, {})[v] = txt
+    return out
+
+
+_INTF_GREEK_DIGIT_PLACES: Dict[str, int] = {
+    **{c: 1 for c in "αβγδεϛςϝζηθ"},
+    **{c: 2 for c in "ικλμνξοπϙ"},
+    **{c: 3 for c in "ρστυφχψωϡ"},
+}
+
+
+def _is_valid_greek_numeral_digits(letters: str) -> bool:
+    """True when ``letters`` is a well-formed Greek alphabetic numeral (strictly descending places)."""
+    s = letters.strip("͵ʹʹ΄´᾽’'").lower()
+    if not s or len(s) > 4:
+        return False
+    places = [_INTF_GREEK_DIGIT_PLACES.get(ch, 0) for ch in s]
+    if 0 in places:
+        return False
+    return all(a > b for a, b in zip(places, places[1:]))
+
+
+def _resolve_intf_app(m: "re.Match[str]") -> str:
+    """Keep only the firsthand reading inside an INTF/IGNTP/COMPAUL TEI-NTMSS ``<app>`` element."""
+    body = m.group(1)
+    # 1. Explicit self-closing firsthand omission (<rdg type="orig" hand="firsthand"/>) must be checked
+    #    before paired <rdg> matching so '[^>]' never crosses a '/>' into a following corrector <rdg>.
+    if re.search(r'<rdg\b[^>]*\btype="orig"[^>]*/\s*>', body):
+        return ""
+    orig = re.search(r'<rdg\b(?:[^>/]|/(?!>))*\btype="orig"(?:[^>/]|/(?!>))*>(.*?)</rdg>', body, flags=re.DOTALL)
+    if orig:
+        return orig.group(1)
+    # 2. Untyped <rdg> (when INTF omitted type="orig" on the base reading alongside a corrector <rdg>).
+    for rdg in re.finditer(r"<rdg\b((?:[^>/]|/(?!>))*)>(.*?)</rdg>", body, flags=re.DOTALL):
+        attrs = rdg.group(1)
+        if 'type="corr"' not in attrs and 'type="comm"' not in attrs and 'type="alt"' not in attrs:
+            return rdg.group(2)
+    return ""
+
+
+def _render_intf_abbr(m: "re.Match[str]") -> str:
+    kind = m.group(1)
+    inner = m.group(2)
+    if "<supplied" in inner or "<gap" in inner:
+        return " §GAP1§ "
+    inner = re.sub(r'\s*<pb\b[^>]*break="no"[^>]*/\s*>(?:\s*<cb\b[^>]*/\s*>)?(?:\s*<lb\b[^>]*/\s*>)?\s*', "", inner)
+    inner = re.sub(r'\s*<lb\b[^>]*break="no"[^>]*/\s*>\s*', "", inner)
+    letters = norm_ws(re.sub(r"<[^>]+>", "", inner)).replace(" ", "").lower()
+    if not letters:
+        return ""
+    if kind == "num" and _is_valid_greek_numeral_digits(letters):
+        return letters + "\u0374"
+    return letters + "\u0305"
+
+
+def _finalize_gap_tokens(text: str) -> str:
+    """Resolve internal §GAPn§ / §LAC§ sentinels into Studio GAP_WORD / LACUNA_MARK tokens."""
+    out: List[str] = []
+    for tok in norm_ws(text).split():
+        if tok == "§LAC§":
+            if not out or out[-1] != LACUNA_MARK:
+                out.append(LACUNA_MARK)
+            continue
+        mg = re.fullmatch(r"§GAP(\d+)§", tok)
+        if mg:
+            out.extend([GAP_WORD] * int(mg.group(1)))
+            continue
+        if "§LAC§" in tok:
+            if not out or out[-1] != LACUNA_MARK:
+                out.append(LACUNA_MARK)
+            continue
+        if "§GAP" in tok:
+            out.append(GAP_WORD)
+            continue
+        out.append(tok)
+    if not any(t not in (LACUNA_MARK, GAP_WORD) for t in out):
+        return ""
+    return " ".join(out)
+
+
+def _clean_intf_ab_fragment(frag: str) -> str:
+    """Render an INTF/IGNTP TEI-NTMSS ``<ab>`` verse body as first-hand Greek manuscript text."""
+    s = re.sub(r"<!--.*?-->", "", frag, flags=re.DOTALL)
+    # Strip marginal paratext (running headers, Vatican/Eusebian numbers, Latin chapter headings).
+    s = re.sub(r'<seg\b[^>]*\btype="margin"[^>]*>.*?</seg>', " ", s, flags=re.DOTALL)
+    s = re.sub(r'<num\b[^>]*\btype="chapNum"[^>]*>.*?</num>', " ", s, flags=re.DOTALL)
+    s = re.sub(r"<app\b[^>]*>(.*?)</app>", _resolve_intf_app, s, flags=re.DOTALL)
+    for tag in ("note", "fw", "pc"):
+        if tag == "note":
+            # Keep word-internal <note type="hyphen"/> joined with zero space (e.g. Codex Sinaiticus v195).
+            s = re.sub(r'<note\b[^>]*\btype="hyphen"[^>]*/\s*>', "", s)
+        s = re.sub(rf"<{tag}\b[^>]*/>", " ", s)
+        s = re.sub(rf"<{tag}\b.*?</{tag}>", " ", s, flags=re.DOTALL)
+    # Word-internal page/column/line breaks join the two halves of the word cleanly.
+    s = re.sub(r'\s*<pb\b[^>]*break="no"[^>]*/\s*>(?:\s*<cb\b[^>]*/\s*>)?(?:\s*<lb\b[^>]*/\s*>)?\s*', "", s)
+    s = re.sub(r'\s*<lb\b[^>]*break="no"[^>]*/\s*>\s*', "", s)
+    s = re.sub(r"<(?:lb|pb|cb)\b[^>]*/\s*>", " ", s)
+    # Nomina sacra and numerals before stripping <hi>/<unclear>.
+    s = re.sub(r'<abbr\b[^>]*type="(nomSac|num)"[^>]*>(.*?)</abbr>', _render_intf_abbr, s, flags=re.DOTALL)
+
+    # Editor-supplied text over lacunae/illegible parchment casts no vote (never invent MS readings).
+    def _repl_supplied(m: "re.Match[str]") -> str:
+        inner = m.group(1)
+        plain = norm_ws(re.sub(r"<[^>]+>", " ", inner))
+        wc = len(plain.split())
+        if wc >= 3:
+            return " §LAC§ "
+        return f"§GAP{max(1, wc)}§"
+
+    s = re.sub(r"<supplied\b[^>]*>(.*?)</supplied>", _repl_supplied, s, flags=re.DOTALL)
+
+    def _repl_gap(m: "re.Match[str]") -> str:
+        attrs = m.group(1)
+        if re.search(r'unit="(?:line|verse|page|chapter)"', attrs):
+            return " §LAC§ "
+        return "§GAP1§"
+
+    s = re.sub(r"<gap\b([^>]*)/?>", _repl_gap, s)
+    # Ensure every <w> keeps a word boundary even across stripped <app>/<seg> elements.
+    s = re.sub(r"</w>", "</w> ", s)
+    s = re.sub(r"<[^>]+>", "", s)
+    return _finalize_gap_tokens(s)
+
+
+_IGNTP_BOOK_NUM: Dict[str, int] = {
+    "Matt": 1, "Mark": 2, "Luke": 3, "John": 4, "Acts": 5,
+    "Rom": 6, "1Cor": 7, "2Cor": 8, "Gal": 9, "Eph": 10, "Phil": 11, "Col": 12,
+    "1Thess": 13, "2Thess": 14, "1Tim": 15, "2Tim": 16, "Titus": 17, "Phlm": 18,
+    "Heb": 19, "Jas": 20, "1Pet": 21, "2Pet": 22, "1John": 23, "2John": 24, "3John": 25,
+    "Jude": 26, "Rev": 27,
+}
+
+_IGNTP_PAUL_BOOK_LAYOUT: Dict[str, Tuple[str, str, str]] = {
+    "romans": ("Romans", "ecm_romans", "Rom"),
+    "1-corinthians": ("1Corinthians", "ecm_1corinthians", "1Cor"),
+    "2-corinthians": ("2Corinthians", "ecm_2corinthians", "2Cor"),
+    "galatians": ("Galatians", "ecm_galatians", "Gal"),
+    "ephesians": ("Ephesians", "ecm_ephesians", "Eph"),
+    "philippians": ("Philippians", "ecm_philippians", "Phil"),
+    "colossians": ("Colossians", "ecm_colossians", "Col"),
+}
+
+_TEI_NTMSS_AB_RE = re.compile(
+    r'<ab\b([^>]*\bn="(?:B(\d{2})K(\d+)V(\d+)|([1-3]?[A-Za-z]+)\.(\d+)\.(\d+))"[^>]*)>'
+)
+
+
+def _extract_tei_ntmss_chunks(body: str) -> Dict[Tuple[int, int, int], List[List[Tuple[str, str]]]]:
+    """Group ``<ab>`` verse chunks by ``(nt_book_1..27, chapter, verse)``, keeping separate non-part
+    occurrences (e.g. catena lemma repetitions or duplicated book transcriptions) in distinct lists."""
+    matches = list(_TEI_NTMSS_AB_RE.finditer(body))
+    grouped: Dict[Tuple[int, int, int], List[List[Tuple[str, str]]]] = {}
+    for idx, m in enumerate(matches):
+        attrs = m.group(1)
+        if m.group(2) is not None:
+            bnum, ch, v = int(m.group(2)), int(m.group(3)), int(m.group(4))
+        else:
+            bnum = _IGNTP_BOOK_NUM.get(m.group(5) or "", 0)
+            ch, v = int(m.group(6)), int(m.group(7))
+        if bnum < 1 or bnum > 27 or ch <= 0 or v <= 0:
+            continue
+        pm = re.search(r'\bpart="([IMF])"', attrs)
+        part = pm.group(1) if pm else ""
+        start = m.end()
+        next_ab = matches[idx + 1].start() if idx + 1 < len(matches) else len(body)
+        chunk = body[start:next_ab]
+        stop = len(chunk)
+        for stopper in ("</ab>", "<div ", "</body>"):
+            pos = chunk.find(stopper)
+            if pos != -1 and pos < stop:
+                stop = pos
+        key = (bnum, ch, v)
+        runs = grouped.setdefault(key, [])
+        if runs and part in ("M", "F") and runs[-1][-1][0] in ("I", "M"):
+            runs[-1].append((part, chunk[:stop]))
+        else:
+            runs.append([(part, chunk[:stop])])
+    return grouped
+
+
+def _stitch_tei_ntmss_run(chunks: List[Tuple[str, str]], cleaner) -> str:
+    first_part = chunks[0][0]
+    last_part = chunks[-1][0]
+    stitched = chunks[0][1]
+    for _part, nxt in chunks[1:]:
+        if re.search(r'<w\b[^>]*\bpart="[IM]"[^>]*>(?:(?!</w>).)*</w>\s*$', stitched, re.DOTALL) and re.match(
+            r'^\s*<w\b[^>]*\bpart="[MF]"[^>]*>', nxt
+        ):
+            stitched = re.sub(r"</w>\s*$", "", stitched) + re.sub(r'^\s*<w\b[^>]*\bpart="[MF]"[^>]*>', "", nxt, count=1)
+        else:
+            stitched = stitched + " " + nxt
+    if first_part in ("M", "F"):
+        stitched = re.sub(r'^\s*<w\b[^>]*\bpart="[MF]"[^>]*>(?:(?!</w>).)*(?:</w>)?', " §GAP1§ ", stitched, count=1, flags=re.DOTALL)
+    if last_part in ("I", "M"):
+        stitched = re.sub(r'<w\b[^>]*\bpart="[IM]"[^>]*>(?:(?!</w>).)*(?:</w>)?\s*$', " §GAP1§ ", stitched, count=1, flags=re.DOTALL)
+    text = cleaner(stitched)
+    if not text:
+        return ""
+    if first_part in ("M", "F") and not text.startswith(LACUNA_MARK):
+        text = f"{LACUNA_MARK} {text}"
+    if last_part in ("I", "M") and not text.endswith(LACUNA_MARK):
+        text = f"{text} {LACUNA_MARK}"
+    return text
+
+
+def _pick_tei_ntmss_run(runs: List[List[Tuple[str, str]]], cleaner) -> str:
+    """Keep the first transcription of a verse (never concatenating a duplicate book copy as in 30033.xml),
+    unless a later catena lemma expands the exact opening words into a strictly longer complete verse
+    (as in Codex Zacynthius Luke 1:2, 1:36, 6:24, 6:43, 7:28)."""
+    best = _stitch_tei_ntmss_run(runs[0], cleaner)
+    if len(runs) == 1:
+        return best
+    best_words = [w for w in best.split() if w not in (LACUNA_MARK, GAP_WORD)]
+    for run in runs[1:]:
+        cand = _stitch_tei_ntmss_run(run, cleaner)
+        if not cand:
+            continue
+        if not best:
+            best = cand
+            best_words = [w for w in best.split() if w not in (LACUNA_MARK, GAP_WORD)]
+            continue
+        cand_words = [w for w in cand.split() if w not in (LACUNA_MARK, GAP_WORD)]
+        if len(cand_words) > len(best_words) + 1 and best_words:
+            # Verify shared opening words (catena lemma expansion, not an unrelated second copy).
+            lead = min(2, len(best_words))
+            if [re.sub(r"[^\w]", "", w).lower() for w in cand_words[:lead]] == [
+                re.sub(r"[^\w]", "", w).lower() for w in best_words[:lead]
+            ]:
+                best, best_words = cand, cand_words
+    return best
+
+
+@functools.lru_cache(maxsize=48)
+def _intf_ntvmr_index(path_str: str, _mtime: int) -> Dict[int, BookText]:
+    """Parse an INTF NTVMR / IGNTP TEI-NTMSS XML manuscript file into ``{nt_book_1..27: {ch: {v: text}}}``.
+
+    Uses boundary slicing on ``<ab n="B..K..V..">`` or ``<ab n="Rom.1.7">`` rather than strict DOM
+    parsing so upstream INTF files with unclosed ``part="M"`` / ``part="F"`` folio-break tags (such
+    as Minuscule 33 and Minuscule 1739) parse cleanly without losing verses. Incomplete ``part="I"``
+    / ``part="F"`` verses whose other half is missing on a lost folio receive edge lacuna marks."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    body_start = raw.find("<body>")
+    if body_start == -1:
+        return {}
+    grouped = _extract_tei_ntmss_chunks(raw[body_start:])
+    out: Dict[int, BookText] = {}
+    for (bnum, ch, v), runs in grouped.items():
+        text = _pick_tei_ntmss_run(runs, _clean_intf_ab_fragment)
+        if text:
+            out.setdefault(bnum, {}).setdefault(ch, {})[v] = text
+    return out
+
+
+def _igntp_sibling_for_ga(igntp_root: Path, ga_num: str, book: BookSpec) -> Optional[Path]:
+    spec = _IGNTP_PAUL_BOOK_LAYOUT.get(book.slug)
+    if not spec:
+        return None
+    folder, sub, abbr = spec
+    cand = igntp_root / folder / sub / f"NT_GRC_{ga_num}_{abbr}.xml"
+    return cand if cand.exists() else None
+
+
+def _parse_intf_ntvmr_book(base_path: Path, book: BookSpec) -> BookText:
+    if not book.cntr_book or book.cntr_book < 40:
+        return {}
+    bnum = book.cntr_book - 39
+    primary = _intf_ntvmr_index(*_mtime_key(base_path)).get(bnum, {})
+    # Upgrade incomplete INTF NTVMR Pauline books (e.g. 30033.xml missing Ephesians & 23 verses of
+    # Romans; 31739.xml missing Galatians, Ephesians & Romans 7–16) from IGNTP CC BY 4.0 Pauline XMLs.
+    if book.slug in _IGNTP_PAUL_BOOK_LAYOUT:
+        m = re.fullmatch(r"([1-3])(\d{4})\.xml", base_path.name)
+        if m:
+            prefix, num_str = m.group(1), m.group(2)
+            ga = f"P{int(num_str)}" if prefix == "1" else (f"0{int(num_str)}" if prefix == "2" else str(int(num_str)))
+            igntp_root = GREEK_RESEARCH_ROOT / "04_Tier4_Ancient_Manuscripts" / "NT_IGNTP_Paul_XMLs"
+            sib = _igntp_sibling_for_ga(igntp_root, ga, book)
+            if sib is not None:
+                igntp_bk = _intf_ntvmr_index(*_mtime_key(sib)).get(bnum, {})
+                prim_n = sum(len(vs) for vs in primary.values())
+                ign_n = sum(len(vs) for vs in igntp_bk.values())
+                if ign_n > prim_n:
+                    return igntp_bk
+    return primary
+
+
+def _parse_igntp_paul_xml(base_path: Path, book: BookSpec) -> BookText:
+    """Resolve an IGNTP Pauline witness across Romans, Galatians, Ephesians (and future Pauline folders)
+    from its anchor Romans XML path (e.g. ``.../NT_IGNTP_Paul_XMLs/Romans/ecm_romans/NT_GRC_06_Rom.xml``)."""
+    if not book.cntr_book or book.cntr_book < 40 or book.slug not in _IGNTP_PAUL_BOOK_LAYOUT:
+        return {}
+    m = re.match(r"^NT_GRC_([^_]+)_[A-Za-z0-9]+\.xml$", base_path.name)
+    if not m:
+        return _intf_ntvmr_index(*_mtime_key(base_path)).get(book.cntr_book - 39, {})
+    ga = m.group(1)
+    # base_path = <igntp_root>/<BookDir>/<ecm_book>/NT_GRC_<GA>_<Abbr>.xml
+    igntp_root = base_path.parents[2] if len(base_path.parents) >= 3 else base_path.parent
+    target = _igntp_sibling_for_ga(igntp_root, ga, book)
+    if target is None:
+        return {}
+    return _intf_ntvmr_index(*_mtime_key(target)).get(book.cntr_book - 39, {})
+
+
+# ---------------------------------------------------------------------------
+# COMPAUL Old Latin (Vetus Latina) Pauline TEI-NTMSS (CC BY 4.0)
+# ---------------------------------------------------------------------------
+
+_COMPAUL_BOOK_LAYOUT: Dict[str, Tuple[str, str]] = {
+    "romans": ("Romans", "06"),
+    "1-corinthians": ("1Corinthians", "07"),
+    "2-corinthians": ("2Corinthians", "08"),
+    "galatians": ("Galatians", "09"),
+}
+
+# Verified Latin nomina sacra expansions used in COMPAUL Old Latin manuscripts.
+# Ordinary Latin words occasionally mis-tagged <abbr type="nomSac"> upstream are left unexpanded.
+_LATIN_NOMINA_SACRA: Dict[str, str] = {
+    "ds": "deus", "di": "dei", "do": "deo", "dm": "deum", "dem": "deum",
+    "dns": "dominus", "dms": "dominus",
+    "dni": "domini", "dmi": "domini",
+    "dno": "domino", "dmo": "domino",
+    "dnm": "dominum", "dmm": "dominum", "dom": "dominum",
+    "dne": "domine", "dme": "domine",
+    "ihs": "iesus", "ihc": "iesus", "ius": "iesus", "ies": "iesus",
+    "ihu": "iesu", "iu": "iesu",
+    "ihm": "iesum", "ihn": "iesum", "ism": "iesum", "ium": "iesum",
+    "xps": "christus", "xpc": "christus", "chs": "christus", "xrs": "christus",
+    "xpi": "christi", "chi": "christi", "xri": "christi",
+    "xpo": "christo", "cho": "christo", "xro": "christo",
+    "xpm": "christum", "chm": "christum", "xrm": "christum",
+    "xpe": "christe",
+    "sps": "spiritus", "spc": "spiritus", "spus": "spiritus",
+    "spui": "spiritui", "spu": "spiritu", "sspu": "spiritu",
+    "spm": "spiritum", "spum": "spiritum", "spuum": "spirituum",
+    "scs": "sanctus", "scus": "sanctus", "sci": "sancti", "sco": "sancto", "scm": "sanctum",
+    "isrl": "israhel", "irl": "israhel", "isrhl": "israhel",
+}
+
+
+def _render_compaul_abbr(m: "re.Match[str]") -> str:
+    kind = m.group(1)
+    inner = m.group(2)
+    if "<supplied" in inner or "<gap" in inner:
+        return " §GAP1§ "
+    inner = re.sub(r'\s*<pb\b[^>]*break="no"[^>]*/\s*>(?:\s*<cb\b[^>]*/\s*>)?(?:\s*<lb\b[^>]*/\s*>)?\s*', "", inner)
+    inner = re.sub(r'\s*<lb\b[^>]*break="no"[^>]*/\s*>\s*', "", inner)
+    letters = re.sub(r"\s+", "", re.sub(r"<[^>]+>", "", html.unescape(inner)))
+    if not letters:
+        return ""
+    if kind == "nomSac":
+        exp = _LATIN_NOMINA_SACRA.get(letters.lower())
+        if exp:
+            return exp.capitalize() if letters[:1].isupper() else exp
+    return letters
+
+
+def _clean_compaul_ab_fragment(frag: str) -> str:
+    """Render a COMPAUL / Vetus Latina / Codex Bezae TEI-NTMSS ``<ab>`` or ``<rdg>`` body as first-hand Latin text."""
+    s = re.sub(r"<!--.*?-->", "", frag, flags=re.DOTALL)
+    s = re.sub(r'<seg\b[^>]*\btype="margin"[^>]*>.*?</seg>', " ", s, flags=re.DOTALL)
+    s = re.sub(r'<num\b[^>]*\btype="(?:chapNum|AmmSec|EusCan)"[^>]*>.*?</num>', " ", s, flags=re.DOTALL)
+    s = re.sub(r"<app\b[^>]*>(.*?)</app>", _resolve_intf_app, s, flags=re.DOTALL)
+    for tag in ("note", "fw", "pc"):
+        if tag == "note":
+            s = re.sub(r'<note\b[^>]*\btype="hyphen"[^>]*/\s*>', "", s)
+        s = re.sub(rf"<{tag}\b[^>]*/>", " ", s)
+        s = re.sub(rf"<{tag}\b.*?</{tag}>", " ", s, flags=re.DOTALL)
+    s = re.sub(r'\s*<pb\b[^>]*break="no"[^>]*/\s*>(?:\s*<cb\b[^>]*/\s*>)?(?:\s*<lb\b[^>]*/\s*>)?\s*', "", s)
+    s = re.sub(r'\s*<lb\b[^>]*break="no"[^>]*/\s*>\s*', "", s)
+    s = re.sub(r"<(?:lb|pb|cb)\b[^>]*/\s*>", " ", s)
+    s = re.sub(r'<abbr\b[^>]*type="(nomSac|num)"[^>]*>(.*?)</abbr>', _render_compaul_abbr, s, flags=re.DOTALL)
+
+    def _repl_supplied(m: "re.Match[str]") -> str:
+        plain = norm_ws(re.sub(r"<[^>]+>", " ", m.group(1)))
+        wc = len(plain.split())
+        if wc >= 3:
+            return " §LAC§ "
+        return f"§GAP{max(1, wc)}§"
+
+    s = re.sub(r"<supplied\b[^>]*>(.*?)</supplied>", _repl_supplied, s, flags=re.DOTALL)
+
+    def _repl_gap(m: "re.Match[str]") -> str:
+        if re.search(r'unit="(?:line|verse|page|chapter)"', m.group(1)):
+            return " §LAC§ "
+        return "§GAP1§"
+
+    s = re.sub(r"<gap\b([^>]*)/?>", _repl_gap, s)
+    # Keep inner expansion letters of <ex> (e.g. o<ex>m</ex>nib<ex>us</ex> -> omnibus).
+    s = re.sub(r"</?ex\b[^>]*>", "", s)
+    s = re.sub(r"</w>", "</w> ", s)
+    s = re.sub(r"<[^>]+>", "", s)
+    s = html.unescape(s)
+    # Medieval Vetus Latina abbreviation symbols: ÷ (nasal final -m, e.g. uerbu÷ -> uerbum), ¬ (suspension).
+    s = re.sub(r"([aeiouAEIOU])÷", r"\1m", s).replace("÷", "").replace("¬", "")
+    return _finalize_gap_tokens(s)
+
+
+@functools.lru_cache(maxsize=48)
+def _compaul_latin_index(path_str: str, _mtime: int) -> Dict[int, BookText]:
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    body_start = raw.find("<body>")
+    if body_start == -1:
+        return {}
+    grouped = _extract_tei_ntmss_chunks(raw[body_start:])
+    out: Dict[int, BookText] = {}
+    for (bnum, ch, v), runs in grouped.items():
+        text = _pick_tei_ntmss_run(runs, _clean_compaul_ab_fragment)
+        if text:
+            out.setdefault(bnum, {}).setdefault(ch, {})[v] = text
+    return out
+
+
+def _parse_compaul_latin_tei(base_path: Path, book: BookSpec) -> BookText:
+    """Resolve either a single-file Old Latin TEI-NTMSS manuscript (e.g. ``Bezae-Latin.xml`` across
+    Gospels & Acts) or a multi-book COMPAUL Pauline witness anchored on its Romans XML."""
+    if not book.cntr_book or book.cntr_book < 40:
+        return {}
+    m = re.match(r"^\d+_(.+)\.xml$", base_path.name)
+    if not m:
+        return _compaul_latin_index(*_mtime_key(base_path)).get(book.cntr_book - 39, {})
+    if book.slug not in _COMPAUL_BOOK_LAYOUT:
+        return {}
+    sig = m.group(1)
+    folder, prefix = _COMPAUL_BOOK_LAYOUT[book.slug]
+    compaul_root = base_path.parents[1] if len(base_path.parents) >= 2 else base_path.parent
+    target = compaul_root / folder / f"{prefix}_{sig}.xml"
+    if not target.exists():
+        return {}
+    return _compaul_latin_index(*_mtime_key(target)).get(book.cntr_book - 39, {})
+
+
+# ---------------------------------------------------------------------------
+# Hebrew Ben Sira (Sirach) TEI-XML — Rey & Reymond 2024 (CC BY-SA 4.0)
+# ---------------------------------------------------------------------------
+
+_HEB_WIDE_LETTERS = str.maketrans({
+    "\ufb21": "א", "\ufb22": "ד", "\ufb23": "ה", "\ufb24": "כ",
+    "\ufb25": "ל", "\ufb26": "ם", "\ufb27": "ר", "\ufb28": "ת",
+})
+_BENSIRA_STRIP_RE = re.compile(r"[\u0307\u0308\u030a\u059f\u05af\u200d\u2219{}.]")
+
+
+def _clean_bensira_word(w_el: ET.Element) -> str:
+    """Return an extant Hebrew word from a Ben Sira ``<w>`` element, or ``GAP_WORD`` if any part
+    is editorially reconstructed, broken (``]``), illegible trace (``◦``), or alternate-letter (``/``).
+    Never invents letters."""
+    has_rec_g = any(
+        (ch.tag.split("}")[-1] == "g" and ch.attrib.get("type") == "reconstructed")
+        for ch in w_el
+    )
+    parts: List[str] = []
+    if w_el.text:
+        parts.append(w_el.text)
+    for ch in w_el:
+        ctag = ch.tag.split("}")[-1]
+        if ctag == "g" and ch.attrib.get("type") == "reconstructed":
+            pass
+        elif ctag not in ("margin", "del"):
+            parts.append("".join(ch.itertext()))
+        if ch.tail:
+            parts.append(ch.tail)
+    raw_ext = "".join(parts)
+    if has_rec_g or "]" in raw_ext or "[" in raw_ext or "\u25e6" in raw_ext or "/" in raw_ext:
+        return GAP_WORD
+    # Delete scribal strikethrough characters (letter + U+0336).
+    cleaned = re.sub(r".\u0336", "", raw_ext)
+    cleaned = cleaned.translate(_HEB_WIDE_LETTERS)
+    cleaned = _BENSIRA_STRIP_RE.sub("", cleaned)
+    cleaned = cleaned.replace(":", "׃").strip()
+    if not any("\u05d0" <= ch <= "\u05ea" for ch in cleaned):
+        return ""
+    return unicodedata.normalize("NFC", cleaned)
+
+
+@functools.lru_cache(maxsize=16)
+def _bensira_tei_index(path_str: str, _mtime: int) -> BookText:
+    """Parse one Rey & Reymond (2024) Hebrew Ben Sira TEI-XML manuscript into ``{chapter: {verse: text}}``.
+
+    Excludes ``<margin>`` marginal variants and ``<del>`` scribal deletions; converts editorially
+    reconstructed or broken words to ``GAP_WORD`` (collapsing 3+ consecutive gaps to ``LACUNA_MARK``),
+    and drops verses with zero extant Hebrew words."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    try:
+        root = ET.parse(fp).getroot()
+    except ET.ParseError:
+        return {}
+    out: BookText = {}
+
+    def _collect_words(el: ET.Element, buf: List[str]) -> None:
+        tag = el.tag.split("}")[-1]
+        if tag in ("margin", "del"):
+            return
+        if tag == "w":
+            tok = _clean_bensira_word(el)
+            if tok:
+                buf.append(tok)
+            return
+        for ch in el:
+            _collect_words(ch, buf)
+
+    for cdiv in root.iter():
+        if cdiv.tag.split("}")[-1] != "div" or cdiv.attrib.get("type") != "chap":
+            continue
+        cn = cdiv.attrib.get("n", "").strip()
+        if not cn.isdigit():
+            continue
+        ch_num = int(cn)
+        if not 1 <= ch_num <= 51:
+            continue
+        last_v: Optional[int] = None
+        for vdiv in cdiv:
+            if vdiv.tag.split("}")[-1] != "div" or vdiv.attrib.get("type") != "verse":
+                continue
+            vn = vdiv.attrib.get("n", "").strip()
+            vm = re.match(r"^\[?(\d+)", vn)
+            if vm:
+                v_num = int(vm.group(1))
+                last_v = v_num
+            elif last_v is not None and re.fullmatch(r"[a-z]+", vn):
+                v_num = last_v
+            else:
+                continue
+            if v_num <= 0:
+                continue
+            buf: List[str] = []
+            _collect_words(vdiv, buf)
+            if not any(t != GAP_WORD for t in buf):
+                continue
+            # Collapse runs of 3+ consecutive GAP_WORD into LACUNA_MARK.
+            collapsed: List[str] = []
+            i = 0
+            while i < len(buf):
+                if buf[i] == GAP_WORD:
+                    j = i
+                    while j < len(buf) and buf[j] == GAP_WORD:
+                        j += 1
+                    if j - i >= 3:
+                        if not collapsed or collapsed[-1] != LACUNA_MARK:
+                            collapsed.append(LACUNA_MARK)
+                    else:
+                        collapsed.extend([GAP_WORD] * (j - i))
+                    i = j
+                else:
+                    collapsed.append(buf[i])
+                    i += 1
+            text = norm_ws(" ".join(collapsed))
+            if not text:
+                continue
+            ch_map = out.setdefault(ch_num, {})
+            if v_num in ch_map:
+                ch_map[v_num] = norm_ws(f"{ch_map[v_num]} {text}")
+            else:
+                ch_map[v_num] = text
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Phase 2/3 & Owner-Authorized Study-Archive Parsers
+# (Rahlfs 1935, Sinaiticus OT XML, OG Daniel, TAGNT NA28/THGNT, Tregelles 1879,
+#  Elzevir 1624, ETCBC BHSA, Samaritan Pentateuch TF, Dead Sea Scrolls TF,
+#  Vetus Latina Iohannes Synopsis, DivinumOfficium Pianum Psalter)
+# ---------------------------------------------------------------------------
+
+_RAHLFS_BOOK_TO_USFM: Dict[str, str] = {
+    "Gen": "GEN", "Exod": "EXO", "Lev": "LEV", "Num": "NUM", "Deut": "DEU",
+    "JoshB": "JOS", "JudgB": "JDG", "Ruth": "RUT",
+    "1Sam": "1SA", "2Sam": "2SA", "1Kgs": "1KI", "2Kgs": "2KI",
+    "1Chr": "1CH", "2Chr": "2CH", "Esth": "EST", "1Macc": "1MA", "2Macc": "2MA",
+    "Job": "JOB", "Ps": "PSA", "Prov": "PRO", "Eccl": "ECC", "Song": "SNG",
+    "Lam": "LAM", "Wis": "WIS", "Sir": "SIR",
+    "Isa": "ISA", "Jer": "JER", "Ezek": "EZK", "DanTh": "DAN",
+    "Hos": "HOS", "Joel": "JOL", "Amos": "AMO", "Obad": "OBA", "Jonah": "JON",
+    "Mic": "MIC", "Nah": "NAM", "Hab": "HAB", "Zeph": "ZEP", "Hag": "HAG",
+    "Zech": "ZEC", "Mal": "MAL",
+}
+
+
+@functools.lru_cache(maxsize=2)
+def _rahlfs_csv_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse Rahlfs 1935 polytonic Septuaginta CSV suite across all 43 Saints canonical Greek OT books."""
+    base = Path(path_str)
+    csv_root = base / "LXX_Rahlfs_1935_CSV" if (base / "LXX_Rahlfs_1935_CSV").exists() else base
+    vfile = csv_root / "08_versification" / "001_verse_c_modified_KEEP.csv"
+    wfile = csv_root / "01_wordlist_unicode" / "text_accented.csv"
+    if not (vfile.exists() and wfile.exists()):
+        return {}
+    words: Dict[int, str] = {}
+    max_wid = 0
+    for line in read_text(wfile).splitlines():
+        parts = line.split("\t")
+        if len(parts) >= 2 and parts[0].isdigit():
+            wid = int(parts[0])
+            words[wid] = parts[-1]
+            if wid > max_wid:
+                max_wid = wid
+    starts: List[Tuple[int, str]] = []
+    for line in read_text(vfile).splitlines():
+        parts = line.split("\t")
+        if len(parts) >= 2 and parts[1].isdigit():
+            starts.append((int(parts[1]), parts[0].strip()))
+    out: Dict[str, BookText] = {}
+    n_words = max_wid + 1
+    for idx, (start_i, ref) in enumerate(starts):
+        end_i = starts[idx + 1][0] if idx + 1 < len(starts) else n_words
+        if start_i >= end_i or start_i < 1:
+            continue
+        ref_parts = ref.split(".")
+        if len(ref_parts) < 3:
+            continue
+        bk, ch_s, v_s = ref_parts[0], ref_parts[1], ref_parts[2]
+        if not ch_s.isdigit():
+            continue
+        vm = re.match(r"^(\d+)", v_s)
+        if not vm:
+            continue
+        ch, v = int(ch_s), int(vm.group(1))
+        if ch <= 0 or v <= 0:
+            continue
+        if bk == "2Esdr":
+            usfm = "EZR" if ch <= _ESDRAS_B_EZRA_LAST_CHAPTER else "NEH"
+            if usfm == "NEH":
+                ch -= _ESDRAS_B_EZRA_LAST_CHAPTER
+        else:
+            usfm = _RAHLFS_BOOK_TO_USFM.get(bk)
+        if not usfm:
+            continue
+        txt = norm_ws(" ".join(words[k] for k in range(start_i, min(end_i, n_words)) if k in words))
+        if not txt:
+            continue
+        ch_map = out.setdefault(usfm, {}).setdefault(ch, {})
+        ch_map[v] = norm_ws(f"{ch_map[v]} {txt}") if v in ch_map else txt
+    return out
+
+
+_SINAITICUS_BOOK_TO_USFM: Dict[str, str] = {
+    "01-GEN": "GEN", "02-LEV": "LEV", "03-NUM": "NUM", "04-DEUT": "DEU",
+    "05-JOSH": "JOS", "06-JUDG": "JDG", "07-1CHR": "1CH",
+    "09-EST": "EST", "12-1MACC": "1MA",
+    "14-ISA": "ISA", "15-JER": "JER", "16-LAM": "LAM",
+    "17-JOEL": "JOL", "18-OBAD": "OBA", "19-JONAH": "JON", "20-NAH": "NAM",
+    "21-HAB": "HAB", "22-ZEPH": "ZEP", "23-HAG": "HAG", "24-ZECH": "ZEC", "25-MAL": "MAL",
+    "26-PS": "PSA", "27-PROV": "PRO", "28-ECCL": "ECC", "29-CANT": "SNG",
+    "30-WIS": "WIS", "31-SIR": "SIR", "32-JOB": "JOB",
+    "33-MATT": "MAT", "34-MARK": "MRK", "35-LUKE": "LUK", "36-JOHN": "JHN",
+    "37-ROM": "ROM", "38-1COR": "1CO", "39-2COR": "2CO", "40-GAL": "GAL",
+    "41-EPH": "EPH", "42-PHIL": "PHP", "43-COL": "COL", "44-1THESS": "1TH",
+    "45-2THESS": "2TH", "46-HEB": "HEB", "47-1TIM": "1TI", "48-2TIM": "2TI",
+    "49-TITUS": "TIT", "50-PHLM": "PHM", "51-ACTS": "ACT", "52-JAS": "JAS",
+    "53-1PET": "1PE", "54-2PET": "2PE", "55-1JOHN": "1JN", "56-2JOHN": "2JN",
+    "57-3JOHN": "3JN", "58-JUDE": "JUD", "59-REV": "REV",
+}
+
+_SINAITICUS_AB_RE = re.compile(
+    r'<ab\b[^>]*\bxml:id="V-B\d+K(\d+)V(\d+)-(\d+-[A-Z0-9]+)"[^>]*>(.*?)</ab>',
+    re.DOTALL,
+)
+
+
+@functools.lru_cache(maxsize=2)
+def _sinaiticus_tei_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse Codex Sinaiticus Project full TEI-XML v1.95 (first-hand readings, OT & NT)."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    out: Dict[str, BookText] = {}
+    for m in _SINAITICUS_AB_RE.finditer(raw):
+        ch, v, code, inner = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4)
+        if ch <= 0 or v <= 0:
+            continue
+        if code == "08-2ESD":
+            usfm = "EZR" if ch <= _ESDRAS_B_EZRA_LAST_CHAPTER else "NEH"
+            if usfm == "NEH":
+                ch -= _ESDRAS_B_EZRA_LAST_CHAPTER
+        else:
+            usfm = _SINAITICUS_BOOK_TO_USFM.get(code)
+        if not usfm:
+            continue
+        txt = _clean_intf_ab_fragment(inner)
+        if not txt:
+            continue
+        ch_map = out.setdefault(usfm, {}).setdefault(ch, {})
+        ch_map[v] = norm_ws(f"{ch_map[v]} {txt}") if v in ch_map else txt
+    return out
+
+
+def _parse_first1k_og_daniel(tlg_dir: Path, book: BookSpec) -> BookText:
+    """Parse Old Greek (Septuagint) Daniel (``tlg056``) from First1KGreek."""
+    if book.slug != "daniel":
+        return {}
+    from dataclasses import replace
+    return _parse_first1k_tei(tlg_dir, replace(book, tlg_work="tlg056"))
+
+
+_TAGNT_BOOK_TO_USFM: Dict[str, str] = {
+    "Mat": "MAT", "Mrk": "MRK", "Luk": "LUK", "Jhn": "JHN", "Act": "ACT",
+    "Rom": "ROM", "1Co": "1CO", "2Co": "2CO", "Gal": "GAL", "Eph": "EPH",
+    "Php": "PHP", "Col": "COL", "1Th": "1TH", "2Th": "2TH", "1Ti": "1TI",
+    "2Ti": "2TI", "Tit": "TIT", "Phm": "PHM", "Heb": "HEB", "Jas": "JAS",
+    "1Pe": "1PE", "2Pe": "2PE", "1Jn": "1JN", "2Jn": "2JN", "3Jn": "3JN",
+    "Jud": "JUD", "Rev": "REV",
+}
+
+
+def _tagnt_match_ed_group(eg: str, target_ed: str) -> Optional[int]:
+    """Return word-order offset (0, +N for '>N:', -N for '<N:') if ``target_ed`` appears in ``eg``, else None."""
+    parts = re.split(r"([<>]\d+:)", eg)
+    offset = 0
+    for part in parts:
+        mm = re.fullmatch(r"([<>])(\d+):", part)
+        if mm:
+            offset = int(mm.group(2)) if mm.group(1) == ">" else -int(mm.group(2))
+            continue
+        if target_ed in re.split(r"[+\s]+", part):
+            return offset
+    return None
+
+
+def _tagnt_pick_word(grk: str, eds: str, sp: str, mv: str, target_ed: str) -> Optional[Tuple[str, int]]:
+    """Return ``(word, order_offset)`` attested by ``target_ed`` (``NA28`` or ``Tyn``) on one TAGNT row."""
+    grk = grk.replace("¶", "").strip()
+    ed_groups = re.split(r"\s*[;,]\s*", eds)
+    sp_groups = re.split(r"\s*[;,]\s*", sp) if sp else []
+    for idx, eg in enumerate(ed_groups):
+        off = _tagnt_match_ed_group(eg, target_ed)
+        if off is not None:
+            if idx == 0:
+                return grk, off
+            if idx < len(sp_groups) and sp_groups[idx]:
+                sp_form = sp_groups[idx].replace("¶", "").strip()
+                # Keep trailing sentence punctuation from primary Greek surface form if any.
+                trail = re.search(r"[.,;··;:!?]+$", grk)
+                return (sp_form + (trail.group(0) if trail and sp_form[-1:] not in ".,;··;:!?" else "")), off
+            return grk, off
+    if mv and target_ed in mv:
+        for entry in re.split(r"[‖¦|]", mv):
+            parts = [p.strip() for p in entry.split("=")]
+            if len(parts) >= 2 and target_ed in parts[0]:
+                m_eds = re.split(r"\s*[;,]\s*", parts[0])
+                m_forms = re.split(r"\s*[;,]\s*", parts[1])
+                for idx, eg in enumerate(m_eds):
+                    off = _tagnt_match_ed_group(eg, target_ed)
+                    if off is not None:
+                        form = m_forms[idx] if idx < len(m_forms) else m_forms[0]
+                        form = form.replace("¶", "").strip()
+                        if form and form != "-":
+                            return form, off
+    return None
+
+
+@functools.lru_cache(maxsize=4)
+def _tagnt_edition_index(path_str: str, _mtime: int, target_ed: str) -> Dict[str, BookText]:
+    """Extract a specific Greek NT edition (``NA28`` or ``Tyn`` = THGNT) from STEPBible TAGNT (CC BY 4.0)."""
+    base = Path(path_str)
+    folder = base.parent if base.is_file() else base
+    files = sorted(folder.glob("TAGNT *.txt"))
+    if not files:
+        return {}
+    buckets: Dict[Tuple[str, int, int], List[Tuple[int, int, str]]] = {}
+    row_seq: Dict[Tuple[str, int, int], int] = {}
+    ref_re = re.compile(r"^\d+_([1-3]?[A-Za-z]{2,3})\.(\d+)\.(\d+)$")
+    for fp in files:
+        for line in read_text(fp).splitlines():
+            if not line or line.startswith("#") or "\t" not in line:
+                continue
+            cols = line.split("\t")
+            if len(cols) < 9:
+                continue
+            rm = ref_re.match(cols[0].strip())
+            if not rm:
+                continue
+            usfm = _TAGNT_BOOK_TO_USFM.get(rm.group(1))
+            if not usfm:
+                continue
+            key = (usfm, int(rm.group(2)), int(rm.group(3)))
+            r_idx = row_seq.get(key, 0) + 1
+            row_seq[key] = r_idx
+            picked = _tagnt_pick_word(
+                cols[2].strip(),
+                cols[8].strip(),
+                cols[9].strip() if len(cols) > 9 else "",
+                cols[10].strip() if len(cols) > 10 else "",
+                target_ed,
+            )
+            if picked:
+                w, off = picked
+                if w:
+                    buckets.setdefault(key, []).append((r_idx + off, r_idx, w))
+    out: Dict[str, BookText] = {}
+    for (usfm, ch, v), items in buckets.items():
+        items.sort(key=lambda t: (t[0], t[1]))
+        txt = norm_ws(" ".join(w for _, _, w in items))
+        if txt:
+            out.setdefault(usfm, {}).setdefault(ch, {})[v] = txt
+    return out
+
+
+_TREGELLES_BOOK_TO_USFM: Dict[str, str] = {
+    **_TAGNT_BOOK_TO_USFM,
+    "Mar": "MRK", "Mark": "MRK", "Luke": "LUK", "Joh": "JHN", "John": "JHN",
+    "Acts": "ACT", "Phi": "PHP", "Phl": "PHM",
+    "1Pet": "1PE", "2Pet": "2PE", "1John": "1JN", "2John": "2JN", "3John": "3JN", "Jude": "JUD",
+}
+
+
+@functools.lru_cache(maxsize=2)
+def _tregelles_txt_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse Tyndale House verse-per-line Tregelles 1857–1879 GNT (``verse-per-line/TNT.txt``)."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    out: Dict[str, BookText] = {}
+    line_re = re.compile(r"^([1-3]?[A-Za-z]{2,6})\.(\d+):(\d+)\s+(.*)$")
+    for line in read_text(fp).splitlines():
+        m = line_re.match(line.strip())
+        if not m:
+            continue
+        usfm = _TREGELLES_BOOK_TO_USFM.get(m.group(1))
+        if not usfm:
+            continue
+        # Strip Tregelles's marginal alternate-reading brackets where single brackets enclose uncertain text.
+        txt = norm_ws(re.sub(r"[\[\]]", "", m.group(4)))
+        if txt:
+            out.setdefault(usfm, {}).setdefault(int(m.group(2)), {})[int(m.group(3))] = txt
+    return out
+
+
+_ROBINSON_GREEK_MAP = str.maketrans({
+    "a": "α", "b": "β", "g": "γ", "d": "δ", "e": "ε", "z": "ζ", "h": "η", "q": "θ",
+    "i": "ι", "k": "κ", "l": "λ", "m": "μ", "n": "ν", "x": "ξ", "o": "ο", "p": "π",
+    "r": "ρ", "s": "σ", "v": "ς", "t": "τ", "u": "υ", "f": "φ", "c": "χ", "y": "ψ", "w": "ω",
+})
+
+_ELZEVIR_USFM_TO_FILE: Dict[str, str] = {
+    "MAT": "MT.UEL", "MRK": "MR.UEL", "LUK": "LU.UEL", "JHN": "JOH.UEL", "ACT": "AC.UEL",
+    "ROM": "RO.UEL", "1CO": "1CO.UEL", "2CO": "2CO.UEL", "GAL": "GA.UEL", "EPH": "EPH.UEL",
+    "PHP": "PHP.UEL", "COL": "COL.UEL", "1TH": "1TH.UEL", "2TH": "2TH.UEL",
+    "1TI": "1TI.UEL", "2TI": "2TI.UEL", "TIT": "TIT.UEL", "PHM": "PHM.UEL", "HEB": "HEB.UEL",
+    "JAS": "JAS.UEL", "1PE": "1PE.UEL", "2PE": "2PE.UEL",
+    "1JN": "1JO.UEL", "2JN": "2JO.UEL", "3JN": "3JO.UEL", "JUD": "JUDE.UEL", "REV": "RE.UEL",
+}
+
+
+def _parse_elzevir_uel(base_dir: Path, book: BookSpec) -> BookText:
+    """Parse Public-Domain Elzevir 1624 Textus Receptus Robinson ``.UEL`` files."""
+    fname = _ELZEVIR_USFM_TO_FILE.get(book.usfm_code)
+    if not fname:
+        return {}
+    fp = base_dir / fname
+    if not fp.exists():
+        fp = base_dir / "parsed" / fname
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    # Strip Strong's numbers, morph tags {N-NSM}, and variant markers; split on chapter:verse headers.
+    out: Dict[int, Dict[int, List[str]]] = {}
+    cur_ch, cur_v = 0, 0
+    for line in raw.splitlines():
+        s = re.sub(r"\{[^}]*\}", " ", line)
+        for tok in s.split():
+            cv = re.fullmatch(r"(\d+):(\d+)", tok)
+            if cv:
+                cur_ch, cur_v = int(cv.group(1)), int(cv.group(2))
+                continue
+            if not cur_ch or tok.isdigit() or not re.fullmatch(r"[a-zA-Z]+", tok):
+                continue
+            w = tok.lower().translate(_ROBINSON_GREEK_MAP)
+            if w.endswith("σ"):
+                w = w[:-1] + "ς"
+            out.setdefault(cur_ch, {}).setdefault(cur_v, []).append(w)
+    return {ch: {v: norm_ws(" ".join(ws)) for v, ws in vs.items() if ws} for ch, vs in out.items()}
+
+
+def _load_tf_feature(fp: Path) -> Dict[int, str]:
+    """Minimal stdlib Text-Fabric ``.tf`` node-feature reader (preserves empty-string data lines)."""
+    out: Dict[int, str] = {}
+    cur = 1
+    in_data = False
+    for line in read_text(fp).splitlines():
+        if not in_data:
+            if not line.strip():
+                in_data = True
+            continue
+        if "\t" in line:
+            left, val = line.split("\t", 1)
+            if "-" in left:
+                a, b = left.split("-", 1)
+                for n in range(int(a), int(b) + 1):
+                    out[n] = val
+                cur = int(b) + 1
+            else:
+                n = int(left)
+                out[n] = val
+                cur = n + 1
+        else:
+            out[cur] = line
+            cur += 1
+    return out
+
+
+def _tf_slot_bounds(spec: str) -> Tuple[int, int]:
+    parts = spec.split(",")
+    return int(parts[0].split("-")[0]), int(parts[-1].split("-")[-1])
+
+
+_BHSA_BOOK_TO_USFM: Dict[str, str] = {
+    "Genesis": "GEN", "Exodus": "EXO", "Leviticus": "LEV", "Numeri": "NUM", "Deuteronomium": "DEU",
+    "Josua": "JOS", "Judices": "JDG", "Ruth": "RUT",
+    "Samuel_I": "1SA", "Samuel_II": "2SA", "Reges_I": "1KI", "Reges_II": "2KI",
+    "Chronica_I": "1CH", "Chronica_II": "2CH", "Esra": "EZR", "Nehemia": "NEH", "Esther": "EST",
+    "Iob": "JOB", "Psalmi": "PSA", "Proverbia": "PRO", "Ecclesiastes": "ECC", "Canticum": "SNG",
+    "Jesaia": "ISA", "Jeremia": "JER", "Threni": "LAM", "Ezechiel": "EZK", "Daniel": "DAN",
+    "Hosea": "HOS", "Joel": "JOL", "Amos": "AMO", "Obadia": "OBA", "Jona": "JON",
+    "Micha": "MIC", "Nahum": "NAM", "Habakuk": "HAB", "Zephania": "ZEP",
+    "Haggai": "HAG", "Sacharia": "ZEC", "Maleachi": "MAL",
+}
+
+
+@functools.lru_cache(maxsize=2)
+def _bhsa_tf_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse ETCBC BHSA 2021 Text-Fabric (Biblia Hebraica Stuttgartensia, 39 Hebrew OT books)."""
+    tfd = Path(path_str)
+    if not (tfd / "g_word_utf8.tf").exists():
+        return {}
+    otype = _load_tf_feature(tfd / "otype.tf")
+    oslots = _load_tf_feature(tfd / "oslots.tf")
+    book_f = _load_tf_feature(tfd / "book.tf")
+    chap_f = _load_tf_feature(tfd / "chapter.tf")
+    verse_f = _load_tf_feature(tfd / "verse.tf")
+    gword = _load_tf_feature(tfd / "g_word_utf8.tf")
+    trailer = _load_tf_feature(tfd / "trailer_utf8.tf")
+
+    # Map slot ranges -> (book, chapter) via book/chapter nodes.
+    books_by_slot: List[Tuple[int, int, str]] = []
+    chaps_by_slot: List[Tuple[int, int, int]] = []
+    verse_nodes: List[int] = []
+    for n, ot in otype.items():
+        if ot == "book":
+            usfm = _BHSA_BOOK_TO_USFM.get(book_f.get(n, ""))
+            if usfm and n in oslots:
+                lo, hi = _tf_slot_bounds(oslots[n])
+                books_by_slot.append((lo, hi, usfm))
+        elif ot == "chapter":
+            cs = chap_f.get(n, "")
+            if cs.isdigit() and n in oslots:
+                lo, hi = _tf_slot_bounds(oslots[n])
+                chaps_by_slot.append((lo, hi, int(cs)))
+        elif ot == "verse":
+            verse_nodes.append(n)
+    books_by_slot.sort()
+    chaps_by_slot.sort()
+    verse_nodes.sort()
+
+    out: Dict[str, BookText] = {}
+    bi = ci = 0
+    for vn in verse_nodes:
+        vs = verse_f.get(vn, "")
+        if not vs.isdigit() or vn not in oslots:
+            continue
+        lo, hi = _tf_slot_bounds(oslots[vn])
+        while bi < len(books_by_slot) and books_by_slot[bi][1] < lo:
+            bi += 1
+        while ci < len(chaps_by_slot) and chaps_by_slot[ci][1] < lo:
+            ci += 1
+        if bi >= len(books_by_slot) or ci >= len(chaps_by_slot):
+            continue
+        usfm = books_by_slot[bi][2]
+        ch = chaps_by_slot[ci][2]
+        raw_v = "".join(gword.get(s, "") + trailer.get(s, "") for s in range(lo, hi + 1))
+        # Strip BHSA Masoretic parashah (פ / ס) and inverted-nun (נ) section markers (both mid-verse and final).
+        txt = norm_ws(re.sub(r"(?:^|\s)[פסנ](?=\s|$)", " ", raw_v))
+        if txt:
+            out.setdefault(usfm, {}).setdefault(ch, {})[int(vs)] = txt
+    return out
+
+
+_SP_BOOK_TO_USFM: Dict[str, str] = {
+    "Genesis": "GEN", "Exodus": "EXO", "Leviticus": "LEV", "Numbers": "NUM", "Deuteronomy": "DEU",
+}
+
+
+@functools.lru_cache(maxsize=2)
+def _samaritan_tf_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse CACCHT/ETCBC Samaritan Pentateuch Text-Fabric v7.5.0 (Genesis–Deuteronomy)."""
+    tfd = Path(path_str)
+    if not (tfd / "sign.tf").exists():
+        return {}
+    otype = _load_tf_feature(tfd / "otype.tf")
+    oslots = _load_tf_feature(tfd / "oslots.tf")
+    book_f = _load_tf_feature(tfd / "book.tf")
+    chap_f = _load_tf_feature(tfd / "chapter.tf")
+    verse_f = _load_tf_feature(tfd / "verse.tf")
+    sign_f = _load_tf_feature(tfd / "sign.tf")
+
+    books_by_slot: List[Tuple[int, int, str]] = []
+    chaps_by_slot: List[Tuple[int, int, int]] = []
+    verse_nodes: List[int] = []
+    for n, ot in otype.items():
+        if ot == "book":
+            usfm = _SP_BOOK_TO_USFM.get(book_f.get(n, ""))
+            if usfm and n in oslots:
+                lo, hi = _tf_slot_bounds(oslots[n])
+                books_by_slot.append((lo, hi, usfm))
+        elif ot == "chapter":
+            cs = chap_f.get(n, "")
+            if cs.isdigit() and n in oslots:
+                lo, hi = _tf_slot_bounds(oslots[n])
+                chaps_by_slot.append((lo, hi, int(cs)))
+        elif ot == "verse":
+            verse_nodes.append(n)
+    books_by_slot.sort()
+    chaps_by_slot.sort()
+    verse_nodes.sort()
+
+    out: Dict[str, BookText] = {}
+    bi = ci = 0
+    for vn in verse_nodes:
+        vs = verse_f.get(vn, "")
+        if not vs.isdigit() or vn not in oslots:
+            continue
+        lo, hi = _tf_slot_bounds(oslots[vn])
+        while bi < len(books_by_slot) and books_by_slot[bi][1] < lo:
+            bi += 1
+        while ci < len(chaps_by_slot) and chaps_by_slot[ci][1] < lo:
+            ci += 1
+        if bi >= len(books_by_slot) or ci >= len(chaps_by_slot):
+            continue
+        txt = norm_ws("".join(sign_f.get(s, "") for s in range(lo, hi + 1)))
+        if txt:
+            out.setdefault(books_by_slot[bi][2], {}).setdefault(chaps_by_slot[ci][2], {})[int(vs)] = txt
+    return out
+
+
+_DSS_BOOK_TO_USFM: Dict[str, str] = {
+    "Gen": "GEN", "Ex": "EXO", "Lev": "LEV", "Num": "NUM", "Deut": "DEU",
+    "Josh": "JOS", "Judg": "JDG", "Ruth": "RUT", "1Sam": "1SA", "2Sam": "2SA",
+    "1Kgs": "1KI", "2Kgs": "2KI", "Ezra": "EZR", "Job": "JOB", "Ps": "PSA",
+    "Prov": "PRO", "Eccl": "ECC", "Song": "SNG", "Is": "ISA", "Jer": "JER",
+    "Lam": "LAM", "Ezek": "EZK", "Dan": "DAN", "Hos": "HOS", "Joel": "JOL",
+    "Amos": "AMO", "Obad": "OBA", "Jonah": "JON", "Mic": "MIC", "Nah": "NAM",
+    "Hab": "HAB", "Zeph": "ZEP", "Hag": "HAG", "Zech": "ZEC", "Mal": "MAL",
+}
+
+_DSS_TARGET_SCROLLS = frozenset({
+    "1Qisaa", "1Q8", "4Q51", "4Q70", "4Q71", "4Q72", "11Q5", "4Q22", "4Q27", "4Q41", "4Q44",
+})
+
+_DSS_KIND_TO_SCROLLS: Dict[str, Tuple[str, ...]] = {
+    "dss_1qisaa": ("1Qisaa",),
+    "dss_1qisab": ("1Q8",),
+    "dss_4qsama": ("4Q51",),
+    "dss_4qjer": ("4Q71", "4Q72", "4Q70"),
+    "dss_11qpsa": ("11Q5",),
+    "dss_torah": ("4Q22", "4Q27", "4Q41", "4Q44"),
+}
+
+
+def _clean_dss_word_stream(raw_chunks: List[Tuple[str, str]]) -> str:
+    """Assemble DSS morpheme stream ``(full, after)`` into clean Hebrew words (reconstructed/broken -> GAP_WORD)."""
+    # First join morphemes whose 'after' is empty into whole surface words.
+    joined_words: List[str] = []
+    cur: List[str] = []
+    for full, after in raw_chunks:
+        if full == "׃":
+            if cur:
+                joined_words.append("".join(cur) + "׃")
+                cur = []
+            elif joined_words and not joined_words[-1].endswith("׃"):
+                joined_words[-1] += "׃"
+            continue
+        cur.append(full)
+        # Standalone preposition מן (even when supralinearly corrected as מ(^ ן ^)) separates from the next word.
+        bare = re.sub(r"[(\^\)\s]", "", full)
+        if after or bare == "מן":
+            joined_words.append("".join(cur))
+            cur = []
+    if cur:
+        joined_words.append("".join(cur))
+
+    out: List[str] = []
+    for raw_w in joined_words:
+        # Remove scribal erasures {{ ... }}.
+        w = re.sub(r"\{\{.*?\}\}", "", raw_w)
+        # Reconstructed brackets [...] or missing-word epsilon -> GAP_WORD (never invent Qumran text).
+        if "[" in w or "]" in w or "ε" in w or "◦" in w:
+            out.append(GAP_WORD)
+            continue
+        # Keep supralinear scribal insertions (^ ... ^), strip markup punctuation & morpheme geresh.
+        w = w.replace("(^", "").replace("^)", "")
+        w = re.sub(r"[׳#?╱\\/<>(){}\s]+", "", w)
+        if not any("\u05d0" <= ch <= "\u05ea" for ch in w):
+            continue
+        out.append(unicodedata.normalize("NFC", w))
+
+    if not any(t != GAP_WORD for t in out):
+        return ""
+    # Collapse runs of 3+ GAP_WORD to LACUNA_MARK.
+    collapsed: List[str] = []
+    i = 0
+    while i < len(out):
+        if out[i] == GAP_WORD:
+            j = i
+            while j < len(out) and out[j] == GAP_WORD:
+                j += 1
+            if j - i >= 3:
+                if not collapsed or collapsed[-1] != LACUNA_MARK:
+                    collapsed.append(LACUNA_MARK)
+            else:
+                collapsed.extend([GAP_WORD] * (j - i))
+            i = j
+        else:
+            collapsed.append(out[i])
+            i += 1
+    return norm_ws(" ".join(collapsed))
+
+
+@functools.lru_cache(maxsize=2)
+def _dss_tf_index(path_str: str, _mtime: int) -> Tuple[Dict[str, Dict[str, BookText]], Dict[int, str]]:
+    """Parse premier Biblical Dead Sea Scrolls (plus 11Q5 Col. XXVIII Hebrew Psalm 151) from ETCBC DSS TF."""
+    tfd = Path(path_str)
+    if not (tfd / "full.tf").exists():
+        return {}, {}
+    otype = _load_tf_feature(tfd / "otype.tf")
+    oslots = _load_tf_feature(tfd / "oslots.tf")
+    scroll_f = _load_tf_feature(tfd / "scroll.tf")
+    book_f = _load_tf_feature(tfd / "book.tf")
+    chap_f = _load_tf_feature(tfd / "chapter.tf")
+    verse_f = _load_tf_feature(tfd / "verse.tf")
+    full_f = _load_tf_feature(tfd / "full.tf")
+    after_f = _load_tf_feature(tfd / "after.tf")
+
+    # Map slot intervals for target scrolls (note: 11Q5 has both biblical and non-biblical scroll nodes).
+    target_ranges: List[Tuple[int, int, str]] = []
+    for n, ot in otype.items():
+        if ot == "scroll":
+            sn = scroll_f.get(n, "")
+            if sn in _DSS_TARGET_SCROLLS and n in oslots:
+                lo, hi = _tf_slot_bounds(oslots[n])
+                target_ranges.append((lo, hi, sn))
+    target_ranges.sort()
+
+    word_nodes = sorted(n for n, ot in otype.items() if ot == "word")
+    buckets: Dict[Tuple[str, str, int, int], List[Tuple[str, str]]] = {}
+    q5_nonbib_words: List[Tuple[int, str, str]] = []
+
+    import bisect
+    starts = [r[0] for r in target_ranges]
+    for w in word_nodes:
+        sp = oslots.get(w)
+        if not sp:
+            continue
+        wlo = int(sp.split(",")[0].split("-")[0])
+        idx = bisect.bisect_right(starts, wlo) - 1
+        if idx < 0:
+            continue
+        lo, hi, sname = target_ranges[idx]
+        if wlo > hi:
+            continue
+        full = full_f.get(w, "")
+        if not full:
+            continue
+        after = after_f.get(w, "")
+        bk = book_f.get(w, "")
+        if bk:
+            usfm = _DSS_BOOK_TO_USFM.get(bk)
+            ch_s, v_s = chap_f.get(w, ""), verse_f.get(w, "")
+            if usfm and ch_s.isdigit() and v_s.isdigit():
+                buckets.setdefault((sname, usfm, int(ch_s), int(v_s)), []).append((full, after))
+        elif sname == "11Q5":
+            q5_nonbib_words.append((w, full, after))
+
+    out: Dict[str, Dict[str, BookText]] = {}
+    for (sname, usfm, ch, v), chunks in buckets.items():
+        txt = _clean_dss_word_stream(chunks)
+        if txt:
+            out.setdefault(sname, {}).setdefault(usfm, {}).setdefault(ch, {})[v] = txt
+
+    # Extract Hebrew Psalm 151 (11Q5 Col. XXVIII) by exact incipit anchor ("הללו יה ל דויד בן ישי קטן הייתי").
+    ps151: Dict[int, str] = {}
+    for i in range(len(q5_nonbib_words) - 8):
+        if (
+            q5_nonbib_words[i][1] == "הללו"
+            and q5_nonbib_words[i + 6][1] == "קטן"
+            and q5_nonbib_words[i + 7][1] == "הייתי"
+        ):
+            # Split into canonical Psalm 151A (vv. 1–6) + 151B opening (v. 7) at the scroll's sof pasuq boundaries.
+            tail = q5_nonbib_words[i:i + 185]
+            clauses: List[List[Tuple[str, str]]] = [[]]
+            for _wn, f, a in tail:
+                clauses[-1].append((f, a))
+                if f == "׃":
+                    clauses.append([])
+            # Map the 11 sof-pasuq strophes of 11Q5 Col. XXVIII onto standard LXX/Saints.Bible Psalm 151 vv. 1–7:
+            # v1 = [0] (superscription + small among brothers), v2 = [1] (hands made pipe),
+            # v3 = [2]+[3] (mountains/trees), v4 = [4]+[5] (who will declare / God saw all),
+            # v5 = [6]+[7] (sent Samuel / brothers tall & handsome), v6 = [8]+[9] (took from flock & anointed),
+            # v7 = [10]+[11] (Psalm 151B opening — Goliath/Philistine).
+            groups = [[0], [1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11]]
+            for vnum, idxs in enumerate(groups, start=1):
+                seg: List[Tuple[str, str]] = []
+                for ci in idxs:
+                    if ci < len(clauses):
+                        seg.extend(clauses[ci])
+                txt = _clean_dss_word_stream(seg)
+                if txt:
+                    ps151[vnum] = txt
+            break
+    return out, ps151
+
+
+def _parse_dss_scroll(base_path: Path, kind: str, book: BookSpec) -> BookText:
+    scroll_map, ps151 = _dss_tf_index(*_mtime_key(base_path))
+    if kind == "dss_11qpsa_ps151":
+        if book.slug == "psalms" and ps151:
+            return {151: dict(ps151)}
+        return {}
+    scrolls = _DSS_KIND_TO_SCROLLS.get(kind, ())
+    merged: BookText = {}
+    for sn in scrolls:
+        bk = scroll_map.get(sn, {}).get(book.usfm_code, {})
+        for ch, vs in bk.items():
+            dest = merged.setdefault(ch, {})
+            for v, txt in vs.items():
+                if v not in dest:
+                    dest[v] = txt
+    return merged
+
+
+_VL_JOHN_WITS = frozenset({"2", "3", "4", "6", "8", "10", "14", "15"})
+
+
+@functools.lru_cache(maxsize=2)
+def _vl_john_synopsis_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
+    """Parse ITSEE Vetus Latina Iohannes XML Synopsis (``VLsynopsis.xml``) for premier Old Latin John codices."""
+    fp = Path(path_str)
+    if not fp.exists():
+        return {}
+    raw = read_text(fp)
+    out: Dict[str, BookText] = {}
+    app_re = re.compile(r'<app\b[^>]*\bn="B04K(\d+)V(\d+)"[^>]*>(.*?)</app>', re.DOTALL)
+    rdg_re = re.compile(r'<rdg\b[^>]*\bwit="([^"]+)"[^>]*>(.*?)</rdg>', re.DOTALL)
+    for am in app_re.finditer(raw):
+        ch, v = int(am.group(1)), int(am.group(2))
+        if ch <= 0 or v <= 0:
+            continue
+        # Collect first-hand (N* preferred over undivided N; skip corrector NC).
+        per_wit: Dict[str, Tuple[int, str]] = {}
+        for rm in rdg_re.finditer(am.group(3)):
+            wtag = rm.group(1).strip()
+            base = wtag.rstrip("*")
+            if base not in _VL_JOHN_WITS:
+                continue
+            prio = 2 if wtag.endswith("*") else 1
+            if base in per_wit and per_wit[base][0] >= prio:
+                continue
+            txt = _clean_compaul_ab_fragment(rm.group(2))
+            if txt:
+                per_wit[base] = (prio, txt)
+        for base, (_p, txt) in per_wit.items():
+            out.setdefault(base, {}).setdefault(ch, {})[v] = txt
+    return out
+
+
+def _parse_divinum_psalter(psalm_dir: Path) -> BookText:
+    """Parse Public-Domain DivinumOfficium Latin Psalter folder (e.g. ``Latin-Bea`` = 1945 *Psalterium Pianum*)."""
+    if not psalm_dir.exists():
+        return {}
+    out: BookText = {}
+    v_re = re.compile(r"^(\d+):(\d+)[a-z]?\s+(.*)$")
+    for ch in range(1, 151):
+        fp = psalm_dir / f"Psalm{ch}.txt"
+        if not fp.exists():
+            continue
+        vs: Dict[int, List[str]] = {}
+        for line in read_text(fp).splitlines():
+            s = line.strip()
+            if not s or s.startswith("("):
+                continue
+            m = v_re.match(s)
+            if not m:
+                continue
+            v = int(m.group(2))
+            # Remove liturgical flex (†) and mediant (*) pause markers.
+            body = norm_ws(re.sub(r"[*†]", " ", m.group(3)))
+            if body:
+                vs.setdefault(v, []).append(body)
+        if vs:
+            out[ch] = {v: norm_ws(" ".join(parts)) for v, parts in vs.items()}
+    return out
+
+
+# ---------------------------------------------------------------------------
 # User-supplied witnesses
 # ---------------------------------------------------------------------------
 
@@ -1369,7 +2819,22 @@ def parse_custom_witness_book(fp: Path, book: BookSpec) -> BookText:
     if fmt == "usfx_xml":
         return _usfx_index(*_mtime_key(fp)).get(book.usfm_code, {})
     if fmt == "osis_xml":
+        if book.testament == "NT" and 'osisIDWork="GK.' in _sample:
+            return _tischendorf_osis_index(*_mtime_key(fp)).get(book.usfm_code, {})
         return _mam_index(*_mtime_key(fp)).get(book.usfm_code, {})
+    if fmt == "tei_xml":
+        if "COMPAUL" in _sample or 'xml:id="VL' in _sample:
+            if not book.cntr_book or book.cntr_book < 40:
+                return {}
+            return _compaul_latin_index(*_mtime_key(fp)).get(book.cntr_book - 39, {})
+        if "TEI-NTMSS" in _sample or 'type="nomSac"' in _sample or re.search(r'<ab\b[^>]*\bn="(?:B\d{2}K|[1-3]?[A-Za-z]+\.\d+\.)', _sample):
+            if not book.cntr_book or book.cntr_book < 40:
+                return {}
+            return _intf_ntvmr_index(*_mtime_key(fp)).get(book.cntr_book - 39, {})
+        if "<ms name=" in _sample and 'type="chap"' in _sample:
+            return _bensira_tei_index(*_mtime_key(fp)) if book.slug == "sirach" else {}
+        if "Amiatinus" in _sample or '<milestone unit="v"' in _sample:
+            return _parse_amiatinus_tei(fp, book)
 
     raw = read_text(fp)
     out: BookText = {}
@@ -1410,7 +2875,12 @@ def parse_custom_witness_book(fp: Path, book: BookSpec) -> BookText:
         if m_bcv:
             if book.cntr_book and int(m_bcv.group(1)) == book.cntr_book:
                 body = m_bcv.group(4).strip()
-                out.setdefault(int(m_bcv.group(2)), {})[int(m_bcv.group(3))] = VERSE_ABSENT if body == "-" else norm_ws(body)
+                if body == "-":
+                    out.setdefault(int(m_bcv.group(2)), {})[int(m_bcv.group(3))] = VERSE_ABSENT
+                elif body and body != "+":
+                    cleaned = clean_cntr_mss_line(body) if any(c in body for c in ("=", "/", "\\", "~", "{", "¯")) else _clean_cntr_edition_line(body)
+                    if cleaned:
+                        out.setdefault(int(m_bcv.group(2)), {})[int(m_bcv.group(3))] = cleaned
             continue
         m_ref = re.match(r"^([1-3]?\s*[A-Za-z][A-Za-z\- ]*?)\s+(\d+):(\d+)\s+(.*)$", line_s)  # Book C:V text
         if m_ref:

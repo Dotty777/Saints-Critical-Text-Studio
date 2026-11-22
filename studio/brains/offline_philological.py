@@ -29,8 +29,11 @@ from ..collator import (
     NOMINA_SACRA_STEMS,
     CollatedVerse,
     VariationSlot,
+    _greek_number_phrase_value,
     canonical_compare_key,
     capitalize_first,
+    is_biblical_aramaic_verse,
+    is_latin_roman_numeral,
     is_letter_numeral,
     is_nomen_sacrum,
     is_orthographic_equivalence,
@@ -862,28 +865,112 @@ def _breathing_and_subscript(form: str) -> Tuple[Tuple[int, str], ...]:
 
 
 _LATIN_VOWELS = "aeiou"
+# Classical/Vulgate Latin stems where u after r/l before a/e/i/o is consonantal v (never vowel-u verbs
+# like apparuit, aperuit, seruit 'sowed', voluit, noluit, siluit, pluit, eruit, instruebat).
+_LATIN_RL_V_STEMS = (
+    "fulu", "paru", "salu", "alu", "calu", "coru", "ceru", "curu",
+    "feru", "neru", "toru", "aceru", "cateru", "proteru", "puluer",
+)
+# Unambiguous post-prefix consonantal u stems (ad+vers-, ob+vi-, in+ven-, con+vert-, etc.).
+_LATIN_PREFIX_V_POS = tuple(
+    (s, s.index("u")) for s in (
+        "aduers", "aduen", "aduoc", "obui", "inuen", "inuoc", "inuid",
+        "conuen", "conuert", "conuers", "conuiu", "subuert", "subuers",
+        "peruen", "prouid", "prouoc",
+    )
+)
+# Unambiguous initial consonantal i+vowel stems normalised to j/J to match Clementine orthography.
+_LATIN_INITIAL_J_STEMS = (
+    "iuss", "iub", "iur", "iust", "iudic", "iudex", "iunior", "iuven", "iuuen",
+    "iug", "iung", "iunct", "iuxt", "iacob", "iordan", "ioseph", "iuda", "iesu",
+    "ierusal", "iericho",
+)
+# Non-diphthong hiatus stems where ae / oe MUST NEVER collapse to æ / œ (Verifier Safeguard).
+_LATIN_AER_HIATUS = frozenset({"aer", "aeris", "aeri", "aerem", "aere", "aera", "aeria", "aerius", "aerium"})
+_LATIN_OE_HIATUS_PREFIXES = (
+    "coerc", "coeg", "coem", "coeo", "coeu", "coei", "coit", "cohaer",
+    "poet", "boet", "proem", "introe",
+)
+_HEBREW_AEL_HIATUS_RE = re.compile(r"ael(?:is|i|em|e|it\w*)?$")
+_LATIN_ALWAYS_CAP_NAMES = frozenset({
+    "adam", "ham", "rahel", "noe", "noë", "abram", "abraham", "isaac", "iacob", "jacob",
+    "ioseph", "joseph", "israel", "ismael", "aegyptus", "aegypti", "aegypto", "aegyptum",
+    "ægyptus", "ægypti", "ægypto", "ægyptum",
+})
+_LATIN_DIVINE_BASE = frozenset({"Deus", "Dei", "Deo", "Deum", "Dominus", "Domini", "Domino", "Dominum", "Domine"})
+
+
+def _latin_ae_oe_ligatures(word: str) -> str:
+    """Normalise adopted Amiatinus Latin ae/oe digraphs to Clementine æ/œ while strictly preserving
+    non-diphthong hiatus words: Hebrew -ael/-oel/Noe names (Israel, Ismael, Raphael, Michael,
+    Phanuël, Abimael, Noe, Joel), aë/oë/aër, and Latin co- hiatus prefixes (coerc-, coeg-, coem-,
+    poet-, boet-)."""
+    low = word.lower()
+    if "ë" in low:
+        return word
+    # Guard ae -> æ
+    if "ae" in low and low not in _LATIN_AER_HIATUS and not _HEBREW_AEL_HIATUS_RE.search(low):
+        def _rep_ae(m: re.Match) -> str:
+            seg = m.group(0)
+            return "Æ" if seg[0].isupper() else "æ"
+        word = re.sub(r"[Aa][Ee]", _rep_ae, word)
+        low = word.lower()
+    # Guard oe -> œ
+    if ("oe" in low and low != "noe"
+            and not low.startswith(_LATIN_OE_HIATUS_PREFIXES)
+            and not re.search(r"oel(?:is|i|em|e)?$", low)):
+        def _rep_oe(m: re.Match) -> str:
+            seg = m.group(0)
+            return "Œ" if seg[0].isupper() else "œ"
+        word = re.sub(r"[Oo][Ee]", _rep_oe, word)
+    return word
 
 
 def _latin_u_to_v(word: str) -> str:
-    """Consonantal u written v, as the Clementine does: word-initial u before a vowel other than u
-    (uobis → vobis, but uua stays), and u between vowels when the next vowel is not u
-    (diluuii → diluvii, suauis → suavis, iuuenis → iuvenis)."""
+    """Consonantal u written v, medieval e-caudata / guarded ae/oe normalised to æ/œ, and
+    unambiguous initial consonantal i+vowel written j, matching the Clementine base:
+    word-initial u before a vowel other than u (uobis → vobis, but uua stays), u between vowels
+    when the next vowel is not u (diluuii → diluvii, suauis → suavis, iuuenis → iuvenis),
+    [rl]uu before a consonant/end (paruum → parvum, fuluum → fulvum), unambiguous post-r/l and
+    post-prefix consonantal-v stems (seruierant → servierant, aduersum → adversum, obuias → obvias,
+    inuentus → inventus)."""
+    word = word.replace("ę", "æ").replace("Ę", "Æ")
     out = list(word)
     low = word.lower()
     for i, ch in enumerate(low):
-        if ch != "u" or i + 1 >= len(low) or low[i + 1] not in _LATIN_VOWELS or low[i + 1] == "u":
+        if ch != "u" or i + 1 >= len(low):
+            continue
+        nxt = low[i + 1]
+        if nxt == "u":
+            # [rl]uu before consonant or word end (paruum → parvum, fuluum → fulvum; not fluuium)
+            if i > 0 and low[i - 1] in "rl" and (i + 2 >= len(low) or low[i + 2] not in _LATIN_VOWELS):
+                out[i] = "V" if word[i].isupper() else "v"
+            continue
+        if nxt not in _LATIN_VOWELS:
             continue
         if i == 0 or (low[i - 1] in _LATIN_VOWELS and not (i >= 2 and low[i - 2] == "q")):
             out[i] = "V" if word[i].isupper() else "v"
-    return "".join(out)
+        elif i >= 3 and low[:i + 1] == "seru" and nxt == "i" and i + 2 < len(low) and low[i + 2] in _LATIN_VOWELS:
+            # servio inflection (seruierant → servierant), never Seruit ('sowed', Gen 26:12)
+            out[i] = "V" if word[i].isupper() else "v"
+        elif i > 0 and low[i - 1] in "rl" and low[:i + 1] in _LATIN_RL_V_STEMS:
+            out[i] = "V" if word[i].isupper() else "v"
+        elif any(low.startswith(p) and i == pos for p, pos in _LATIN_PREFIX_V_POS):
+            out[i] = "V" if word[i].isupper() else "v"
+    res = "".join(out)
+    res_low = res.lower()
+    if res_low.startswith(_LATIN_INITIAL_J_STEMS):
+        res = ("J" if res[0].isupper() else "j") + res[1:]
+    return _latin_ae_oe_ligatures(res)
 
 
 def _latin_base_spelling(chosen: str, cv: CollatedVerse, base_raw: str = "") -> str:
     """Re-spell an adopted non-base (Amiatinus) reading in the base edition's orthography, word by
     word: the base's own spelling of the same word in this verse (with its capitalisation when it
     is a name, i.e. capitalised away from a sentence start), else consonantal u as v. The reading
-    itself never changes."""
-    from ..collator import _latin_ortho_key
+    itself never changes — distinct Latin words (_LATIN_DISTINCT, e.g. habeam vs abeam) are never
+    overwritten by base orthography."""
+    from ..collator import _latin_distinct, _latin_ortho_key
 
     def lookup_keys(w: str) -> List[str]:
         k = canonical_compare_key(w, "latin")
@@ -908,6 +995,7 @@ def _latin_base_spelling(chosen: str, cv: CollatedVerse, base_raw: str = "") -> 
                 base_words[key] = (w, is_nm)
     chosen_toks = chosen.split()
     base_slot_toks = base_raw.split() if base_raw else []
+    base_slot_divine = any(strip_punct(bt) in _LATIN_DIVINE_BASE for bt in base_slot_toks)
     out = []
     for idx_w, tok in enumerate(chosen_toks):
         m = re.match(r"^(\W*)(\w+)(\W*)$", tok)
@@ -915,7 +1003,13 @@ def _latin_base_spelling(chosen: str, cv: CollatedVerse, base_raw: str = "") -> 
             out.append(tok)
             continue
         lead, core, trail = m.groups()
-        hit = next((base_words[k] for k in lookup_keys(core) if k in base_words), None)
+        core_ck = canonical_compare_key(core, "latin")
+        hit = next(
+            (base_words[k] for k in lookup_keys(core)
+             if k in base_words
+             and not _latin_distinct([core_ck, canonical_compare_key(base_words[k][0], "latin")])),
+            None,
+        )
         if hit:
             word, is_name = hit
             if not is_name and core[:1].islower():
@@ -925,19 +1019,33 @@ def _latin_base_spelling(chosen: str, cv: CollatedVerse, base_raw: str = "") -> 
         else:
             word = _latin_u_to_v(core)
             if core[:1].islower():
-                ck = _latin_ortho_key(canonical_compare_key(core, "latin"))
-                near_name = len(ck) >= 3 and any(
-                    nk[0] == ck[0] and (
-                        edit_distance(ck, nk, limit=3) <= (1 if min(len(ck), len(nk)) <= 4 else 2)
-                        or (min(len(ck), len(nk)) >= 5 and ck[:5] == nk[:5])
-                    )
-                    for nk in name_stems
+                ck = _latin_ortho_key(core_ck)
+                near_name = (
+                    word.lower() in _LATIN_ALWAYS_CAP_NAMES
+                    or core.lower() in _LATIN_ALWAYS_CAP_NAMES
+                    or (base_slot_divine and core.lower() in {"dominus", "domini", "domino", "dominum", "domine"})
+                    or (len(ck) >= 3 and any(
+                        (nk[0] == ck[0] and (
+                            edit_distance(ck, nk, limit=3) <= (1 if min(len(ck), len(nk)) <= 4 else 2)
+                            or (min(len(ck), len(nk)) >= 5 and ck[:5] == nk[:5])
+                        ))
+                        or (min(len(ck), len(nk)) >= 4 and ck[-4:] == nk[-4:]
+                            and edit_distance(ck, nk, limit=3) <= (1 if min(len(ck), len(nk)) <= 5 else 2))
+                        for nk in name_stems
+                    ))
                 )
                 if not near_name and len(base_slot_toks) == len(chosen_toks) and idx_w < len(base_slot_toks):
                     bw = strip_punct(base_slot_toks[idx_w])
                     bk = _latin_ortho_key(canonical_compare_key(bw, "latin")) if bw else ""
-                    if bw[:1].isupper() and bk and ck and bk[0] == ck[0] and edit_distance(ck, bk, limit=3) <= 2:
-                        if any(base_words.get(k, ("", False))[1] for k in lookup_keys(bw)):
+                    if bw[:1].isupper() and bk and ck:
+                        same_start = bk[0] == ck[0]
+                        close_ed = edit_distance(ck, bk, limit=3) <= 2
+                        shared_suf = min(len(ck), len(bk)) >= 4 and ck[-4:] == bk[-4:]
+                        is_base_nm = any(base_words.get(k, ("", False))[1] for k in lookup_keys(bw))
+                        if is_base_nm and ((same_start and close_ed) or (shared_suf and close_ed)):
+                            near_name = True
+                        elif not is_base_nm and edit_distance(ck, bk, limit=2) <= 1 and len(ck) >= 3:
+                            # Aligned slot where Clementine capitalised after a colon (e.g. "filii Sobal: Alvan" / "filii Lotan: Hori")
                             near_name = True
                 if near_name:
                     word = capitalize_first(word)
@@ -965,11 +1073,16 @@ def calibrated_unit_confidence(groups: List[Tuple[str, List[str], str]], adopted
     ``groups`` = [(canonical key, sigla, representative reading)]. Readings that differ only in
     spelling are pooled first; singular readings of the diplomatic manuscripts are discounted."""
     classes: List[Tuple[List[str], List[str]]] = []  # (keys, sigla)
+    is_aramaic = language == "hebrew" and is_biblical_aramaic_verse(
+        getattr(cv, "book_slug", ""), getattr(cv, "chapter", 0), cv.verse
+    )
     for key, sigla, rep in groups:
         placed = False
         for keys, csig in classes:
             if key != "om." and all(k != "om." for k in keys):
-                if is_orthographic_equivalence([rep, next(r for kk, _s, r in groups if kk == keys[0])], language)[0]:
+                if is_orthographic_equivalence(
+                    [rep, next(r for kk, _s, r in groups if kk == keys[0])], language, is_aramaic=is_aramaic
+                )[0]:
                     keys.append(key)
                     csig.extend(sigla)
                     placed = True
@@ -1005,6 +1118,125 @@ def calibrated_unit_confidence(groups: List[Tuple[str, List[str], str]], adopted
     total = sum(e for _a, e in exps)
     adopted = sum(e for a, e in exps if a)
     return round(min(0.99, adopted / total if total else 0.5), 3)
+
+
+def _is_transposition_pair(a: ApparatusItem, b: ApparatusItem, language: str) -> bool:
+    """Unit a adds what unit b omits (or vice versa), supported by overlapping witnesses."""
+    def _unit_keys(text: str) -> Tuple[str, ...]:
+        return tuple(k for k in (canonical_compare_key(t, language) for t in tokenize_for_alignment(text, language)) if k)
+
+    def adds(u: ApparatusItem) -> Optional[Tuple[Tuple[str, ...], frozenset]]:
+        if u.lemma == "om.":
+            for v in u.variants:
+                if v["reading"] != "om.":
+                    return _unit_keys(v.get("adopt_text") or v["reading"]), frozenset(v["witnesses"])
+        return None
+
+    def omits(u: ApparatusItem) -> Optional[Tuple[Tuple[str, ...], frozenset]]:
+        if u.lemma != "om.":
+            for v in u.variants:
+                if v["reading"] == "om.":
+                    return _unit_keys(u.lemma), frozenset(v["witnesses"])
+        return None
+
+    for x, y in ((a, b), (b, a)):
+        ad, om = adds(x), omits(y)
+        if ad and om and ad[0] and ad[0] == om[0] and ad[1] & om[1]:
+            return True
+    return False
+
+
+def _transposition_components(word_units: List[ApparatusItem], language: str) -> List[List[int]]:
+    """Connected components of word-level ApparatusItems that represent a single split word-order
+    transposition: either direct 1-to-1 (_is_transposition_pair) or 1-to-k multi-fragment splits
+    where one omitted/added phrase equals the exact multiset of 2+ matching added/omitted fragments
+    with identical witness support (e.g. Luke 12:1 'τῶν Φαρισαίων' split into 'τῶν' + 'Φαρισαίων')."""
+    n = len(word_units)
+    if n < 2:
+        return [[i] for i in range(n)]
+    adj_list: List[List[int]] = [[] for _ in range(n)]
+    for i in range(n):
+        for j in range(i + 1, n):
+            if _is_transposition_pair(word_units[i], word_units[j], language):
+                adj_list[i].append(j)
+                adj_list[j].append(i)
+
+    def _unit_keys(text: str) -> Tuple[str, ...]:
+        return tuple(k for k in (canonical_compare_key(t, language) for t in tokenize_for_alignment(text, language)) if k)
+
+    adds_info: Dict[int, Tuple[Tuple[str, ...], frozenset]] = {}
+    omits_info: Dict[int, Tuple[Tuple[str, ...], frozenset]] = {}
+    for i, u in enumerate(word_units):
+        if u.lemma == "om.":
+            for v in u.variants:
+                if v["reading"] != "om.":
+                    ks = _unit_keys(v.get("adopt_text") or v["reading"])
+                    if ks:
+                        adds_info[i] = (ks, frozenset(v["witnesses"]))
+                        break
+        else:
+            for v in u.variants:
+                if v["reading"] == "om.":
+                    ks = _unit_keys(u.lemma)
+                    if ks:
+                        omits_info[i] = (ks, frozenset(v["witnesses"]))
+                        break
+
+    for whole_map, frag_map in ((omits_info, adds_info), (adds_info, omits_info)):
+        for wi, (wks, wsigs) in whole_map.items():
+            if len(wks) < 2:
+                continue
+            target = Counter(wks)
+            matching_frags = [
+                (fi, fks) for fi, (fks, fsigs) in frag_map.items()
+                if fi != wi and fsigs == wsigs and len(fks) < len(wks) and not (Counter(fks) - target)
+            ]
+            if len(matching_frags) >= 2:
+                combined = Counter()
+                for _fi, fks in matching_frags:
+                    combined.update(fks)
+                if combined == target:
+                    for fi, _fks in matching_frags:
+                        adj_list[wi].append(fi)
+                        adj_list[fi].append(wi)
+
+    seen = [False] * n
+    comps: List[List[int]] = []
+    for i in range(n):
+        if seen[i]:
+            continue
+        stack = [i]
+        seen[i] = True
+        comp: List[int] = []
+        while stack:
+            cur = stack.pop()
+            comp.append(cur)
+            for nxt_i in adj_list[cur]:
+                if not seen[nxt_i]:
+                    seen[nxt_i] = True
+                    stack.append(nxt_i)
+        comps.append(sorted(comp))
+    return comps
+
+
+def _dedup_transposition_confidences(
+    word_units: List[ApparatusItem], rule_confs: List[float], language: str
+) -> Tuple[List[float], int]:
+    """Count each split-transposition connected component ONCE (min(c_i) across linked halves)
+    instead of squaring/cubing P(E) when SequenceMatcher splits one transposition into 2+ slots.
+    Returns (effective_confidences, num_deduped_slots)."""
+    n = len(word_units)
+    if n < 2:
+        return [u.confidence for u in word_units] + list(rule_confs), 0
+    comps = _transposition_components(word_units, language)
+    eff: List[float] = []
+    deduped = 0
+    for comp in comps:
+        eff.append(min(word_units[k].confidence for k in comp))
+        if len(comp) > 1:
+            deduped += len(comp) - 1
+    eff.extend(rule_confs)
+    return eff, deduped
 
 
 def strip_diacritics_lower(s: str) -> str:
@@ -1276,8 +1508,13 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                     score += 0.35
                 if sample.isupper() and len(strip_punct(sample)) > 1:
                     score -= 0.25
-                if is_nomen_sacrum(sample) or is_letter_numeral(sample):
-                    score -= 0.8
+                if any(
+                    is_nomen_sacrum(w)
+                    or is_letter_numeral(w)
+                    or (slot.notes.startswith("Letter-numeral") and not _has_marks(w) and _greek_number_phrase_value(f) is None)
+                    for f in forms for w in f.split()
+                ):
+                    score -= 1.5
                 if strip_punct(sample).lower() in ("ἴδεν", "ἴδον"):
                     score -= 0.20
                 score -= max((_greek_token_defect_penalty(w)[0] for w in sample.split()), default=0.0)
@@ -1293,8 +1530,11 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                     # split into a non-word.
                     if lex_.key_count(joined) >= 20 or (lex_.key_count(joined) >= 1 and any(lex_.key_count(p) <= 1 for p in parts)):
                         score -= IMPOSSIBLE_FORM_PENALTY
-            elif language == "latin" and sample[:1].isupper() and is_start:
-                score += 0.15
+            elif language == "latin":
+                if sample[:1].isupper() and is_start:
+                    score += 0.15
+                if is_latin_roman_numeral(sample, allow_single_letter=slot.notes.startswith("Roman-numeral")):
+                    score -= 0.8
             return score
 
         best_shape = max(support, key=lambda sh: (shape_score(sh), sh))
@@ -1374,7 +1614,12 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
 
         elided = bool(re.search(r"[’ʼ᾽']$", chosen))  # elided words (καθ’, ἀπ’) carry no accent
         all_caps = chosen.isupper() and len(strip_punct(chosen)) > 1  # a single capital letter (Ἧ) is not an incipit
-        if language == "greek" and ((not _has_marks(chosen) and not elided) or all_caps or is_nomen_sacrum(chosen) or is_letter_numeral(chosen)):
+        if language == "greek" and (
+                (not _has_marks(chosen) and not elided)
+                or all_caps
+                or is_nomen_sacrum(chosen)
+                or any(is_letter_numeral(w) for w in chosen.split())
+        ):
             # Borrow a properly accented spelling of the same word from any witness in the verse
             # (unaccented manuscript forms, all-caps incipits, contractions).
             want = slot.form_keys.get(chosen, canonical_compare_key(chosen, language))
@@ -1840,6 +2085,8 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
             return ""  # a scribal spelling of the same word (ει/η/ι/οι/υ, ο/ω, αι/ε), not a misread letter
         if _prefix_change(xs, ys) or _DOUBLED.sub(r"\1", xs) == _DOUBLED.sub(r"\1", ys):
             return ""  # another compound (προέθηκεν / προσέθηκεν) or a doubled consonant (ἀπέκτεννεν): not a misread letter
+        if (xs == "α" + ys and ys.startswith(("πασ", "παν"))) or (ys == "α" + xs and xs.startswith(("πασ", "παν"))):
+            return ""  # emphatic ἅπας / πᾶς (e.g. Sir 24:34 ἅπασιν vs πᾶσι): distinct lemma, not a stray α
         diffs = [(p, q) for p, q in zip(xs, ys) if p != q] if len(xs) == len(ys) else []
         one_confusable = len(diffs) == 1 and frozenset(diffs[0]) in _OCR_CONFUSABLE
         common = next((i for i, (p, q) in enumerate(zip(xs, ys)) if p != q), min(len(xs), len(ys)))
@@ -2050,14 +2297,17 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
         apparatus_items: List[ApparatusItem] = core["apparatus"]
         disregarded_items: List[DisregardedItem] = core["disregarded"]
         rationale_notes: List[str] = core["notes"]
-        unit_confs: List[float] = core["confidences"]
+        rule_confs: List[float] = core.get("rule_confs", [])
 
         for ext_note in cv.external_apparatus:
             rationale_notes.append(f"Reference apparatus (SBLGNT): {ext_note}")
 
         if language == "greek":
             chosen_tokens = [self._transliterate_token(t, cv) for t in chosen_tokens]
+            chosen_tokens = self._harmonise_greek_elision(chosen_tokens, cv, disregarded_items)
         critical_line = join_words([t for t in chosen_tokens if t], language)
+        word_units_pre = [a for a in apparatus_items if a.kind == "word"]
+        unit_confs, n_transp_dedup = _dedup_transposition_confidences(word_units_pre, rule_confs, language)
         verse_confidence = 1.0
         for c in unit_confs:
             verse_confidence *= c
@@ -2084,6 +2334,8 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
             n_rule = core.get("rule_repairs", 0)
             n_forced = len(forced)
             parts = [f"{len(unit_confs)} unit confidence(s)"]
+            if n_transp_dedup:
+                parts.append(f"{n_transp_dedup} split-transposition duplicate(s) counted once")
             if n_rule:
                 parts.append(f"{n_rule} of them digitisation repairs counted at 90 %")
             if n_forced:
@@ -2134,58 +2386,142 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
             analysis=verse_analysis,
         )
 
+    _UNELIDED_GREEK_FALLBACK: Dict[str, str] = {
+        "δια": "διὰ", "κατα": "κατὰ", "μετα": "μετὰ", "παρα": "παρὰ", "αλλα": "ἀλλὰ",
+        "απο": "ἀπὸ", "επι": "ἐπὶ", "υπο": "ὑπὸ", "ινα": "ἵνα", "ουδε": "οὐδὲ",
+        "μηδε": "μηδὲ", "αντι": "ἀντὶ", "αμφι": "ἀμφὶ", "ουτε": "οὔτε", "μητε": "μήτε",
+    }
+
+    @classmethod
+    def _harmonise_greek_elision(
+        cls, chosen_tokens: List[str], cv: CollatedVerse, disregarded: List[DisregardedItem]
+    ) -> List[str]:
+        """Restore the unelided vowel on an elided Greek preposition/particle when the adopted
+        following word begins with a consonant (e.g. Heb 12:15 'διʼ ταύτης' → 'διὰ ταύτης').
+        Single-letter forms (δ᾽ = 4 in Judg 19:2) and letter-numerals are never touched."""
+        from ..collator import _ELIDED
+
+        flat: List[Tuple[int, int, str]] = []
+        split_toks = [t.split() for t in chosen_tokens]
+        for ti, ws in enumerate(split_toks):
+            for wi, w in enumerate(ws):
+                flat.append((ti, wi, w))
+        if len(flat) < 2:
+            return chosen_tokens
+
+        def starts_vowel(word: str) -> bool:
+            clean = strip_punct(word)
+            if not clean:
+                return True
+            for ch in unicodedata.normalize("NFD", clean):
+                if unicodedata.category(ch) != "Mn" and ch.isalpha():
+                    return ch.lower() in _GR_VOWELS
+            return True
+
+        changed = False
+        for pos in range(len(flat) - 1):
+            ti, wi, w = flat[pos]
+            if not re.search(r"[’ʼ᾽']$", w) or is_letter_numeral(w):
+                continue
+            k = canonical_compare_key(w, "greek")
+            if len(k) < 2 or k not in _ELIDED:
+                continue
+            nxt_w = flat[pos + 1][2]
+            if starts_vowel(nxt_w):
+                continue
+            full_key = _ELIDED[k]
+            donor = ""
+            for sig, txt in cv.witness_texts.items():
+                if sig in DIPLOMATIC_MSS:
+                    continue
+                for wt in txt.split():
+                    cw = strip_punct(wt)
+                    if cw and canonical_compare_key(cw, "greek") == full_key and _has_marks(cw) and not cw.isupper():
+                        donor = cw
+                        break
+                if donor:
+                    break
+            if not donor:
+                donor = cls._UNELIDED_GREEK_FALLBACK.get(full_key, "")
+            if not donor:
+                continue
+            # Preserve capitalisation and any leading opening bracket/quote; drop trailing elision apostrophe
+            m = re.match(r"^(\W*)", w)
+            lead = m.group(1) if m else ""
+            core = strip_punct(w)
+            repl = capitalize_first(donor) if core[:1].isupper() else donor[:1].lower() + donor[1:]
+            # Grave on final acute before a following word (διὰ ταύτης, not διά ταύτης)
+            nfd_r = unicodedata.normalize("NFD", repl)
+            acc = [i for i, c in enumerate(nfd_r) if c in (_ACUTE, _GRAVE, _CIRC)]
+            if len(acc) == 1 and nfd_r[acc[0]] == _ACUTE and not any(c.lower() in _GR_VOWELS for c in nfd_r[acc[0] + 1:]):
+                repl = unicodedata.normalize("NFC", nfd_r[:acc[0]] + _GRAVE + nfd_r[acc[0] + 1:])
+            new_w = lead + repl
+            split_toks[ti][wi] = new_w
+            changed = True
+            disregarded.append(DisregardedItem(
+                slot_index=-1,
+                kept_form=new_w,
+                disregarded_forms=[w],
+                witnesses=[],
+                reason=f"Elision harmonised before consonant-initial '{strip_punct(nxt_w)}' ('{w}' → '{new_w}')",
+            ))
+        return [" ".join(ws) for ws in split_toks] if changed else chosen_tokens
+
     def _attested_run_fix(self, core: Dict[str, Any], forced: Dict[int, str], cv: CollatedVerse
                           ) -> Optional[Dict[str, Any]]:
-        """The first run of neighbouring variation units (no agreed word between them, at most five)
-        whose separately chosen readings no witness reads together, or None. The run is then decided
-        as a whole: each witness's own combination is weighed by edition family and the heaviest is
+        """The first run of neighbouring variation units (first contiguous, then separated by at
+        most one agreed word — e.g. Rev 16:3 'ζῶσα [ἀπέθανεν] τὰ', at most five units) whose
+        separately chosen readings no witness reads together, or None. The run is then decided as a
+        whole: each witness's own combination is weighed by edition family and the heaviest is
         printed. Units already forced or repaired as digitisation slips are left alone."""
         groups, chosen, noise = core["groups"], core["chosen_keys"], core.get("noise_slots", set())
         units = sorted(i for i, g in groups.items() if len(g) > 1 and i not in noise)
-        runs: List[List[int]] = []
-        for i in units:
-            if runs and i == runs[-1][-1] + 1:
-                runs[-1].append(i)
-            else:
-                runs.append([i])
-        for run in runs:
-            if len(run) < 2 or len(run) > 5 or any(i in forced for i in run):
-                continue
-            wkey = {i: {s: g[1] for g in groups[i] for s in g[2]} for i in run}
-            rep = {i: {g[1]: g[3] for g in groups[i]} for i in run}
-            sigla = set.intersection(*(set(wkey[i]) for i in run))  # witnesses voting in every unit
-            if not sigla or any(all(wkey[i][s] == chosen.get(i) for i in run) for s in sigla):
-                continue
-            combos: Dict[Tuple[str, ...], List[str]] = {}
-            for s in sorted(sigla):
-                combos.setdefault(tuple(wkey[i][s] for i in run), []).append(s)
+        for max_step in (1, 2):
+            runs: List[List[int]] = []
+            for i in units:
+                if runs and i <= runs[-1][-1] + max_step:
+                    runs[-1].append(i)
+                else:
+                    runs.append([i])
+            for run in runs:
+                if len(run) < 2 or len(run) > 5 or any(i in forced for i in run):
+                    continue
+                wkey = {i: {s: g[1] for g in groups[i] for s in g[2]} for i in run}
+                rep = {i: {g[1]: g[3] for g in groups[i]} for i in run}
+                sigla = set.intersection(*(set(wkey[i]) for i in run))  # witnesses voting in every unit
+                if not sigla or any(all(wkey[i][s] == chosen.get(i) for i in run) for s in sigla):
+                    continue
+                combos: Dict[Tuple[str, ...], List[str]] = {}
+                for s in sorted(sigla):
+                    combos.setdefault(tuple(wkey[i][s] for i in run), []).append(s)
 
-            def weigh(sg: List[str]) -> float:
-                # RP2018 and TR share their errors: counted as one stream here, as in the confidence model
-                w = self._fam(sg, cv)
-                byz = [s for s in sg if stream_of(s).startswith("Byzantine")]
-                if len(byz) > 1:
-                    w -= sum(sorted(cv.witness_weights.get(s, 0.0) for s in byz)[:-1])
-                return w
+                def weigh(sg: List[str]) -> float:
+                    # RP2018 and TR share their errors: counted as one stream here, as in the confidence model
+                    w = self._fam(sg, cv)
+                    byz = [s for s in sg if stream_of(s).startswith("Byzantine")]
+                    if len(byz) > 1:
+                        w -= sum(sorted(cv.witness_weights.get(s, 0.0) for s in byz)[:-1])
+                    return w
 
-            ranked = sorted(((weigh(sg), combo, sg) for combo, sg in combos.items()), key=lambda t: (-t[0], t[1]))
-            total = sum(t[0] for t in ranked)
-            best_w, best, best_sigla = ranked[0]
-            keys = {i: k for i, k in zip(run, best) if k != chosen.get(i)}
-            share = round(best_w / total, 3) if total else 0.0  # computed once, used in the note and the score
-            if not keys or not total or share < 0.3:
-                continue
-            if all(stream_of(s).startswith("Byzantine") for s in best_sigla):
-                continue  # never replace the vote's text by a Byzantine-only wording
+                ranked = sorted(((weigh(sg), combo, sg) for combo, sg in combos.items()), key=lambda t: (-t[0], t[1]))
+                total = sum(t[0] for t in ranked)
+                best_w, best, best_sigla = ranked[0]
+                keys = {i: k for i, k in zip(run, best) if k != chosen.get(i)}
+                share = round(best_w / total, 3) if total else 0.0  # computed once, used in the note and the score
+                if not keys or not total or share < 0.3:
+                    continue
+                if all(stream_of(s).startswith("Byzantine") for s in best_sigla):
+                    continue  # never replace the vote's text by a Byzantine-only wording
 
-            def show(i: int, k: Optional[str]) -> str:
-                return "(om.)" if not k or k == "om." else strip_punct(rep[i].get(k, k))
+                def show(i: int, k: Optional[str]) -> str:
+                    return "(om.)" if not k or k == "om." else strip_punct(rep[i].get(k, k))
 
-            hybrid = " ".join(show(i, chosen.get(i)) for i in run)
-            note = (f"Decided together with the neighbouring unit(s): voted one by one these units would print "
-                    f"'{hybrid}', which no witness reads as a whole; printed instead the wording of "
-                    f"{', '.join(best_sigla)} ({share:.0%} of the weight of the witnesses' own combinations)")
-            return {"keys": keys, "note": note, "conf": share}
+                sep = " " if max_step == 1 else " … "
+                hybrid = sep.join(show(i, chosen.get(i)) for i in run)
+                note = (f"Decided together with the neighbouring unit(s): voted one by one these units would print "
+                        f"'{hybrid}', which no witness reads as a whole; printed instead the wording of "
+                        f"{', '.join(best_sigla)} ({share:.0%} of the weight of the witnesses' own combinations)")
+                return {"keys": keys, "note": note, "conf": share}
         return None
 
     def _conservation_fix(self, core: Dict[str, Any], counts: Dict[str, Counter], forced: Dict[int, str],
@@ -2314,6 +2650,7 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
         disregarded_items: List[DisregardedItem] = []
         rationale_notes: List[str] = []
         confidences: List[float] = []
+        rule_confs: List[float] = []
         chosen_keys: Dict[int, str] = {}
         groups_by_slot: Dict[int, List[Tuple[float, str, List[str], str]]] = {}
         raw_groups_by_slot: Dict[int, List[Tuple[float, str, List[str], str]]] = {}
@@ -2352,6 +2689,8 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                 other_forms = [f for f in slot.raw_forms if f != kept and f != "om." and strip_punct(f) != strip_punct(kept)]
                 if not other_forms:
                     other_forms = [f for f in slot.raw_forms if f != kept and f != "om."]
+                if not other_forms and "om." in slot.raw_forms:
+                    other_forms = ["om."]
                 if other_forms:
                     disregarded_items.append(DisregardedItem(
                         slot_index=idx, kept_form=kept, disregarded_forms=other_forms,
@@ -2469,6 +2808,40 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                 for bad_k, good_k in KNOWN_LEIPZIG_OCR_TYPOS.items():
                     if keys == {bad_k, good_k} and win_key == good_k:
                         noise_reason = f"Upstream digital OCR character error ('{bad_k}' for '{good_k}')"
+            loser_ocr_only = False
+            if (language == "greek" and len(scored) == 2 and idx not in forced and not noise_reason
+                    and win_key != "om." and scored[1][1] != "om."
+                    and _family_count(scored[1][2], cv.witness_families) == 1):
+                # Loser-side impossible-token OCR guard: a single-family runner-up token failing
+                # _greek_token_defect_penalty > 0 within edit_distance <= 1 of the winner (e.g.
+                # Brenton γἱοὶ for υἱοὶ, νἱῶν for υἱῶν, αήμερον for σήμερον, ωἶδος for εἶδος) is
+                # logged in disregarded without penalising the unaltered winner. Lexicon guard
+                # prevents dropping real variant words that merely lost an accent (e.g. αὐτην, εὓρον).
+                l_key, l_sigla = scored[1][1], scored[1][2]
+                w_words, l_words = win_key.split(), l_key.split()
+                if len(w_words) == len(l_words):
+                    l_raws = [f for f, sigs in slot.raw_forms.items() if f != "om." and (set(sigs) & set(l_sigla))]
+                    if l_raws and all(len(r.split()) == len(l_words) for r in l_raws):
+                        defects: List[str] = []
+                        ok_loser = True
+                        lex_l = cv.lexicon
+                        for wi, (wx, lx) in enumerate(zip(w_words, l_words)):
+                            if wx == lx:
+                                continue
+                            penalties = [_greek_token_defect_penalty(r.split()[wi]) for r in l_raws]
+                            rare_or_corrupt = (
+                                lex_l is None
+                                or lex_l.key_count(lx) <= 2
+                                or lex_l.key_count(wx) >= 20 * max(1, lex_l.key_count(lx))
+                            )
+                            if all(p[0] > 0 for p in penalties) and edit_distance(wx, lx, limit=2) <= 1 and rare_or_corrupt:
+                                defects.append(f"'{strip_punct(l_raws[0].split()[wi])}' for '{wx}' ({penalties[0][1]})")
+                            else:
+                                ok_loser = False
+                                break
+                        if ok_loser and defects:
+                            noise_reason = f"Loser-side OCR defect in {', '.join(l_sigla)}: " + "; ".join(defects)
+                            loser_ocr_only = True
             if "om." in keys and len(keys) == 2 and not prev_key:
                 # At the start of a verse, compare with the following word instead ("καὶ καὶ τὸ …").
                 prev_key = self._next_agreed_key(cv, idx, language)
@@ -2552,7 +2925,8 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                 where = "before" if scored[1][1] == prev_key else "after"
                 noise_reason = (f"Probable dittography with loss in {', '.join(scored[1][2])}: "
                                 f"'{doubled}' repeats the word {where} it where {', '.join(other[2])} read '{other[3]}'")
-            if language == "hebrew" and "om." in keys and win_key != "om." and chosen_tokens and chosen_tokens[-1].startswith("("):
+            if language == "hebrew" and "om." in keys and win_key != "om." and chosen_tokens and (
+                    chosen_tokens[-1].startswith("(") or chosen_tokens[-1].rstrip("׃־").endswith(")")):
                 noise_reason = "Qere (read form) printed after the ketiv; the WLC export carries the ketiv only"
 
             chosen_keys[idx] = win_key
@@ -2576,10 +2950,16 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                     reason=noise_reason,
                 ))
                 # Rule-based repairs of digitisation slips: right about nine times in ten when checked.
-                confidences.append(0.99 if language == "hebrew" else 0.9)
+                # Hebrew Ketiv/Qere presentation and loser-side impossible-token OCR filtering leave
+                # the adopted text unaltered and do not apply a 0.90/0.99 repair penalty.
+                is_ketiv_qere = language == "hebrew" and noise_reason.startswith("Qere (read form)")
+                if not is_ketiv_qere and not loser_ocr_only:
+                    c_rule = 0.99 if language == "hebrew" else 0.9
+                    confidences.append(c_rule)
+                    rule_confs.append(c_rule)
+                    if language != "hebrew":
+                        rule_repairs += 1
                 noise_slots.add(idx)
-                if language != "hebrew":
-                    rule_repairs += 1
                 continue
 
             if len(scored) == 1:
@@ -2623,6 +3003,10 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                 first_word = unicodedata.normalize("NFD", strip_punct(surface.split()[0]).lower()) if surface.split() else ""
                 clause_initial = first_key in _CLAUSE_INITIAL and not (
                     first_key == "η" and ("\u0342" in first_word or "\u0345" in first_word))  # ᾖ / ἦ are verbs, not ἤ / ἡ
+                last_key = canonical_compare_key(strip_punct(surface.split()[-1]), language) if surface.split() else ""
+                last_word = unicodedata.normalize("NFD", strip_punct(surface.split()[-1]).lower()) if surface.split() else ""
+                ends_clause_initial = last_key in _CLAUSE_INITIAL and not (
+                    last_key == "η" and ("\u0342" in last_word or "\u0345" in last_word))
                 fams_ = cv.witness_families or {}
                 # Words the base copy skipped but its own sister copies print: the mark goes where the sister copy has
                 # it — after the previous word if it prints one there (Josh 18:28 'Γαβαωθιαρείμ, πόλεις'), else after
@@ -2680,13 +3064,26 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                         if no_stop_3 > 0 and has_stop_3 == 0:
                             chosen_tokens[-2] = chosen_tokens[-2][:-1]
                 if (chosen_tokens and cv.base_siglum and cv.base_siglum in slot.raw_forms.get("om.", [])
-                        and language != "hebrew" and (not clause_initial or witnesses_continue) and not sister_supplied):
+                        and language != "hebrew" and (not clause_initial or witnesses_continue)
+                        and not ends_clause_initial and not sister_supplied):
                     # The base edition lacks these words, so its clause-final punctuation on the previous
                     # word belongs after them ("Ἰησοῦ χριστοῦ. Υἱοῦ θεοῦ" → "Ἰησοῦ χριστοῦ Υἱοῦ θεοῦ.").
                     # Not when the added words open a clause (καί, ἤ, an article, πῶς…): then the
                     # punctuation stays where it is. Speech-introducing raised dots and colons stay too.
-                    # an enclitic pronoun (σου, μου, αὐτοῦ…) belongs before any clause mark, raised dot included
-                    marks = r"[.··;;:,]+$" if first_key in _ENCLITIC_PRONOUNS and len(win_key.split()) == 1 else r"[.,;;]+$"
+                    # an enclitic pronoun (σου, μου, αὐτοῦ…) belongs before any clause mark, raised dot included;
+                    # in Latin, a trailing colon before a lowercase verb (Gen 41:56 'in omni terra Ægypti: aperuitque')
+                    # also moves past a 1-word non-clause-initial modifier (never speech-introducing colons).
+                    move_latin_colon = (
+                        language == "latin"
+                        and len(win_key.split()) == 1
+                        and chosen_tokens[-1].endswith(":")
+                        and nxt is not None
+                        and any(f != "om." and strip_punct(f)[:1].islower() for f in nxt.raw_forms)
+                        and not any(f != "om." and strip_punct(f)[:1].isupper() and cv.base_siglum in sigs for f, sigs in nxt.raw_forms.items())
+                    )
+                    marks = (r"[.··;;:,]+$"
+                             if (first_key in _ENCLITIC_PRONOUNS and len(win_key.split()) == 1) or move_latin_colon
+                             else r"[.,;;]+$")
                     m = re.search(marks, chosen_tokens[-1])
                     if m:
                         chosen_tokens[-1] = chosen_tokens[-1][: m.start()]
@@ -2790,6 +3187,7 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
             "disregarded": disregarded_items,
             "notes": rationale_notes,
             "confidences": confidences,
+            "rule_confs": rule_confs,
             "chosen_keys": chosen_keys,
             "groups": groups_by_slot,
             "raw_groups": raw_groups_by_slot,
@@ -3002,6 +3400,10 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
         merged: Dict[str, List[Tuple[str, List[str]]]] = {}
         pooled = set()
 
+        is_aramaic = language == "hebrew" and is_biblical_aramaic_verse(
+            getattr(cv, "book_slug", ""), getattr(cv, "chapter", 0), cv.verse
+        )
+
         def may_pool(leading: str, rep: str) -> bool:
             if language == "greek":
                 left_number = any(is_letter_numeral(w) for w in leading.split())
@@ -3011,7 +3413,7 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                     # If their keys still differ, do not assign an ambiguous βʹ to
                     # both δύο and δευτέρᾳ and erase that grammatical distinction.
                     return False
-            return is_orthographic_equivalence([leading, rep], language)[0]
+            return is_orthographic_equivalence([leading, rep], language, is_aramaic=is_aramaic)[0]
 
         for k in sorted(keys, key=lambda k: (-weight[k], k)):
             rep = key_groups[k][0][0]

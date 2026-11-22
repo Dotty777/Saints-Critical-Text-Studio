@@ -1,6 +1,6 @@
 # Ecclesiastes 05 — Saints Hebrew Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:35Z`
+**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:44Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -62,38 +71,19 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Ecclesiastes 5:4
 - *Disregarded Surface Variant:* kept `מִשֶּׁתִּדּ֖וֹר` over `מִשֶׁתִּדּ֖וֹר` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִשֶּׁתִּדּ֖וֹר / מִשֶּׁתִּדֹּ֖ור` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ecclesiastes 5:7
 - *Disregarded Surface Variant:* kept `גָּבֹ֙הַּ֙` over `גָּבֹ֙הַ֙` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עֹ֣שֶׁק / ע֣שֶׁק` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ecclesiastes 5:8
+- **Apparatus:** `ה֑וּא` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `(היא)` over `היא` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `ה֑וּא` over `om.` (WLC (L)) — *Qere (read form) printed after the ketiv; the WLC export carries the ketiv only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(היא) / *הִיא` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `(היא) ה֑וּא / ה֑יּא` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `ה֑וּא` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 
 ### Ecclesiastes 5:10
-- **Apparatus:** `רְא֥וּת` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **om.** WLC (L) *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
-  - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
+- *Disregarded Surface Variant:* kept `רְא֥וּת` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `(ראית)` over `ראית` (WLC (L)) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַטּוֹבָ֔ה / הַטֹּובָ֔ה` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over ` / *רְאִיַּת`, `(ראית) / ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `רְא֥וּת (ראית) / רְא֥יּת` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
-
-### Ecclesiastes 5:11
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לִישֽׁוֹן׃ / לִישֹֽׁון׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Ecclesiastes 5:12
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עֹ֛שֶׁר / ע֛שֶׁר` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Ecclesiastes 5:13
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הָעֹ֥שֶׁר / הָע֥שֶׁר` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Ecclesiastes 5:14
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אִמּ֔וֹ / אִמֹּ֔ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `(ראית) / `, `(ראית) / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ecclesiastes 5:15
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -101,21 +91,16 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Ecclesiastes 5:16
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וְחׇלְי֥וֹ` over `וְחָלְי֥וֹ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בַּחֹ֣שֶׁךְ / בַּח֣שֶׁךְ` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Ecclesiastes 5:17
 - *Disregarded Surface Variant:* kept `לֶֽאֱכוֹל־` over `לֶֽאֶכוֹל־` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel*
 - *Disregarded Surface Variant:* kept `וְ֠לִשְׁתּ֠וֹת` over `וְ֠לִשְׁתּוֹת` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `בְּכׇל־` over `בְּכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `חַיָּ֛ו` over `חיו` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לֶֽאֱכוֹל־ וְ֠לִשְׁתּ֠וֹת / לֶֽאֶכוֹל־ וְ֠לִשְׁתֹּות`, `לֶֽאֱכוֹל־ / לֶֽאֶכ֣וֹל` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `חַיָּ֛ו / *חַיָּ֛ו (חַיָּ֛יו)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over ` / (חַיָּ֛יו)` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
 
 ### Ecclesiastes 5:18
 - *Disregarded Surface Variant:* kept `כׇּֽל־` over `כָּֽל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-
-### Ecclesiastes 5:19
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לִבּֽוֹ׃ / לִבֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ---
 
@@ -183,7 +168,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: וְיִתְר֥וֹן אֶ֖רֶץ בַּכֹּ֣ל היא מֶ֥לֶךְ לְשָׂדֶ֖ה נֶעֱבָֽד׃
   - `BenChayyim (1525)`: וְיִתְר֥וֹן אֶ֖רֶץ בַּכֹּ֣ל *הִיא (ה֑וּא) מֶ֥לֶךְ לְשָׂדֶ֖ה נֶעֱבָֽד׃
   - `Letteris (1852)`: וְיִתְר֥וֹן אֶ֖רֶץ בַּכֹּ֣ל ה֑יּא מֶ֥לֶךְ לְשָׂדֶ֖ה נֶֽעֱבָֽד׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 2 surface variation(s) (Punctuation / spacing difference only; Qere (read form) printed after the ketiv; the WLC export carries the ketiv only).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 2 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Punctuation / spacing difference only).
 
 ### Verse 9 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** אֹהֵ֥ב כֶּ֙סֶף֙ לֹא־יִשְׂבַּ֣ע כֶּ֔סֶף וּמִֽי־אֹהֵ֥ב בֶּהָמ֖וֹן לֹ֣א תְבוּאָ֑ה גַּם־זֶ֖ה הָֽבֶל׃
@@ -193,14 +178,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: אֹהֵ֥ב כֶּ֨סֶף֙ לֹֽא־יִשְׂבַּ֣ע כֶּ֔סֶף וּמִֽי־אֹהֵ֥ב בֶּֽהָמ֖וֹן לֹ֣א תְבוּאָ֑ה גַּם־זֶ֖ה הָֽבֶל׃
 - **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
 
-### Verse 10 (Confidence: `50.6%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 10 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** בִּרְבוֹת֙ הַטּוֹבָ֔ה רַבּ֖וּ אוֹכְלֶ֑יהָ וּמַה־כִּשְׁרוֹן֙ לִבְעָלֶ֔יהָ כִּ֖י אִם־רְא֥וּת (ראית) עֵינָֽיו׃
   - `MAM (Aleppo)`: בִּרְבוֹת֙ הַטּוֹבָ֔ה רַבּ֖וּ אוֹכְלֶ֑יהָ וּמַה־כִּשְׁרוֹן֙ לִבְעָלֶ֔יהָ כִּ֖י אִם־רְא֥וּת (ראית) עֵינָֽיו׃
   - `WLC (L)`: בִּרְבוֹת֙ הַטּוֹבָ֔ה רַבּ֖וּ אוֹכְלֶ֑יהָ וּמַה־כִּשְׁרוֹן֙ לִבְעָלֶ֔יהָ כִּ֖י אִם־ראית עֵינָֽיו׃
   - `BenChayyim (1525)`: בִּרְבוֹת֙ הַטֹּובָ֔ה רַבּ֖וּ אוֹכְלֶ֑יהָ וּמַה־כִּשְׁרוֹן֙ לִבְעָלֶ֔יהָ כִּ֖י אִם־*רְאִיַּת (רְא֥וּת) עֵינָֽיו׃
   - `Letteris (1852)`: בִּרְבוֹת֙ הַטּוֹבָ֔ה רַבּ֖וּ אֽוֹכְלֶ֑יהָ וּמַה־כִּשְׁרוֹן֨ לִבְעָלֶ֔יהָ כִּ֖י אִם־רְא֥יּת עֵינָֽיו׃
-- **Philological Rationale:** [Omission in some witnesses] Adopted 'רְא֥וּת' [MAM (Aleppo)] (weight 0.98, confidence 51%) over om. (WLC (L)). Also normalised 1 orthographic/surface variation(s).
-- *confidence:* Verse confidence 51% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 2 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Punctuation / spacing difference only).
 
 ### Verse 11 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** מְתוּקָה֙ שְׁנַ֣ת הָעֹבֵ֔ד אִם־מְעַ֥ט וְאִם־הַרְבֵּ֖ה יֹאכֵ֑ל וְהַשָּׂבָע֙ לֶֽעָשִׁ֔יר אֵינֶ֛נּוּ מַנִּ֥יחַֽ ל֖וֹ לִישֽׁוֹן׃

@@ -1,6 +1,6 @@
 # Job 34 — Saints Hebrew Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:15:23Z`
+**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:46Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -79,38 +88,21 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `וְ֝יֹֽדְעִ֗ים` over `וְ֝יֹדְעִ֗ים` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `הַֽאֲזִ֥ינוּ` over `הַאֲזִ֥ינוּ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Job 34:4
-- *Disregarded Surface Variant:* kept `(adopted text)` over `טּֽוֹב׃ / טֹּֽוב׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Job 34:5
 - *Disregarded Surface Variant:* kept `אָמַ֣ר` over `אָ֭מַר` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אִיּ֣וֹב / אִיֹּ֣וב` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Job 34:7
-- *Disregarded Surface Variant:* kept `(adopted text)` over `כְּאִיּ֑וֹב / כְּאִיֹּ֑וב` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Job 34:9
 - *Disregarded Surface Variant:* kept `יִסְכׇּן־` over `יִסְכָּן־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Job 34:10
 - *Disregarded Surface Variant:* kept `אַ֥נְשֵׁ֥י` over `אַ֥נֲשֵׁ֥י` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): shewa / hataf*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אַ֥נְשֵׁ֥י / אַ֥נֲשֵׁ֥י` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Job 34:12
 - *Disregarded Surface Variant:* kept `אׇמְנָ֗ם` over `אָמְנָ֗ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לֹא־` over `לֹֽא־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Job 34:14
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לִבּ֑וֹ / לִבֹּ֑ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Job 34:15
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-
-### Job 34:17
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׂוֹנֵ֣א / שֹׂונֵ֣א` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Job 34:19
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׁ֭וֹעַ / שֹׁ֖ועַ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Job 34:20
 - *Disregarded Surface Variant:* kept `וַחֲצ֢וֹת` over `וַחֲצ֪וֹת` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -119,9 +111,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Job 34:21
 - *Disregarded Surface Variant:* kept `כִּֽי־` over `כִּי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `וְֽכׇל־` over `וְֽכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-
-### Job 34:22
-- *Disregarded Surface Variant:* kept `(adopted text)` over `חֹ֭שֶׁךְ / ח֖שֶׁךְ` (Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Job 34:25
 - *Disregarded Surface Variant:* kept `מַעְבָּדֵיהֶ֑ם` over `מַעְבָּֽדֵיהֶ֑ם` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -133,21 +122,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Job 34:28
 - *Disregarded Surface Variant:* kept `צַעֲקַת־` over `צַֽעֲקַת־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Job 34:29
-- *Disregarded Surface Variant:* kept `(adopted text)` over `גּ֖וֹי / גֹּ֖וי` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Job 34:33
 - *Disregarded Surface Variant:* kept `הֲֽמֵעִמְּךָ֬` over `הַֽמֵעִמְּךָ֬` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel*
 - *Disregarded Surface Variant:* kept `יְשַׁלְּמֶ֨נָּה` over `יְשַׁלְמֶ֨נָּה` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
+- *Disregarded Surface Variant:* kept `׀` over `om.` (WLC (L)) — *Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 - *Disregarded Surface Variant:* kept `כִּֽי־` over `כִּי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יָּדַ֥עְתָּ` over `יָדַ֥עְתָּ` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הֲֽמֵעִמְּךָ֬ יְשַׁלְּמֶ֨נָּה ׀ / הַֽמֵעִמְּךָ֬ יְשַׁלְמֶ֨נָּה`, `יָּדַ֥עְתָּ / יָדַ֥עְתָּ`, `יְשַׁלְּמֶ֨נָּה / יְשַׁלְמֶ֨נָּה`, `יָּדַ֥עְתָּ / יָדַ֥עְתָּ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Job 34:35
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אִ֭יּוֹב / אִ֭יֹּוב` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Job 34:36
-- *Disregarded Surface Variant:* kept `(adopted text)` over `אִיּ֣וֹב / אִיֹּ֣וב` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `׀ / `, `׀ / ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 
 ### Job 34:37
 - **Apparatus:** `יִשְׂפּ֑וֹק` MAM (Aleppo) WLC (L) **]** **יִסְפֹּ֑וק** BenChayyim (1525) Letteris (1852)
@@ -421,7 +402,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `WLC (L)`: הַֽמֵעִמְּךָ֬ יְשַׁלְמֶ֨נָּה כִּֽי־מָאַ֗סְתָּ כִּי־אַתָּ֣ה תִבְחַ֣ר וְלֹא־אָ֑נִי וּֽמַה־יָדַ֥עְתָּ דַבֵּֽר׃
   - `BenChayyim (1525)`: הַֽמֵעִמְּךָ֬ יְשַׁלְמֶ֨נָּה כִּֽי־מָאַ֗סְתָּ כִּי־אַתָּ֣ה תִבְחַ֣ר וְלֹא־אָ֑נִי וּֽמַה־יָדַ֥עְתָּ דַבֵּֽר׃
   - `Letteris (1852)`: הֲמֵֽעִמְּךָ֬ יְשַׁלְמֶ֨נָּה ׀ כִּֽי־מָאַ֗סְתָּ כִּֽי־אַתָּ֣ה תִבְחַ֣ר וְלֹא־אָ֑נִי וּמַה־יָדַ֥עְתָּ דַבֵּֽר׃
-- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel).
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 5 surface variation(s) (Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Paseq / legarmeh stroke (an accent sign) printed by one edition only; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): dagesh; Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): hataf against the full vowel).
 
 ### Verse 34 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** אַנְשֵׁ֣י לֵ֭בָב יֹ֣אמְרוּ לִ֑י וְגֶ֥בֶר חָ֝כָ֗ם שֹׁמֵ֥עַֽ לִֽי׃

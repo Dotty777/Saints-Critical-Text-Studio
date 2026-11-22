@@ -1,6 +1,6 @@
 # 2 Maccabees 14 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:11:10Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:30Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,16 +13,18 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
+| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Rahlfs1935 [QUARANTINED] | `QUARANTINED_NC` | DISREGARDED FROM OPEN CRITICAL TEXT (Tier 5 Quarantine): Protected editorial edition (Deutsche Bibelgesellschaft). Blocked from direct ingestion to guarantee 100% clean open-source copyright status for the Saints Critical Text. |
-| CSP-XML [NC-NOTICE] | `QUARANTINED_NC` | AI GATEKEEPER CATCH — QUARANTINED BY DEFAULT: Although placed in Tier 4, XML header <availability> declares CC BY-NC-SA (NonCommercial). CNTR CC BY-SA 01.txt is used instead for clean open-license NT Sinaiticus collation; enable only if ShareAlike/NC is acceptable. |
+| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ### Versification & Alignment Notes
 - LXX-Orthodox (Οʹ): LXX-Orthodox is left out of 2 Maccabees: its file labelled 2MA (53-2MAgrclxx.usfm) is 4 Maccabees (title ΜΑΚΚΑΒΑΙΩΝ Δ, 18 chapters); the set has no 2 Maccabees.
@@ -499,11 +501,11 @@
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **ταχέως** Sixtine/Brenton *(word-order transposition)*
-  - *variant type: transposition:* Units 'om.' and 'ταχέως' together form one word-order variant (Sixtine/Brenton transpose).
+  - *variant type: transposition:* Units 'om.', 'ταχέως' together form one word-order variant (Sixtine/Brenton transpose).
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - **Apparatus:** `ταχέως` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **om.** Sixtine/Brenton *(word-order transposition)*
-  - *variant type: transposition:* Units 'om.' and 'ταχέως' together form one word-order variant (Sixtine/Brenton transpose).
+  - *variant type: transposition:* Units 'om.', 'ταχέως' together form one word-order variant (Sixtine/Brenton transpose).
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `ὁ` over `Ὁ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -647,11 +649,11 @@
 
 ### 2 Maccabees 14:45
 - **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **ὄντων** Sixtine/Brenton *(word-order transposition)*
-  - *variant type: transposition:* Units 'om.' and 'ὄντων' together form one word-order variant (Sixtine/Brenton transpose).
+  - *variant type: transposition:* Units 'om.', 'ὄντων' together form one word-order variant (Sixtine/Brenton transpose).
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - **Apparatus:** `ὄντων` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **om.** Sixtine/Brenton *(word-order transposition)*
-  - *variant type: transposition:* Units 'om.' and 'ὄντων' together form one word-order variant (Sixtine/Brenton transpose).
+  - *variant type: transposition:* Units 'om.', 'ὄντων' together form one word-order variant (Sixtine/Brenton transpose).
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - **Apparatus:** `ἀπορρῶγος` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **ἀποῤῥωγάδος** Sixtine/Brenton *(inflection or spelling (same stem))*
@@ -902,14 +904,14 @@
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'λαβὼν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀναλαβὼν (Sixtine/Brenton). [Omission in some witnesses] Adopted 'αὐτοῦ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'ἀπέδειξεν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀναδέδειχεν ἑαυτοῦ (Sixtine/Brenton). Also normalised 4 orthographic/surface variation(s).
 - *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
-### Verse 27 (Confidence: `7.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 27 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ὁ δὲ βασιλεὺς ἔκθυμος γενόμενος καὶ ταῖς τοῦ πανπονήρου διαβολαῖς ἐρεθισθείς, ἔγραψεν Νικάνορι ὑπὲρ μὲν τῶν συνθηκῶν φάσκων βαρέως φέρειν, κελεύων δὲ τὸν Μακκαβαῖον δέσμιον ἐξαποστέλλειν εἰς Ἀντιοχίαν ταχέως.
   - `Swete-Amicarelli`: ὁ δὲ βασιλεὺς ἔκθυμος γενόμενος καὶ ταῖς τοῦ πανπονήρου διαβολαῖς ἐρεθισθείς, ἔγραψεν Νικάνορι ὑπὲρ μὲν τῶν συνθηκῶν φάσκων βαρέως φέρειν, κελεύων δὲ τὸν Μακκαβαῖον δέσμιον ἐξαποστέλλειν εἰς Ἀντιοχίαν ταχέως.
   - `1st1K-LXX`: ὁ δὲ βασιλεὺς ἔκθυμος γενόμενος καὶ ταῖς τοῦ πανπονήρου διαβολαῖς ἐρεθισθείς, ἔγραψεν Νικάνορι ὑπὲρ μὲν τῶν συνθηκῶν φάσκων βαρέως φέρειν, κελεύων δὲ τὸν Μακκαβαῖον δέσμιον ἐξαποστέλλειν εἰς Ἀντιοχίαν ταχέως
   - `Swete (B/A/א)`: ὁ δὲ βασιλεὺς ἔκθυμος γενόμενος καὶ ταῖς τοῦ πανπονήρου διαβολαῖς ἐρεθισθείς, ἔγραψεν Νικάνορι ὑπὲρ μὲν τῶν συνθηκῶν φάσκων βαρέως φέρειν, κελεύων δὲ τὸν Μακκαβαῖον δέσμιον ἐξαποστέλλειν εἰς Ἀντιοχίαν ταχέως
   - `Sixtine/Brenton`: Ὁ δὲ βασιλεὺς ἔκθυμος γενόμενος, καὶ ταῖς τοῦ παμπονήρου ἐρεθισθεὶς διαβολαῖς, ἔγραψε Νικάνορι φάσκων, ὑπὲρ μὲν τῶν συνθηκῶν βαρέως φέρειν, κελεύων δὲ τὸν Μακκαβαῖον δέσμιον ἐξαποστέλλειν ταχέως εἰς Ἀντιόχειαν.
 - **Philological Rationale:** [Variation unit spanning several words] Adopted 'πανπονήρου διαβολαῖς ἐρεθισθείς ἔγραψεν Νικάνορι' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over παμπονήρου ἐρεθισθεὶς διαβολαῖς ἔγραψε Νικάνορι φάσκων (Sixtine/Brenton). [Omission in some witnesses] Adopted 'φάσκων' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ταχέως (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ταχέως' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 8% = product of 4 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- *confidence:* Verse confidence 15% = product of 3 unit confidence(s); 1 split-transposition duplicate(s) counted once; not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 28 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** προσπεσόντων δὲ τούτων τῷ Νικάνορι, συνεκέχυτο, καὶ δυσφόρως ἔφερεν, εἰ τὰ διεσταλμένα ἀθετήσει μηδὲν τἀνδρὸς ἠδικηκότος.
@@ -1056,14 +1058,14 @@
   - `Sixtine/Brenton`: Τῶν δὲ ταχέως ἀναποδισάντων, γενομένου διαστήματος ἦλθε κατὰ μέσον τὸν κενεῶνα.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
-### Verse 45 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 45 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἔτι δὲ ἔμπνους ὑπάρχων καὶ πεπυρωμένος τοῖς θυμοῖς, ἐξαναστὰς φερομένων κρουνηδὸν τῶν αἱμάτων, καὶ δυσχερῶν τῶν τραυμάτων ὄντων, δρόμῳ τοὺς ὄχλους διελθών, καὶ στὰς ἐπί τινος πέτρας ἀπορρῶγος,
   - `Swete-Amicarelli`: ἔτι δὲ ἔμπνους ὑπάρχων καὶ πεπυρωμένος τοῖς θυμοῖς, ἐξαναστὰς φερομένων κρουνηδὸν τῶν αἱμάτων, καὶ δυσχερῶν τῶν τραυμάτων ὄντων, δρόμῳ τοὺς ὄχλους διελθών, καὶ στὰς ἐπί τινος πέτρας ἀπορρῶγος,
   - `1st1K-LXX`: ἔτι δὲ ἔμπνους ὑπάρχων καὶ πεπυρωμένος τοῖς θυμοῖς, ἐξαναστὰς φερομένων κρουνηδὸν τῶν αἱμάτων, καὶ δυσχερῶν τῶν τραυμάτων ὄντων, δρόμῳ τοὺς ὄχλους διελθών, καὶ στὰς ἐπί τινος πέτρας ἀπορρῶγος,
   - `Swete (B/A/א)`: ἔτι δὲ ἔμπνους ὑπάρχων καὶ πεπυρωμένος τοῖς θυμοῖς, ἐξαναστὰς φερομένων κρουνηδὸν τῶν αἱμάτων, καὶ δυσχερῶν τῶν τραυμάτων ὄντων, δρόμῳ τοὺς ὄχλους διελθών, καὶ στὰς ἐπί τινος πέτρας ἀπορρῶγος,
   - `Sixtine/Brenton`: Ἔτι δὲ ἔμπνους ὑπάρχων καὶ πεπυρωμένος τοῖς θυμοῖς, ἐξαναστὰς φερομένων κρουνηδὸν τῶν αἱμάτων, καὶ δυσχερῶν ὄντων τῶν τραυμάτων, δρόμῳ τοὺς ὄχλους διελθὼν, καὶ στὰς ἐπί τινος πέτρας ἀποῤῥωγάδος,
 - **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ὄντων (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ὄντων' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'ἀπορρῶγος' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀποῤῥωγάδος (Sixtine/Brenton). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- *confidence:* Verse confidence 28% = product of 2 unit confidence(s); 1 split-transposition duplicate(s) counted once; not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 46 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** παντελῶς ἔξαιμος ἤδη γινόμενος, προβαλὼν τὰ ἔντερα καὶ λαβὼν ἑκατέραις ταῖς χερσίν, ἐνέσεισε τοῖς ὄχλοις· καὶ ἐπικαλεσάμενος τὸν δεσπόζοντα τῆς ζωῆς καὶ τοῦ πνεύματος τὰ αὐτὰ αὐτῷ πάλιν ἀποδοῦναι, τόνδε τὸν τρόπον μετήλλαξεν.

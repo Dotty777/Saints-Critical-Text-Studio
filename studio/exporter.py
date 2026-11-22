@@ -117,7 +117,7 @@ def export_chapter_files(
         lines.extend(
             [
                 "",
-                "### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)",
+                "### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)",
                 "Collated against the adopted text and listed in the apparatus wherever they differ in substance; "
                 "they do not vote on the text.",
                 "",

@@ -1,6 +1,6 @@
 # Isaiah 07 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:12:05Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:34Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,22 +13,25 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
+| **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
 | :--- | :--- | :---: | :--- | :--- |
+| **A-Ottley (Isaiah)** | Codex Alexandrinus (A) of Isaiah — Ottley 1904 Diplomatic Text | Tier 2 | Public Domain / CC BY-SA 4.0 | Codex Alexandrinus Diplomatic Isaiah (Apparatus Witness) |
 | **LXX-Orthodox (Οʹ)** | Orthodox Ecclesiastical Septuagint (Η Παλαιά Διαθήκη κατά τους Εβδομήκοντα) | Tier 3 | Public Domain | Greek Orthodox Ecclesiastical / Majority Septuagint |
 
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Rahlfs1935 [QUARANTINED] | `QUARANTINED_NC` | DISREGARDED FROM OPEN CRITICAL TEXT (Tier 5 Quarantine): Protected editorial edition (Deutsche Bibelgesellschaft). Blocked from direct ingestion to guarantee 100% clean open-source copyright status for the Saints Critical Text. |
-| CSP-XML [NC-NOTICE] | `QUARANTINED_NC` | AI GATEKEEPER CATCH — QUARANTINED BY DEFAULT: Although placed in Tier 4, XML header <availability> declares CC BY-NC-SA (NonCommercial). CNTR CC BY-SA 01.txt is used instead for clean open-license NT Sinaiticus collation; enable only if ShareAlike/NC is acceptable. |
+| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ### Versification & Alignment Notes
 - Swete (B/A/א): Swete Clean is left out of Isaiah: its Isaiah file is Ottley's 1904 transcription of Codex Alexandrinus (A), a different text and OCR, not Swete (its build overwrote Swete's file). First1KGreek supplies Swete's Isaiah. Whether readings of A may vote is the owner's decision.
@@ -99,6 +102,38 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 8:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:21 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:22 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:1 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:2 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:3 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:4 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:5 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:6 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:7 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:8 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:9 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:11 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:12 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 6:13 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:1 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:2 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:3 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:4 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:5 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:6 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:7 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:8 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:9 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:10 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:11 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:13 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:14 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:16 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:17 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:18 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:19 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:20 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:21 kept in its own chapter (stronger match to its own reference verse)
+- A-Ottley (Isaiah): 8:22 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): verse 8:1 runs into its neighbour across the anchor's division between 8:1 and 8:2; re-divided there
 - LXX-Orthodox (Οʹ): 6:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 6:2 kept in its own chapter (stronger match to its own reference verse)
@@ -171,8 +206,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Isaiah 7:1
-- **Apparatus:** `Ῥασεὶν` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **Ρασεὶμ** LXX-Orthodox (Οʹ)
-- **Apparatus:** `Ῥομελιὰ` Swete-Amicarelli 1st1K-LXX **]** **Ῥομελίου** Sixtine/Brenton LXX-Orthodox (Οʹ) *(proper-name spelling)*
+- **Apparatus:** `ταῖς ἡμέραις` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ταῖς ἡμέρως** A-Ottley (Isaiah)
+- **Apparatus:** `ἡμέραις` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ἡμέρως** A-Ottley (Isaiah)
+- **Apparatus:** `Ῥασεὶν` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **῾Ραασσὼν** A-Ottley (Isaiah) ; **Ρασεὶμ** LXX-Orthodox (Οʹ)
+- **Apparatus:** `Ῥομελιὰ` Swete-Amicarelli 1st1K-LXX **]** **Ῥομελίου** Sixtine/Brenton A-Ottley (Isaiah) LXX-Orthodox (Οʹ) *(proper-name spelling)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `Ἀχὰζ` over `Ἄχαζ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
@@ -185,9 +222,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ἰερουσαλὴμ` over `Ἱερουσαλὴμ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `αὐτήν,` over `αὐτὴν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἠδυνήθησαν` over `ἡδυνήθησαν` (1st1K-LXX) — *Accent or breathing differs between accented editions (editorial interpretation)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `Ὀζείου / Ὀζίου` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Koine/Uncial itacistic spelling (ει / ι equivalence)*
 
 ### Isaiah 7:2
+- **Apparatus:** `λέγων` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **λέγοντες** A-Ottley (Isaiah)
+- **Apparatus:** `ψυχὴ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **om.** A-Ottley (Isaiah)
+- **Apparatus:** `ψυχὴ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **om.** A-Ottley (Isaiah)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ὅταν** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Δαυὶδ` over `Δαυεὶδ` (1st1K-LXX, Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `λέγων` over `λέγων,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -197,8 +237,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `σαλευθῇ.` over `σαλευθῇ·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:3
-- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **τοῦ** LXX-Orthodox (Οʹ)
-- **Apparatus:** `γναφέως` Swete-Amicarelli 1st1K-LXX **]** **κναφέως** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **τοῦ** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `γναφέως` Swete-Amicarelli 1st1K-LXX A-Ottley (Isaiah) **]** **κναφέως** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `εἶπεν` over `εἶπε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
@@ -207,7 +247,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ἀχὰζ` over `Ἄχαζ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `σὺ` over `σὺ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `σου` over `σου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `εἶπεν / εἶπε` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `Ἰασοὺβ / Ἰασσοὺβ`, `Ἰασοὺβ / ϊαϲϲουβ` (A-Ottley (Isaiah)) — *Apparatus witness, not a variant: Single / double consonant spelling (Ἰωάνης / Ἰωάννης type)*
 
 ### Isaiah 7:4
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -219,18 +259,20 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ὀργὴ` over `ἀργὴ` (1st1K-LXX) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 
 ### Isaiah 7:5
-- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **περὶ σοῦ λέγοντες·** LXX-Orthodox (Οʹ)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **περὶ σοῦ, λέγοντες** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Ἀρὰμ` over `Ἀρὰμ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `πονηράν` over `πονηράν·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:6
-- **Apparatus:** `αὐτῆς` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **αὐτοῖς** LXX-Orthodox (Οʹ)
-- *Disregarded Surface Variant:* kept `συνλαλήσαντες` over `συλλαλήσαντες` (Sixtine/Brenton) — *Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)*
+- **Apparatus:** `ἀποστρέψομεν` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ἀποστρέψωμεν** A-Ottley (Isaiah)
+- **Apparatus:** `αὐτῆς` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **αὐτοῖς** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- *Disregarded Surface Variant:* kept `συνλαλήσαντες` over `συλλαλήσαντες` (Sixtine/Brenton) — *Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type)*
 - *Disregarded Surface Variant:* kept `αὐτοῖς` over `αὐτοῖς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `συνλαλήσαντες / συλλαλήσαντες` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `συνλαλήσαντες / συλλαλήσαντες`, `συνλαλήσαντες / συλλαλήσαντες`, `συνλαλήσαντες / συλλαλήσαντες` (A-Ottley (Isaiah), LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type)*
 
 ### Isaiah 7:7
+- **Apparatus:** `μείνῃ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ἐμμείνῃ** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `τάδε` over `Τάδε` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `σαβαώθ` over `σαβαὼθ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Οὐ` over `οὐ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -238,6 +280,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἔσται.` over `ἔσται`, `ἔσται,` (1st1K-LXX, Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:8
+- **Apparatus:** `καὶ ἡ κεφαλὴ Δαμασκοῦ Ῥασείμ·` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **καὶ ἡ κεφαλὴ Δαμασκοῦ ῾Ρασείν·** A-Ottley (Isaiah)
+- **Apparatus:** `καὶ ἡ κεφαλὴ Δαμασκοῦ Ῥασείμ· ἀλλ᾽` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **καὶ ἡ κεφαλὴ Δαμασκοῦ ῾Ρασείν· ἀλλ᾿** A-Ottley (Isaiah)
+- **Apparatus:** `Ῥασείμ·` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **῾Ρασείν·** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `ἀλλ᾽` over `ἀλλ᾿`, `ἀλλʼ` (1st1K-LXX, Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Ἀρὰμ` over `Ἀρὰμ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Δαμασκός,` over `Δαμασκὸς,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -249,13 +294,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `λαοῦ.` over `λαοῦ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:9
-- **Apparatus:** `συνῆτε.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **συνιῆτε.** LXX-Orthodox (Οʹ)
+- **Apparatus:** `συνῆτε.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli A-Ottley (Isaiah) **]** **συνιῆτε.** LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `Ἐφράιμ` over `Ἐφραὶμ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `Σομορών,` over `Σομόρων,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `Σομορὼν` over `Σομορων,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Ῥομελίου·` over `Ῥομελίου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:10
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **θετο** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `Ἀχὰζ` over `Ἄχαζ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `λέγων` over `λέγων,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
@@ -266,7 +312,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἢ` over `ἡ` (1st1K-LXX) — *Accent or breathing differs between accented editions (editorial interpretation)*
 
 ### Isaiah 7:12
-- **Apparatus:** `οὐδὲ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **οὐδ᾿ οὐ** LXX-Orthodox (Οʹ)
+- **Apparatus:** `οὐδὲ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **οὐδ᾿ οὐ** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `Κύριον.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **Κύρων.** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Ἀχάζ` over `Ἄχαζ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `Οὐ` over `οὐ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -279,20 +326,26 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Δαυίδ·` over `Δαυείδ·` (1st1K-LXX, Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 
 ### Isaiah 7:14
-- **Apparatus:** `λήμψεται` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **ἕξει,** LXX-Orthodox (Οʹ)
+- **Apparatus:** `γαστρὶ λήμψεται` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **γαστρὶ ἔξει** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `λήμψεται` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **ἔξει** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `διὰ τοῦτο` over `Διατοῦτο` (Sixtine/Brenton) — *Word division differs (same letters written as one word or two)*
 - *Disregarded Surface Variant:* kept `λήμψεται` over `λήψεται,` (Sixtine/Brenton) — *Nasal spelling (λημψ- / ληψ-)*
 - *Disregarded Surface Variant:* kept `υἱόν,` over `υἱὸν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Ἐμμανουήλ·` over `Ἐμμανουήλ.` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:15
-- **Apparatus:** `ἐκλέξασθαι` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **ἐκλέξεται** LXX-Orthodox (Οʹ)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **βούτυρον** A-Ottley (Isaiah)
+- **Apparatus:** `ἢ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **om.** A-Ottley (Isaiah)
+- **Apparatus:** `ἐκλέξασθαι` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **ἐκλέξεται** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `βούτυρον` over `Βούτυρον` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `πρὶν ἢ` over `πρινὴ` (Sixtine/Brenton) — *Word division differs (same letters written as one word or two)*
 - *Disregarded Surface Variant:* kept `πονηρά,` over `πονηρὰ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Isaiah 7:16
-- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **τοῦ** LXX-Orthodox (Οʹ)
+- **Apparatus:** `τὸ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **τὸν** A-Ottley (Isaiah)
+- **Apparatus:** `ἀπειθεῖ πονηρίᾳ ἐκλέξασθαι τὸ ἀγαθόν,` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **ἀπειθεῖ πονηρίᾳ. τοῦ ἐκλέξασθαι τὸ ἀγαθόν,** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **τοῦ** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `τῶν δύο βασιλέων.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **αὐτῶν.** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `διότι` over `Διότι` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `πρὶν ἢ` over `πρινὴ` (Sixtine/Brenton) — *Word division differs (same letters written as one word or two)*
 - *Disregarded Surface Variant:* kept `κακόν,` over `κακὸν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -312,12 +365,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ἰούδα,` over `Ἰούδα` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:18
-- **Apparatus:** `κυριεύσει` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **κυριεύει** LXX-Orthodox (Οʹ)
+- **Apparatus:** `κυριεύσει μέρος` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **κυριεύει μέρους** A-Ottley (Isaiah) ; **κυριεύει μέρος** LXX-Orthodox (Οʹ)
+- **Apparatus:** `κυριεύσει` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **κυριεύει** LXX-Orthodox (Οʹ) A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `μελίσσῃ` over `μελίσσῃ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:19
-- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **καὶ ἀναπαύσονται** LXX-Orthodox (Οʹ)
-- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **καὶ ἐν παντὶ ξύλῳ.** LXX-Orthodox (Οʹ)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **καὶ ἀναπαύσονται** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `τὰ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **τὸ.** A-Ottley (Isaiah)
+- **Apparatus:** `εἰς` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **ἐπὶ** A-Ottley (Isaiah)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **καὶ ἐν παντὶ ξύλῳ.** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `χώρας` over `χώρας,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `πετρῶν` over `πετρῶν,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -325,8 +381,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ῥαγάδα.` over `ῤαγάδα.` (1st1K-LXX) — *Accent or breathing differs between accented editions (editorial interpretation)*
 
 ### Isaiah 7:20
-- **Apparatus:** `ἐν` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **om.** LXX-Orthodox (Οʹ)
-- **Apparatus:** `μεμισθωμένῳ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **μεγάλῳ καὶ μεμεθυσμένῳ, ὅ ἐστι** LXX-Orthodox (Οʹ)
+- **Apparatus:** `ἐν` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **om.** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
+- **Apparatus:** `μεμισθωμένῳ` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli **]** **μεγάλῳ καὶ μεμεθυσμένῳ ὅ ἐστιν** A-Ottley (Isaiah) LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `ἐν` over `Ἐν` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `κεφαλήν,` over `κεφαλὴν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ποδῶν` over `ποδῶν,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -337,19 +393,19 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `βοῶν` over `βοῶν,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:22
-- **Apparatus:** `ποιεῖν` Swete-Amicarelli 1st1K-LXX LXX-Orthodox (Οʹ) **]** **πιεῖν** Sixtine/Brenton *(inflection or spelling (same stem))*
+- **Apparatus:** `ποιεῖν` Swete-Amicarelli 1st1K-LXX A-Ottley (Isaiah) LXX-Orthodox (Οʹ) **]** **πιεῖν** Sixtine/Brenton *(inflection or spelling (same stem))*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Isaiah 7:23
+- **Apparatus:** `εἰς` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **om.** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἐκείνῃ` over `ἐκείνῃ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `οὗ` over `πὗ` (1st1K-LXX) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `ὦσιν` over `ὦσι` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `ἔσονται` over `ἔσονται,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `ἄκανθαν·` over `ἄκανθαν.` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ὦσιν / ὦσι` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Euphonic movable-nu (-ν) variation*
 
 ### Isaiah 7:24
 - *Disregarded Surface Variant:* kept `μετὰ` over `Μετὰ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -357,9 +413,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `γῆ·` over `γῆ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Isaiah 7:25
-- **Apparatus:** `ἀροτριώμενον ἀροτριαθήσεται` Swete-Amicarelli 1st1K-LXX **]** **ἠροτριωμένον ἀροτριωθήσεται** Sixtine/Brenton ; **ἀροτριώμενον ἀροτριωθήσεται, καὶ** LXX-Orthodox (Οʹ) *(lexical substitution)*
+- **Apparatus:** `ἀροτριώμενον ἀροτριαθήσεται` Swete-Amicarelli 1st1K-LXX **]** **ἠροτριωμένον ἀροτριωθήσεται** Sixtine/Brenton ; **ἀροτριώμενον ἀροτρια θήσεται· καὶ** A-Ottley (Isaiah) ; **ἀροτριώμενον ἀροτριωθήσεται, καὶ** LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete-Amicarelli LXX-Orthodox (Οʹ) **]** **εἷς** A-Ottley (Isaiah)
 - *Disregarded Surface Variant:* kept `φόβος,` over `φόβος·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `προβάτου` over `προβάτου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
@@ -372,6 +429,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Καὶ ἐγένετο ἐν ταῖς ἡμέραις Ἀχὰζ τοῦ Ἰωαθὰμ τοῦ υἱοῦ Ὀζείου βασιλέως Ἰούδα ἀνέβη Ῥασεὶν βασιλεὺς Ἀρὰμ καὶ Φάκεε υἱὸς Ῥομελιὰ βασιλεὺς Ἰσραὴλ ἐπὶ Ἰερουσαλὴμ πολεμῆσαι αὐτήν, καὶ οὐκ ἠδυνήθησαν πολιορκῆσαι αὐτήν.
   - `1st1K-LXX`: Καὶ ἐγένετο ἐν ταῖς ἡμέραις Ἀχὰζ τοῦ Ἰωαθὰμ τοῦ υἱοῦ Ὀζείου βασιλέως Ἰούδα ἀνέβη Ῥασεὶν βασιλεὺς Ἀρὰμ καὶ Φάκεε υἱὸς Ῥομελιὰ βασιλεὺς Ἰσραὴλ ἐπὶ Ἰερουσαλὴμ πολεμῆσαι αὐτήν, καὶ οὐκ ἡδυνήθησαν πολιορκῆσαι αὐτήν.
   - `Sixtine/Brenton`: Καὶ ἐγένετο ἐν ταῖς ἡμέραις Ἄχαζ τοῦ Ἰωάθαμ τοῦ υἱοῦ Ὀζίου βασιλέως Ἰούδα, ἀνέβη Ῥασὶν βασιλεὺς Ἀραμ, καὶ Φακεὲ υἱὸς Ῥομελίου βασιλεὺς Ἰσραὴλ ἐπὶ Ἱερουσαλὴμ πολεμῆσαι αὐτὴν, καὶ οὐκ ἠδυνήθησαν πολιορκῆσαι αὐτήν.
+  - `A-Ottley (Isaiah)`: Καὶ ἐγένετο ἐν ταῖς ἡμέρως Ἀχάζ τοῦ Ἰωαθὰμ τοῦ υἱοῦ Ὀζίου βασιλέως Ἰούδα ἀνέβη ῾Ραασσὼν βασιλεὺς Ἀρὰμ καὶ Φάκεε υἱὸς ῾Ρομελίου βασιλεὺς Ἰσραὴλ ἐπὶ Ἰερουσαλὴμ πολεμῆσαι αὐτήν, καὶ οὐκ ἠδυνήθησαν πολιορκῆσαι αὐτήν.
   - `LXX-Orthodox (Οʹ)`: ΚΑΙ ἐγένετο ἐν ταῖς ἡμέραις Ἄχαζ τοῦ Ἰωάθαμ τοῦ υἱοῦ Ὀζίου βασιλέως Ἰούδα, ἀνέβη Ρασεὶμ βασιλεὺς Ἀρὰμ καὶ Φακεὲ υἱὸς Ρομελίου βασιλεὺς Ἰσραὴλ ἐπὶ Ἱερουσαλὴμ πολεμῆσαι αὐτὴν καὶ οὐκ ἠδυνήθησαν πολιορκῆσαι αὐτήν.
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'Ῥομελιὰ' [Swete-Amicarelli, 1st1K-LXX] (weight 0.93, confidence 53%) over Ῥομελίου (Sixtine/Brenton). Also normalised 10 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
@@ -381,6 +439,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἀνηγγέλη εἰς τὸν οἶκον Δαυεὶδ λέγων Συνεφώνησεν Ἀρὰμ πρὸς τὸν Ἐφράιμ· καὶ ἐξέστη ἡ ψυχὴ αὐτοῦ καὶ ἡ ψυχὴ τοῦ λαοῦ αὐτοῦ, ὃν τρόπον ἐν δρυμῷ ξύλον ὑπὸ πνεύματος σαλευθῇ.
   - `1st1K-LXX`: καὶ ἀνηγγέλη εἰς τὸν οἶκον Δαυεὶδ λέγων Συνεφώνησεν Ἀρὰμ πρὸς τὸν Ἐφράιμ· καὶ ἐξέστη ἡ ψυχὴ αὐτοῦ καὶ ἡ ψυχὴ τοῦ λαοῦ αὐτοῦ, ὃν τρόπον ἐν δρυμῷ ξύλον ὑπὸ πνεύματος σαλευθῇ.
   - `Sixtine/Brenton`: Καὶ ἀνηγγέλη εἰς τὸν οἶκον Δαυὶδ, λέγων, συνεφώνησεν Ἀρὰμ πρὸς τὸν Ἐφραίμ· καὶ ἐξέστη ἡ ψυχὴ αὐτοῦ, καὶ ἡ ψυχὴ τοῦ λαοῦ αὐτοῦ, ὃν τρόπον ἐν δρυμῷ ξύλον ὑπὸ πνεύματος σαλευθῇ·
+  - `A-Ottley (Isaiah)`: καὶ ἀνηγγέλη εἰς τὸν οἶκον Δαυεὶδ λέγοντες Συνεφώνησεν Ἀρὰμ πρὸς τὸν Ἐφράιμ· καὶ ἐξέστη ἡ αὐτοῦ καὶ ἡ τοῦ λαοῦ αὐτοῦ, ὅταν ὃν τρόπον ἐν δρυμῷ ξύλον ὑπὸ πνεύματος σαλευθῇ.
   - `LXX-Orthodox (Οʹ)`: καὶ ἀνηγγέλη εἰς τὸν οἶκον Δαυὶδ λέγων· συνεφώνησεν Ἀρὰμ πρὸς τὸν Ἐφραίμ· καὶ ἐξέστη ἡ ψυχὴ αὐτοῦ καὶ ἡ ψυχὴ τοῦ λαοῦ αὐτοῦ, ὃν τρόπον ἐν δρυμῷ ξύλον ὑπὸ πνεύματος σαλευθῇ.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 7 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
@@ -389,6 +448,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Καὶ εἶπεν Κύριος πρὸς Ἠσαίαν Ἔξελθε εἰς συνάντησιν Ἀχὰζ σὺ καὶ ὁ καταλειφθεὶς Ἰασοὺβ ὁ υἱός σου πρὸς τὴν κολυμβήθραν τῆς ἄνω ὁδοῦ ἀγροῦ τοῦ γναφέως.
   - `1st1K-LXX`: Καὶ εἶπεν Κύριος πρὸς Ἰσαῖον Ἔξελθε εἰς συνάντησιν Ἀχὰζ σὺ καὶ ὁ καταλειφθεὶς Ἰασοὺβ ὁ υἱός σου πρὸς τὴν κολυμβήθραν τῆς ἄνω ὁδοῦ ἀγροῦ τοῦ γναφέως.
   - `Sixtine/Brenton`: Καὶ εἶπε Κύριος πρὸς Ἡσαΐαν, ἔξελθε εἰς συνάντησιν Ἄχαζ σὺ, καὶ ὁ καταλειφθεὶς Ἰασοὺβ ὁ υἱός σου, πρὸς τὴν κολυμβήθραν τῆς ἄνω ὁδοῦ ἀγροῦ τοῦ κναφέως.
+  - `A-Ottley (Isaiah)`: Καὶ εἶπεν Κύριος πρὸς Ἠσαίαν Ἔξελθε εἰς συνάντησιν Ἀχὰζ σὺ καὶ ὁ καταλειφθεὶς Ἰασσοὺβ ὁ υἱός σου πρὸς τὴν κολυμβήθραν τῆς ἄνω ὁδοῦ τοῦ ἀγροῦ τοῦ γναφέως.
   - `LXX-Orthodox (Οʹ)`: καὶ εἶπε Κύριος πρὸς Ἠσαΐαν· ἔξελθε εἰς συνάντησιν Ἄχαζ σὺ καὶ ὁ καταλειφθεὶς Ἰασοὺβ ὁ υἱός σου πρὸς τὴν κολυμβήθραν τῆς ἄνω ὁδοῦ τοῦ ἀγροῦ τοῦ κναφέως
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'γναφέως' [Swete-Amicarelli, 1st1K-LXX] (weight 0.93, confidence 53%) over κναφέως (Sixtine/Brenton). Also normalised 6 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
@@ -398,6 +458,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἐρεῖς αὐτῷ Φύλαξαι τοῦ ἡσυχάσαι καὶ μὴ φοβοῦ, μηδὲ ἡ ψυχή σου ἀσθενείτω ἀπὸ τῶν δύο ξύλων τῶν δαλῶν τῶν καπνιζομένων τούτων· ὅταν γὰρ ὀργὴ τοῦ θυμοῦ μου γένηται, πάλιν ἰάσομαι.
   - `1st1K-LXX`: καὶ ἐρεῖς αὐτῷ Φίλαξαι τοῦ ἡσυχάσαι καὶ μὴ φοβοῦ, μηδέ ἡ ψυχὴ σου ἀσθενείτω ἀπὸ τῶν δύο ξύλων τῶν δαλῶν τῶν καπνιζομένων τούτων· ὅταν γὰρ ἀργὴ τοῦ θυμοῦ μου γένηται, πάλιν ἰάσομαι.
   - `Sixtine/Brenton`: Καὶ ἐρεῖς αὐτῷ, φύλαξαι τοῦ ἡσυχάσαι, καὶ μὴ φοβοῦ, μηδὲ ἡ ψυχή σου ἀσθενείτω ἀπὸ τῶν δύο ξύλων τῶν δαλῶν τῶν καπνιζομένων τούτων· ὅταν γὰρ ὀργὴ τοῦ θυμοῦ μου γένηται, πάλιν ἰάσομαι.
+  - `A-Ottley (Isaiah)`: καὶ ἐρεῖς αὐτῷ Φύλαξαι τοῦ ἡσυχάσαι καὶ μὴ φοβοῦ, μηδὲ ἡ ψυχή σου ἀσθενείτω ἀπὸ τῶν δύο ξύλων τῶν δαλῶν τῶν καπνιζομένων τούτων· ὅταν γὰρ ὀργὴ τοῦ θυμοῦ μου γένηται, πάλιν ἰάσομαι.
   - `LXX-Orthodox (Οʹ)`: καὶ ἐρεῖς αὐτῷ· φυλάξαι τοῦ ἡσυχάσαι καὶ μὴ φοβοῦ, μηδὲ ἡ ψυχή σου ἀσθενείτω ἀπὸ τῶν δύο ξύλων τῶν δαλῶν τῶν καπνιζομένων τούτων· ὅταν γὰρ ὀργὴ τοῦ θυμοῦ μου γένηται, πάλιν ἰάσομαι.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 7 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
 
@@ -406,6 +467,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ὁ υἱὸς τοῦ Ἀρὰμ καὶ ὁ υἱὸς τοῦ Ῥομελίου, ὅτι ἐβουλεύσαντο βουλὴν πονηράν
   - `1st1K-LXX`: καὶ ὁ υἱὸς τοῦ Ἀρὰμ καὶ ὁ υἱὸς τοῦ Ῥομελίου, ὅτι ἐβουλεύσαντο βουλὴν πονηράν
   - `Sixtine/Brenton`: Καὶ ὁ υἱὸς τοῦ Ἀρὰμ, καὶ ὁ υἱὸς τοῦ Ῥομελίου, ὅτι ἐβουλεύσαντο βουλὴν πονηράν·
+  - `A-Ottley (Isaiah)`: καὶ ὁ υἱὸς τοῦ Ἀρὰμ καὶ ὁ υἱὸς τοῦ ῾Ρομελίου, ὅτι ἐβουλεύσαντο βουλὴν πονηρὰν περὶ σοῦ, λέγοντες
   - `LXX-Orthodox (Οʹ)`: καὶ ὁ υἱὸς τοῦ Ἀρὰμ καὶ ὁ υἱὸς τοῦ Ρομελίου, ὅτι ἐβουλεύσαντο βουλὴν πονηρὰν περὶ σοῦ λέγοντες·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -414,14 +476,16 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Ἀναβησόμεθα εἰς τὴν Ἰουδαίαν, καὶ συνλαλήσαντες αὐτοῖς ἀποστρέψομεν αὐτοὺς πρὸς ἡμᾶς, καὶ βασιλεύσομεν αὐτῆς τὸν υἱὸν Ταβεήλ·
   - `1st1K-LXX`: Ἀναβησόμεθα εἰς τὴν Ἰουδαίαν, καὶ συνλαλήσαντες αὐτοῖς ἀποστρέψομεν αὐτοὺς πρὸς ἡμᾶς, καὶ βασιλεύσομεν αὐτῆς τὸν υἱὸν Ταβεήλ·
   - `Sixtine/Brenton`: Ἀναβησόμεθα εἰς τὴν Ἰουδαίαν, καὶ συλλαλήσαντες αὐτοῖς, ἀποστρέψομεν αὐτοὺς πρὸς ἡμᾶς, καὶ βασιλεύσομεν αὐτῆς τὸν υἱὸν Ταβεήλ·
+  - `A-Ottley (Isaiah)`: Ἀναβησόμεθα εἰς τὴν Ἰουδαίαν, καὶ συλλαλήσαντες αὐτοῖς ἀποστρέψωμεν αὐτοὺς πρὸς ἡμᾶς, καὶ βασιλεύσομεν αὐτοῖς τὸν υἱὸν Ταβεήλ·
   - `LXX-Orthodox (Οʹ)`: ἀναβησόμεθα εἰς τὴν Ἰουδαίαν καὶ συλλαλήσαντες αὐτοῖς, ἀποστρέψομεν αὐτοὺς πρὸς ἡμᾶς καὶ βασιλεύσομεν αὐτοῖς τὸν υἱὸν Ταβεήλ·
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 2 surface variation(s) (Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type); Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 2 surface variation(s) (Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type); Punctuation / spacing difference only).
 
 ### Verse 7 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** τάδε λέγει Κύριος σαβαώθ Οὐ μὴ μείνῃ ἡ βουλὴ αὕτη οὐδὲ ἔσται.
   - `Swete-Amicarelli`: τάδε λέγει Κύριος σαβαώθ Οὐ μὴ μείνῃ ἡ βουλὴ αὕτη οὐδὲ ἔσται.
   - `1st1K-LXX`: τάδε λέγει Κύριος σαβαώθ Οὐ μὴ μείνῃ ἡ βουλὴ αὕτη οὐδὲ ἔσται
   - `Sixtine/Brenton`: Τάδε λέγει Κύριος σαβαὼθ, οὐ μὴ μείνῃ ἡ βουλὴ αὕτη, οὐδὲ ἔσται,
+  - `A-Ottley (Isaiah)`: τάδε λέγει Κύριος σαβαώθ Οὐ μὴ ἐμμείνῃ ἡ βουλὴ αὕτη οὐδὲ ἔσται.
   - `LXX-Orthodox (Οʹ)`: τάδε λέγει Κύριος σαβαώθ· οὐ μὴ μείνῃ ἡ βουλὴ αὕτη οὐδὲ ἔσται·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -430,6 +494,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: ἀλλ᾽ ἡ κεφαλὴ Ἀρὰμ Δαμασκός, καὶ ἡ κεφαλὴ Δαμασκοῦ Ῥασείμ· ἀλλ᾽ ἔτι ἑξήκοντα καὶ πέντε ἐτῶν ἐκλείψει ἡ βασιλεία Ἐφράιμ ἀπὸ λαοῦ.
   - `1st1K-LXX`: ἀλλ᾿ ἡ κεφαλὴ Ἀρὰμ Δαμασκός, καὶ ἡ κεφαλὴ Δαμασκοῦ Ῥασείμ· ἀλλʼ ἔτι ἑξήκοντα καὶ πέντε ἐτῶν ἐκλείψει ἡ βασιλεία Ἐφράιμ ἀπὸ λαοῦ.
   - `Sixtine/Brenton`: ἀλλʼ ἡ κεφαλὴ Ἀρὰμ, Δαμασκὸς, καὶ ἡ κεφαλὴ Δαμασκοῦ, Ῥασίμ· ἀλλʼ ἔτι ἐξήκοντα καὶ πέντε ἐτῶν ἐκλείψει ἡ βασιλεία Ἐφραίμ ἀπὸ λαοῦ,
+  - `A-Ottley (Isaiah)`: ἀλλ᾿ ἡ κεφαλὴ Ἀρὰμ Δαμασκός, καὶ ἡ κεφαλὴ Δαμασκοῦ ῾Ρασείν· ἀλλ᾿ ἔτι ἐξήκοντα καὶ πέντε ἐτῶν ἐκλείψει ἡ βασιλεία Ἐφράιμ ἀπὸ λαοῦ.
   - `LXX-Orthodox (Οʹ)`: ἀλλ᾿ ἡ κεφαλὴ Ἀρὰμ Δαμασκὸς καὶ ἡ κεφαλὴ Δαμασκοῦ Ρασεὶμ ἀλλ᾿ ἔτι ἑξήκοντα καὶ πέντε ἐτῶν ἐκλείψει ἡ βασιλεία Ἐφραὶμ ἀπὸ λαοῦ
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 9 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
@@ -438,6 +503,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἡ κεφαλὴ Ἐφράιμ Σομορών, καὶ ἡ κεφαλὴ Σομορὼν υἱὸς τοῦ Ῥομελίου· καὶ ἐὰν μὴ πιστεύσητε, οὐδὲ μὴ συνῆτε.
   - `1st1K-LXX`: καὶ ἡ κεφαλὴ Ἐφράιμ Σομορών. καὶ ἡ κεφαλὴ Σομορὼν υἱὸς τοῦ Ῥομελίου· καὶ ἐὰν μὴ πιστεύσητε, οὐδὲ μὴ συνῆτε.
   - `Sixtine/Brenton`: καὶ ἡ κεφαλὴ Ἐφραὶμ Σομόρων, καὶ ἡ κεφαλὴ Σομορων, υἱὸς τοῦ Ῥομελίου, καὶ ἐὰν μὴ πιστεύσητε, οὐδὲ μὴ συνῆτε.
+  - `A-Ottley (Isaiah)`: καὶ ἡ κεφαλὴ Ἐφράιμ Σομορών, καὶ ἡ κεφαλὴ Σομορὼν υἱὸς τοῦ ῾Ρομελίου· καὶ ἐὰν μὴ πιστεύσητε, οὐδὲ μὴ συνῆτε.
   - `LXX-Orthodox (Οʹ)`: καὶ ἡ κεφαλὴ Ἐφραὶμ Σομόρων, καὶ ἡ κεφαλὴ Σομόρων υἱὸς τοῦ Ρομελίου· καὶ ἐὰν μὴ πιστεύσητε, οὐδὲ μὴ συνιῆτε.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 4 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -446,6 +512,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Καὶ προσέθετο Κύριος λαλῆσαι τῷ Ἀχὰζ λέγων
   - `1st1K-LXX`: Καὶ προσέθετο Κύριος λαλῆσαι τῷ Ἀχὰζ λέγων
   - `Sixtine/Brenton`: Καὶ προσέθετο Κύριος λαλῆσαι τῷ Ἄχαζ, λέγων,
+  - `A-Ottley (Isaiah)`: Καὶ προσέθετο θετο Κύριος λαλῆσαι τῷ Ἀχὰζ λέγων
   - `LXX-Orthodox (Οʹ)`: Καὶ προσέθετο Κύριος λαλῆσαι τῷ Ἄχαζ λέγων·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Punctuation / spacing difference only).
 
@@ -454,6 +521,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Αἴτησαι σεαυτῷ σημεῖον παρὰ Κυρίου θεοῦ σου εἰς βάθος ἢ εἰς ὕψος.
   - `1st1K-LXX`: Aἴτησαι σεαυτῷ σημεῖον παρὰ Κυρίου θεοῦ σου εἰς βάθος ἡ εἰς ὕψος.
   - `Sixtine/Brenton`: αἴτησαι σεαυτῷ σημεῖον παρὰ Κυρίου Θεοῦ σου εἰς βάθος, ἢ εἰς ὕψος.
+  - `A-Ottley (Isaiah)`: αἴτησαι σεαυτῷ σημεῖον παρὰ Κυρίου θεοῦ σου εἰς βάθος ἢ εἰς ὕψος.
   - `LXX-Orthodox (Οʹ)`: αἴτησαι σεαυτῷ σημεῖον παρὰ Κυρίου Θεοῦ σου εἰς βάθος ἢ εἰς ὕψος.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 4 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
 
@@ -462,6 +530,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ εἶπεν Ἀχάζ Οὐ μὴ αἰτήσω, οὐδὲ μὴ πειράσω Κύριον.
   - `1st1K-LXX`: καὶ εἶπεν Ἀχάζ Οὐ μὴ αἰτήσω, οὐδὲ μὴ πειράσω Κύριον.
   - `Sixtine/Brenton`: Καὶ εἶπεν Ἄχαζ, οὐ μὴ αἰτήσω, οὐδὲ μὴ πειράσω Κύριον.
+  - `A-Ottley (Isaiah)`: καὶ εἶπεν Ἀχάζ Οὐ μὴ αἰτήσω, οὐδ᾿ οὐ μὴ πειράσω Κύρων.
   - `LXX-Orthodox (Οʹ)`: καὶ εἶπεν Ἄχαζ· οὐ μὴ αἰτήσω οὐδ᾿ οὐ μὴ πειράσω Κύριον.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 3 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention).
 
@@ -470,6 +539,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ εἶπεν Ἀκούσατε δή, οἶκος Δαυείδ· μὴ μικρὸν ὑμῖν ἀγῶνα παρέχειν ἀνθρώποις, καὶ πῶς Κυρίῳ παρέχετε ἀγῶνα;
   - `1st1K-LXX`: καὶ εἶπεν Ἀκούσατε δή, οἶκος Δαυείδ· μὴ μικρὸν ὑμῖν ἀγῶνα παρέχειν ἀνθρώποις, καὶ πῶς Κυρίῳ παρέχετε ἀγῶνα;
   - `Sixtine/Brenton`: Καὶ εἶπεν, ἀκούσατε δὴ οἶκος Δαυίδ· μὴ μικρὸν ὑμῖν ἀγῶνα παρέχειν ἀνθρώποις, καὶ πῶς Κυρίῳ παρέχετε ἀγῶνα;
+  - `A-Ottley (Isaiah)`: καὶ εἶπεν Ἀκούσατε δή, οἷκος Δαυείδ. μὴ μικρὸν ὑμῖν ἀγῶνα παρέχειν ἀνθρώποις, καὶ πῶς Κυρίῳ παρέχετε ἀγῶνα;
   - `LXX-Orthodox (Οʹ)`: καὶ εἶπεν· ἀκούσατε δή, οἶκος Δαυίδ· μὴ μικρὸν ὑμῖν ἀγῶνα παρέχειν ἀνθρώποις; καὶ πῶς Κυρίῳ παρέχετε ἀγῶνα;
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
@@ -478,6 +548,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: διὰ τοῦτο δώσει Κύριος αὐτὸς ὑμῖν σημεῖον· ἰδοὺ ἡ παρθένος ἐν γαστρὶ λήμψεται καὶ τέξεται υἱόν, καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἐμμανουήλ·
   - `1st1K-LXX`: διὰ τοῦτο δώσει Κύριος αὐτὸς ὑμῖν σημεῖον· ἰδοὺ ἡ παρθένος ἐν γαστρὶ λήμψεται καὶ τέξεται υἱόν, καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἐμμανουήλ·
   - `Sixtine/Brenton`: Διατοῦτο δώσει Κύριος αὐτὸς ὑμῖν σημεῖον· ἰδοὺ ἡ παρθένος ἐν γαστρὶ λήψεται, καὶ τέξεται υἱὸν, καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἐμμανουήλ.
+  - `A-Ottley (Isaiah)`: διὰ τοῦτο δώσει Κύριος αὐτὸς ὑμῖν σημεῖον· ἰδοὺ ἡ παρθένος ἐν γαστρὶ ἔξει καὶ τέξεται υἱόν, καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἐμμανουήλ·
   - `LXX-Orthodox (Οʹ)`: διὰ τοῦτο δώσει Κύριος αὐτὸς ὑμῖν σημεῖον· ἰδοὺ ἡ παρθένος ἐν γαστρὶ ἕξει, καὶ τέξεται υἱόν, καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἐμμανουήλ·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Nasal spelling (λημψ- / ληψ-); Punctuation / spacing difference only; Word division differs (same letters written as one word or two)).
 
@@ -486,6 +557,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: βούτυρον καὶ μέλι φάγεται πρὶν ἢ γνῶναι αὐτὸν ἢ προελέσθαι πονηρά, ἐκλέξασθαι τὸ ἀγαθόν·
   - `1st1K-LXX`: βούτυρον καὶ μέλι φάγεται πρὶν ἢ γνῶναι αὐτὸν ἢ προελέσθαι πονηρά, ἐκλέξασθαι τὸ ἀγαθόν·
   - `Sixtine/Brenton`: Βούτυρον καὶ μέλι φάγεται πρινὴ γνῶναι αὐτὸν ἢ προελέσθαι πονηρὰ, ἐκλέξασθαι τὸ ἀγαθόν·
+  - `A-Ottley (Isaiah)`: βούτυρον βούτυρον καὶ μέλι φάγεται· πρὶν ἤ γνῶναι αὐτὸν προελέσθαι πονηρά, ἐκλέξεται τὸ ἀγαθόν·
   - `LXX-Orthodox (Οʹ)`: βούτυρον καὶ μέλι φάγεται· πρὶν ἢ γνῶναι αὐτὸν ἢ προελέσθαι πονηρά, ἐκλέξεται τὸ ἀγαθόν·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Word division differs (same letters written as one word or two)).
 
@@ -494,6 +566,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: διότι πρὶν ἢ γνῶναι τὸ παιδίον ἀγαθὸν ἢ κακόν, ἀπειθεῖ πονηρίᾳ ἐκλέξασθαι τὸ ἀγαθόν, καὶ καταλειφθήσεται ἡ γῆ ἣν σὺ φοβῇ ἀπὸ προσώπου τῶν δύο βασιλέων.
   - `1st1K-LXX`: διότι πρὶν ἢ γνῶναι τὸ παιδίον ἀγαθὸν ἢ κακόν, ἀπειθεῖ πονηρίᾳ ἐκλέξασθαι τὸ ἀγαθόν, καὶ καταλειφθήσεται ἡ γῆ ἣν σὺ φοβῇ ἀπὸ προσώπου τῶν δύο βασιλέων.
   - `Sixtine/Brenton`: Διότι πρινὴ γνῶναι τὸ παιδίον ἀγαθὸν ἢ κακὸν, ἀπειθεῖ πονηρίᾳ, ἐκλέξασθαι τὸ ἀγαθόν· καὶ καταλειφθήσεται ἡ γῆ ἣν σὺ φοβῇ, ἀπὸ προσώπου τῶν δύο βασιλέων.
+  - `A-Ottley (Isaiah)`: διότι πρὶν ἢ γνῶναι τὸν παιδίον ἀγαθὸν ἡ κακόν, ἀπειθεῖ πονηρίᾳ. τοῦ ἐκλέξασθαι τὸ ἀγαθόν, καὶ καταλειφθήσεται ἡ γῆ ἥν σὺ φοβῇ ἀπὸ προσώπου αὐτῶν.
   - `LXX-Orthodox (Οʹ)`: διότι πρὶν ἢ γνῶναι τὸ παιδίον ἀγαθὸν ἢ κακόν, ἀπειθεῖ πονηρίᾳ τοῦ ἐκλέξασθαι τὸ ἀγαθόν, καὶ καταλειφθήσεται ἡ γῆ, ἣν σὺ φοβῇ, ἀπὸ προσώπου τῶν δύο βασιλέων.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only; Word division differs (same letters written as one word or two)).
 
@@ -502,6 +575,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: ἀλλὰ ἐπάξει ὁ θεὸς ἐπὶ σὲ καὶ ἐπὶ τὸν λαόν σου καὶ ἐπὶ τὸν οἶκον τοῦ πατρός σου ἡμέρας αἳ οὔπω ἥκασιν ἀφ᾽ ἧς ἡμέρας ἀφεῖλεν Ἐφράιμ ἀπὸ Ἰούδα, τὸν βασιλέα τῶν Ἀσσυρίων.
   - `1st1K-LXX`: ἁλλὰ ἐπάξει ῥ θεὸς ἐπὶ σέ καὶ ἐπὶ τὸν λαόν σου καὶ ἐπὶ τὸν οἶκον τοῦ πατρός σου ἡμέρας αἱ οὔπω ἥκασιν ἀφʼ ἧς ἡμέρας ἀφεῖλεν Ἐφράιμ ἀπὸ Ἰούδα, τὸν βασιλέα τῶν Ἀσσυρίων.
   - `Sixtine/Brenton`: Ἀλλὰ ἐπάξει ὁ Θεὸς ἐπὶ σὲ καὶ ἐπὶ τὸν λαόν σου καὶ ἐπὶ τὸν οἶκον τοῦ πατρός σου ἡμέρας, αἳ οὔπω ἥκασιν ἀφʼ ἧς ἡμέρας ἀφεῖλεν Ἐφραὶμ ἀπὸ Ἰούδα τὸν βασιλέα τῶν Ἀσσυρίων.
+  - `A-Ottley (Isaiah)`: ἀλλὰ ἐπάξει ὁ θεὸς ἐπὶ σὲ καὶ ἐπὶ τὸν λαόν σου καὶ ἐπὶ τὸν οἶκον τοῦ πατρός σου ἡμέρας αἵ οὔπω ἦκασιν ἀφ᾿ ἧς ἡμέρας ἀφεῖλεν Ἐφράιμ ἀπὸ Ἰούδα, τὸν βασιλέα τῶν Ἀσσυρίων.
   - `LXX-Orthodox (Οʹ)`: ἀλλὰ ἐπάξει ὁ Θεὸς ἐπὶ σὲ καὶ ἐπὶ τὸν λαόν σου καὶ ἐπὶ τὸν οἶκον τοῦ πατρός σου ἡμέρας, αἳ οὔπω ἥκασιν ἀφ᾿ ἧς ἡμέρας ἀφεῖλεν Ἐφραὶμ ἀπὸ Ἰούδα τὸν βασιλέα τῶν Ἀσσυρίων.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 9 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
 
@@ -510,6 +584,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συριεῖ Κύριος μυίαις, ὃ κυριεύσει μέρος ποταμοῦ Αἰγύπτου, καὶ τῇ μελίσσῃ ἥ ἐστιν ἐν χώρᾳ Ἀσσυρίων·
   - `1st1K-LXX`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συριεῖ Κύριος μυίαις, ὃ κυριεύσει μέρος ποταμοῦ Αἰγύπτου, καὶ τῇ μελίσσῃ ἥ ἐστιν ἐν χώρᾳ Ἀσσυρίων·
   - `Sixtine/Brenton`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συριεῖ Κύριος μυίαις, ὃ κυριεύσει μέρος ποταμοῦ Αἰγύπτου, καὶ τῇ μελίσσῃ, ἥ ἐστιν ἐν χώρᾳ Ἀσσυρίων·
+  - `A-Ottley (Isaiah)`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συριεῖ Κύριος μυίαις, ὃ κυριεύει μέρους ποταμοῦ Αἰγύπτου, καὶ τῇ μελίσσῃ ἦ ἐστιν ἐν χώρᾳ Ἀσσυρίων·
   - `LXX-Orthodox (Οʹ)`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ συριεῖ Κύριος μυίαις, ὃ κυριεύει μέρος ποταμοῦ Αἰγύπτου, καὶ τῇ μελίσσῃ, ἥ ἐστιν ἐν χώρᾳ Ἀσσυρίων,
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 1 surface variation(s) (Punctuation / spacing difference only).
 
@@ -518,6 +593,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἐλεύσονται πάντες ἐν ταῖς φάραγξι τῆς χώρας καὶ ἐν ταῖς τρώγλαις τῶν πετρῶν καὶ εἰς τὰ σπήλαια καὶ εἰς πᾶσαν ῥαγάδα.
   - `1st1K-LXX`: καὶ ἐλεύσονται πάντες ἐν ταῖς φάραγξι τῆς χώρας καὶ ἐν ταῖς τρώγλαις τῶν πετρῶν καὶ εἰς τὰ σπήλαια καὶ εἰς πᾶσαν ῤαγάδα.
   - `Sixtine/Brenton`: Καὶ ἐλεύσονται πάντες ἐν ταῖς φάραγξι τῆς χώρας, καὶ ἐν ταῖς τρώγλαις τῶν πετρῶν, καὶ εἰς τὰ σπήλαια, καὶ εἰς πᾶσαν ῥαγάδα.
+  - `A-Ottley (Isaiah)`: καὶ ἐλεύσονται πάντες καὶ ἀναπαύσονται ἐν ταῖς φάραγξιν τῆς χώρας καὶ ἐν ταῖς τρώγλαις τῶν πετρῶν καὶ εἷς τὸ. σπήλαια καὶ ἐπὶ πᾶσαν ῥαγάδα καὶ ἐν παντὶ ξύλῳ.
   - `LXX-Orthodox (Οʹ)`: καὶ ἐλεύσονται πάντες καὶ ἀναπαύσονται ἐν ταῖς φάραγξι τῆς χώρας καὶ ἐν ταῖς τρώγλαις τῶν πετρῶν καὶ εἰς τὰ σπήλαια καὶ εἰς πᾶσαν ραγάδα καὶ ἐν παντὶ ξύλῳ.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -526,6 +602,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: ἐν τῇ ἡμέρᾳ ἐκείνῃ ξυρήσει Κύριος ἐν τῷ ξυρῷ τῷ μεμισθωμένῳ πέραν τοῦ ποταμοῦ βασιλέως Ἀσσυρίων τὴν κεφαλήν, καὶ τὰς τρίχας τῶν ποδῶν καὶ τὸν πώγωνα ἀφελεῖ.
   - `1st1K-LXX`: ἐν τῇ ἡμέρᾳ ἐκείνῃ ξυρήσει Κύριος ἐν τῷ ξυρῷ τῷ μεμισθωμένῳ πέραν τοῦ ποταμοῦ βασιλέως Ἀσσυρίων τὴν κεφαλήν, καὶ τὰς τρίχας τῶν ποδῶν καὶ τὸν πώγωνα ἀφελεῖ
   - `Sixtine/Brenton`: Ἐν τῇ ἡμέρᾳ ἐκείνῃ ξυρήσει Κύριος ἐν τῷ ξυρῷ τῷ μεμισθωμένῳ πέραν τοῦ ποταμοῦ βασιλέως Ἀσσυρίων τὴν κεφαλὴν, καὶ τὰς τρίχας τῶν ποδῶν, καὶ τὸν πώγωνα ἀφελεῖ.
+  - `A-Ottley (Isaiah)`: ἐν τῇ ἡμέρᾳ ἐκείνῃ ξυρήσει Κύριος τῷ ξυρῷ τῷ μεγάλῳ καὶ μεμεθυσμένῳ ὅ ἐστιν πέραν τοῦ ποταμοῦ βασιλέως Ἀσσυρίων, τὴν κεφαλήν, καὶ τὰς τρίχας τῶν ποδῶν, καὶ τὸν πώγωνα ἀφελεῖ.
   - `LXX-Orthodox (Οʹ)`: ἐν τῇ ἡμέρᾳ ἐκείνῃ ξυρήσει Κύριος τῷ ξυρῷ τῷ μεγάλῳ καὶ μεμεθυσμένῳ, ὅ ἐστι πέραν τοῦ ποταμοῦ βασιλέως Ἀσσυρίων, τὴν κεφαλὴν καὶ τὰς τρίχας τῶν ποδῶν, καὶ τὸν πώγωνα ἀφελεῖ.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -534,6 +611,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ θρέψει ἄνθρωπος δάμαλιν βοῶν καὶ δύο πρόβατα·
   - `1st1K-LXX`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ θρέψει ἄνθρωπος δάμαλιν βοῶν καὶ δύο πρόβατα·
   - `Sixtine/Brenton`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ θρέψει ἄνθρωπος δάμαλιν βοῶν, καὶ δύο πρόβατα·
+  - `A-Ottley (Isaiah)`: καὶ ἔσται ἐν τῇ ἡμέρᾳ. ἐκείνῃ θρέψει ἅνθρωπος δάμαλιν βοῶν καὶ δύο πρόβατα·
   - `LXX-Orthodox (Οʹ)`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ θρέψει ἄνθρωπος δάμαλιν βοῶν καὶ δύο πρόβατα,
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -542,6 +620,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἔσται ἀπὸ τοῦ πλεῖστον ποιεῖν γάλα, βούτυρον καὶ μέλι φάγεται πᾶς ὁ καταλειφθεὶς ἐπὶ τῆς γῆς.
   - `1st1K-LXX`: καὶ ἔσται ἀπὸ τοῦ πλεῖστον ποιεῖν γάλα, βούτυρον καὶ μέλι φάγεται πᾶς ὁ καταλειφθεὶς ἐπὶ τῆς γῆς.
   - `Sixtine/Brenton`: Καὶ ἔσται ἀπὸ τοῦ πλεῖστον πιεῖν γάλα, βούτυρον καὶ μέλι φάγεται πᾶς ὁ καταλειφθεὶς ἐπὶ τῆς γῆς.
+  - `A-Ottley (Isaiah)`: καὶ ἔσται ἀπὸ τοῦ πλεῖστον ποιεῖν γάλα, βούτυρον καὶ μέλι φάγεται πᾶς ὃ καταλειφθεὶς ἐπὶ τῆς γῆς.
   - `LXX-Orthodox (Οʹ)`: καὶ ἔσται ἀπὸ τοῦ πλεῖστον ποιεῖν, γάλα, βούτυρον καὶ μέλι φάγεται πᾶς ὁ καταλειφθεὶς ἐπὶ τῆς γῆς.
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'ποιεῖν' [Swete-Amicarelli, 1st1K-LXX] (weight 0.93, confidence 53%) over πιεῖν (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
@@ -551,6 +630,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ πᾶς τόπος οὗ ἐὰν ὦσιν χίλιαι ἄμπελοι χιλίων σίκλων, εἰς χέρσον ἔσονται καὶ εἰς ἄκανθαν·
   - `1st1K-LXX`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ πᾶς τόπος πὗ ἐὰν ὦσιν· χίλιαι ἄμπελοι χιλίων σίκλων, εἰς χέρσον ἔσονται καὶ εἰς ἄκανθαν·
   - `Sixtine/Brenton`: Καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ, πᾶς τόπος οὗ ἐὰν ὦσι χίλιαι ἄμπελοι χιλίων σίκλων, εἰς χέρσον ἔσονται, καὶ εἰς ἄκανθαν.
+  - `A-Ottley (Isaiah)`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνῃ πᾶς τόπος οὗ ἐὰν ὦσιν χίλιαι ἄμπελοι χιλίων σίκλων, εἷς χέρσον ἔσονται καὶ ἄκανθαν·
   - `LXX-Orthodox (Οʹ)`: καὶ ἔσται ἐν τῇ ἡμέρᾳ ἐκείνη πᾶς τόπος, οὗ ἐὰν ὦσι χίλιαι ἄμπελοι χιλίων σίκλων, εἰς χέρσον ἔσονται καὶ εἰς ἄκανθαν·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
@@ -559,6 +639,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: μετὰ βέλους καὶ τοξεύματος εἰσελεύσονται ἐκεῖ, ὅτι χέρσος καὶ ἄκανθα ἔσται πᾶσα ἡ γῆ·
   - `1st1K-LXX`: μετὰ βέλους καὶ τοξεύματος εἰσελεύσονται ἐκεῖ, ὅτι χέρσος καὶ ἄκανθα ἔσται πᾶσα ἡ γῆ·
   - `Sixtine/Brenton`: Μετὰ βέλους καὶ τοξεύματος εἰσελεύσονται ἐκεῖ· ὅτι χέρσος καὶ ἄκανθα ἔσται πᾶσα ἡ γῆ,
+  - `A-Ottley (Isaiah)`: μετὰ βέλους καὶ τοξεύματος εἰσελεύσονται ἐκεῖ, ὅτι χέρσος καὶ ἄκανθα ἔσται πᾶσα ἡ γῆ·
   - `LXX-Orthodox (Οʹ)`: μετὰ βέλους καὶ τοξεύματος εἰσελεύσονται ἐκεῖ, ὅτι χέρσος καὶ ἄκανθα ἔσται πᾶσα ἡ γῆ.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
@@ -567,6 +648,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Swete-Amicarelli`: καὶ πᾶν ὄρος ἀροτριώμενον ἀροτριαθήσεται· οὐ μὴ ἐπέλθῃ ἐκεῖ φόβος, ἔσται γὰρ ἀπὸ τῆς χέρσου καὶ ἀκάνθης εἰς βόσκημα προβάτου καὶ καταπάτημα βοός.
   - `1st1K-LXX`: καὶ πᾶν ὄρος ἀροτριώμενον ἀροτριαθήσεται· οὐ μὴ ἐπέλθῃ ἐκεῖ φόβος, ἔσται γὰρ ἀπὸ τῆς χέρσου καὶ ἀκάνθης εἰς βόσκημα προβάτου καὶ καταπάτημα βοός.
   - `Sixtine/Brenton`: καὶ πᾶν ὄρος ἠροτριωμένον ἀροτριωθήσεται· οὐ μὴ ἐπέλθῃ ἐκεῖ φόβος· ἔσται γὰρ ἀπὸ τῆς χέρσου καὶ ἀκάνθης εἰς βόσκημα προβάτου, καὶ καταπάτημα βοός.
+  - `A-Ottley (Isaiah)`: καὶ πᾶν ὄρος ἀροτριώμενον ἀροτρια θήσεται· καὶ οὐ μὴ ἐπέλθῃ ἐκεῖ φόβος· ἔσται γὰρ ἀπὸ τῆς χέρσου καὶ ἀκάνθης εἷς βόσκημα προβάτου καὶ εἷς καταπάτημα βοός.
   - `LXX-Orthodox (Οʹ)`: καὶ πᾶν ὄρος ἀροτριώμενον ἀροτριωθήσεται, καὶ οὐ μὴ ἐπέλθῃ ἐκεῖ φόβος· ἔσται γὰρ ἀπὸ τῆς χέρσου καὶ ἀκάνθης εἰς βόσκημα προβάτου καὶ καταπάτημα βοός.
 - **Philological Rationale:** [Variation unit spanning several words] Adopted 'ἀροτριώμενον ἀροτριαθήσεται' [Swete-Amicarelli, 1st1K-LXX] (weight 0.93, confidence 53%) over ἠροτριωμένον ἀροτριωθήσεται (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).

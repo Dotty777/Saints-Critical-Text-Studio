@@ -84,6 +84,9 @@ class CollatedVerse:
     # "ch:v" when re-aligned. They are not in witness_texts and never vote.
     apparatus_texts: Dict[str, str] = field(default_factory=dict)
     apparatus_refs: Dict[str, str] = field(default_factory=dict)
+    book_slug: str = ""
+    chapter: int = 0
+    open_apparatus_sigla: Set[str] = field(default_factory=set)
 
 
 def strip_punct(token: str) -> str:
@@ -118,6 +121,11 @@ _GREEK_DIGITS.update({"ς": 6, "ϝ": 6, "ϙ": 90})
 def _greek_letter_value(token: str) -> Optional[int]:
     """Read a strictly formed alphabetic numeral; never guess from an accent alone."""
     raw = token.strip(".,;··;:!?\"«»“”()[]⟦⟧").lower()
+    # 1st1K-LXX / Swete OCR sometimes places a bare smooth breathing on vowel-initial numerals (ἰδ’, ἰβ’).
+    # Strip ONLY smooth breathing (\u0313) when no accent or rough breathing is present.
+    nfd_r = unicodedata.normalize("NFD", raw)
+    if "\u0313" in nfd_r and not any(c in "\u0300\u0301\u0342\u0314" for c in nfd_r):
+        raw = unicodedata.normalize("NFC", nfd_r.replace("\u0313", ""))
     match = re.fullmatch(r"(͵?[α-ωϛϝϟϙϡ]+)[ʹʹ΄´᾽’']", raw)
     if match:
         digits = match[1]
@@ -154,7 +162,7 @@ _GREEK_NUMBER_WORDS = {
     "δεκαπεντε": 15, "δεκαεξ": 16, "δεκαεπτα": 17, "δεκαοκτω": 18, "οκτωκαιδεκα": 18,
     "δεκαεννεα": 19, "εννεακαιδεκα": 19,
     "εικοσι": 20, "εικοσιν": 20, "τριακοντα": 30, "τεσσαρακοντα": 40, "τεσσερακοντα": 40,
-    "πεντηκοντα": 50, "εξηκοντα": 60, "εβδομηκοντα": 70, "ογδοηκοντα": 80, "ενενηκοντα": 90,
+    "πεντηκοντα": 50, "εξηκοντα": 60, "εβδομηκοντα": 70, "ογδοηκοντα": 80, "ενενηκοντα": 90, "εννενηκοντα": 90,
     "εκατον": 100,
 }
 
@@ -185,10 +193,132 @@ def _greek_number_word_value(token: str) -> Optional[int]:
     # separate in classify_forms, even when their numeric values agree.
     for stem, value in (("πρωτ", 1), ("δευτερ", 2), ("τριτ", 3), ("τεταρτ", 4),
                         ("πεμπτ", 5), ("εκτ", 6), ("εβδομ", 7), ("ογδο", 8),
-                        ("ενατ", 9), ("δεκατ", 10), ("ενδεκατ", 11), ("δωδεκατ", 12)):
+                        ("ενατ", 9), ("εννατ", 9), ("δεκατ", 10), ("ενδεκατ", 11), ("δωδεκατ", 12)):
         if k.startswith(stem) and k[len(stem):] in {"οσ", "ον", "η", "α", "ου", "ησ", "ασ", "ω", "ην", "αν"}:
             return value
     return None
+
+
+def _greek_number_phrase_value(phrase: str) -> Optional[int]:
+    """Strict exact integer value of a Greek numeral phrase (letter-numerals, spelled-out cardinals,
+    or mixed e.g. 'ν᾽ ἑπτά' = 57, 'η᾽ καὶ ι᾽' = 18, 'διακοσίους πεντήκοντα' = 250,
+    'τέσσαρας καὶ δέκα' = 14). Returns None if any non-καί token is not a recognised number."""
+    toks = [t for t in phrase.split() if strip_punct(t)]
+    if not toks:
+        return None
+    total = 0
+    seen_num = False
+    prev_was_kai = False
+    for t in toks:
+        k = canonical_compare_key(t, "greek")
+        if k == "και":
+            if not seen_num or prev_was_kai:
+                return None
+            prev_was_kai = True
+            continue
+        prev_was_kai = False
+        if is_letter_numeral(t):
+            val = _greek_letter_value(t)
+        else:
+            val = _greek_number_word_value(t)
+        if val is None or val <= 0:
+            return None
+        total += val
+        seen_num = True
+    if not seen_num or prev_was_kai:
+        return None
+    return total
+
+
+# ---------------------------------------------------------------------------
+# Latin Roman-numeral vs. spelled-out number recognition (e.g. Amiatinus Gen 5)
+# ---------------------------------------------------------------------------
+_LATIN_ROMAN_RE = re.compile(r"^(?:m{0,4})(?:cm|cd|d?c{0,4})(?:xc|xl|l?x{0,4})(?:ix|iv|v?i{0,4})$")
+_LATIN_ROMAN_VALS = {"m": 1000, "d": 500, "c": 100, "l": 50, "x": 10, "v": 5, "i": 1}
+_LATIN_ROMAN_FALSE_FRIENDS = frozenset({"dii", "di", "mi", "vi", "vim", "id", "ii", "ci", "li"})
+
+_LATIN_NUMBER_EXACT: Dict[str, int] = {
+    "unus": 1, "una": 1, "unum": 1, "uno": 1, "uni": 1, "unius": 1, "unam": 1,
+    "duo": 2, "duae": 2, "duas": 2, "duos": 2, "duorum": 2, "duarum": 2, "duobus": 2, "duabus": 2,
+    "tres": 3, "tria": 3, "trium": 3, "tribus": 3,
+    "quatuor": 4, "quattuor": 4, "quinque": 5, "sex": 6, "septem": 7, "octo": 8, "nouem": 9,
+    "decem": 10, "undecim": 11, "duodecim": 12, "tredecim": 13,
+    "quatuordecim": 14, "quattuordecim": 14, "quindecim": 15, "sedecim": 16, "septendecim": 17,
+    "duodeuiginti": 18, "octodecim": 18, "undeuiginti": 19, "nouendecim": 19,
+    "uiginti": 20, "triginta": 30, "quadraginta": 40, "quinquaginta": 50,
+    "sexaginta": 60, "septuaginta": 70, "octoginta": 80, "nonaginta": 90,
+    "centum": 100, "mille": 1000,
+}
+_LATIN_HUNDRED_STEMS: Tuple[Tuple[str, int], ...] = (
+    ("ducent", 200), ("trecent", 300), ("quadringent", 400), ("quingent", 500),
+    ("sexcent", 600), ("sescent", 600), ("septingent", 700), ("octingent", 800), ("nongent", 900),
+)
+_LATIN_HUNDRED_ENDS = frozenset({"i", "ae", "a", "orum", "arum", "is", "os", "as"})
+
+
+def _latin_roman_token_value(token: str) -> Optional[int]:
+    """Parse one strict Roman-numeral token (classical or medieval additive dcccc/cccc/iiii)."""
+    core = strip_punct(token).lower()
+    if not core or not _LATIN_ROMAN_RE.match(core) or core in _LATIN_ROMAN_FALSE_FRIENDS:
+        return None
+    total = 0
+    prev = 0
+    for ch in reversed(core):
+        v = _LATIN_ROMAN_VALS[ch]
+        total += -v if v < prev else v
+        prev = max(prev, v)
+    return total if total > 0 else None
+
+
+def is_latin_roman_numeral(phrase: str, *, allow_single_letter: bool = False) -> bool:
+    """True if ``phrase`` is a Roman-numeral abbreviation (e.g. ``cxxx``, ``dcccc xxx``, ``dccc xcv``).
+
+    Single-letter tokens (``i``, ``v``, ``x``...) are accepted only inside a descending multi-token
+    numeral (``dcccc x``) or when ``allow_single_letter=True`` (used only when paired with a
+    spelled-out Latin cardinal of the exact same integer value, e.g. ``x`` vs ``decem``)."""
+    toks = [strip_punct(t).lower() for t in phrase.split() if strip_punct(t)]
+    if not toks:
+        return False
+    if len(toks) == 1 and len(toks[0]) < 2 and not allow_single_letter:
+        return False
+    vals = [_latin_roman_token_value(t) for t in toks]
+    if any(v is None for v in vals):
+        return False
+    return all(a > b for a, b in zip(vals, vals[1:]))  # type: ignore[operator]
+
+
+def _latin_number_phrase_value(phrase: str, *, allow_single_letter: bool = False) -> Optional[int]:
+    """Integer value of either a Roman-numeral abbreviation or a spelled-out Latin cardinal phrase."""
+    if is_latin_roman_numeral(phrase, allow_single_letter=allow_single_letter):
+        vals = [_latin_roman_token_value(t) for t in phrase.split() if strip_punct(t)]
+        return sum(v for v in vals if v is not None)
+    toks = [canonical_compare_key(t, "latin") for t in phrase.split() if strip_punct(t)]
+    if not toks:
+        return None
+    total = 0
+    cur = 0
+    seen_num = False
+    for k in toks:
+        if k == "et":
+            continue
+        if k in ("milia", "millia"):
+            if cur == 0:
+                return None
+            total += cur * 1000
+            cur = 0
+            seen_num = True
+            continue
+        val = _LATIN_NUMBER_EXACT.get(k)
+        if val is None:
+            for stem, hval in _LATIN_HUNDRED_STEMS:
+                if k.startswith(stem) and k[len(stem):] in _LATIN_HUNDRED_ENDS:
+                    val = hval
+                    break
+        if val is None:
+            return None
+        cur += val
+        seen_num = True
+    return (total + cur) if seen_num and (total + cur) > 0 else None
 
 
 def _hebrew_key(clean: str) -> str:
@@ -202,7 +332,7 @@ def _hebrew_key(clean: str) -> str:
         kept.append("ָ" if cp == 0x05C7 else ch)  # qamats qatan -> qamats
         if cp == 0x05BA:
             kept[-1] = "ֹ"  # holem haser for vav = holem
-    key = "".join(kept)
+    key = re.sub(r"\u05b8{2,}", "\u05b8", "".join(kept))
     consonants = "".join(ch for ch in key if "א" <= ch <= "ת")
     if "יהוה" in consonants or "יהוִה" in key:
         # The divine name is pointed differently by different editions (MAM writes a holem);
@@ -245,14 +375,23 @@ def _latin_ortho_key(k: str) -> str:
     s = re.sub(r"^in([lr])", r"i\1\1", s)            # inluminent / illuminent, inrigans / irrigans
     s = re.sub(r"^con([lmr])", r"co\1\1", s)
     s = re.sub(r"^con([pb])", r"com\1", s)            # conpleuit / compleuit
-    s = re.sub(r"^ob([p])", r"op\1", s)
+    s = re.sub(r"^ob([cfgp])", r"o\1\1", s)          # obcumberet / occumberet, obfero / offero, obpono / oppono
     s = re.sub(r"^sub([cfgmpr])", r"su\1\1", s)      # subripuit / surripuit, submitto / summitto
     s = re.sub(r"^exs", "ex", s)
     s = re.sub(r"^adulesc", "adolesc", s)
     s = re.sub(r"^sescent", "sexcent", s)
     s = re.sub(r"^intelleg", "intellig", s)
-    s = re.sub(r"^(at)?tempt", r"\1tent", s)          # temptauit / tentauit
-    s = s.replace("quicqu", "quidqu").replace("md", "nd")  # quicquam / quidquam, eorumdem / eorundem
+    s = re.sub(r"^(at)?temp?t", r"\1tent", s)         # temptauit / temtauit / tentauit
+    s = s.replace("quicqu", "quidqu").replace("md", "nd").replace("ncx", "nx")  # quicquam/quidquam, eorundem, tincxerunt/tinxerunt
+    # Strictly verified classical / late-Latin pure orthographic doublets (same lexeme & inflection).
+    s = {"cotidie": "quotidie", "bubus": "bobus", "reliquid": "reliquit"}.get(s, s)
+    s = re.sub(r"^caerimoni", "caeremoni", s)         # caerimonias / caeremonias
+    s = re.sub(r"^botyr", "butyr", s)                 # botyrum / butyrum
+    s = re.sub(r"^formons", "formos", s)              # formonsae / formosae
+    s = re.sub(r"^deuert", "diuert", s)               # deverterent / diverterent (v->u in canonical key)
+    s = re.sub(r"^armell", "armill", s)               # armellas / armillas
+    s = re.sub(r"^uended", "uendid", s)               # vendedit / vendidit (v->u in canonical key)
+    s = re.sub(r"^sterel", "steril", s)               # stereles / steriles
     # Aspiration first, so Israhel / Israël and Ismahel / Ismaël meet before ae → e.
     s = s.replace("ph", "f").replace("th", "t").replace("ch", "c").replace("h", "")
     s = s.replace("ae", "e").replace("oe", "e").replace("y", "i")
@@ -291,8 +430,15 @@ def _hebrew_matres_key(raw: str) -> str:
     k = unicodedata.normalize("NFD", _hebrew_key(strip_punct(raw)))
     k = re.sub("וֹ", "ֹ", k)              # holem male -> holem
     k = re.sub("(?<=.)וּ", "ֻ", k)         # shuruq (not word-initial) -> qibbuts
+    # qibbuts (+ optional dagesh/shin-sin) + bare vav -> qibbuts (e.g. נְאֻום / פִקֻּודֶיךָ)
+    k = re.sub("(\u05bb)([\u05bc\u05c1\u05c2]*)ו(?![\u05b0-\u05bc\u05c1\u05c2\u05c7])", r"\1\2", k)
+    # matres lectionis adjacent to quiescent alef (רִאישֹׁנָה / רִיאשֹׁנָה; מֵחַטֹּאות / מֵחַטֹּאת)
+    k = re.sub("(\u05b4)([\u05bc\u05c1\u05c2]*)א(?![\u05b0-\u05bc\u05c1\u05c2\u05c7])י(?![\u05b0-\u05bc\u05c1\u05c2\u05c7])", r"\1\2א", k)
+    k = re.sub("(\u05b9)([\u05bc\u05c1\u05c2]*)א(?![\u05b0-\u05bc\u05c1\u05c2\u05c7])ו(?![\u05b0-\u05bc\u05c1\u05c2\u05c7])", r"\1\2א", k)
     # hiriq/tsere (+ dagesh or shin/sin dot, which NFD may order after the vowel) + yod -> vowel
     k = re.sub("([ִֵ])([ּׁׂ]*)י(?![ְ-ּׁׂ])", r"\1\2", k)
+    # Strictly 3fp/2fp verb ending -ֶינָה / -ֶנָה (NEVER fold -ֶךָ/-ֶיךָ or -ֶהָ/-ֶיהָ noun suffixes!)
+    k = re.sub("\u05b6([\u05bc\u05c1\u05c2]*)ינ\u05b8ה$", "\u05b6\\1נ\u05b8ה", k)
     return unicodedata.normalize("NFC", k)
 
 
@@ -315,6 +461,93 @@ def _latin_betacism(forms: List[str]) -> bool:
 _HEB_SHEWA, _HEB_DAGESH, _HEB_HOLEM, _HEB_PATAH = "\u05b0", "\u05bc", "\u05b9", "\u05b7"
 _HEB_HATAF = {"\u05b1": "\u05b6", "\u05b2": "\u05b7", "\u05b3": "\u05b8"}
 _HEB_SHIN_SIN = ("\u05c1", "\u05c2")
+_HEB_VOWELS = frozenset("\u05b0\u05b1\u05b2\u05b3\u05b4\u05b5\u05b6\u05b7\u05b8\u05b9\u05ba\u05bb\u05c7")
+
+
+def _hebrew_consonants(s: str) -> str:
+    return "".join(ch for ch in unicodedata.normalize("NFD", s) if "\u05d0" <= ch <= "\u05ea")
+
+
+def _is_hebrew_ketiv_token(token: str) -> bool:
+    t = token.strip()
+    if not t:
+        return False
+    return any(w.startswith("(") or w.rstrip("׃־").endswith(")") for w in t.split())
+
+
+def _hebrew_ketiv_defective(word: str) -> str:
+    """Consonantal skeleton of a Hebrew ketiv with internal matres ו/י folded (initial & final letters kept)."""
+    cons = _hebrew_consonants(word)
+    if len(cons) <= 2:
+        return cons
+    return cons[0] + "".join(ch for ch in cons[1:-1] if ch not in "וי") + cons[-1]
+
+
+def _is_hebrew_defective_subset(short_word: str, long_word: str) -> bool:
+    """True if ``short_word``'s consonants are obtained from ``long_word``'s consonants strictly by
+    omitting internal matres ו/י (never substituting ו↔י as in Prov 23:24 יָגִיל vs יגול)."""
+    sc, lc = _hebrew_consonants(short_word), _hebrew_consonants(long_word)
+    if not sc or not lc or len(sc) >= len(lc) or sc[0] != lc[0] or sc[-1] != lc[-1]:
+        return False
+    i = 1
+    for ch in lc[1:-1]:
+        if i < len(sc) - 1 and sc[i] == ch:
+            i += 1
+        elif ch not in "וי":
+            return False
+    return i == len(sc) - 1
+
+
+def is_biblical_aramaic_verse(book_slug: str, chapter: int, verse: int) -> bool:
+    """True iff (book_slug, chapter, verse) lies inside one of the 5 MT Biblical Aramaic pericopes
+    (Gen 31:47, Jer 10:11, Ezra 4:8–6:18, Ezra 7:12–26, Dan 2:4–7:28). Fails closed on empty context."""
+    slug = (book_slug or "").lower()
+    if slug == "genesis":
+        return chapter == 31 and verse == 47
+    if slug == "jeremiah":
+        return chapter == 10 and verse == 11
+    if slug == "ezra":
+        return ((chapter == 4 and verse >= 8)
+                or chapter == 5
+                or (chapter == 6 and verse <= 18)
+                or (chapter == 7 and 12 <= verse <= 26))
+    if slug == "daniel":
+        return ((chapter == 2 and verse >= 4)
+                or (3 <= chapter <= 6)
+                or (chapter == 7 and verse <= 28))
+    return False
+
+
+def _aramaic_final_alef_he(forms: List[str]) -> bool:
+    """Biblical Aramaic word-final -ָא/-ָה and -ֵא/-ֵה mater lectionis alternation (Aleppo vs Leningrad).
+    Strictly rejects mappiq (הּ), vowel-bearing final ה/א, and any difference outside the final mater."""
+    words = [f.split() for f in forms]
+    if len({len(w) for w in words}) != 1:
+        return False
+    saw_swap = False
+    for column in zip(*words):
+        if len({_hebrew_key(strip_punct(w)) for w in column}) == 1:
+            continue
+        clusters = [_hebrew_clusters(w) for w in column]
+        if len({len(cl) for cl in clusters}) != 1 or len(clusters[0]) < 2:
+            return False
+        # Every non-final consonant & its vowel marks must agree (or pass pointing convention).
+        if any(len({cl[p][0] for cl in clusters}) != 1 for p in range(len(clusters[0]) - 1)):
+            return False
+        if any(len({frozenset(cl[p][1]) for cl in clusters}) != 1 for p in range(len(clusters[0]) - 1)):
+            return False
+        # Preceding consonant must carry qamats (ָ) or tsere (ֵ) in every form (never unpointed ketiv).
+        prev_vowels = [cl[-2][1] & {"\u05b8", "\u05b5"} for cl in clusters]
+        if any(not pv for pv in prev_vowels) or len({frozenset(pv) for pv in prev_vowels}) != 1:
+            return False
+        finals = [cl[-1] for cl in clusters]
+        if {c for c, _m in finals} != {"א", "ה"}:
+            return False
+        # Strictly NO mappiq (ּ) or vowel on final ה/א (preserves Dan 3:29 אֱלָהּ / אֱלָה!).
+        if any(m & ({_HEB_DAGESH} | _HEB_VOWELS) for _c, m in finals):
+            return False
+        saw_swap = True
+    return saw_swap
 
 
 def _hebrew_clusters(word: str) -> List[Tuple[str, Set[str]]]:
@@ -329,8 +562,9 @@ def _hebrew_clusters(word: str) -> List[Tuple[str, Set[str]]]:
 
 def hebrew_pointing_convention(forms: List[str]) -> str:
     """Same consonants, and every pointing difference is one the Aleppo-tradition and Leningrad
-    editions handle by convention: dagesh (other than a suffix mappiq), vocal/silent shewa, hataf
-    against the full vowel, holem placement, or a point one edition leaves out. Vowel-quality
+    editions handle by convention: dagesh (other than a suffix mappiq or shuruq), vocal/silent shewa,
+    hataf against the full vowel, holem placement, Decalogue double-vocalisation, Jerusalem dual-vowel
+    ordering, adjacent-yod vowel placement, or a point one edition leaves out. Vowel-quality
     differences (אַל / אֶל), a suffix mappiq (לְדַעְתָּהּ / לְדַעְתָּה) and shin/sin swaps return ""
     (they stay in the apparatus). Returns the reason, or "" when it is not a convention."""
     words = [f.split() for f in forms]
@@ -350,17 +584,36 @@ def hebrew_pointing_convention(forms: List[str]) -> str:
         # Holem placement (on the vav or on the letter before it) is a convention only when both
         # forms write the same number of holems.
         holem_free = len({sum(_HEB_HOLEM in m for _c, m in cl) for cl in clusters}) == 1
+        cons_str = "".join(c for c, _m in clusters[0])
+        is_jerusalem = cons_str.endswith("ירושלם") and len(cons_str) <= 8
         last = len(clusters[0]) - 1
-        for pos, letters in enumerate(zip(*clusters)):
+        pos = 0
+        while pos <= last:
+            letters = [cl[pos] for cl in clusters]
             letter = letters[0][0]
             raw = [set(m) for _c, m in letters]
             if len({frozenset(r) for r in raw}) == 1:
+                pos += 1
                 continue
+            # Adjacent-yod vowel placement (Gen 4:18 וּמְחִיָּיאֵל / וּמְחִיּיָאֵל): two consecutive י
+            # carrying the identical single vowel on the first vs the second י (dagesh aside).
+            if letter == "י" and pos + 1 <= last and clusters[0][pos + 1][0] == "י":
+                pair_vows = [
+                    (cl[pos][1] - {_HEB_DAGESH}, cl[pos + 1][1] - {_HEB_DAGESH})
+                    for cl in clusters
+                ]
+                if (all((bool(v1) != bool(v2)) for v1, v2 in pair_vows)
+                        and len({frozenset(v1 | v2) for v1, v2 in pair_vows}) == 1):
+                    kinds.add("adjacent-yod vowel placement")
+                    pos += 2
+                    continue
             mappiq = {pos == last and letter == "ה" and _HEB_DAGESH in r and _HEB_PATAH not in r for r in raw}
             if len(mappiq) > 1:
                 return ""  # suffix mappiq marks the suffix (her / its): a real difference
-            # A dot in vav is shuruq (a vowel), never a mere dagesh.
-            drop = ({_HEB_DAGESH} if letter != "ו" else set()) | ({_HEB_HOLEM} if holem_free else set())
+            # A dot in vav is shuruq (a vowel) unless EVERY form also carries another vowel mark on
+            # that vav (consonantal vav with dagesh forte, e.g. Gen 46:13 וּפֻוָּה, Song 5:2 קְוֻּצּוֹתַי).
+            drop_dagesh = letter != "ו" or all(r & _HEB_VOWELS for r in raw)
+            drop = ({_HEB_DAGESH} if drop_dagesh else set()) | ({_HEB_HOLEM} if holem_free else set())
             base = [r - drop for r in raw]
             shin = [b & dots for b in base]
             if all(shin) and len({frozenset(d) for d in shin}) > 1:
@@ -374,16 +627,38 @@ def hebrew_pointing_convention(forms: List[str]) -> str:
                     kinds.add("holem placement")
                 if diff & dots:
                     kinds.add("shin/sin dot left out")
+                pos += 1
+                continue
+            # Song 5:11 (קְוֻצּוֹתָיו / קְוּצּוֹתָיו): consonantal vav after shewa written with shuruq vs qibbuts
+            if (letter == "ו" and pos > 0 and _HEB_SHEWA in clusters[0][pos - 1][1]
+                    and {frozenset(r) for r in raw} == {frozenset({_HEB_DAGESH}), frozenset({"\u05bb"})}):
+                kinds.add("consonantal vav shuruq / qibbuts")
+                pos += 1
+                continue
+            # Jerusalem Qere Perpetuum dual-vowel ordering (יְרוּשָׁלִַם / יְרוּשָׁלִָם / וִירוּשָׁלָם)
+            if (is_jerusalem and letter == "ל" and pos == last - 1
+                    and all(v and v <= {_HEB_PATAH, "\u05b8", "\u05b4"} and (v & {_HEB_PATAH, "\u05b8"}) for v in vow)):
+                kinds.add("Jerusalem dual-vowel Qere Perpetuum")
+                pos += 1
+                continue
+            # Decalogue double vocalisation (Ta'am Elyon/Tachton: patah+qamats vs single patah/qamats, Exod 20:4, Deut 5:8)
+            dual_pq = {_HEB_PATAH, "\u05b8"}
+            if any(v == dual_pq for v in vow) and all(v and v <= dual_pq for v in vow):
+                kinds.add("double vocalisation (Ta'am Elyon / Tachton)")
+                pos += 1
                 continue
             reduced = {_HEB_SHEWA} | set(_HEB_HATAF)
             if len({frozenset(_HEB_HATAF.get(x, x) for x in v) for v in vow}) == 1:
                 kinds.add("hataf against the full vowel")  # חֲ / חַ
+                pos += 1
                 continue
             if all(v <= reduced for v in vow):
                 kinds.add("shewa / hataf")  # vocal or silent shewa, or hataf, against shewa or nothing
+                pos += 1
                 continue
             if any(not r for r in raw):
                 kinds.add("a vowel point left out by one edition")  # one edition leaves the letter bare
+                pos += 1
                 continue
             return ""  # different vowels, or shewa against a full vowel (שְׁמַע / שָׁמַע)
     if not kinds:
@@ -391,13 +666,58 @@ def hebrew_pointing_convention(forms: List[str]) -> str:
     return "Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): " + ", ".join(sorted(kinds))
 
 
-def _greek_ortho_variant(keys: Set[str]) -> str:
+def _greek_koine_spelling_key(k: str) -> str:
+    """Strictly unambiguous Koine spelling doublets (never collapses -αν/-ον, ἐάν/ἄν, ἑαυτοῦ/αὐτοῦ,
+    γένημα/γέννημα, or ἴδετε/εἴδετε)."""
+    s = k
+    s = re.sub(r"εξ([οω])λοθρ", r"εξ\1λεθρ", s)       # ἐξολεθρ- / ἐξολοθρ-, ἐξωλεθρ- / ἐξωλοθρ-
+    s = re.sub(r"^(ου|μη)θ(εισ|εν|ενοσ|ενι|ενα|εμια|εμιασ|εμιαν)$", r"\1δ\2", s)  # οὐθείς/οὐδείς, μηθείς/μηδείς
+    if s == "εχθεσ":
+        s = "χθεσ"                                    # ἐχθές / χθές
+    s = re.sub(r"^εννατ([οηαω])", r"ενατ\1", s)       # ἔνατος / ἔννατος
+    s = re.sub(r"^εννενηκοντ", "ενενηκοντ", s)        # ἐνενήκοντα / ἐννενήκοντα
+    s = re.sub(r"^τεσσερ", "τεσσαρ", s)               # τεσσαρ- / τεσσερ-
+    s = s.replace("γιγν", "γιν")                      # γίγνομαι/γίνομαι, γιγνώσκω/γινώσκω
+    s = s.replace("τετρααρχ", "τετραρχ")              # τετραάρχ- / τετράρχ-
+    s = re.sub(r"^αλι(?=εισ|εων|ευ|εα)", "αλε", s)    # ἁλεεῖς / ἁλιεῖς
+    return s
+
+
+_GREEK_CRASIS: Dict[str, Tuple[str, str]] = {
+    "καγω": ("και", "εγω"),
+    "καμοι": ("και", "εμοι"),
+    "καμε": ("και", "εμε"),
+    "κακει": ("και", "εκει"),
+    "κακειθεν": ("και", "εκειθεν"),
+    "κακεινοσ": ("και", "εκεινοσ"),
+    "κακεινη": ("και", "εκεινη"),
+    "κακεινο": ("και", "εκεινο"),
+    "κακεινοι": ("και", "εκεινοι"),
+    "κακειναι": ("και", "εκειναι"),
+    "κακεινα": ("και", "εκεινα"),
+    "κακεινουσ": ("και", "εκεινουσ"),
+    "κακεινασ": ("και", "εκεινασ"),
+    "κακεινων": ("και", "εκεινων"),
+    "κακεινον": ("και", "εκεινον"),
+    "κακεινην": ("και", "εκεινην"),
+    "κακεινω": ("και", "εκεινω"),
+    "κακεινησ": ("και", "εκεινησ"),
+    "κακεινου": ("και", "εκεινου"),
+}
+
+
+def _greek_ortho_variant(keys: Set[str], raw_forms: Optional[Iterable[str]] = None) -> str:
     """Return a reason if the differing Greek keys are a recognised spelling variant."""
     if len(keys) < 2:
+        return ""
+    # Morphological distinctness guard: ἴδετε (aorist imperative "see!") vs εἴδετε (aorist indicative "you saw")
+    if keys == {"ιδετε", "ειδετε"}:
         return ""
     if (all(_greek_number_word_value(k) is not None for k in keys)
             and len({k.replace("τεσσερ", "τεσσαρ") for k in keys}) == 1):
         return "Number-word spelling convention (τεσσαρ- / τεσσερ-)"
+    if len({_greek_koine_spelling_key(k) for k in keys}) == 1:
+        return "Koine orthographic doublet (ἐξολεθρ-/οὐθείς/ἔνατος/γιγν-/τετραάρχ-/ἁλεεῖς type)"
     stems = {re.sub(r"ν$", "", k) for k in keys}
     if len(stems) == 1 and _movable_nu_stem(next(iter(stems))):
         return "Euphonic movable-nu (-ν) variation"
@@ -405,6 +725,13 @@ def _greek_ortho_variant(keys: Set[str]) -> str:
         return "Movable final sigma (οὕτω/οὕτως type)"
     if len({k.replace("ει", "ι") for k in keys}) == 1:
         return "Koine/Uncial itacistic spelling (ει / ι equivalence)"
+    # Single-edit εει ↔ ει guard (e.g. Σεμεεὶ / Σεμεῒ): strictly requires diaeresis ϊ/ΐ/ῒ OR
+    # min(len) >= 4 (never an unbounded while-loop; never collapses short forms like δέει [4] / δεῖ [3]).
+    if (any("εει" in k for k in keys)
+            and len({k.replace("εει", "ει") for k in keys}) == 1
+            and (min(len(k) for k in keys) >= 4
+                 or (raw_forms is not None and any("\u0308" in unicodedata.normalize("NFD", f) for f in raw_forms)))):
+        return "Koine/Uncial itacistic spelling (εει / ει equivalence)"
     if len({re.sub(r"^(δα|λε)β(ει|ι)", r"\1υ\2", k).replace("ει", "ι") for k in keys}) == 1:
         return "Semitic proper-name transliteration convention (Δαυίδ / Δαυεὶδ / Δαβίδ, Λευί / Λεβί)"
     combined = {re.sub(r"ν$", "", k.replace("ει", "ι")) for k in keys}
@@ -415,7 +742,7 @@ def _greek_ortho_variant(keys: Set[str]) -> str:
     if len({k.replace("μψ", "ψ").replace("μφθ", "φθ") for k in keys}) == 1:
         return "Nasal spelling (λημψ- / ληψ-)"
     if len({_greek_assimilate(k) for k in keys}) == 1:
-        return "Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ- type)"
+        return "Prefix assimilation spelling (συνπ-/συμπ-, ἐνκ-/ἐγκ-, συνζ-/συζ-, Κενχρ-/Κεγχρ- type)"
     # Doubled ρ/π/κ/σ, and νν only in Ἰωάννης/Ἄννα: λλ and other doublings separate tenses and words
     # (βάλλειν / βαλεῖν, ἀποστέλλει / ἀποστελεῖ, μέλλει / μέλει, γέννημα / γένημα).
     if min(len(k) for k in keys) >= 5 and len({_DOUBLE_SPELLING.sub(r"\1", k) for k in keys}) == 1:
@@ -446,11 +773,14 @@ _ELIDED.update({"καθ": "κατα", "μεθ": "μετα", "αφ": "απο", "�
 
 
 def _movable_nu_stem(stem: str) -> bool:
-    """Movable ν follows -σι (dative plural, 3rd plural -ουσι), a verb ending in -ε (ἔλεγε, εἶπε),
-    and ἐστί / εἴκοσι — never -ει, where λέγει / λέγειν are two forms (3rd singular, infinitive)."""
+    """Movable ν follows -σι/-ξι/-ψι (dative plural, 3rd plural -ουσι), a verb ending in -ε
+    (ἔλεγε, εἶπε), -εστι (ἐστί, ἔξεστι, πάρεστι, ἔνεστι), and εἴκοσι — never -ει, where
+    λέγει / λέγειν are two forms (3rd singular, infinitive)."""
     if len(stem) < 3:
         return False
-    return stem.endswith("σι") or stem in ("εστι", "εικοσι") or (stem.endswith("ε") and not stem.endswith("ει"))
+    return (stem.endswith(("σι", "ξι", "ψι", "εστι"))
+            or stem == "εικοσι"
+            or (stem.endswith("ε") and not stem.endswith("ει")))
 
 
 def _greek_ν_names(k: str) -> str:
@@ -458,12 +788,14 @@ def _greek_ν_names(k: str) -> str:
 
 
 def _greek_assimilate(k: str) -> str:
-    """Spell nasal prefixes the assimilated way (B and Swete often leave συν-/ἐν- unassimilated)."""
+    """Spell nasal prefixes & velar nasals the assimilated way (B and Swete often leave συν-/ἐν- unassimilated)."""
     k = re.sub(r"^(συ|ε|παλι)ν(?=[πβφψμ])", r"\1μ", k)
     k = re.sub(r"^(συ|ε|παλι)ν(?=[κγχξ])", r"\1γ", k)
     k = re.sub(r"^συν(?=λ)", "συλ", k)
     k = re.sub(r"^συν(?=ρ)", "συρ", k)
     k = re.sub(r"^συν(?=σ)", "συσ", k)
+    k = re.sub(r"^συν(?=ζ)", "συ", k)        # συνζητεῖν / συζητεῖν
+    k = re.sub(r"ν(?=[χγ])", "γ", k)         # Κενχρεαῖς / Κεγχρεαῖς
     return k
 
 
@@ -483,7 +815,50 @@ def _subscript_positions(form: str) -> Tuple[int, ...]:
     return tuple(out)
 
 
-def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str) -> Tuple[bool, str]:
+_AIRO_AORIST_RE = re.compile(r"^(απ|επ|εξ|δι|κατ|μετ|παρ|συν|υπερ|αν)?ηρ(?:α|ασ|ε|εν|αμεν|ατε|αν)$")
+_ZOO_NOUN_KEYS = frozenset({"ζωον", "ζωου", "ζωω", "ζωα", "ζωων", "ζωοισ"})
+_ODE_NOUN_KEYS = frozenset({"ωδη", "ωδησ", "ωδην", "ωδαι", "ωδων", "ωδαισ", "ωδασ"})
+
+
+def _non_morphological_iota_subscript(accented_forms: List[str]) -> bool:
+    """True iff the ONLY iota-subscript difference among ``accented_forms`` (which share the exact
+    same letters) lies on a strictly non-morphological 19th-c. orthographic stem position:
+    αἴρω aorist augment (ἀπῆραν/ἀπῇραν, ἦραν/ᾖραν, ἦρα/ᾖρα, ἐξῆρεν/ἐξῇρεν), crasis κἀγώ/κᾀγώ,
+    or lexical stems ἀθῷος/ἀθῶος, ζῷον/ζῶον, ᾠδή/ὠδή, σῴζω/σώζω.
+    Every case/mood ending difference (γῆ/γῇ, ᾖ/ἡ, ᾗ/ἡ, τῇ/τῆ, ᾠδή/ᾠδῇ, ζῶ/ζῷ, declined names)
+    returns False and stays substantive."""
+    if not accented_forms or any(" " in f.strip() for f in accented_forms):
+        return False
+    key = canonical_compare_key(accented_forms[0], "greek")
+    if not key:
+        return False
+    pos_sets = [set(_subscript_positions(f)) for f in accented_forms]
+    diff_pos = set().union(*pos_sets) - set.intersection(*pos_sets)
+    if not diff_pos:
+        return False
+    if key == "καγω":
+        return diff_pos == {1}
+    m = _AIRO_AORIST_RE.match(key)
+    if m:
+        return diff_pos == {len(m.group(1) or "")}
+    if key.startswith("αθω") and len(key) >= 4:
+        return diff_pos == {2}
+    if key in _ZOO_NOUN_KEYS:
+        return diff_pos == {1}
+    if key in _ODE_NOUN_KEYS:
+        return diff_pos == {0}
+    if "σωζ" in key:
+        return diff_pos == {key.index("σωζ") + 1}
+    return False
+
+
+def classify_forms(
+    raw_forms: Iterable[str],
+    keys: Dict[str, str],
+    language: str,
+    *,
+    is_aramaic: bool = False,
+) -> Tuple[bool, str]:
     """Decide whether differing surface forms are orthographic noise.
 
     ``raw_forms`` excludes omissions; ``keys`` maps each raw form to its canonical key."""
@@ -508,7 +883,23 @@ def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str
             # Phrases must also have identical aligned wording and order.
             if equivalent and (len(words[0]) == 1 or len(form_keys) == 1):
                 return True, "Letter-numeral abbreviation matched to an attested number of the same value"
+        # Multi-word Greek numeral phrases (e.g. Exod 30:23 σν᾽ = διακοσίους πεντήκοντα,
+        # Num 2:31 ν᾽ ἑπτὰ = πεντηκονταεπτά, Num 29:15 ιδ᾽ = τέσσαρας καὶ δέκα, Judg 20:25 η᾽ καὶ ι᾽ = ὀκτωκαίδεκα).
+        # Strict exact-integer match only; at least one side must be fully spelled out.
+        spelled_forms = [f for f in forms if not any(is_letter_numeral(t) for t in f.split())]
+        if spelled_forms:
+            vals = [_greek_number_phrase_value(f) for f in forms]
+            if None not in vals and len(set(vals)) == 1:
+                spelled_keys = {keys.get(f, " ".join(canonical_compare_key(t, language) for t in f.split())) for f in spelled_forms}
+                if len(spelled_keys) <= 1 or _greek_ortho_variant(spelled_keys, spelled_forms):
+                    return True, "Letter-numeral abbreviation matched to an attested number of the same value"
         return False, "Numeral readings differ in value, wording, or cannot be verified as equivalent"
+    if language == "latin" and any(is_latin_roman_numeral(f, allow_single_letter=True) for f in forms):
+        has_spelled = any(not is_latin_roman_numeral(f, allow_single_letter=True) for f in forms)
+        if has_spelled:
+            vals = [_latin_number_phrase_value(f, allow_single_letter=True) for f in forms]
+            if None not in vals and len(set(vals)) == 1:
+                return True, "Roman-numeral abbreviation matched to an attested spelled-out Latin number of the same value"
     if len({strip_punct(f) for f in forms}) <= 1:
         return True, "Punctuation / spacing difference only"
     if len(form_keys) == 1:
@@ -519,7 +910,10 @@ def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str
                 return True, "Nomen sacrum (contracted sacred name) for the full word"
             accented = [f for f in forms if any(unicodedata.category(c) == "Mn" for c in unicodedata.normalize("NFD", f))]
             # Iota subscript marks the dative (γῆ / γῇ, μεγάλη / μεγάλῃ): a difference of case, not of accent.
+            # Exclude strictly non-morphological stem subscripts (αἴρω aorist, κἀγώ, ἀθῷος, ζῷον, ᾠδή, σῴζω).
             if len(accented) > 1 and len({_subscript_positions(f) for f in accented}) > 1:
+                if _non_morphological_iota_subscript(accented):
+                    return True, "Non-morphological iota-subscript convention (αἴρω aorist / κἀγώ / ἀθῷος / ζῷον / ᾠδή / σῴζω)"
                 return False, IOTA_SUBSCRIPT_NOTE
             acute_only = {unicodedata.normalize("NFC", unicodedata.normalize("NFD", strip_punct(f).lower()).replace("̀", "́")) for f in accented}
             if len(acute_only) > 1:
@@ -528,7 +922,7 @@ def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str
         if language == "latin":
             return True, "Latin orthographic convention (u/v, i/j, æ/ae, capitalisation)"
         if language == "hebrew":
-            if any(f.startswith("(") for f in forms):
+            if any(_is_hebrew_ketiv_token(f) for f in forms):
                 return True, "Ketiv (written form) given by both; MAM also prints the qere"
             return True, "Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention"
         return True, "Capitalisation / diacritic convention"
@@ -539,18 +933,62 @@ def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str
         if len(joined) == 1:
             # Same letters, different word division (Greek OCR "αὖ. τοὺς" for αὐτοὺς; Hebrew פַּת בַּג / פַּתְבַּג)
             return True, "Word division differs (same letters written as one word or two)"
-        if language == "greek" and words_per_form == {1, 2}:
-            one_w = {k for k in form_keys if " " not in k}
-            two_w = [k.split() for k in form_keys if len(k.split()) == 2]
-            if two_w and all(_movable_nu_stem(re.sub(r"ν$", "", a)) for a, _b in two_w):
-                expanded = {re.sub(r"ν$", "", a) + mid + b for a, b in two_w for mid in ("", "ν")}
-                if one_w <= expanded and len({(re.sub(r"ν$", "", a), b) for a, b in two_w}) == 1:
-                    return True, "Word division differs with movable ν (e.g. ἐπάταξεντὸν / ἐπάταξε τὸν)"
+        if language == "hebrew":
+            joined_raw = [f.replace(" ", "") for f in forms]
+            if hebrew_pointing_convention(joined_raw):
+                return True, "Word division differs (same letters written as one word or two, with boundary pointing convention)"
+            if any(_is_hebrew_ketiv_token(f) for f in forms) and len({_hebrew_consonants(f) for f in forms}) == 1:
+                return True, "Ketiv (written form) word division differs"
+        if language == "greek":
+            if words_per_form == {1, 2}:
+                crasis_expanded = {
+                    (" ".join(_GREEK_CRASIS[k]) if k in _GREEK_CRASIS else k)
+                    for k in form_keys
+                }
+                if len(crasis_expanded) == 1:
+                    return True, "Greek crasis (καὶ ἐγώ / κἀγώ type)"
+                one_w = {k for k in form_keys if " " not in k}
+                two_w = [k.split() for k in form_keys if len(k.split()) == 2]
+                if two_w and all(_movable_nu_stem(re.sub(r"ν$", "", a)) for a, _b in two_w):
+                    expanded = {re.sub(r"ν$", "", a) + mid + b for a, b in two_w for mid in ("", "ν")}
+                    if one_w <= expanded and len({(re.sub(r"ν$", "", a), b) for a, b in two_w}) == 1:
+                        return True, "Word division differs with movable ν (e.g. ἐπάταξεντὸν / ἐπάταξε τὸν)"
+            ortho_reason = _greek_ortho_variant(joined, forms)
+            if ortho_reason:
+                if (
+                    "itacistic" in ortho_reason.lower()
+                    and min(len(j) for j in joined) < 8
+                    and not any(len(strip_punct(w)) == 1 for f in forms for w in f.split())
+                ):
+                    return False, ""
+                return True, f"Word division differs with spelling convention ({ortho_reason})"
         return False, ""
     if language == "greek":
-        reason = _greek_ortho_variant(form_keys)
-        if reason and all(len(f.split()) == 1 for f in forms):
-            return True, reason
+        if all(len(f.split()) == 1 for f in forms):
+            reason = _greek_ortho_variant(form_keys, forms)
+            if reason:
+                return True, reason
+        else:
+            raw_cols = list(zip(*[f.split() for f in forms]))
+            key_cols = list(zip(*[keys.get(f, " ".join(canonical_compare_key(t, language) for t in f.split())).split() for f in forms]))
+            if len(raw_cols) == len(key_cols):
+                col_reasons: List[str] = []
+                ok_all = True
+                for rcol, kcol in zip(raw_cols, key_cols):
+                    kset = set(kcol)
+                    if len(kset) <= 1:
+                        acc = [w for w in rcol if any(unicodedata.category(c) == "Mn" for c in unicodedata.normalize("NFD", w))]
+                        if len(acc) > 1 and len({_subscript_positions(w) for w in acc}) > 1 and not _non_morphological_iota_subscript(acc):
+                            ok_all = False
+                            break
+                        continue
+                    r = _greek_ortho_variant(kset, rcol)
+                    if not r:
+                        ok_all = False
+                        break
+                    col_reasons.append(r)
+                if ok_all and col_reasons:
+                    return True, "; ".join(sorted(set(col_reasons)))
     elif language == "latin":
         if _latin_distinct(form_keys):
             return False, ""
@@ -564,15 +1002,48 @@ def classify_forms(raw_forms: Iterable[str], keys: Dict[str, str], language: str
         reason = hebrew_pointing_convention(forms)
         if reason:
             return True, reason
+        matres_forms = [" ".join(_hebrew_matres_key(w) for w in f.split()) for f in forms]
+        matres_reason = hebrew_pointing_convention(matres_forms)
+        if matres_reason:
+            return True, "Plene / defective spelling with " + matres_reason[0].lower() + matres_reason[1:]
+        # Pentateuchal Qere Perpetuum: (וְ|הַ)?הִוא vs (וְ|הַ)?הִיא (hiriq on ה — never masculine הוּא!)
+        if all(len(f.split()) == 1 for f in forms):
+            qp_keys = {re.sub(r"^(וְ|הַ|וְהַ)?הִוא$", r"\1הִיא", _hebrew_key(strip_punct(f))) for f in forms}
+            if len(qp_keys) == 1 and any("הִוא" in _hebrew_key(strip_punct(f)) for f in forms):
+                return True, "Pentateuchal Qere Perpetuum (הִוא / הִיא)"
+        # Ketiv plene/defective match when one witness carries a parenthesised (ketiv) token
+        if any(_is_hebrew_ketiv_token(f) for f in forms):
+            wcols = list(zip(*[f.split() for f in forms]))
+            if wcols and all(len({_hebrew_ketiv_defective(w) for w in col}) == 1 for col in wcols):
+                return True, "Ketiv (written form) plene/defective spelling convention"
+        # WLC bare unpointed ketiv that is a strict defective subset of MAM's pointed form (never ו↔י swap!)
+        if all(len(f.split()) == len(forms[0].split()) for f in forms) and len(forms) == 2:
+            w1s, w2s = forms[0].split(), forms[1].split()
+            has_unpointed = (not _has_hebrew_niqqud(forms[0])) != (not _has_hebrew_niqqud(forms[1]))
+            if has_unpointed:
+                unp_ws, ptd_ws = (w1s, w2s) if not _has_hebrew_niqqud(forms[0]) else (w2s, w1s)
+                if all(
+                    _hebrew_consonants(u) == _hebrew_consonants(p) or _is_hebrew_defective_subset(u, p)
+                    for u, p in zip(unp_ws, ptd_ws)
+                ):
+                    return True, "Unpointed defective ketiv against pointed qere (same consonants modulo internal matres)"
+        # Biblical Aramaic final -א/-ה mater lectionis ONLY inside the 5 Biblical Aramaic pericopes!
+        if is_aramaic and _aramaic_final_alef_he(forms):
+            return True, "Biblical Aramaic final א/ה mater lectionis convention"
     return False, ""
 
 
-def is_orthographic_equivalence(forms: List[str], language: str) -> Tuple[bool, str]:
+def is_orthographic_equivalence(forms: List[str], language: str, *, is_aramaic: bool = False) -> Tuple[bool, str]:
     """Backwards-compatible wrapper: True if the forms differ only orthographically.
     An empty form means one witness omits the word, which is never orthographic."""
     if any(not strip_punct(f) for f in forms):
         return False, ""
-    return classify_forms(forms, {f: canonical_compare_key(f, language) for f in forms}, language)
+    return classify_forms(
+        forms,
+        {f: " ".join(canonical_compare_key(t, language) for t in f.split()) for f in forms},
+        language,
+        is_aramaic=is_aramaic,
+    )
 
 
 def normalize_critical_token(raw_tok: str, is_sentence_start: bool, language: str, next_tok: str = "") -> str:
@@ -677,6 +1148,97 @@ def _resolve_letter_numerals(tokens_by_sig: Dict[str, List[str]], keys_by_sig: D
                     keys_by_sig[sig][i] = f"num:{_greek_letter_value(token)}"
 
 
+def _mark_hebrew_ketiv_qere_slots(built: List[Tuple[VariationSlot, Dict[str, Tuple[str, str]], bool]]) -> None:
+    """Pre-merge pass for Hebrew Ketiv/Qere presentation (both '(ketiv) qere' and 'qere (ketiv)',
+    including multi-word ketivs/qeres and 'Prov 31:27' where WLC prints only the qere).
+
+    Runs strictly BEFORE _merge_variation_units() so unhandled Qere/Ketiv slots cannot glue onto
+    adjacent genuine variants. Never folds non-omission Ketiv divergences (2 Kgs 6:25, Prov 23:24,
+    Dan 3:5, Dan 7:23)."""
+    n = len(built)
+    if n < 2:
+        return
+
+    def is_paseq_or_bracket(sl: VariationSlot) -> bool:
+        if sl.kind != "orthographic_noise" or "om." not in sl.raw_forms:
+            return False
+        pres = [f for f in sl.raw_forms if f != "om."]
+        return all(
+            all(w == "׀" or (w.startswith("[") and w.rstrip("׃").endswith("]")) for w in f.split())
+            for f in pres
+        )
+
+    def ketiv_holders(sl: VariationSlot) -> Set[str]:
+        return {s for f, sigs in sl.raw_forms.items() if f != "om." and _is_hebrew_ketiv_token(f) for s in sigs}
+
+    def is_matched_ketiv(sl: VariationSlot) -> bool:
+        return sl.kind != "substantive_variant" and "om." not in sl.raw_forms and bool(ketiv_holders(sl))
+
+    def is_qere_om_slot(sl: VariationSlot, holders: Set[str]) -> bool:
+        if sl.kind != "substantive_variant" or "om." not in sl.raw_forms:
+            return False
+        pres = [f for f in sl.raw_forms if f != "om."]
+        if not pres or any(_is_hebrew_ketiv_token(f) for f in pres):
+            return False
+        pres_sigla = {s for f in pres for s in sl.raw_forms[f]}
+        om_sigla = set(sl.raw_forms["om."])
+        return bool(pres_sigla) and pres_sigla <= holders and bool(om_sigla - holders)
+
+    # 1. Ketiv-only slot where WLC prints the Qere directly (e.g. Prov 31:27 '(הילכת)' vs 'om.' before 'הֲלִיכ֣וֹת')
+    for i, (sl, _e, _ins) in enumerate(built):
+        if sl.kind != "substantive_variant" or "om." not in sl.raw_forms:
+            continue
+        pres = [f for f in sl.raw_forms if f != "om."]
+        if not pres or not all(all(_is_hebrew_ketiv_token(w) for w in f.split()) for f in pres):
+            continue
+        # Require an adjacent agreed slot (unanimous or orthographic non-omission) where the other witness prints Qere
+        adj_agreed = False
+        for step in (-1, 1):
+            j = i + step
+            while 0 <= j < n and is_paseq_or_bracket(built[j][0]):
+                j += step
+            if 0 <= j < n and built[j][0].kind != "substantive_variant" and "om." not in built[j][0].raw_forms:
+                adj_agreed = True
+                break
+        if adj_agreed:
+            sl.kind = "orthographic_noise"
+            sl.notes = "Ketiv / qere presentation: MAM prints both ketiv and qere; WLC prints qere only"
+
+    # 2. Contiguous matched Ketiv spans: mark adjacent Qere 'om.' slots (after or before, up to max(2, span_len) words)
+    i = 0
+    while i < n:
+        if not is_matched_ketiv(built[i][0]):
+            i += 1
+            continue
+        ks = i
+        holders = ketiv_holders(built[i][0])
+        while i + 1 < n and is_matched_ketiv(built[i + 1][0]) and (ketiv_holders(built[i + 1][0]) & holders):
+            holders |= ketiv_holders(built[i + 1][0])
+            i += 1
+        ke = i
+        max_qere = max(2, ke - ks + 1)
+        # Prefer right side ((ketiv) qere), else left side (qere (ketiv))
+        marked_any = False
+        for step, start in ((1, ke + 1), (-1, ks - 1)):
+            j = start
+            taken = 0
+            while 0 <= j < n and taken < max_qere:
+                if is_paseq_or_bracket(built[j][0]):
+                    j += step
+                    continue
+                if is_qere_om_slot(built[j][0], holders):
+                    built[j][0].kind = "orthographic_noise"
+                    built[j][0].notes = "Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only"
+                    taken += 1
+                    marked_any = True
+                    j += step
+                else:
+                    break
+            if marked_any:
+                break
+        i += 1
+
+
 def align_witnesses_for_verse(
     verse_num: int,
     witness_texts: Dict[str, str],
@@ -684,6 +1246,8 @@ def align_witnesses_for_verse(
     language: str,
     external_apparatus: List[str] | None = None,
     pivot_preference: Optional[List[str]] = None,
+    book_slug: str = "",
+    chapter: int = 0,
 ) -> CollatedVerse:
     """Align all witness texts for one verse into word/phrase variation slots."""
     cv = CollatedVerse(
@@ -691,10 +1255,13 @@ def align_witnesses_for_verse(
         witness_texts=witness_texts,
         witness_weights=witness_weights,
         external_apparatus=external_apparatus or [],
+        book_slug=book_slug,
+        chapter=chapter,
     )
     if not witness_texts:
         return cv
 
+    is_aramaic = language == "hebrew" and is_biblical_aramaic_verse(book_slug, chapter, verse_num)
     tokens_by_sig = {sig: tokenize_for_alignment(txt, language) for sig, txt in witness_texts.items()}
     keys_by_sig = {sig: [canonical_compare_key(t, language) for t in toks] for sig, toks in tokens_by_sig.items()}
     if language == "greek":
@@ -716,8 +1283,10 @@ def align_witnesses_for_verse(
 
     ordered_sigla = sorted(witness_texts.keys(), key=lambda s: (-witness_weights.get(s, 0.5), s))
     preferred = [s for s in (pivot_preference or []) if s in tokens_by_sig and tokens_by_sig[s]]
+    preferred_clean = [s for s in preferred if GAP_WORD not in tokens_by_sig[s]]
     complete = [s for s in ordered_sigla if s not in fragmentary and tokens_by_sig[s]]
-    pivot_sig = (preferred or complete or ordered_sigla)[0]
+    complete_clean = [s for s in complete if GAP_WORD not in tokens_by_sig[s]]
+    pivot_sig = (preferred_clean or complete_clean or preferred or complete or ordered_sigla)[0]
     others = [s for s in ordered_sigla if s != pivot_sig]
     pivot_tokens = tokens_by_sig[pivot_sig]
     pivot_keys = keys_by_sig[pivot_sig]
@@ -735,19 +1304,87 @@ def align_witnesses_for_verse(
                     pos_map[i1 + off][sig] = (w_tokens[j1 + off], w_keys[j1 + off])
             elif tag == "replace":
                 p_len, w_len = i2 - i1, j2 - j1
-                common = min(p_len, w_len)
-                for off in range(common):
-                    pos_map[i1 + off][sig] = (w_tokens[j1 + off], w_keys[j1 + off])
-                if p_len > w_len:
-                    for off in range(common, p_len):
+                w_slice = w_tokens[j1:j2]
+                wk_slice = w_keys[j1:j2]
+                # Never fabricate an omission vote or discard a witness's readable word when a
+                # replace span contains GAP_WORD ([…]) — fixes Gen 40:13, Gen 1:29, Gen 9:19.
+                if GAP_WORD in w_slice:
+                    if p_len > w_len:
+                        # Align leading non-gap tokens from left, trailing non-gap tokens from right,
+                        # and fill the remaining pivot positions with GAP_WORD (no vote), never "".
+                        left = 0
+                        while left < w_len and w_slice[left] != GAP_WORD:
+                            pos_map[i1 + left][sig] = (w_slice[left], wk_slice[left])
+                            left += 1
+                        right = 0
+                        while right < w_len - left and w_slice[w_len - 1 - right] != GAP_WORD:
+                            pos_map[i2 - 1 - right][sig] = (w_slice[w_len - 1 - right], wk_slice[w_len - 1 - right])
+                            right += 1
+                        for pos_idx in range(i1 + left, i2 - right):
+                            pos_map[pos_idx][sig] = (GAP_WORD, GAP_WORD)
+                    elif w_len > p_len and w_slice[-1] == GAP_WORD and p_len >= 2:
+                        # Trailing gap pairs with the last pivot slot; preceding non-gap words stay intact (Gen 1:29)
+                        pos_map[i2 - 1][sig] = (GAP_WORD, GAP_WORD)
+                        rem_p = p_len - 1
+                        rem_w = w_len - 1
+                        common_r = min(rem_p, rem_w)
+                        for off in range(common_r):
+                            pos_map[i1 + off][sig] = (w_slice[off], wk_slice[off])
+                        if rem_w > rem_p:
+                            target = i1 + common_r - 1
+                            tok, key = pos_map[target][sig]
+                            extra_t = " ".join(w_slice[common_r:rem_w])
+                            extra_k = " ".join(wk_slice[common_r:rem_w])
+                            pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
+                    elif w_len > p_len and w_slice[0] == GAP_WORD and p_len == 1 and sig not in ins_map[i2]:
+                        # Leading gap covers the pivot word; readable trailing word(s) sit as insertion (Gen 9:19)
+                        pos_map[i1][sig] = (GAP_WORD, GAP_WORD)
+                        ins_map[i2][sig] = (" ".join(w_slice[1:]), " ".join(wk_slice[1:]))
+                    elif w_len > p_len and w_slice[0] == GAP_WORD and p_len >= 2:
+                        pos_map[i1][sig] = (GAP_WORD, GAP_WORD)
+                        rem_p = p_len - 1
+                        rem_w = w_len - 1
+                        common_r = min(rem_p, rem_w)
+                        for off in range(common_r):
+                            pos_map[i1 + 1 + off][sig] = (w_slice[1 + off], wk_slice[1 + off])
+                        if rem_w > rem_p:
+                            target = i1 + common_r
+                            tok, key = pos_map[target][sig]
+                            extra_t = " ".join(w_slice[1 + common_r:])
+                            extra_k = " ".join(wk_slice[1 + common_r:])
+                            pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
+                    else:
+                        common = min(p_len, w_len)
+                        for off in range(common):
+                            pos_map[i1 + off][sig] = (w_slice[off], wk_slice[off])
+                        if w_len > p_len:
+                            target = i1 + common - 1
+                            tok, key = pos_map[target][sig]
+                            extra_t = " ".join(w_slice[common:])
+                            extra_k = " ".join(wk_slice[common:])
+                            pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
+                elif (language == "hebrew" and p_len >= 2 and w_len == 1
+                        and _is_hebrew_ketiv_token(pivot_tokens[i2 - 1])
+                        and _hebrew_ketiv_defective(pivot_tokens[i2 - 1]) == _hebrew_ketiv_defective(w_slice[0])):
+                    # Hebrew 'qere (ketiv)' vs plene/defective WLC ketiv (e.g. Judg 1:27, Ps 105:28,
+                    # Ezek 16:25, 2 Kgs 18:27): align WLC's ketiv onto the pivot's (ketiv) slot.
+                    for off in range(p_len - 1):
                         pos_map[i1 + off][sig] = ("", "")
-                elif w_len > p_len:
-                    # Attach the extra words to the last replaced token so phrase variants stay coherent
-                    target = i1 + common - 1
-                    tok, key = pos_map[target][sig]
-                    extra_t = " ".join(w_tokens[j1 + common: j2])
-                    extra_k = " ".join(w_keys[j1 + common: j2])
-                    pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
+                    pos_map[i2 - 1][sig] = (w_slice[0], wk_slice[0])
+                else:
+                    common = min(p_len, w_len)
+                    for off in range(common):
+                        pos_map[i1 + off][sig] = (w_tokens[j1 + off], w_keys[j1 + off])
+                    if p_len > w_len:
+                        for off in range(common, p_len):
+                            pos_map[i1 + off][sig] = ("", "")
+                    elif w_len > p_len:
+                        # Attach the extra words to the last replaced token so phrase variants stay coherent
+                        target = i1 + common - 1
+                        tok, key = pos_map[target][sig]
+                        extra_t = " ".join(w_tokens[j1 + common: j2])
+                        extra_k = " ".join(w_keys[j1 + common: j2])
+                        pos_map[target][sig] = ((tok + " " + extra_t).strip(), (key + " " + extra_k).strip())
             elif tag == "delete":
                 for i in range(i1, i2):
                     pos_map[i][sig] = ("", "")
@@ -789,7 +1426,7 @@ def align_witnesses_for_verse(
             kind = "substantive_variant"
             note = "Addition / omission between witnesses" if insertion else "Omission in some witnesses"
         else:
-            is_ortho, reason = classify_forms(raw_by_form.keys(), form_keys, language)
+            is_ortho, reason = classify_forms(raw_by_form.keys(), form_keys, language, is_aramaic=is_aramaic)
             kind, note = ("orthographic_noise", reason) if is_ortho else ("substantive_variant", "Lexical, morphological, or word-order variant")
             if reason == IOTA_SUBSCRIPT_NOTE:
                 # Same letters, but the subscript makes it another case: give it its own key so it is weighed.
@@ -858,6 +1495,8 @@ def align_witnesses_for_verse(
 
     built = [(build_slot(e, 0, insertion=ins), e, ins) for e, ins in slot_entries]
     built = [(s, e, ins) for s, e, ins in built if s]
+    if language == "hebrew":
+        _mark_hebrew_ketiv_qere_slots(built)
     merged = _merge_variation_units(built, ordered_sigla, fragmentary, build_slot)
     for slot_idx, slot in enumerate(merged):
         slot.index = slot_idx
@@ -955,14 +1594,39 @@ def _keyset(text: str, language: str) -> frozenset:
     if ks is None:
         if len(_KEYSET_MEMO) > 50000:
             _KEYSET_MEMO.clear()
-        ks = frozenset(k for k in (canonical_compare_key(t, language) for t in text.split()) if k)
+        ks = frozenset(
+            k for t in text.split()
+            if t not in (LACUNA_MARK, GAP_WORD)
+            for k in (canonical_compare_key(t, language),) if k
+        )
         _KEYSET_MEMO[memo_key] = ks
     return ks
 
 
+def _hebrew_consonant_keyset(text: str) -> frozenset:
+    """Consonantal word set for aligning unpointed Hebrew witnesses (DSS, Samaritan Pentateuch, Ben Sira)
+    against pointed Masoretic anchors without losing maqqef-joined words."""
+    words: Set[str] = set()
+    for w in text.replace("־", " ").split():
+        cons = "".join(ch for ch in unicodedata.normalize("NFD", w) if "\u05d0" <= ch <= "\u05ea")
+        if cons:
+            # Fold internal matres lectionis (keeping initial and final letters) so Qumran plene spelling aligns cleanly.
+            folded = "".join(ch for i, ch in enumerate(cons) if i == 0 or i == len(cons) - 1 or ch not in "וי")
+            words.add(folded or cons)
+    return frozenset(words)
+
+
+def _has_hebrew_niqqud(text: str) -> bool:
+    # Only Hebrew vowel points (U+05B0–U+05BB, U+05C7); never sof pasuq (U+05C3) or maqqef (U+05BE).
+    return any((0x05B0 <= ord(ch) <= 0x05BB) or ord(ch) == 0x05C7 for ch in text)
+
+
 def verse_similarity(a: str, b: str, language: str) -> float:
     """Dice coefficient on canonical word keys (0..1)."""
-    ka, kb = _keyset(a, language), _keyset(b, language)
+    if language.lower() == "hebrew" and (_has_hebrew_niqqud(a) != _has_hebrew_niqqud(b) or not _has_hebrew_niqqud(a)):
+        ka, kb = _hebrew_consonant_keyset(a), _hebrew_consonant_keyset(b)
+    else:
+        ka, kb = _keyset(a, language), _keyset(b, language)
     if not ka or not kb:
         return 0.0
     return 2 * len(ka & kb) / (len(ka) + len(kb))

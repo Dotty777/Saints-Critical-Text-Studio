@@ -1,6 +1,6 @@
 # Exodus 21 — Saints Hebrew Critical Text
 
-**Division:** `01_Law` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-18T03:14:37Z`
+**Division:** `01_Law` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:44Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -16,7 +16,7 @@
 | **MAM (Aleppo)** | Miqra 'al-pi ha-Mesorah (Aleppo Codex Tradition, OSIS XML) | Tier 1 | `0.98` | CC BY-SA 3.0 | Ben Asher Tiberian Masoretic (Aleppo-Weighted) |
 | **WLC (L)** | Westminster Leningrad Codex (Firkovich B 19A, 1008 CE) | Tier 1 | `0.96` | Public Domain | Ben Asher Tiberian Masoretic (Leningradensis) |
 
-### Apparatus Witnesses (Majority / Ecclesiastical Editions — recorded, not voting)
+### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
 
 | Siglum | Witness Title | Tier | License | Text-Type |
@@ -28,6 +28,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
 
 ---
 
@@ -78,31 +87,19 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Exodus 21:2
 - *Disregarded Surface Variant:* kept `לַֽחׇפְשִׁ֖י` over `לַֽחָפְשִׁ֖י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Exodus 21:3
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בְּגַפּ֥וֹ / בְּגַפֹּ֥ו`, `בְּגַפּ֣וֹ / בְּגַפֹּ֣ו`, `אִשְׁתּ֖וֹ עִמּֽוֹ׃ / אִשְׁתֹּ֖ו עִמֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:4
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בְגַפּֽוֹ׃ / בְגַפֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Exodus 21:5
 - *Disregarded Surface Variant:* kept `חׇפְשִֽׁי׃` over `חָפְשִֽׁי׃` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Exodus 21:6
 - *Disregarded Surface Variant:* kept `אׇזְנוֹ֙` over `אָזְנוֹ֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְהִגִּישׁ֤וֹ / וְהִגִּישֹׁ֤ו`, `וְהִגִּישׁוֹ֙ / וְהִגִּישֹׁו֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:7
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בִּתּ֖וֹ / בִּתֹּ֖ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ### Exodus 21:8
-- **Apparatus:** `ל֥וֹ` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **om.** WLC (L) *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
-  - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
+- **Apparatus:** `ל֥וֹ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
+- *Disregarded Surface Variant:* kept `ל֥וֹ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `(לא)` over `לא` (WLC (L)) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `נׇכְרִ֛י` over `נָכְרִ֛י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `לְמׇכְרָ֖הּ` over `לְמָכְרָ֖הּ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(adopted text)` over ` / *לֹא`, `(לא) / ` (BenChayyim (1525)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `ל֥וֹ (לא) / לֹ֥א` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (the editions print the written and the read form differently)*
 
 ### Exodus 21:11
 - *Disregarded Surface Variant:* kept `וְאִ֨ם־` over `וְאִם־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -112,57 +109,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `לְהׇרְג֣וֹ` over `לְהָרְג֣וֹ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `בְעׇרְמָ֑ה` over `בְעָרְמָ֑ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
-### Exodus 21:15
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְאִמּ֖וֹ / וְאִמֹּ֖ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:17
-- *Disregarded Surface Variant:* kept `(adopted text)` over `וְאִמּ֖וֹ / וְאִמֹּ֖ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:19
-- *Disregarded Surface Variant:* kept `(adopted text)` over `מִשְׁעַנְתּ֖וֹ / מִשְׁעַנְתֹּ֖ו`, `שִׁבְתּ֛וֹ / שִׁבְתֹּ֛ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:20
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עַבְדּ֜וֹ / עַבְדֹּ֜ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:21
-- *Disregarded Surface Variant:* kept `(adopted text)` over `כַסְפּ֖וֹ / כַסְפֹּ֖ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:26
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עַבְדּ֛וֹ / עַבְדֹּ֛ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
 ### Exodus 21:27
 - *Disregarded Surface Variant:* kept `לַֽחׇפְשִׁ֥י` over `לַֽחָפְשִׁ֥י` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over `עַבְדּ֛וֹ / עַבְדֹּ֛ו`, `שִׁנּֽוֹ׃ / שִׁנֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:28
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׁ֥וֹר / שֹׁ֥ור`, `הַשּׁ֗וֹר / הַשֹּׁ֗ור`, `הַשּׁ֖וֹר / הַשֹּׁ֖ור` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:29
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׁוֹר֩ / שֹׁור֩`, `הַשּׁוֹר֙ / הַשֹּׁור֙` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:30
-- *Disregarded Surface Variant:* kept `(adopted text)` over `נַפְשׁ֔וֹ / נַפְשֹׁ֔ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:31
-- *Disregarded Surface Variant:* kept `(adopted text)` over `לּֽוֹ׃ / לֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:32
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַשּׁ֖וֹר / הַשֹּׁ֖ור`, `וְהַשּׁ֖וֹר / וְהַשֹּׁ֖ור`, `שְׁלֹשִׁ֣ים / שְׁלשִׁ֣ים` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:33
-- *Disregarded Surface Variant:* kept `(adopted text)` over `בּ֗וֹר / בֹּ֗ור`, `שּׁ֖וֹר / שֹּׁ֖ור` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:34
-- *Disregarded Surface Variant:* kept `(adopted text)` over `הַבּוֹר֙ / הַבֹּור֙`, `לּֽוֹ׃ / לֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:35
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שֽׁוֹר־ / שֹֽׁור־`, `שׁ֥וֹר / שֹׁ֥ור`, `הַשּׁ֤וֹר / הַשֹּׁ֤ור`, `כַּסְפּ֔וֹ / כַּסְפֹּ֔ו` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:36
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׁ֣וֹר / שֹׁ֣ור`, `שׁוֹר֙ / שֹׁור֙`, `הַשּׁ֔וֹר / הַשֹּׁ֔ור`, `לּֽוֹ׃ / לֹּֽו׃` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
-
-### Exodus 21:37
-- *Disregarded Surface Variant:* kept `(adopted text)` over `שׁ֣וֹר / שֹׁ֣ור`, `הַשּׁ֔וֹר / הַשֹּׁ֔ור` (BenChayyim (1525)) — *Apparatus witness, not a variant: Masoretic pointing / cantillation convention of the edition (same consonants)*
 
 ---
 
@@ -224,14 +172,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Letteris (1852)`: וְכִֽי־יִמְכֹּ֥ר אִ֛ישׁ אֶת־בִּתּ֖וֹ לְאָמָ֑ה לֹ֥א תֵצֵ֖א כְּצֵ֥את הָֽעֲבָדִֽים׃
 - **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
 
-### Verse 8 (Confidence: `50.6%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+### Verse 8 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** אִם־רָעָ֞ה בְּעֵינֵ֧י אֲדֹנֶ֛יהָ אֲשֶׁר־ל֥וֹ (לא) יְעָדָ֖הּ וְהֶפְדָּ֑הּ לְעַ֥ם נׇכְרִ֛י לֹא־יִמְשֹׁ֥ל לְמׇכְרָ֖הּ בְּבִגְדוֹ־בָֽהּ׃
   - `MAM (Aleppo)`: אִם־רָעָ֞ה בְּעֵינֵ֧י אֲדֹנֶ֛יהָ אֲשֶׁר־ל֥וֹ (לא) יְעָדָ֖הּ וְהֶפְדָּ֑הּ לְעַ֥ם נׇכְרִ֛י לֹא־יִמְשֹׁ֥ל לְמׇכְרָ֖הּ בְּבִגְדוֹ־בָֽהּ׃
   - `WLC (L)`: אִם־רָעָ֞ה בְּעֵינֵ֧י אֲדֹנֶ֛יהָ אֲשֶׁר־לא יְעָדָ֖הּ וְהֶפְדָּ֑הּ לְעַ֥ם נָכְרִ֛י לֹא־יִמְשֹׁ֥ל לְמָכְרָ֖הּ בְּבִגְדוֹ־בָֽהּ׃
   - `BenChayyim (1525)`: אִם־רָעָ֞ה בְּעֵינֵ֧י אֲדֹנֶ֛יהָ אֲשֶׁר־*לֹא (ל֥וֹ) יְעָדָ֖הּ וְהֶפְדָּ֑הּ לְעַ֥ם נָכְרִ֛י לֹא־יִמְשֹׁ֥ל לְמָכְרָ֖הּ בְּבִגְדוֹ־בָֽהּ׃
   - `Letteris (1852)`: אִם־רָעָ֞ה בְּעֵינֵ֧י אֲדֹנֶ֛יהָ אֲשֶׁר־לֹ֥א יְעָדָ֖הּ וְהֶפְדָּ֑הּ לְעַ֥ם נָכְרִ֛י לֹֽא־יִמְשֹׁ֥ל לְמָכְרָ֖הּ בְּבִגְדוֹ־בָֽהּ׃
-- **Philological Rationale:** [Omission in some witnesses] Adopted 'ל֥וֹ' [MAM (Aleppo)] (weight 0.98, confidence 51%) over om. (WLC (L)). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 51% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 
 ### Verse 9 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** וְאִם־לִבְנ֖וֹ יִֽיעָדֶ֑נָּה כְּמִשְׁפַּ֥ט הַבָּנ֖וֹת יַעֲשֶׂה־לָּֽהּ׃

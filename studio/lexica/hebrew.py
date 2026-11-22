@@ -2315,8 +2315,12 @@ def tag_chapter(book_slug: str, chapter: int, verses: Dict[int, str]) -> Dict[in
     return out
 
 
-def iter_all(conn: Optional[sqlite3.Connection] = None) -> Iterator[Tuple[str, int, Dict[int, List[TokenTag]]]]:
-    """Yield (book_slug, chapter, {verse: [TokenTag]}) for every Hebrew chapter in the Studio DB."""
+def iter_all(conn: Optional[sqlite3.Connection] = None, *, oshb_only: bool = True) -> Iterator[Tuple[str, int, Dict[int, List[TokenTag]]]]:
+    """Yield (book_slug, chapter, {verse: [TokenTag]}) for every Hebrew chapter in the Studio DB.
+
+    When ``oshb_only`` is True (the default), deuterocanonical / extra-Masoretic Hebrew texts
+    outside OSHB (e.g. Hebrew Ben Sira, Psalm 151) are skipped so whole-OT coverage metrics stay
+    pinned to the 929 Masoretic chapters."""
     own = conn is None
     if own:
         conn = open_studio_db_readonly()
@@ -2325,9 +2329,12 @@ def iter_all(conn: Optional[sqlite3.Connection] = None) -> Iterator[Tuple[str, i
             "SELECT id, book_slug, chapter FROM chapters WHERE language = 'hebrew' ORDER BY book_slug, chapter"
         ).fetchall()
         for cid, slug, ch in chapters:
+            s_slug, i_ch = str(slug), int(ch)
+            if oshb_only and (s_slug not in OSHB_BOOK or (s_slug == "psalms" and i_ch > 150)):
+                continue
             verses = {int(v): str(t or "") for v, t in conn.execute(
                 "SELECT verse, critical_text FROM verses WHERE chapter_id = ? ORDER BY verse", (cid,))}
-            yield str(slug), int(ch), tag_chapter(str(slug), int(ch), verses)
+            yield s_slug, i_ch, tag_chapter(s_slug, i_ch, verses)
     finally:
         if own:
             conn.close()

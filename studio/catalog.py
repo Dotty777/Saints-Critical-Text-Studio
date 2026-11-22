@@ -98,6 +98,8 @@ EDITION_FAMILIES = {
     "grk-nt-kjtr": "tr_edition",               # printed Textus Receptus editions vote once together
     "grk-nt-tr-scrivener": "tr_edition",
     "grk-nt-tr-boyd": "tr_edition",
+    "grk-nt-tr-stephanus": "tr_edition",
+    "grk-nt-tr-elzevir": "tr_edition",
     "lat-clementine-usfx": "clementine_edition",
     "lat-saints-staging": "clementine_edition",  # Saints Latin column = Clementine, renumbered
     "lat-vulg-hetzenauer": "clementine_edition", # Hetzenauer 1906 critical Sixto-Clementine
@@ -125,6 +127,7 @@ WITNESS_BOOK_EXCLUSIONS = {
 # chapters away.
 ALIGNMENT_WINDOW = {
     "sirach": 6,
+    ("hebrew", "sirach"): 1,     # Hebrew Ben Sira MSS already follow the original Hebrew chapter order
     "proverbs": 7,               # Swete 24:22–37 = Brenton 30:1–14, Swete 29:28–49 = Brenton 31:10–31
     ("latin", "exodus"): 3,      # Saints/LXX Exodus 36:8–38 = Vulgate Exodus 39:1–31
     ("latin", "jeremiah"): 26,   # the Saints column follows the Septuagint order of Jeremiah 25–51
@@ -135,40 +138,106 @@ ALIGNMENT_WINDOW = {
 # transcriptions (01, 03), Swete and the OT editions are never counted this way — their silence can
 # be a gap in the file, a homoeoteleuton in the codex or a different numbering.
 SILENT_MEANS_ABSENT = {
-    "grk-nt-sblgnt", "grk-nt-nestle1904", "grk-nt-rp2018", "grk-nt-tcgnt",
-    "grk-nt-pt1904", "grk-nt-kjtr", "grk-nt-tr-scrivener", "grk-nt-tr-boyd",
+    "grk-nt-sblgnt", "grk-nt-nestle1904", "grk-nt-wh1881", "grk-nt-tisch8",
+    "grk-nt-na28-tagnt", "grk-nt-thgnt-tagnt", "grk-nt-tregelles1879",
+    "grk-nt-rp2018", "grk-nt-tcgnt", "grk-nt-pt1904", "grk-quarantine-pickering",
+    "grk-nt-kjtr", "grk-nt-tr-scrivener", "grk-nt-tr-boyd", "grk-nt-tr-stephanus", "grk-nt-tr-elzevir",
 }
 
 # Text streams (independent lines of evidence), shared by the engine and the brains.
 # Keys are witness sigla prefixes.
 STREAM_OF_SIGLUM = [
+    ("א (01) [CSP-OT]", "early LXX manuscripts (Sinaiticus)"),
     ("א (01)", "early manuscripts"), ("B (03)", "early manuscripts"),
+    ("A (02)", "early manuscripts"), ("C (04)", "early manuscripts"),
+    ("D (05)", "Western early manuscripts"), ("Dᵖ (06)", "Western early manuscripts"),
+    ("Fᵖ (010)", "Western early manuscripts"), ("Gᵖ (012)", "Western early manuscripts"),
+    ("T (029)", "early Alexandrian uncials"), ("W (032)", "early manuscripts"),
+    ("Ξ (040)", "early Alexandrian uncials"), ("0171", "Western early manuscripts"),
+    ("0189", "early manuscripts"),
+    ("𝔓", "early papyri"),
+    ("L (019)", "later Alexandrian uncials"), ("N (022)", "purple uncials"),
+    ("Δ (037)", "later Alexandrian uncials"), ("Ψ (044)", "later Alexandrian uncials"),
+    ("Θ (038)", "Caesarean manuscripts"),
+    ("33", "Alexandrian minuscules"), ("81", "Alexandrian minuscules"),
+    ("892", "Alexandrian minuscules"), ("1739", "Alexandrian minuscules"),
+    ("1881", "Alexandrian minuscules"),
+    ("1 (f¹)", "Family 1 / Caesarean minuscules"), ("13 (f¹³)", "Family 13 / Caesarean minuscules"),
+    ("565", "Caesarean minuscules"), ("700", "Caesarean minuscules"),
+    ("1424", "Family 1424 minuscules"),
+    ("NA28", "modern critical editions"), ("THGNT", "modern critical editions"),
     ("SRGNT", "modern critical editions"), ("BHP", "modern critical editions"),
     ("SBLGNT", "modern critical editions"), ("Nestle1904", "modern critical editions"),
-    ("RP2018", "Byzantine / ecclesiastical"), ("TCGNT", "Byzantine / ecclesiastical"),
-    ("PT1904", "Byzantine / ecclesiastical"), ("TR", "Byzantine / ecclesiastical"),
+    ("WH1881", "historic critical editions"), ("Tisch8", "historic critical editions"),
+    ("Tregelles", "historic critical editions"),
+    ("RP2018", "Byzantine / ecclesiastical"), ("Pickering-f35", "Byzantine / Family 35"),
+    ("TCGNT", "Byzantine / ecclesiastical"), ("PT1904", "Byzantine / ecclesiastical"),
+    ("TR", "Byzantine / ecclesiastical"),
     ("Swete", "Vaticanus-based LXX (Swete)"), ("1st1K", "Vaticanus-based LXX (Swete)"),  # all three Swete copies
+    ("Rahlfs", "Eclectic Critical LXX (Rahlfs 1935)"),
+    ("OG-Daniel", "Old Greek Daniel (LXX)"), ("A-Ottley", "Codex Alexandrinus (Ottley Isaiah)"),
     ("Sixtine/Brenton", "Sixtine / Ecclesiastical LXX"), ("LXX-Orthodox", "Sixtine / Ecclesiastical LXX"),
     ("MAM", "Aleppo tradition (MAM)"), ("WLC", "Leningrad Codex (WLC)"),
+    ("BHS (BHSA)", "Biblia Hebraica Stuttgartensia (BHS)"),
     ("BenChayyim", "Medieval Masoretic Majority (Ben Chayyim)"),
     ("Letteris", "Medieval Masoretic Majority (Ben Chayyim)"),
+    ("SP (Samaritan)", "Samaritan Pentateuch"),
+    ("1QIsa", "Dead Sea Scrolls (Qumran Isaiah)"), ("4QSam", "Dead Sea Scrolls (Qumran Samuel)"),
+    ("4QJer", "Dead Sea Scrolls (Qumran Jeremiah)"), ("11QPsᵃ", "Dead Sea Scrolls (Qumran 11QPsᵃ)"),
+    ("DSS-Torah", "Dead Sea Scrolls (Qumran Torah)"),
+    ("Mas1h", "Dead Sea / Masada Hebrew Ben Sira"),
+    ("BenSira-", "Cairo Genizah Hebrew Ben Sira"),
     ("Amiatinus", "early Vulgate manuscript (Amiatinus)"),
+    ("Stuttgart-BSV", "Critical Vulgate (Weber–Gryson Stuttgart)"),
+    ("Psalt-Pianum", "Modern Hebrew-Based Latin Psalter (Pianum 1945)"),
+    ("VL ", "Old Latin (Vetus Latina)"),
+    ("AMst", "Old Latin Patristic (Ambrosiaster)"), ("PEL", "Early Latin Patristic (Pelagius)"),
     ("Clem", "Clementine Vulgate"), ("VulgHetzenauer", "Clementine Vulgate"), ("VulgConte", "Clementine Vulgate"),
     ("VulgSistina", "Sixtine Vulgate (1590)"),
 ]
 
 
-# Majority and ecclesiastical editions collated for the apparatus only (added 17 Nov 2026). Each is
-# re-aligned to the numbering anchor like every witness, and wherever it differs in substance from the
-# edited text its reading is recorded in the apparatus (spelling and pointing conventions go to the
-# disregarded log). They never vote on the text, choose a spelling or feed the corpus lexicon, so the
-# edition keeps its basis: Swete's Codex Vaticanus in the Greek OT, reasoned eclecticism in the Greek
-# NT (the Byzantine stream keeps its two votes, RP2018 and the TR), MAM's pointing in the Hebrew and
-# the Saints Clementine in the Latin. A verse only they print is noted, not printed.
+# Apparatus-only witnesses: re-aligned to the numbering anchor and collated against the adopted text
+# after the voting panel decides the text. Wherever they differ in substance their readings are
+# recorded in the apparatus (spelling, pointing, nomina sacra and numerals go to the disregarded log).
+# They never vote on the text, alter calibrated confidence, choose a spelling, or feed the corpus
+# lexicon. A verse only they print is noted, not printed.
 APPARATUS_ONLY = frozenset({
-    "grk-lxx-orthodox", "grk-nt-tcgnt", "grk-nt-pt1904", "grk-nt-tr-scrivener", "grk-nt-tr-boyd",
-    "heb-benchayyim-1525", "heb-letteris-1852",
+    # Greek OT apparatus witnesses (ecclesiastical, historic, critical & 4th-c. uncial OT)
+    "grk-lxx-orthodox", "grk-quarantine-rahlfs", "grk-quarantine-sinaiticus-xml",
+    "grk-ot-og-daniel", "grk-ot-ottley-isaiah",
+    # Greek NT modern critical, historic critical, Majority/Byzantine & TR apparatus witnesses
+    "grk-nt-na28-tagnt", "grk-nt-thgnt-tagnt",
+    "grk-nt-wh1881", "grk-nt-tisch8", "grk-nt-tregelles1879",
+    "grk-nt-tcgnt", "grk-nt-pt1904", "grk-quarantine-pickering",
+    "grk-nt-tr-scrivener", "grk-nt-tr-boyd", "grk-nt-tr-stephanus", "grk-nt-tr-elzevir",
+    # Greek NT direct early papyri & uncials (CNTR CC BY-SA 4.0)
+    "grk-nt-cntr-02", "grk-nt-cntr-04", "grk-nt-cntr-05", "grk-nt-cntr-029", "grk-nt-cntr-032",
+    "grk-nt-cntr-0171", "grk-nt-cntr-0189",
+    "grk-nt-cntr-p1", "grk-nt-cntr-p4", "grk-nt-cntr-p37", "grk-nt-cntr-p45", "grk-nt-cntr-p46",
+    "grk-nt-cntr-p47", "grk-nt-cntr-p52", "grk-nt-cntr-p64", "grk-nt-cntr-p66", "grk-nt-cntr-p72",
+    "grk-nt-cntr-p75",
+    # Greek NT direct later uncials & premier minuscules (INTF NTVMR & IGNTP CC BY 4.0)
+    "grk-nt-intf-019", "grk-nt-intf-022", "grk-nt-intf-037", "grk-nt-intf-038", "grk-nt-intf-044",
+    "grk-nt-intf-33", "grk-nt-intf-565", "grk-nt-intf-700", "grk-nt-intf-892", "grk-nt-intf-1424",
+    "grk-nt-intf-1739", "grk-nt-intf-1", "grk-nt-intf-13",
+    "grk-nt-zacynthius-040",
+    "grk-nt-igntp-06", "grk-nt-igntp-010", "grk-nt-igntp-012",
+    "grk-nt-igntp-81", "grk-nt-igntp-1881",
+    # Hebrew OT apparatus witnesses (Majority MT, BHS/BHSA, Samaritan Pentateuch, Dead Sea Scrolls)
+    # Note: Hebrew Ben Sira (8 MSS) and 11QPsᵃ Psalm 151 remain voting solely on Sirach & Ps 151.
+    "heb-benchayyim-1525", "heb-letteris-1852", "heb-bhsa-bhs", "heb-samaritan-tf",
+    "heb-dss-1qisaa", "heb-dss-1qisab", "heb-dss-4qsama", "heb-dss-4qjer",
+    "heb-dss-11qpsa", "heb-dss-torah",
+    # Latin OT & NT apparatus witnesses (Vulgate variants, Stuttgart critical, Pianum Psalter,
+    # Amiatinus NT, Codex Bezae Latin, Vetus Latina John & COMPAUL Old Latin Pauline MSS)
     "lat-vulg-hetzenauer", "lat-vulg-conte", "lat-vulg-sistina",
+    "lat-quarantine-stuttgart", "lat-psalter-pianum", "lat-amiatinus-nt",
+    "lat-nt-vl5-bezae",
+    "lat-nt-vl2-john", "lat-nt-vl3-john", "lat-nt-vl4-john", "lat-nt-vl6-john",
+    "lat-nt-vl8-john", "lat-nt-vl10-john", "lat-nt-vl14-john", "lat-nt-vl15-john",
+    "lat-nt-vl75", "lat-nt-vl77", "lat-nt-vl78", "lat-nt-vl89",
+    "lat-nt-vl64", "lat-nt-vl51", "lat-nt-vl61", "lat-nt-amst", "lat-nt-pel",
 })
 
 
