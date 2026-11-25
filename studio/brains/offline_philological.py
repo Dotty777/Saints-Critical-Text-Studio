@@ -677,8 +677,8 @@ def _strip_quotes(raw: str) -> str:
     out = []
     for w in raw.split():
         w = re.sub(r"^[“‘«‟‛]+", "", w)
-        w = re.sub(r"[”»]+$", "", w)
-        w = re.sub(r"(?<=[.,;:·;!?])[’]+$", "", w)  # closing single quote after punctuation (not elision)
+        w = re.sub(r"[”»]+(?=[.,;:··;!?]*$)", "", w)
+        w = re.sub(r"(?<=[.,;:··;!?])[’]+$", "", w)  # closing single quote after punctuation (not elision)
         if w:
             out.append(w)
     return " ".join(out)
@@ -883,7 +883,18 @@ _LATIN_PREFIX_V_POS = tuple(
 _LATIN_INITIAL_J_STEMS = (
     "iuss", "iub", "iur", "iust", "iudic", "iudex", "iunior", "iuven", "iuuen",
     "iug", "iung", "iunct", "iuxt", "iacob", "iordan", "ioseph", "iuda", "iesu",
-    "ierusal", "iericho",
+    "ierusal", "iericho", "iam", "iec", "iethr",
+)
+# Unambiguous medial consonantal-i stems normalised to j to match Clementine orthography
+# (eius -> ejus, cuius -> cujus, huius -> hujus, coniugem -> conjugem, adiecit -> adjecit).
+_LATIN_MEDIAL_J_POS = tuple(
+    (s, s.index("i", start)) for s, start in (
+        ("eius", 1), ("cuius", 2), ("huius", 2),
+        ("coniug", 3), ("coniun", 3), ("coniur", 3),
+        ("adiec", 2), ("adiut", 2), ("adiuv", 2),
+        ("proiec", 3), ("iniec", 2), ("eiec", 1),
+        ("subiec", 3), ("abiec", 2), ("obiec", 2),
+    )
 )
 # Non-diphthong hiatus stems where ae / oe MUST NEVER collapse to æ / œ (Verifier Safeguard).
 _LATIN_AER_HIATUS = frozenset({"aer", "aeris", "aeri", "aerem", "aere", "aera", "aeria", "aerius", "aerium"})
@@ -961,6 +972,11 @@ def _latin_u_to_v(word: str) -> str:
     res_low = res.lower()
     if res_low.startswith(_LATIN_INITIAL_J_STEMS):
         res = ("J" if res[0].isupper() else "j") + res[1:]
+    else:
+        for pref, pos in _LATIN_MEDIAL_J_POS:
+            if res_low.startswith(pref):
+                res = res[:pos] + ("J" if res[pos].isupper() else "j") + res[pos + 1:]
+                break
     return _latin_ae_oe_ligatures(res)
 
 
@@ -1692,6 +1708,10 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
             trail = re.search(r"\)+[.,;:·;!?]*$|[.,;:·;!?]+[”’»]*$", base_raw)
             if trail and not re.search(r"[\).,;:·;!?][”’»]*$", chosen):
                 chosen += re.sub(r"[”’»]+$", "", trail.group(0))
+        if language == "greek" and getattr(cv, "testament", "") == "NT" and "’" in chosen:
+            # SBLGNT (the NT orthographic base) uses U+02BC (ʼ) for every Greek elision; normalise
+            # borrowed U+2019 (’) elisions (Rom 14:25 κατ’, 2 Thess 2:13 ἀπ’) to match.
+            chosen = re.sub(r"(?<=[Ͱ-Ͽἀ-῿])’(?=$|\s|[.,;··;:!?])", "ʼ", chosen)
         return " ".join(
             normalize_critical_token(t, is_start and i == 0, language)
             for i, t in enumerate(chosen.split())
@@ -3013,6 +3033,7 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                 # the restored words (Josh 10:35 'ἐφόνευσεν αὐτὴν … ἐφόνευσαν, ὃν τρόπον').
                 sister_supplied = False
                 witnesses_continue = False
+                non_speech_dot = False
                 if chosen_tokens and chosen_tokens[-1].split() and surface.split():
                     prev_k = canonical_compare_key(strip_punct(chosen_tokens[-1].split()[-1]), language)
                     first_k = canonical_compare_key(strip_punct(surface.split()[0]), language)
@@ -3024,12 +3045,16 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                             canonical_compare_key(strip_punct(a), language) == prev_k
                             and canonical_compare_key(strip_punct(b), language) == first_k and a != strip_punct(a)
                             for a, b in zip(toks, toks[1:]))
-                    if clause_initial and chosen_tokens[-1].endswith(".") and cv.base_siglum in slot.raw_forms.get("om.", []):
-                        # If the base edition ends a sentence here only because it omits the following modifier
-                        # (Luke 24:3 'τὸ σῶμα. [τοῦ Κυρίου Ἰησοῦ]'), check whether the punctuated editions that
-                        # print these words continue without any stop after prev_k.
+                    base_omits = bool(cv.base_siglum and cv.base_siglum in slot.raw_forms.get("om.", []))
+                    if base_omits and chosen_tokens[-1].endswith((".", "·", "·")):
+                        # If the base edition ends a clause here only because it omits the following
+                        # modifier (Luke 24:3 'τὸ σῶμα. [τοῦ Κυρίου Ἰησοῦ]', Rom 15:19 'πνεύματος· [Θεοῦ]',
+                        # Matt 25:16 'πέντε· [τάλαντα]', 1 Cor 14:37 'ἐστίν· [ἐντολή]',
+                        # Heb 13:21 'αἰῶνας· [τῶν αἰώνων]', John 18:17 'θυρωρός· [τῷ Πέτρῳ]'), check
+                        # whether the punctuated editions that print these words continue cleanly.
                         punct_sigs = [s for s in win_sigla if s not in DIPLOMATIC_MSS and s != cv.base_siglum]
                         cont_hits = 0
+                        punct_hits = 0
                         stop_hits = 0
                         for s in punct_sigs:
                             toks = (cv.witness_texts.get(s) or "").split()
@@ -3038,9 +3063,24 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                                         and canonical_compare_key(strip_punct(b), language) == first_k):
                                     if re.search(r"[.;··;:!?]$", a):
                                         stop_hits += 1
+                                    elif a.endswith(",") or re.match(r"^[“‘«‟‛]", b):
+                                        punct_hits += 1
                                     else:
                                         cont_hits += 1
-                        witnesses_continue = cont_hits > 0 and stop_hits == 0
+                        if clause_initial and chosen_tokens[-1].endswith("."):
+                            witnesses_continue = (cont_hits + punct_hits) > 0 and stop_hits == 0
+                        elif language == "greek" and chosen_tokens[-1].endswith(("·", "·")):
+                            # Zero punctuation (not even a comma or opening quote) between prev_k and
+                            # first_k in all punctuated witnesses: non-speech-introducing raised dot.
+                            non_speech_dot = cont_hits > 0 and stop_hits == 0 and punct_hits == 0
+                            if clause_initial and non_speech_dot:
+                                witnesses_continue = True
+                            elif (win_key == "οτι" and stop_hits == 0 and (cont_hits + punct_hits) > 0
+                                  and nxt is not None
+                                  and any(f != "om." and strip_punct(f)[:1].isupper() for f in nxt.raw_forms)):
+                                # Mark 6:23: SBLGNT prints no raised dot before recitative ὅτι
+                                # introducing direct speech (154/154 across the NT).
+                                chosen_tokens[-1] = chosen_tokens[-1][:-1]
                     if (len(chosen_tokens) >= 2 and chosen_tokens[-2].endswith(".")
                             and cv.base_siglum in slot.raw_forms.get("om.", [])
                             and canonical_compare_key(strip_punct(chosen_tokens[-1]), language) in ("και", "η", "ουδε", "μηδε", "τε")):
@@ -3081,13 +3121,14 @@ class OfflinePhilologicalBrain(CriticalBrainProvider):
                         and any(f != "om." and strip_punct(f)[:1].islower() for f in nxt.raw_forms)
                         and not any(f != "om." and strip_punct(f)[:1].isupper() and cv.base_siglum in sigs for f, sigs in nxt.raw_forms.items())
                     )
-                    marks = (r"[.··;;:,]+$"
-                             if (first_key in _ENCLITIC_PRONOUNS and len(win_key.split()) == 1) or move_latin_colon
+                    marks = (r"[.··;;:,]+$"
+                             if (first_key in _ENCLITIC_PRONOUNS and len(win_key.split()) == 1)
+                                or move_latin_colon or non_speech_dot
                              else r"[.,;;]+$")
                     m = re.search(marks, chosen_tokens[-1])
                     if m:
                         chosen_tokens[-1] = chosen_tokens[-1][: m.start()]
-                        surface = re.sub(r"[.··;;:,!?]+$", "", surface) + m.group(0)
+                        surface = re.sub(r"[.··;;:,!?]+$", "", surface) + m.group(0)
                 if language == "greek" and chosen_tokens and surface:
                     prev_tok = chosen_tokens[-1]
                     w0 = strip_punct(surface.split()[0]) if surface.split() else ""

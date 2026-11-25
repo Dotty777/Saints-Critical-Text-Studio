@@ -27,6 +27,7 @@ from .collator import (
     canonical_compare_key,
     classify_forms,
     is_nomen_sacrum,
+    split_words,
     strip_punct,
 )
 from .parsers import DOUBTFUL_CLOSE, DOUBTFUL_OPEN, GAP_WORD, LACUNA_MARK, VERSE_ABSENT
@@ -57,22 +58,23 @@ _COMMON_NOMINA_SACRA: Dict[str, str] = {
 
 
 def _tokens(text: str, language: str, keep_gap: bool = False) -> Tuple[List[str], List[int]]:
-    """Comparison tokens and, for each, the index of its word in ``text.split()``."""
+    """Comparison tokens and, for each, the index of its word in ``split_words(text, language)``."""
     toks, word_of = [], []
-    for i, w in enumerate(text.replace(DOUBTFUL_OPEN, "").replace(DOUBTFUL_CLOSE, "").split()):
-        parts = w.replace("־", "־ ").split() if language == "hebrew" else [w]
-        for p in parts:
-            if p == LACUNA_MARK:
-                continue
-            if p == GAP_WORD:
-                if keep_gap:
-                    toks.append(GAP_WORD)
-                    word_of.append(i)
-                continue
-            if not strip_punct(p) and p != "׀":
-                continue
-            toks.append(p)
-            word_of.append(i)
+    clean = text.replace(DOUBTFUL_OPEN, "").replace(DOUBTFUL_CLOSE, "")
+    for i, p in enumerate(split_words(clean, language)):
+        if p == LACUNA_MARK:
+            continue
+        if p == GAP_WORD:
+            if keep_gap:
+                toks.append(GAP_WORD)
+                word_of.append(i)
+            continue
+        if language == "hebrew" and p.strip("׃") == "׀":
+            continue
+        if not strip_punct(p):
+            continue
+        toks.append(p)
+        word_of.append(i)
     return toks, word_of
 
 
@@ -86,11 +88,87 @@ def _consonants(s: str) -> str:
     return "".join(ch for ch in unicodedata.normalize("NFD", s) if "א" <= ch <= "ת")
 
 
+def _has_hebrew_pointing(s: str) -> bool:
+    """True when Hebrew text carries vowel points, dagesh/mappiq, or shin/sin dots."""
+    return any(
+        (0x05B0 <= ord(ch) <= 0x05BC) or ord(ch) in (0x05C1, 0x05C2, 0x05C7)
+        for ch in unicodedata.normalize("NFD", s)
+    )
+
+
+def _hebrew_vowels(s: str) -> str:
+    """Vowel points (folding qamats qatan -> qamats, holam haser -> holam) for K/Q vocalisation matching."""
+    out: List[str] = []
+    for ch in unicodedata.normalize("NFD", s):
+        o = ord(ch)
+        if 0x05B0 <= o <= 0x05BB:
+            out.append(ch)
+        elif o == 0x05C7:
+            out.append("\u05B8")
+        elif o == 0x05BA:
+            out.append("\u05B9")
+    return "".join(out)
+
+
+def _hebrew_vocalic_key(text: str) -> str:
+    """Word-by-word canonical Hebrew key (retains vowels, dagesh/mappiq, shin/sin dot; ignores cantillation)."""
+    return " ".join(canonical_compare_key(t, "hebrew") for t in split_words(text, "hebrew") if strip_punct(t))
+
+
 # Hebrew letter names that head the acrostic stanzas (Lamentations, Psalm 118) in Swete and Brenton;
 # the Orthodox Septuagint prints none. Keys as canonical_compare_key gives them.
 _GREEK_LETTER_NAMES = {"αλεφ", "βηθ", "γιμελ", "δαλεθ", "η", "ουαυ", "ζαι", "ηθ", "τηθ", "ιωδ", "χαφ", "λαβδ",
                        "λαμεδ", "μημ", "νουν", "σαμχ", "αιν", "φη", "σαδη", "κωφ", "ρησ", "χσεν", "σεν", "θαυ"}
 _KETIV = ("(", "[", "*")
+
+
+def _is_ketiv_tok(tok: str) -> bool:
+    return bool(tok) and (tok.startswith(_KETIV) or tok.rstrip("׃־").endswith(")"))
+
+
+def _is_kq_qere_omission(
+    c_toks: List[str],
+    w_toks: List[str],
+    pos: List[int],
+    i1: int,
+    i2: int,
+    witness_pointed: bool,
+) -> bool:
+    """True when a deleted Hebrew slice ``c_toks[i1:i2]`` is the pointed Qere companion of an adjacent
+    parenthesised Ketiv token that the apparatus witness already matched (the witness prints Ketiv-only)."""
+    if i2 <= i1 or i2 - i1 > 2:
+        return False
+    deleted = c_toks[i1:i2]
+    if any(_is_ketiv_tok(t) for t in deleted):
+        return False
+    q_text = " ".join(deleted)
+    q_cons = _consonants(q_text)
+    if not q_cons:
+        return False
+    q_vowels = _hebrew_vowels(q_text)
+
+    def _defective(c: str) -> str:
+        return "".join(ch for idx_c, ch in enumerate(c) if not (idx_c > 0 and ch in "וי"))
+
+    for k_idx in (i1 - 1, i2):
+        if not (0 <= k_idx < len(c_toks)) or not _is_ketiv_tok(c_toks[k_idx]):
+            continue
+        lo, hi = pos[k_idx], pos[k_idx + 1]
+        if hi <= lo:
+            continue
+        w_k = " ".join(w_toks[lo:hi])
+        k_cons = _consonants(c_toks[k_idx])
+        w_cons = _consonants(w_k)
+        if not k_cons or not w_cons or (_defective(w_cons) != _defective(k_cons) and w_cons != k_cons):
+            continue
+        shared = sum(min(k_cons.count(ch), q_cons.count(ch)) for ch in set(k_cons))
+        if 2 * shared / (len(k_cons) + len(q_cons)) >= 0.4:
+            return True
+        if witness_pointed and not _has_hebrew_pointing(w_k):
+            return True
+        if witness_pointed and q_vowels and _hebrew_vowels(w_k) == q_vowels:
+            return True
+    return False
 
 
 def _drop_letter_names(words: List[str], language: str) -> List[str]:
@@ -112,12 +190,12 @@ def _hebrew_spelling(lemma: str, reading: str) -> str:
 
     def forms(t: str) -> set:
         words = t.split()
-        marked = [w for w in words if w.startswith(_KETIV) or w.endswith(")")]
+        marked = [w for w in words if _is_ketiv_tok(w)]
         rest = [w for w in words if w not in marked]
         cands = {_consonants(t), _consonants(" ".join(rest))} | {_consonants(w) for w in words}
         return {defective(c) for c in cands if c}
 
-    if any(w.startswith(_KETIV) or w.endswith(")") for w in (lemma + " " + reading).split()) and forms(lemma) & forms(reading):
+    if any(_is_ketiv_tok(w) for w in (lemma + " " + reading).split()) and forms(lemma) & forms(reading):
         return "Ketiv / qere presentation (the editions print the written and the read form differently)"
 
     lw, rw = lemma.split(), reading.split()
@@ -175,7 +253,7 @@ def _is_spelling(lemma: str, reading: str, language: str) -> Tuple[bool, str]:
             words = (lemma or reading).split()
             if all(w.strip("׃") == "׀" for w in words):
                 return True, "Paseq / legarmeh stroke (an accent sign) printed by one edition only"
-            if all(w.startswith(_KETIV) or w.endswith(")") for w in words):
+            if all(_is_ketiv_tok(w) for w in words):
                 return True, "Ketiv / qere presentation (one edition prints the written form in brackets)"
         return False, ""
     if language == "hebrew":
@@ -270,9 +348,12 @@ def record_apparatus_witnesses(cv: Any, adj: Any, language: str) -> None:
     lang = language.lower()
     lex = getattr(cv, "lexicon", None)
     crit = adj.critical_text or ""
+    for _it in adj.apparatus:
+        if _it.lemma:
+            _it.lemma = " ".join(_it.lemma.split())
     c_toks, c_word = _tokens(crit, lang)
     c_keys = [_key(t, lang) for t in c_toks]
-    n_words = len(crit.replace(DOUBTFUL_OPEN, "").replace(DOUBTFUL_CLOSE, "").split())
+    n_words = len(split_words(crit.replace(DOUBTFUL_OPEN, "").replace(DOUBTFUL_CLOSE, ""), lang))
     first_tok = {}
     for t, w in enumerate(c_word):
         first_tok.setdefault(w, t)
@@ -281,6 +362,7 @@ def record_apparatus_witnesses(cv: Any, adj: Any, language: str) -> None:
     # and resolve Greek nomina sacra / letter-numerals against the verse's full-word vocabulary before alignment.
     app_toks_by_sig: Dict[str, List[str]] = {}
     app_keys_by_sig: Dict[str, List[str]] = {}
+    pointed_by_sig: Dict[str, bool] = {}
     ns_map: Dict[str, str] = {}
     for sig, x in texts.items():
         if x == VERSE_ABSENT:
@@ -288,6 +370,8 @@ def record_apparatus_witnesses(cv: Any, adj: Any, language: str) -> None:
         wt, _ = _tokens(x, lang, keep_gap=True)
         app_toks_by_sig[sig] = wt
         app_keys_by_sig[sig] = [_key(t, lang) for t in wt]
+        if lang == "hebrew":
+            pointed_by_sig[sig] = _has_hebrew_pointing(x)
 
     if lang == "greek" and app_toks_by_sig:
         tokens_all: Dict[str, List[str]] = {"__crit__": list(c_toks)}
@@ -376,6 +460,11 @@ def record_apparatus_witnesses(cv: Any, adj: Any, language: str) -> None:
             reading = " ".join(w_toks[j1:j2])
             cmp_reading = _expand_ns_tokens(reading, ns_map, lex)[1] if lang == "greek" else reading
             is_sp, reason = _is_spelling(lemma, cmp_reading, lang)
+            if not is_sp and lang == "hebrew" and not reading and _is_kq_qere_omission(
+                c_toks, w_toks, aligned[sig][2], i1, i2, pointed_by_sig.get(sig, False)
+            ):
+                is_sp = True
+                reason = "Ketiv / qere presentation (edition prints the written form only)"
             if is_sp:
                 log = spelling.setdefault(reason, {"forms": [], "witnesses": set(), "count": 0})
                 log["count"] += 1
@@ -435,6 +524,39 @@ def record_apparatus_witnesses(cv: Any, adj: Any, language: str) -> None:
             if not seg and a == b and (inside or (at_start and pos[a] == 0) or (at_end and pos[a] == len(w_toks))):
                 continue
             lemma = "" if item.lemma == "om." else " ".join(c_toks[a:b])
+            if lang == "hebrew" and item.slot_index >= 0 and lemma:
+                lem_cons = _consonants(lemma)
+                is_vocalic_unit = bool(lem_cons) and any(
+                    v.get("weight_sum", 0) > 0
+                    and str(v.get("reading", "")) not in ("", "om.")
+                    and _consonants(str(v.get("reading", ""))) == lem_cons
+                    for v in item.variants
+                )
+                if is_vocalic_unit:
+                    if not pointed_by_sig.get(sig, False):
+                        if seg and _same(seg, lemma, lang, ns_map, lex):
+                            continue  # unpointed witness (SP/DSS) cannot attest vowel/dagesh/shin-sin pointing
+                    else:
+                        seg_vk = _hebrew_vocalic_key(seg) if seg else ""
+                        if seg_vk and seg_vk == _hebrew_vocalic_key(lemma):
+                            item.lemma_witnesses.append(sig)
+                            continue
+                        vtarget = next(
+                            (v for v in item.variants
+                             if str(v.get("reading", "")) not in ("", "om.")
+                             and seg_vk
+                             and seg_vk == _hebrew_vocalic_key(str(v.get("reading", "")))),
+                            None,
+                        )
+                        if vtarget is not None:
+                            vtarget["witnesses"].append(sig)
+                            continue
+                        if seg and _consonants(seg) == lem_cons:
+                            target = {"reading": seg, "witnesses": [sig], "weight_sum": 0.0}
+                            item.variants.append(target)
+                            if NOTE not in item.note:
+                                item.note = (item.note + " " if item.note else "") + f"[{NOTE}]"
+                            continue
             if _same(seg, lemma, lang, ns_map, lex):
                 item.lemma_witnesses.append(sig)
                 continue

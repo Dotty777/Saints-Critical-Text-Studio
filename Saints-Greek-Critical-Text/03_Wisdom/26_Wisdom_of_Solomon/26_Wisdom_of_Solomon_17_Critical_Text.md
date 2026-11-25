@@ -1,6 +1,6 @@
 # Wisdom of Solomon 17 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:42Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:34Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: verse 17:19 runs into its neighbour across the anchor's division between 17:18 and 17:19; re-divided there
@@ -66,6 +64,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 16:28 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 16:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 18:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 18:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 18:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 18:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 18:5 kept in its own chapter (stronger match to its own reference verse)
@@ -91,6 +90,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 18:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 17:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 17:29 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 17:22 kept for its neighbouring chapter (matches anchor verse there)
+- 1st1K-LXX: 17:24 kept for its neighbouring chapter (matches anchor verse there)
+- 1st1K-LXX: 17:25 kept for its neighbouring chapter (matches anchor verse there)
+- 1st1K-LXX: 17:26 kept for its neighbouring chapter (matches anchor verse there)
+- 1st1K-LXX: 17:27 kept for its neighbouring chapter (matches anchor verse there)
+- 1st1K-LXX: 17:28 kept for its neighbouring chapter (matches anchor verse there)
 - 1st1K-LXX: 17:2 not collated (no verse of the reference matches its wording)
 - 1st1K-LXX: 17:3 not collated (no verse of the reference matches its wording)
 - 1st1K-LXX: 17:4 not collated (no verse of the reference matches its wording)
@@ -114,6 +119,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 21 verse(s) re-aligned by content (1←18:1, 2←18:2, 3←18:3, 4←18:4, 5←18:5, 6←18:6…)
 - Swete (B/A/א): 17:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 17:29 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 17:22 kept for its neighbouring chapter (matches anchor verse there)
+- Swete (B/A/א): 17:24 kept for its neighbouring chapter (matches anchor verse there)
+- Swete (B/A/א): 17:25 kept for its neighbouring chapter (matches anchor verse there)
+- Swete (B/A/א): 17:26 kept for its neighbouring chapter (matches anchor verse there)
+- Swete (B/A/א): 17:27 kept for its neighbouring chapter (matches anchor verse there)
+- Swete (B/A/א): 17:28 kept for its neighbouring chapter (matches anchor verse there)
 - Swete (B/A/א): 17:2 not collated (no verse of the reference matches its wording)
 - Swete (B/A/א): 17:3 not collated (no verse of the reference matches its wording)
 - Swete (B/A/א): 17:4 not collated (no verse of the reference matches its wording)
@@ -184,6 +195,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 18:5 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:7 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 18:8 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:9 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:10 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:11 kept in its own chapter (stronger match to its own reference verse)
@@ -201,13 +213,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 18:23 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:24 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:25 kept in its own chapter (stronger match to its own reference verse)
-- 1st1K-LXX, Swete (B/A/א): verse 22 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:22)
 - 1st1K-LXX, Swete (B/A/א): verse 23 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:23)
-- 1st1K-LXX, Swete (B/A/א): verse 24 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:24)
-- 1st1K-LXX, Swete (B/A/א): verse 25 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:25)
-- 1st1K-LXX, Swete (B/A/א): verse 26 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:26)
-- 1st1K-LXX, Swete (B/A/א): verse 27 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:27)
-- 1st1K-LXX, Swete (B/A/א): verse 28 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 16:28)
 
 ---
 

@@ -6,9 +6,9 @@ Every number below is measured from the database and the files just written.
 
 | Language | Tokens | Indexed (all tagged) | Content words | Function words | Parsed (morph) | Untagged | Extra-site verses (studio.db) | Skipped dup/placeholder tokens |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| hebrew | 16,408 | 16,407 (100.0%) | 12,870 | 3,537 | 16,399 | 1 | 0 | 0 |
-| greek | 25,008 | 24,988 (99.9%) | 15,459 | 9,529 | 23,431 | 1 | 0 | 19 |
-| latin | 19,420 | 19,351 (99.6%) | 11,944 | 7,407 | 19,351 | 57 | 0 | 10 |
+| hebrew | 305,474 | 305,453 (100.0%) | 233,387 | 72,066 | 305,145 | 21 | 261 | 0 |
+| greek | 669,598 | 669,309 (100.0%) | 393,024 | 276,285 | 639,315 | 198 | 31 | 91 |
+| latin | 596,875 | 594,652 (99.6%) | 335,904 | 258,748 | 594,652 | 2,211 | 433 | 12 |
 
 All tagged tokens (content and function words) across every non-duplicate verse are indexed in `studio.db` with their morphological parses; non-duplicate MT / TR / Theodotion / Vulgate verses absent from Saints.Bible are stored under dedicated extra-site anchors (`subverse = 9`, marked `*`), while confirmed duplicate and placeholder rows are skipped so no word is counted twice. The downloadable website packs below carry live Saints.Bible (`subverse = 0`) content-word postings only so every published link resolves on the site.
 
@@ -16,12 +16,12 @@ All tagged tokens (content and function words) across every non-duplicate verse 
 
 | File | Lemmas | Roots | Surface forms | Lemma-verse pairs | Raw JSON | Gzip | Same postings keyed by surface form (gzip) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| saints-concordance-heb.json.gz | 9,173 | 5,661 | 105,464 | 208,028 | 1,917,150 | 810,293 | 1,133,896 |
-| saints-concordance-grc.json.gz | 13,951 | 10,231 | 55,467 | 353,701 | 3,411,099 | 1,404,682 | 1,204,316 |
-| saints-concordance-lat.json.gz | 11,110 | 6,349 | 48,454 | 309,355 | 2,901,520 | 1,247,185 | 1,136,909 |
-| saints-concordance-hubs.json.gz | 7 hubs | | | | 22,595 | 14,541 | |
+| saints-concordance-heb.json.gz | 9,033 | 5,564 | 105,458 | 208,028 | 1,900,160 | 805,948 | 1,132,056 |
+| saints-concordance-grc.json.gz | 13,836 | 10,125 | 55,449 | 353,666 | 3,395,511 | 1,399,612 | 1,203,923 |
+| saints-concordance-lat.json.gz | 10,953 | 6,247 | 48,633 | 311,392 | 2,900,916 | 1,250,504 | 1,144,155 |
+| saints-concordance-hubs.json.gz | 7 hubs | | | | 22,679 | 14,614 | |
 
-Colour-hub occurrences for review (saints-concordance-hub-occurrences.csv, not the word-studies import format): 6,068 rows
+Colour-hub occurrences for review (saints-concordance-hub-occurrences.csv, not the word-studies import format): 6,097 rows
 
 Licences: heb CC BY 4.0; grc CC BY-SA 4.0; lat CC BY-SA 4.0; hubs CC BY 4.0; decoder MIT (Saints.Bible code); heb-lex CC BY 4.0; grc-lex CC BY-SA 4.0; lat-lex CC BY-SA 4.0. Sources, links and the note of changes are listed in manifest.json.
 

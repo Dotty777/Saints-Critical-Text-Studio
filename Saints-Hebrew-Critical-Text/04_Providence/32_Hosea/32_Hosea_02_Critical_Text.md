@@ -1,6 +1,6 @@
 # Hosea 02 — Saints Hebrew Critical Text
 
-**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:45Z`
+**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:08:05Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,51 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 1:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 1:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 3:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 3:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 3:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 3:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 3:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 1:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 3:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 3:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 3:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 3:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 3:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 1:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 3:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 3:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 3:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 3:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 3:5 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -120,7 +156,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `עַל־` over `עַל` (WLC (L)) — *Punctuation / spacing difference only*
 
 ### Hosea 2:17
-- **Apparatus:** `וּכְי֖וֹם` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **וִּכְי֖וֹם** WLC (L) *(lexical substitution)*
+- **Apparatus:** `וּכְי֖וֹם` MAM (Aleppo) Letteris (1852) **]** **וִּכְי֖וֹם** WLC (L) BenChayyim (1525) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
   - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
 - *Disregarded Surface Variant:* kept `עֲלוֹתָ֥הּ` over `עֲלֹתָ֥הּ` (WLC (L)) — *Plene / defective spelling (mater lectionis)*

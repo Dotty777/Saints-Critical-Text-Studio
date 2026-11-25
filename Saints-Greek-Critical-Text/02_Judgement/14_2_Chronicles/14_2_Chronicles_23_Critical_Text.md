@@ -1,6 +1,6 @@
 # 2 Chronicles 23 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:29Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:25Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source import repair, 23:18: 'καὶ τῶν λευειτῶν,' → 'καὶ τῶν Λευειτῶν,' (Swete prints Λευειτῶν (proper tribal name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, & same verse)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 22:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:3 kept in its own chapter (stronger match to its own reference verse)
@@ -86,6 +84,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 22:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:2 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:6 kept in its own chapter (stronger match to its own reference verse)
@@ -108,6 +107,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 24:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:24 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:25 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:26 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:3 kept in its own chapter (stronger match to its own reference verse)
@@ -122,6 +122,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 22:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:6 kept in its own chapter (stronger match to its own reference verse)
@@ -144,6 +145,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 24:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:25 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:26 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 22:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 22:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 22:3 kept in its own chapter (stronger match to its own reference verse)
@@ -205,7 +207,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **15** καὶ ἔδωκαν αὐτῇ ἄνεσιν, καὶ διῆλθεν διὰ τῆς πύλης τῶν ἱππέων τοῦ οἴκου τοῦ βασιλέως, καὶ ἐθανάτωσαν αὐτὴν ἐκεῖ.
 **16** Καὶ διέθετο Ἰωδᾶε διαθήκην ἀνὰ μέσον αὐτοῦ καὶ τοῦ λαοῦ καὶ τοῦ βασιλέως, εἶναι λαὸν τῷ κυρίῳ.
 **17** καὶ εἰσῆλθεν πᾶς ὁ λαὸς τῆς γῆς εἰς οἶκον Βάαλ, καὶ κατέσπασαν αὐτὸν καὶ τὰ θυσιαστήρια καὶ τὰ εἴδωλα αὐτοῦ καὶ ἐλέπτυναν, καὶ τὸν Ματθὰν ἱερέα τῆς Βάαλ ἐθανάτωσαν ἐναντίον τῶν θυσιαστηρίων αὐτοῦ.
-**18** καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν λευειτῶν, ἃς διέστειλεν Δαυὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυίδ.
+**18** καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευειτῶν, ἃς διέστειλεν Δαυὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυίδ.
 **19** καὶ ἔστησαν οἱ πυλωροὶ ἐπὶ τὰς πύλας οἴκου Κυρίου, καὶ οὐκ εἰσελεύσεται ἀκάθαρτος εἰς πᾶν πρᾶγμα.
 **20** καὶ ἔλαβεν τοὺς πατριάρχας καὶ τοὺς δυνατοὺς καὶ τοὺς ἄρχοντας τοῦ λαοῦ καὶ πάντα τὸν λαὸν τῆς γῆς, καὶ ἐπεβίβασαν τὸν βασιλέα εἰς οἶκον Κυρίου, καὶ εἰσῆλθεν διὰ τῆς πύλης τῆς ἐσωτέρας εἰς τὸν οἶκον τοῦ βασιλέως, καὶ ἐκάθισαν τὸν βασιλέα ἐπὶ τὸν θρόνον τῆς βασιλείας.
 **21** καὶ ηὐφράνθη πᾶς ὁ λαὸς τῆς γῆς, καὶ ἡ πόλις ἡσύχασεν· καὶ τὴν Γοθολιὰ ἐθανάτωσαν.
@@ -416,7 +418,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `Ἰωδᾶε` over `Ἰωδαὲ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `Λευειτῶν,` over `Λευιτῶν,` (Sixtine/Brenton) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `ἀνέστησεν` over `ἀνέστησε` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
-- *Disregarded Surface Variant:* kept `λευειτῶν,` over `Λευειτῶν,`, `Λευιτῶν,` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
+- *Disregarded Surface Variant:* kept `Λευειτῶν,` over `Λευιτῶν,` (Sixtine/Brenton) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `διέστειλεν` over `διέ. στειλεν`, `διέστειλε` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Word division differs with spelling convention (Euphonic movable-nu (-ν) variation)*
 - *Disregarded Surface Variant:* kept `Δαυὶδ` over `Δαυεὶδ` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `οἶκον` over `οικον` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
@@ -618,8 +620,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 18 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν λευειτῶν, ἃς διέστειλεν Δαυὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυίδ.
-  - `Swete-Amicarelli`: καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν λευειτῶν, ἃς διέστειλεν Δαυεὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυείδ.
+- **Critical Text:** καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευειτῶν, ἃς διέστειλεν Δαυὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυίδ.
+  - `Swete-Amicarelli`: καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευειτῶν, ἃς διέστειλεν Δαυεὶδ ἐπὶ τὸν οἶκον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυείδ.
   - `1st1K-LXX`: καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευειτῶν, ἃς διέ. στειλεν Δαυεὶδ ἐπὶ τὸν οικον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυείδ.
   - `Swete (B/A/א)`: καὶ ἐνεχείρησεν Ἰωδᾶε ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευειτῶν, καὶ ἀνέστησεν τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευειτῶν, ἃς διέ. στειλεν Δαυεὶδ ἐπὶ τὸν οικον Κυρίου καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυείδ.
   - `Sixtine/Brenton`: Καὶ ἐνεχείρισεν Ἰωδαὲ ὁ ἱερεὺς τὰ ἔργα οἴκου Κυρίου διὰ χειρὸς ἱερέων καὶ Λευιτῶν, καὶ ἀνέστησε τὰς ἐφημερίας τῶν ἱερέων καὶ τῶν Λευιτῶν, ἃς διέστειλε Δαυὶδ ἐπὶ τὸν οἶκον Κυρίου, καὶ ἀνενέγκαι ὁλοκαυτώματα Κυρίῳ, καθὼς γέγραπται ἐν νόμῳ Μωυσῆ, ἐν εὐφροσύνῃ καὶ ἐν ᾠδαῖς διὰ χειρὸς Δαυίδ.

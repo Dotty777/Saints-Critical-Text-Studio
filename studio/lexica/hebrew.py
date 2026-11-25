@@ -36,9 +36,10 @@ Sources (all openly licensed; each is named in the ``LemmaEntry`` fields it feed
 * ``lxx_equivalents()``: MACULA Hebrew (Biblica, CC BY 4.0) ``greek``/``greekstrong`` columns.
 
 OSHB corrections
-    ``OSHB_LEMMA_CORRECTIONS`` replaces 19 OSHB lemma tags that are demonstrably wrong (wrong
+    ``OSHB_LEMMA_CORRECTIONS`` replaces 24 OSHB lemma tags that are demonstrably wrong (wrong
     Strong's number against the word's own letters and OSHB's own morphology; 2 Sam 18:4 יָֽצְאוּ
-    tagged יָרַד, 1 Kgs 7:23 שְׂפָתוֹ tagged "second").  The TokenTag notes say so.
+    tagged יָרַד, 1 Kgs 7:23 שְׂפָתוֹ tagged "second", plus 5 Hebrew/Aramaic language cross-tags).
+    The TokenTag notes say so.
 
 Lemma keys
     ``H`` + four-digit Strong's number + the OSHB augment letter, as OSHB tags the word
@@ -285,6 +286,18 @@ OSHB_LEMMA_CORRECTIONS: Dict[str, Tuple[str, str, str, str]] = {
               "הַפִּסְחִים 'the lame': OSHB's own morph is the adjective (Aampa), BDB פִּסֵּחַ 'lame', not the verb פָּסַח"),
     "11s71": ("1Kgs.7.23", "8145", "8193",
               "שְׂפָתוֹ 'its brim' is שָׂפָה 'lip, edge' (as in מִשְּׂפָתוֹ before it); 8145 is שֵׁנִי 'second'"),
+    # Stage 1 Hebrew/Aramaic Audit (24 Nov 2026) — 5 upstream OSHB Hebrew <-> Aramaic Strong's cross-tags
+    # where OSHB's own morph language prefix (H vs A) confirms the right language:
+    "11pAx": ("1Kgs.22.21", "b/3964", "b/4100",
+              "בַּמָּֽה in Hebrew narrative is Hebrew מָה (H4100; OSHB morph HR/Ti), not Aramaic מָא (H3964)"),
+    "19LQV": ("Ps.60.7", "c/6032", "c/6030 b",
+              "וַעֲנֵֽנִי in Hebrew psalm is Hebrew עָנָה 'to answer' (H6030b; OSHB morph HC/Vqv2ms/Sp1cs), not Aramaic עֲנָה (H6032)"),
+    "28G27": ("Hos.10.11", "6676", "6677 a",
+              "צַוָּארָ֑הּ in Hebrew prophecy is Hebrew צַוָּאר 'neck' (H6677a; OSHB morph HNcmsc/Sp3fs), not Aramaic צַוַּאר (H6676)"),
+    "15cH4": ("Ezra.7.18", "5921 a", "5922",
+              "עֲלָ֨ךְ in Aramaic decree (Ezra 7:12–26) is Aramaic עַל (H5922; OSHB morph AR/Sp2ms, as וְעַל in same verse), not Hebrew עַל (H5921a)"),
+    "27SNT": ("Dan.7.19", "3605", "3606",
+              "כׇּלְּהֵ֑ין in Aramaic vision (Dan 2:4–7:28) is Aramaic כֹּל (H3606; OSHB morph ANcmsc/Sp3fs), not Hebrew כֹּל (H3605)"),
 }
 
 # Display glosses (and, where gloss and part of speech clash, the POS) that the Studio corrects.

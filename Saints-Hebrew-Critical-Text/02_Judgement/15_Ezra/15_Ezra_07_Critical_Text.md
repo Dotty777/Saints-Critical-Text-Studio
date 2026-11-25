@@ -1,6 +1,6 @@
 # Ezra 07 — Saints Hebrew Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:45Z`
+**Division:** `02_Judgement` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:57Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,183 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 6:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:20 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:21 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 6:22 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:20 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:21 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:22 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:23 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:24 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:25 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:26 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:27 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:28 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:29 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:30 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:31 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:32 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:33 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:34 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:35 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 8:36 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:20 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:21 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 6:22 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:20 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:21 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:22 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:23 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:24 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:25 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:26 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:27 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:28 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:29 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:30 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:31 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:32 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:33 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:34 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:35 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 8:36 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:20 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:21 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 6:22 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:20 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:21 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:22 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:23 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:24 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:25 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:26 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:27 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:28 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:29 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:30 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:31 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:32 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:33 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:34 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:35 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 8:36 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -114,12 +282,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `אׇסְפַּ֨רְנָא` over `אָסְפַּ֨רְנָא` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Ezra 7:18
-- **Apparatus:** `עֲלָ֨ךְ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
-- **Apparatus:** `אֶחָ֜ךְ` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `(עליך)` over `עליך` (WLC (L)) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `עֲלָ֨ךְ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `אֶחָ֜ךְ` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `(אחיך)` over `אחיך` (WLC (L)) — *Punctuation / spacing difference only*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `עֲלָ֨ךְ / `, `אֶחָ֜ךְ / `, `עֲלָ֨ךְ / `, `אֶחָ֜ךְ / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (edition prints the written form only)*
 
 ### Ezra 7:19
 - *Disregarded Surface Variant:* kept `לְפׇלְחָ֖ן` over `לְפָלְחָ֖ן` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -143,7 +310,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `וְ֠לֵוָיֵ֠א` over `וְ֠לֵוָיֵא` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Ezra 7:25
-- **Apparatus:** `דָּאיְנִין֙` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - **Apparatus:** `עַמָּא֙` MAM (Aleppo) WLC (L) **]** **עַמָּה֙** BenChayyim (1525) Letteris (1852)
 - *Disregarded Surface Variant:* kept `כְּחׇכְמַ֨ת` over `כְּחָכְמַ֨ת` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(דאנין)` over `דאנין` (WLC (L)) — *Punctuation / spacing difference only*
@@ -151,13 +317,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `לְכׇל־` over `לְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `עַמָּא֙` over `עַמָּה֙` (WLC (L)) — *Biblical Aramaic final א/ה mater lectionis convention*
 - *Disregarded Surface Variant:* kept `לְכׇל־` over `לְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `דָּאיְנִין֙ / `, `דָּאיְנִין֙ / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (edition prints the written form only)*
 
 ### Ezra 7:26
-- **Apparatus:** `לִשְׁרֹשִׁ֔י` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
 - *Disregarded Surface Variant:* kept `וְכׇל־` over `וְכָל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `אׇסְפַּ֕רְנָא` over `אָסְפַּ֕רְנָא` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(לשרשו)` over `לשרשו` (WLC (L)) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `לִשְׁרֹשִׁ֔י` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `לִשְׁרֹשִׁ֔י / `, `לִשְׁרֹשִׁ֔י / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (edition prints the written form only)*
 
 ### Ezra 7:27
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -313,7 +480,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** וּמָ֣ה דִי֩ (עליך) עֲלָ֨ךְ וְעַל־אֶחָ֜ךְ (אחיך) יֵיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָהֲכֹ֖ם תַּעַבְדֽוּן׃
   - `MAM (Aleppo)`: וּמָ֣ה דִי֩ (עליך) עֲלָ֨ךְ וְעַל־אֶחָ֜ךְ (אחיך) יֵיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָהֲכֹ֖ם תַּעַבְדֽוּן׃
   - `WLC (L)`: וּמָ֣ה דִי֩ עליך וְעַל־אחיך יֵיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָהֲכֹ֖ם תַּעַבְדֽוּן׃
-  - `BenChayyim (1525)`: וּמָ֣ה דִי֩ *עֲלַיִךְ (עֲלָ֨ךְ) וְעַל־*אֶחַיִךְ (אֶחָ֜ךְ) יִיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָהֲכֹ֖ם תַּעַבְדֽוּן׃
+  - `BenChayyim (1525)`: וּמָ֣ה דִי֩ עֲלַיִךְ (עֲלָ֨ךְ) וְעַל־אֶחַיִךְ (אֶחָ֜ךְ) יִיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָהֲכֹ֖ם תַּעַבְדֽוּן׃
   - `Letteris (1852)`: וּמָ֣ה דִי֩ עֲלָ֨יךְ וְעַל־אֶחָ֜יךְ יִיטַ֗ב בִּשְׁאָ֛ר כַּסְפָּ֥א וְדַֽהֲבָ֖ה לְמֶעְבַּ֑ד כִּרְע֥וּת אֱלָֽהֲכֹ֖ם תַּֽעַבְדֽוּן׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Punctuation / spacing difference only).
 
@@ -369,7 +536,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** וְאַ֣נְתְּ עֶזְרָ֗א כְּחׇכְמַ֨ת אֱלָהָ֤ךְ דִּֽי־בִידָךְ֙ מֶ֣נִּי שָׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶהֱוֺ֤ן (דאנין) דָּאיְנִין֙ לְכׇל־עַמָּא֙ דִּ֚י בַּעֲבַ֣ר נַהֲרָ֔ה לְכׇל־יָדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהוֹדְעֽוּן׃
   - `MAM (Aleppo)`: וְאַ֣נְתְּ עֶזְרָ֗א כְּחׇכְמַ֨ת אֱלָהָ֤ךְ דִּֽי־בִידָךְ֙ מֶ֣נִּי שָׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶהֱוֺ֤ן (דאנין) דָּאיְנִין֙ לְכׇל־עַמָּא֙ דִּ֚י בַּעֲבַ֣ר נַהֲרָ֔ה לְכׇל־יָדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהוֹדְעֽוּן׃
   - `WLC (L)`: וְאַ֣נְתְּ עֶזְרָ֗א כְּחָכְמַ֨ת אֱלָהָ֤ךְ דִּֽי־בִידָךְ֙ מֶ֣נִּי שָׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶהֱוֺ֤ן דאנין לְכָל־עַמָּה֙ דִּ֚י בַּעֲבַ֣ר נַהֲרָ֔ה לְכָל־יָדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהוֹדְעֽוּן׃
-  - `BenChayyim (1525)`: וְאַ֣נְתְּ עֶזְרָ֗א כְּחָכְמַ֨ת אֱלָהָ֤ךְ דִּֽי־בִידָךְ֙ מֶ֣נִּי שָׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶהֱוֹ֤ן *דָּאֲנִין (דָּאיְנִין֙) לְכָל־עַמָּה֙ דִּ֚י בַּעֲבַ֣ר נַהֲרָ֔ה לְכָל־יָדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהוֹדְעֽוּן׃
+  - `BenChayyim (1525)`: וְאַ֣נְתְּ עֶזְרָ֗א כְּחָכְמַ֨ת אֱלָהָ֤ךְ דִּֽי־בִידָךְ֙ מֶ֣נִּי שָׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶהֱוֹ֤ן דָּאֲנִין (דָּאיְנִין֙) לְכָל־עַמָּה֙ דִּ֚י בַּעֲבַ֣ר נַהֲרָ֔ה לְכָל־יָדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהוֹדְעֽוּן׃
   - `Letteris (1852)`: וְאַ֣נְתְּ עֶזְרָ֗א כְּחָכְמַ֨ת אֱלָהָ֤ךְ דִּי־בִידָךְ֨ מֶ֣נִּי שָֽׁפְטִ֞ין וְדַיָּנִ֗ין דִּי־לֶֽהֱֺו֤ן דָֽאְנִין֙ לְכָל־עַמָּה֙ דִּ֚י בַּֽעֲבַ֣ר נַֽהֲרָ֔ה לְכָל־יָֽדְעֵ֖י דָּתֵ֣י אֱלָהָ֑ךְ וְדִ֧י לָ֦א יָדַ֖ע תְּהֽוֹדְעֽוּן׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 6 surface variation(s) (Biblical Aramaic final א/ה mater lectionis convention; Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 
@@ -377,7 +544,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** וְכׇל־דִּי־לָא֩ לֶהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אׇסְפַּ֕רְנָא דִּינָ֕ה לֶהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֙ הֵ֣ן (לשרשו) לִשְׁרֹשִׁ֔י הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
   - `MAM (Aleppo)`: וְכׇל־דִּי־לָא֩ לֶהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אׇסְפַּ֕רְנָא דִּינָ֕ה לֶהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֙ הֵ֣ן (לשרשו) לִשְׁרֹשִׁ֔י הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
   - `WLC (L)`: וְכָל־דִּי־לָא֩ לֶהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אָסְפַּ֕רְנָא דִּינָ֕ה לֶהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֙ הֵ֣ן לשרשו הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
-  - `BenChayyim (1525)`: וְכָל־דִּי־לָא֩ לֶהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אָסְפַּ֕רְנָא דִּינָ֕ה לֶהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֙ הֵ֣ן *לִשְׁרֹשׁוּ (לִשְׁרֹשִׁ֔י) הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
+  - `BenChayyim (1525)`: וְכָל־דִּי־לָא֩ לֶהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אָסְפַּ֕רְנָא דִּינָ֕ה לֶהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֙ הֵ֣ן לִשְׁרֹשׁוּ (לִשְׁרֹשִׁ֔י) הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
   - `Letteris (1852)`: וְכָל־דִּי־לָא֩ לֶֽהֱוֵ֨א עָבֵ֜ד דָּתָ֣א דִֽי־אֱלָהָ֗ךְ וְדָתָא֙ דִּ֣י מַלְכָּ֔א אָסְפַּ֕רְנָא דִּינָ֕ה לֶֽהֱוֵ֥א מִתְעֲבֵ֖ד מִנֵּ֑הּ הֵ֤ן לְמוֹת֨ הֵ֣ן לִשְׁרשִׁ֔ו הֵן־לַעֲנָ֥שׁ נִכְסִ֖ין וְלֶאֱסוּרִֽין׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 4 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 

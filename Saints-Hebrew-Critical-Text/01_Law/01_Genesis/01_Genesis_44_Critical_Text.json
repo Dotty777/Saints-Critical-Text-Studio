@@ -7,11 +7,198 @@
   "usfm_code": "GEN",
   "chapter": 44,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:45Z",
+  "updated_at": "2026-11-25T00:07:51Z",
   "versification": "Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions.",
   "versification_anchor": "WLC (L)",
   "orthographic_base": "MAM (Aleppo)",
-  "versification_notes": [],
+  "versification_notes": [
+    "MAM (Aleppo): 43:1 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:2 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:3 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:4 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:5 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:6 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:7 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:8 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:9 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:10 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:11 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:12 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:13 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:14 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:15 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:16 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:17 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:18 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:19 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:20 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:21 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:22 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:23 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:24 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:25 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:26 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:27 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:28 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:29 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:30 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:31 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:32 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:33 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 43:34 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:1 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:2 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:3 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:4 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:5 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:6 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:7 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:8 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:9 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:10 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:11 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:12 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:13 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:14 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:15 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:16 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:17 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:18 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:19 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:20 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:21 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:22 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:23 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:24 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:25 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:26 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:27 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 45:28 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:1 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:2 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:3 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:4 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:5 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:6 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:7 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:8 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:9 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:10 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:11 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:12 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:13 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:14 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:15 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:16 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:17 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:18 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:19 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:20 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:21 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:22 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:23 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:24 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:25 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:26 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:27 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:28 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:29 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:30 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:31 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:32 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:33 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 43:34 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:1 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:2 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:3 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:4 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:5 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:6 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:7 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:8 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:9 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:10 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:11 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:12 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:13 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:14 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:15 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:16 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:17 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:18 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:19 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:20 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:21 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:22 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:23 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:24 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:25 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:26 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:27 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 45:28 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:1 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:3 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:4 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:6 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:7 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:9 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:10 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:12 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:13 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:14 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:15 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:16 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:17 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:18 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:19 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:20 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:21 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:22 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:23 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:24 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:25 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:26 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:27 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:28 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:29 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:30 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:31 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:32 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:33 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 43:34 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:1 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:3 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:4 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:6 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:7 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:9 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:10 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:12 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:13 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:14 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:15 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:16 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:17 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:18 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:19 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:20 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:21 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:22 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:23 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:24 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:25 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:26 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:27 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 45:28 kept in its own chapter (stronger match to its own reference verse)"
+  ],
   "admitted_witnesses": [
     {
       "siglum": "MAM (Aleppo)",
@@ -60,10 +247,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -87,10 +272,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -114,10 +297,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -141,10 +322,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -180,10 +359,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -207,10 +384,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -234,10 +409,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -261,10 +434,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -288,10 +459,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -315,10 +484,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -342,10 +509,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -369,10 +534,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -396,10 +559,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -423,10 +584,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -450,10 +609,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -477,10 +634,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -504,10 +659,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -531,10 +684,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -581,10 +732,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -608,10 +757,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -658,10 +805,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -685,10 +830,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -712,10 +855,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -739,10 +880,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -766,10 +905,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -793,10 +930,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -820,10 +955,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -847,10 +980,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -874,10 +1005,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -901,10 +1030,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -928,10 +1055,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -955,10 +1080,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -994,10 +1117,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],
@@ -1021,10 +1142,8 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
-        "Letteris (1852)",
-        "SP (Samaritan)"
+        "Letteris (1852)"
       ],
       "apparatus": [],
       "disregarded": [],

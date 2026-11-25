@@ -1,6 +1,6 @@
 # Jeremiah 43 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:35Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:41Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source import repair, 43:10: 'ἀνεγίνωσκε βαροὺχ' → 'ἀνεγίνωσκε Βαροὺχ' (Swete prints Βαροὺχ (proper name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 42:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 42:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 42:3 kept in its own chapter (stronger match to its own reference verse)
@@ -208,7 +207,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **7** ἴσως πεσεῖται ἔλεος αὐτῶν κατὰ πρόσωπον Κυρίου, καὶ ἀποστρέψουσιν ἐκ τῆς ὁδοῦ αὐτῶν τῆς πονηρᾶς, ὅτι μέγας ὁ θυμὸς καὶ ἡ ὀργὴ Κυρίου ἣν ἐλάλησεν ἐπὶ τὸν λαὸν τοῦτον.
 **8** καὶ ἐποίησεν Βαροὺχ κατὰ πάντα ἃ ἐνετείλατο αὐτῷ Ἰερεμίας, τοῦ ἀναγνῶναι ἐν τῷ βιβλίῳ λόγους Κυρίου ἐν οἴκῳ Κυρίου.
 **9** καὶ ἐγενήθη ἐν τῷ ἔτει τῷ ὀγδόῳ βασιλεῖ Ἰωακεὶμ τῷ μηνὶ τῷ ἐνάτῳ ἐξεκκλησίασαν νηστείαν κατὰ πρόσωπον Κυρίου πᾶς ὁ λαὸς ἐν Ἰερουσαλὴμ καὶ οἶκος Ἰούδα.
-**10** καὶ ἀνεγίνωσκε βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
+**10** καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
 **11** καὶ ἤκουσεν Μειχαίας υἱὸς Γαμαρείου υἱοῦ Σαφὰν ἅπαντας τοὺς λόγους Κυρίου ἐκ τοῦ βιβλίου.
 **12** καὶ κατέβη εἰς οἰκίαν τοῦ βασιλέως, εἰς τὸν οἶκον τοῦ γραμματέως, καὶ ἰδοὺ ἐκεῖ πάντες οἱ ἄρχοντες ἐκάθηντο, Ἐλεισαμὰ ὁ γραμματεὺς καὶ Δαλαίας υἱὸς Σελεμίου καὶ Ἰωναθὰν υἱὸς Ἀκχοβὼρ καὶ Γαμαρίας υἱὸς Σαφὰν καὶ Σεδεκίας υἱὸς Ἀνανίου καὶ πάντες οἱ ἄρχοντες,
 **13** καὶ ἀνήγγειλεν αὐτοῖς Μειχαίας πάντας τοὺς λόγους οὓς ἤκουσεν ἀναγινώσκοντος Βαροὺχ εἰς τὰ ὦτα τοῦ λαοῦ.
@@ -321,7 +320,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Jeremiah 43:10
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `βαροὺχ` over `Βαροὺχ` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Ἰερεμίου` over `Ἱερεμίου` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `Γαμαρείου` over `Γαμαρίου` (Sixtine/Brenton) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `καινῆς` over `καινῆς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -632,13 +630,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 28% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 10 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἀνεγίνωσκε βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
-  - `Swete-Amicarelli`: καὶ ἀνεγίνωσκε βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
+- **Critical Text:** καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
+  - `Swete-Amicarelli`: καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
   - `1st1K-LXX`: καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
   - `Swete (B/A/א)`: καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἰερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρείου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
   - `Sixtine/Brenton`: Καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἱερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρίου υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς, καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
   - `LXX-Orthodox (Οʹ)`: καὶ ἀνεγίνωσκε Βαροὺχ ἐν τῷ βιβλίῳ τοὺς λόγους Ἱερεμίου ἐν οἴκῳ Κυρίου, ἐν οἴκῳ Γαμαρίου, υἱοῦ Σαφὰν τοῦ γραμματέως, ἐν τῇ αὐλῇ τῇ ἐπάνω ἐν προθύροις πύλης τοῦ οἴκου Κυρίου τῆς καινῆς καὶ ἐν ὠσὶ παντὸς τοῦ λαοῦ.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
 ### Verse 11 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ ἤκουσεν Μειχαίας υἱὸς Γαμαρείου υἱοῦ Σαφὰν ἅπαντας τοὺς λόγους Κυρίου ἐκ τοῦ βιβλίου.

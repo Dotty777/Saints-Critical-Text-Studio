@@ -336,9 +336,9 @@ class TestGoldConcordanceBuild(unittest.TestCase):
                 ("greek", "matthew", 17, 21, "⟦Τοῦτο δὲ τὸ γένος οὐκ ἐκπορεύεται εἰ μὴ ἐν προσευχῇ καὶ νηστείᾳ.⟧"),
                 ("hebrew", "psalms", 116, 14, "נְ֭דָרַי לַיהֹוָ֣ה אֲשַׁלֵּ֑ם נֶגְדָה־נָּ֝֗א לְכׇל־עַמּֽוֹ׃"),
                 ("latin", "psalms", 115, 5, "Vota mea Domino reddam coram omni populo ejus."),
-                # Confirmed duplicate & placeholder — must be skipped, never indexed
+                # Confirmed duplicate — must be skipped, never indexed
                 ("greek", "psalms", 25, 22, "Τοῦ Δαυίδ."),
-                ("latin", "sirach", 1, 15, "No aligned Latin source passage."),
+                ("latin", "sirach", 19, 6, "Qui odit loquacitatem, extinguit malitiam."),
             ]
             with get_conn() as conn:
                 for lang, slug, ch, v, text in extra_verses:
@@ -379,8 +379,8 @@ class TestGoldConcordanceBuild(unittest.TestCase):
             self.assertEqual({t["lang_stream"] for t in ps_h["tokens"]}, {"heb_ot", "lat_bible"})
             # Reverse navigation works for extra-site anchors too
             self.assertEqual(eng.concordance_verse_in_language("hebrew", "psalms", 115, 5, subverse=9), [(116, 14)])
-            # Duplicate / placeholder verses are not indexed
-            self.assertIsNone(eng.get_verse_concordance("sirach", 1, 15, language="latin")["anchor_verse_id"])
+            # Duplicate verses are not indexed
+            self.assertIsNone(eng.get_verse_concordance("sirach", 19, 6, language="latin")["anchor_verse_id"])
             self.assertIsNone(eng.get_verse_concordance("psalms", 25, 22, language="greek")["anchor_verse_id"])
 
             # Website pack exports ONLY live Saints.Bible site verses (subverse == 0)

@@ -1,6 +1,6 @@
 # Ezekiel 21 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:32Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:42Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,19 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source division repair: verses 21:21–32 renumbered 21:26–37 (Brenton's numbering; Swete divides 21:19–20 across Brenton's 21:24–25). Original file unchanged.
+- Swete-Amicarelli: Source division repair: 'Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς' moved from 21:19 to 21:20 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- Swete-Amicarelli: Source division repair: 'τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.' moved from 21:20 to 21:25 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- 1st1K-LXX: Source division repair: verses 21:21–32 renumbered 21:26–37 (Brenton's numbering; Swete divides 21:19–20 across Brenton's 21:24–25). Original file unchanged.
+- 1st1K-LXX: Source division repair: 'Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς' moved from 21:19 to 21:20 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- 1st1K-LXX: Source division repair: 'τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.' moved from 21:20 to 21:25 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- Swete (B/A/א): Source division repair: verses 21:21–32 renumbered 21:26–37 (Brenton's numbering; Swete divides 21:19–20 across Brenton's 21:24–25). Original file unchanged.
+- Swete (B/A/א): Source division repair: 'Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς' moved from 21:19 to 21:20 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- Swete (B/A/א): Source division repair: 'τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.' moved from 21:20 to 21:25 (Swete divides 21:19–20 across Brenton's 21:24–25). No word added or dropped. Original file unchanged.
+- Swete-Amicarelli: verse 21:26 runs into its neighbour across the anchor's division between 21:26 and 21:27; re-divided there
 - Swete-Amicarelli: verse 22:5 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
 - Swete-Amicarelli: 20:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:3 kept in its own chapter (stronger match to its own reference verse)
@@ -109,9 +116,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 22:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:31 kept in its own chapter (stronger match to its own reference verse)
-- Swete-Amicarelli: 21:19 folded into verse 24 (the reference prints these words there)
 - Swete-Amicarelli: 21:18 not collated (no verse of the reference matches its wording)
-- Swete-Amicarelli: 35 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
+- Swete-Amicarelli: 23 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
+- 1st1K-LXX: verse 21:26 runs into its neighbour across the anchor's division between 21:26 and 21:27; re-divided there
 - 1st1K-LXX: verse 22:5 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
 - 1st1K-LXX: 20:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:3 kept in its own chapter (stronger match to its own reference verse)
@@ -168,6 +175,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 22:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:12 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 22:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:16 kept in its own chapter (stronger match to its own reference verse)
@@ -186,9 +194,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 22:29 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:30 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:31 kept in its own chapter (stronger match to its own reference verse)
-- 1st1K-LXX: 21:19 folded into verse 24 (the reference prints these words there)
 - 1st1K-LXX: 21:18 not collated (no verse of the reference matches its wording)
-- 1st1K-LXX: 35 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
+- 1st1K-LXX: 23 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
+- Swete (B/A/א): verse 21:26 runs into its neighbour across the anchor's division between 21:26 and 21:27; re-divided there
 - Swete (B/A/א): verse 22:5 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
 - Swete (B/A/א): 20:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:3 kept in its own chapter (stronger match to its own reference verse)
@@ -245,6 +253,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 22:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 22:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:16 kept in its own chapter (stronger match to its own reference verse)
@@ -263,9 +272,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 22:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:31 kept in its own chapter (stronger match to its own reference verse)
-- Swete (B/A/א): 21:19 folded into verse 24 (the reference prints these words there)
 - Swete (B/A/א): 21:18 not collated (no verse of the reference matches its wording)
-- Swete (B/A/א): 35 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
+- Swete (B/A/א): 23 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
 - LXX-Orthodox (Οʹ): verse 22:5 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
 - LXX-Orthodox (Οʹ): 20:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 20:3 kept in its own chapter (stronger match to its own reference verse)
@@ -344,7 +352,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 21:19 folded into verse 24 (the reference prints these words there)
 - LXX-Orthodox (Οʹ): 21:18 not collated (no verse of the reference matches its wording)
 - LXX-Orthodox (Οʹ): 35 verse(s) re-aligned by content (2←20:46, 3←20:47, 4←20:48, 5←20:49, 6←20:2, 7←21:2…)
-- Sixtine/Brenton: the words of verse 25 are also printed by Swete-Amicarelli at 21:20 (numbering differs; kept at the anchor's number)
 
 ---
 
@@ -373,10 +380,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **21** διαπορεύου, ὀξύνου ἐκ δεξιῶν καὶ ἐξ εὐωνύμων, οὗ ἂν τὸ πρόσωπόν σου ἐξεγείρηται.
 **22** καὶ ἐγὼ δὲ κροτήσω χεῖρά μου πρὸς χεῖρά μου καὶ ἐναφήσω θυμόν μου· ἐγὼ Κύριος λελάληκα.
 **23** Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ λέγων
-**24** Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
-**25** τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν, καὶ ἐπὶ τὴν Ἰουδαίαν, καὶ ἐπὶ τὴν Ἱερουσαλὴμ, ἐν μέσῳ αὐτῆς.
-**26** διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
-**27** ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
+**24** Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις
+**25** τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
+**26** διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι
+**27** ἐκ δεξιῶν αὐτοῦ. ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
 **28** καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
 **29** διὰ τοῦτο τάδε λέγει Κύριος Ἀνθ᾽ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθ᾽ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
 **30** καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
@@ -579,15 +586,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `λέγων` over `λέγων,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Ezekiel 21:24
-- **Apparatus:** `τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) LXX-Orthodox (Οʹ) **]** **om.** Sixtine/Brenton *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- **Apparatus:** `ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) LXX-Orthodox (Οʹ) **]** **om.** Sixtine/Brenton *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- **Apparatus:** `αὐτῆς` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) LXX-Orthodox (Οʹ) **]** **om.** Sixtine/Brenton *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- **Apparatus:** `ὁδοῦ διατάξεις` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **ὁδοῦ διατάξεις τοῦ εἰσελθεῖν ρομφαίαν ἐπὶ Ραββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἱερουσαλὴμ ἐν μέσῳ αὐτῆς.** LXX-Orthodox (Οʹ)
+- **Apparatus:** `om.` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **τοῦ εἰσελθεῖν ρομφαίαν ἐπὶ Ραββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἱερουσαλὴμ ἐν μέσῳ αὐτῆς.** LXX-Orthodox (Οʹ)
 - *Disregarded Surface Variant:* kept `Καὶ` over `καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `σύ,` over `σὺ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ὁδοὺς` over `ὁδοὺς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -596,8 +596,16 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ὁδοῦ` over `δοῦ` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `διατάξεις` over `διατάξεις,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
+### Ezekiel 21:25
+- **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **τὴν** Sixtine/Brenton *(omission / addition)*
+  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
+  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- *Disregarded Surface Variant:* kept `Ἀμμὼν` over `Ἀμμῶν` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
+- *Disregarded Surface Variant:* kept `Ἰουδαίαν` over `Ἰουδαίαν,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
+- *Disregarded Surface Variant:* kept `Ἰερουσαλὴμ` over `Ἱερουσαλὴμ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
+
 ### Ezekiel 21:26
-- **Apparatus:** `ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **κατασκοπήσασθαι** Sixtine/Brenton ; **κατασκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.** LXX-Orthodox (Οʹ) *(lexical substitution)*
+- **Apparatus:** `ἡπατοσκοπήσασθαι` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **κατασκοπήσασθαι** Sixtine/Brenton ; **κατασκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.** LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `διότι` over `Διότι` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -606,9 +614,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `γλυπτοῖς` over `γλυπτοῖς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Ezekiel 21:27
-- **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) LXX-Orthodox (Οʹ) **]** **Ἐκ δεξιῶν αὐτοῦ** Sixtine/Brenton *(omission / addition)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- **Apparatus:** `ἐκ δεξιῶν αὐτοῦ.` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **om.** LXX-Orthodox (Οʹ)
+- *Disregarded Surface Variant:* kept `ἐκ` over `Ἐκ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
+- *Disregarded Surface Variant:* kept `αὐτοῦ.` over `αὐτοῦ` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Ἰερουσαλὴμ` over `Ἱερουσαλὴμ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `αὐτῆς` over `αὐτῆς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `χῶμα` over `χῶμα,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -911,129 +919,131 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `LXX-Orthodox (Οʹ)` *(numbered 21:8 in this witness)*: καὶ ἐγένετο λόγος Κυρίου πρός με, λέγων·
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:8; Swete (B/A/א) numbers this verse 21:8; Swete-Amicarelli numbers this verse 21:8 (re-aligned by content).
 
-### Verse 24 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
-  - `Swete-Amicarelli` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
-  - `1st1K-LXX` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπʼ ἀρχῆς δοῦ διατάξεις τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
-  - `Swete (B/A/א)` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπʼ ἀρχῆς δοῦ διατάξεις τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
+### Verse 24 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις
+  - `Swete-Amicarelli` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ᾽ ἀρχῆς ὁδοῦ διατάξεις
+  - `1st1K-LXX` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπʼ ἀρχῆς δοῦ διατάξεις
+  - `Swete (B/A/א)` *(numbered 21:20 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπʼ ἀρχῆς δοῦ διατάξεις
   - `Sixtine/Brenton`: καὶ σὺ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς, τοῦ εἰσελθεῖν ῥομφαίαν βασιλέως Βαβυλῶνος, ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπʼ ἀρχῆς ὁδοῦ διατάξεις,
   - `LXX-Orthodox (Οʹ)` *(numbered 21:20 in this witness)*: καὶ σὺ υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς τοῦ εἰσελθεῖν ρομφαίαν βασιλέως Βαβυλῶνος· ἐκ χώρας μιᾶς ἐξελεύσονται αἱ δύο, καὶ χεὶρ ἐν ἀρχῇ ὁδοῦ πόλεως, ἐπ' ἀρχῆς ὁδοῦ διατάξεις τοῦ εἰσελθεῖν ρομφαίαν ἐπὶ Ραββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἱερουσαλὴμ ἐν μέσῳ αὐτῆς.
-- **Philological Rationale:** [Variation unit spanning several words] Adopted 'τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Omission in some witnesses] Adopted 'αὐτῆς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Versification: 1st1K-LXX numbers this verse 21:20; Swete (B/A/א) numbers this verse 21:20; Swete-Amicarelli numbers this verse 21:20 (re-aligned by content). Also normalised 7 orthographic/surface variation(s).
-- *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 7 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:20; Swete (B/A/א) numbers this verse 21:20; Swete-Amicarelli numbers this verse 21:20 (re-aligned by content).
 
-### Verse 25 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν, καὶ ἐπὶ τὴν Ἰουδαίαν, καὶ ἐπὶ τὴν Ἱερουσαλὴμ, ἐν μέσῳ αὐτῆς.
+### Verse 25 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
+  - `Swete-Amicarelli`: τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
+  - `1st1K-LXX`: τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
+  - `Swete (B/A/א)`: τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.
   - `Sixtine/Brenton`: τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν, καὶ ἐπὶ τὴν Ἰουδαίαν, καὶ ἐπὶ τὴν Ἱερουσαλὴμ, ἐν μέσῳ αὐτῆς.
-- **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
+- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τὴν (Sixtine/Brenton). Also normalised 3 orthographic/surface variation(s).
+- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 26 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
-  - `Swete-Amicarelli` *(numbered 21:21 in this witness)*: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
-  - `1st1K-LXX` *(numbered 21:21 in this witness)*: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπʼ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
-  - `Swete (B/A/א)` *(numbered 21:21 in this witness)*: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπʼ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
+- **Critical Text:** διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι
+  - `Swete-Amicarelli`: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ᾽ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι
+  - `1st1K-LXX`: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπʼ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι
+  - `Swete (B/A/א)`: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπʼ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ ἡπατοσκοπήσασθαι
   - `Sixtine/Brenton`: Διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπʼ ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ῥάβδον, καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς, καὶ κατασκοπήσασθαι.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:21 in this witness)*: διότι στήσεται βασιλεὺς Βαβυλῶνος ἐπὶ τὴν ἀρχαίαν ὁδόν, ἐπ' ἀρχῆς τῶν δύο ὁδῶν, τοῦ μαντεύσασθαι μαντείαν, τοῦ ἀναβράσαι ράβδον καὶ ἐπερωτῆσαι ἐν τοῖς γλυπτοῖς καὶ κατασκοπήσασθαι ἐκ δεξιῶν αὐτοῦ.
-- **Philological Rationale:** [Variation unit spanning several words] Adopted 'ἡπατοσκοπήσασθαι ἐκ δεξιῶν αὐτοῦ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over κατασκοπήσασθαι (Sixtine/Brenton). Versification: 1st1K-LXX numbers this verse 21:21; Swete (B/A/א) numbers this verse 21:21; Swete-Amicarelli numbers this verse 21:21 (re-aligned by content). Also normalised 4 orthographic/surface variation(s).
+- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'ἡπατοσκοπήσασθαι' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over κατασκοπήσασθαι (Sixtine/Brenton). Also normalised 4 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
-### Verse 27 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
-  - `Swete-Amicarelli` *(numbered 21:22 in this witness)*: ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
-  - `1st1K-LXX` *(numbered 21:22 in this witness)*: ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
-  - `Swete (B/A/א)` *(numbered 21:22 in this witness)*: ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
+### Verse 27 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** ἐκ δεξιῶν αὐτοῦ. ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
+  - `Swete-Amicarelli`: ἐκ δεξιῶν αὐτοῦ. ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
+  - `1st1K-LXX`: ἐκ δεξιῶν αὐτοῦ. ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
+  - `Swete (B/A/א)`: ἐκ δεξιῶν αὐτοῦ. ἐγένετο τὸ μαντεῖον ἐπὶ Ἰερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
   - `Sixtine/Brenton`: Ἐκ δεξιῶν αὐτοῦ ἐγένετο τὸ μαντεῖον ἐπὶ Ἱερουσαλὴμ, τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς, καὶ βαλεῖν χῶμα, καὶ οἰκοδομῆσαι βελοστάσεις.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:22 in this witness)*: ἐγένετο τὸ μαντεῖον ἐπὶ Ἱερουσαλὴμ τοῦ βαλεῖν χάρακα, τοῦ διανοῖξαι στόμα ἐν βοῇ, ὑψῶσαι φωνὴν μετὰ κραυγῆς, τοῦ βαλεῖν χάρακα ἐπὶ τὰς πύλας αὐτῆς καὶ βαλεῖν χῶμα καὶ οἰκοδομῆσαι βελοστάσεις.
-- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἐκ δεξιῶν αὐτοῦ (Sixtine/Brenton). Versification: 1st1K-LXX numbers this verse 21:22; Swete (B/A/א) numbers this verse 21:22; Swete-Amicarelli numbers this verse 21:22 (re-aligned by content). Also normalised 3 orthographic/surface variation(s).
-- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 28 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
-  - `Swete-Amicarelli` *(numbered 21:23 in this witness)*: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
-  - `1st1K-LXX` *(numbered 21:23 in this witness)*: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
-  - `Swete (B/A/א)` *(numbered 21:23 in this witness)*: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
+  - `Swete-Amicarelli`: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
+  - `1st1K-LXX`: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
+  - `Swete (B/A/א)`: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
   - `Sixtine/Brenton`: Καὶ αὐτός αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν, καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:23 in this witness)*: καὶ αὐτὸς αὐτοῖς ὡς μαντευόμενος μαντείαν ἐνώπιον αὐτῶν καὶ αὐτὸς ἀναμιμνήσκων ἀδικίας αὐτοῦ μνησθῆναι.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention). Versification: 1st1K-LXX numbers this verse 21:23; Swete (B/A/א) numbers this verse 21:23; Swete-Amicarelli numbers this verse 21:23 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention).
 
 ### Verse 29 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** διὰ τοῦτο τάδε λέγει Κύριος Ἀνθ᾽ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθ᾽ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
-  - `Swete-Amicarelli` *(numbered 21:24 in this witness)*: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθ᾽ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθ᾽ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
-  - `1st1K-LXX` *(numbered 21:24 in this witness)*: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθʼ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθʼ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
-  - `Swete (B/A/א)` *(numbered 21:24 in this witness)*: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθʼ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθʼ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
+  - `Swete-Amicarelli`: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθ᾽ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθ᾽ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
+  - `1st1K-LXX`: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθʼ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθʼ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
+  - `Swete (B/A/א)`: διὰ τοῦτο τάδε λέγει Κύριος Ἀνθʼ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν· ἀνθʼ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
   - `Sixtine/Brenton`: Διατοῦτο τάδε λέγει Κύριος, ἀνθʼ ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν, ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὀραθῆναι ἁμαρτίας ὑμῶν, ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν, ἀνθʼ ὧν ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:24 in this witness)*: διὰ τοῦτο τάδε λέγει Κύριος· ἀνθ' ὧν ἀνεμνήσατε τὰς ἀδικίας ὑμῶν, ἐν τῷ ἀποκαλυφθῆναι τὰς ἀσεβείας ὑμῶν, τοῦ ὁραθῆναι ἁμαρτίας ὑμῶν ἐν πάσαις ταῖς ἀσεβείαις ὑμῶν καὶ ἐν τοῖς ἐπιτηδεύμασιν ὑμῶν, ἀνθ' ἀνεμνήσατε, ἐν τούτοις ἁλώσεσθε.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 8 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only; Word division differs (same letters written as one word or two)). Versification: 1st1K-LXX numbers this verse 21:24; Swete (B/A/א) numbers this verse 21:24; Swete-Amicarelli numbers this verse 21:24 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 8 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only; Word division differs (same letters written as one word or two)).
 
 ### Verse 30 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
-  - `Swete-Amicarelli` *(numbered 21:25 in this witness)*: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
-  - `1st1K-LXX` *(numbered 21:25 in this witness)*: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
-  - `Swete (B/A/א)` *(numbered 21:25 in this witness)*: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
+  - `Swete-Amicarelli`: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
+  - `1st1K-LXX`: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
+  - `Swete (B/A/א)`: καὶ σύ, ἄνομε βέβηλε ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας,
   - `Sixtine/Brenton`: Καὶ σὺ βέβηλε, ἄνομε, ἀφηγούμενε τοῦ Ἰσραὴλ, οὗ ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας, πέρας,
   - `LXX-Orthodox (Οʹ)` *(numbered 21:25 in this witness)*: καὶ σύ, βέβηλε, ἄνομε, ἀφηγούμενε τοῦ Ἰσραήλ, οὗ ἥκει ἡ ἡμέρα, ἐν καιρῷ ἀδικίας πέρας,
-- **Philological Rationale:** [Variation unit spanning several words] Adopted 'ἄνομε βέβηλε' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over βέβηλε ἄνομε (Sixtine/Brenton). Versification: 1st1K-LXX numbers this verse 21:25; Swete (B/A/א) numbers this verse 21:25; Swete-Amicarelli numbers this verse 21:25 (re-aligned by content). Also normalised 5 orthographic/surface variation(s).
+- **Philological Rationale:** [Variation unit spanning several words] Adopted 'ἄνομε βέβηλε' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over βέβηλε ἄνομε (Sixtine/Brenton). Also normalised 5 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 31 (Confidence: `90.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτῇ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
-  - `Swete-Amicarelli` *(numbered 21:26 in this witness)*: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
-  - `1st1K-LXX` *(numbered 21:26 in this witness)*: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
-  - `Swete (B/A/א)` *(numbered 21:26 in this witness)*: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
+  - `Swete-Amicarelli`: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
+  - `1st1K-LXX`: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
+  - `Swete (B/A/א)`: τάδε λέγει Κύριος Ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὐτὴ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλόν, καὶ ὕψωσας τὸ ταπεινόν.
   - `Sixtine/Brenton`: τάδε λέγει Κύριος, ἀφείλου τὴν κίδαριν, καὶ ἐπέθου τὸν στέφανον, αὐτῇ οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλὸν, καὶ ὕψωσας τὸ ταπεινόν.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:26 in this witness)*: τάδε λέγει Κύριος· ἀφείλου τὴν κίδαριν καὶ ἐπέθου τὸν στέφανον· αὕτη οὐ τοιαύτη ἔσται· ἐταπείνωσας τὸ ὑψηλὸν καὶ ὕψωσας τὸ ταπεινόν.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Probable OCR slip in Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א): iota subscript lost: 'αὐτὴ' (149×) for 'αὐτῇ' (1787×); Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:26; Swete (B/A/א) numbers this verse 21:26; Swete-Amicarelli numbers this verse 21:26 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Probable OCR slip in Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א): iota subscript lost: 'αὐτὴ' (149×) for 'αὐτῇ' (1787×); Punctuation / spacing difference only).
 - *confidence:* Verse confidence 90% = product of 1 unit confidence(s); 1 of them digitisation repairs counted at 90 %; not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 32 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὗ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
-  - `Swete-Amicarelli` *(numbered 21:27 in this witness)*: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὗ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
-  - `1st1K-LXX` *(numbered 21:27 in this witness)*: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὖ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
-  - `Swete (B/A/א)` *(numbered 21:27 in this witness)*: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὖ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
+  - `Swete-Amicarelli`: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὗ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
+  - `1st1K-LXX`: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὖ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
+  - `Swete (B/A/א)`: ἀδικίαν ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐαὶ αὐτῇ· τοιαύτη ἔσται ἕως οὖ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
   - `Sixtine/Brenton`: Ἀδικίαν, ἀδικίαν, ἀδικίαν θήσομαι αὐτὴν, οὐαὶ αὐτῇ, τοιαύτη ἔσται ἕως οὗ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:27 in this witness)*: ἀδικίαν ἀδικίαν θήσομαι αὐτήν, οὐδ' αὕτη τοιαύτη ἔσται, ἕως οὗ ἔλθῃ ᾧ καθήκει, καὶ παραδώσω αὐτῷ.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:27; Swete (B/A/א) numbers this verse 21:27; Swete-Amicarelli numbers this verse 21:27 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 33 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἀμμὼν καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῥομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
-  - `Swete-Amicarelli` *(numbered 21:28 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἀμμὼν καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῥομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
-  - `1st1K-LXX` *(numbered 21:28 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἄμμων καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῤομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
-  - `Swete (B/A/א)` *(numbered 21:28 in this witness)*: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἄμμων καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῤομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
+  - `Swete-Amicarelli`: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἀμμὼν καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῥομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
+  - `1st1K-LXX`: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἄμμων καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῤομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
+  - `Swete (B/A/א)`: Καὶ σύ, υἱὲ ἀνθρώπου, προφήτευσον καὶ ἐρεῖς Τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἄμμων καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν, καὶ ἐρεῖς Ῥομφαία ῤομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς.
   - `Sixtine/Brenton`: Καὶ σὺ υἱὲ ἀνθρώπου προφήτευσον, καὶ ἐρεῖς, τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἀμμὼν καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν· καὶ ἐρεῖς, ῥομφαία ῥομφαία ἐσπασμένη εἰς σφάγια, καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς·
   - `LXX-Orthodox (Οʹ)` *(numbered 21:28 in this witness)*: Καὶ σὺ υἱὲ ἀνθρώπου, προφήτευσον, καὶ ἐρεῖς· τάδε λέγει Κύριος πρὸς τοὺς υἱοὺς Ἀμμὼν καὶ πρὸς τὸν ὀνειδισμὸν αὐτῶν καὶ ἐρεῖς· ρομφαία ρομφαία ἐσπασμένη εἰς σφάγια καὶ ἐσπασμένη εἰς συντέλειαν, ἐγείρου ὅπως στίλβῃς
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 12 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:28; Swete (B/A/א) numbers this verse 21:28; Swete-Amicarelli numbers this verse 21:28 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 12 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 34 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
-  - `Swete-Amicarelli` *(numbered 21:29 in this witness)*: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
-  - `1st1K-LXX` *(numbered 21:29 in this witness)*: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
-  - `Swete (B/A/א)` *(numbered 21:29 in this witness)*: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
+  - `Swete-Amicarelli`: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
+  - `1st1K-LXX`: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
+  - `Swete (B/A/א)`: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἤκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας πέρας.
   - `Sixtine/Brenton`: ἐν τῇ ὁράσει σου τῇ ματαίᾳ, καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ἥκει ἡ ἡμέρα ἐν καιρῷ ἀδικίας, πέρας.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:29 in this witness)*: ἐν τῇ ὁράσει σου τῇ ματαίᾳ καὶ ἐν τῷ μαντεύεσθαί σε ψευδῆ, τοῦ παραδοῦναί σε ἐπὶ τραχήλους τραυματιῶν ἀνόμων, ὧν ἥκει ἡ ἡμέρα, ἐν καιρῷ ἀδικίας πέρας.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:29; Swete (B/A/א) numbers this verse 21:29; Swete-Amicarelli numbers this verse 21:29 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Punctuation / spacing difference only).
 
 ### Verse 35 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
-  - `Swete-Amicarelli` *(numbered 21:30 in this witness)*: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
-  - `1st1K-LXX` *(numbered 21:30 in this witness)*: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
-  - `Swete (B/A/א)` *(numbered 21:30 in this witness)*: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
+  - `Swete-Amicarelli`: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
+  - `1st1K-LXX`: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
+  - `Swete (B/A/א)`: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
   - `Sixtine/Brenton`: Ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ ᾧ γεγέννησαι, ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:30 in this witness)*: ἀπόστρεφε, μὴ καταλύσῃς ἐν τῷ τόπῳ τούτῳ, ᾧ γεγέννησαι· ἐν τῇ γῇ τῇ ἰδίᾳ σου κρινῶ σε
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 21:30; Swete (B/A/א) numbers this verse 21:30; Swete-Amicarelli numbers this verse 21:30 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 36 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ ἐκχεῶ ἐπὶ σὲ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
-  - `Swete-Amicarelli` *(numbered 21:31 in this witness)*: καὶ ἐκχεῶ ἐπὶ σὲ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
-  - `1st1K-LXX` *(numbered 21:31 in this witness)*: καὶ ἐκχεῶ ἐπὶ σέ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
-  - `Swete (B/A/א)` *(numbered 21:31 in this witness)*: καὶ ἐκχεῶ ἐπὶ σέ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
+  - `Swete-Amicarelli`: καὶ ἐκχεῶ ἐπὶ σὲ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
+  - `1st1K-LXX`: καὶ ἐκχεῶ ἐπὶ σέ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
+  - `Swete (B/A/א)`: καὶ ἐκχεῶ ἐπὶ σέ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
   - `Sixtine/Brenton`: Καὶ ἐκχεῶ ἐπὶ σὲ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σὲ, καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράς.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:31 in this witness)*: καὶ ἐκχεῶ ἐπὶ σέ ὀργήν μου, ἐν πυρὶ ὀργῆς μου ἐμφυσήσω ἐπὶ σέ καὶ παραδώσω σε εἰς χεῖρας ἀνδρῶν βαρβάρων τεκταινόντων διαφθοράν.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention). Versification: 1st1K-LXX numbers this verse 21:31; Swete (B/A/א) numbers this verse 21:31; Swete-Amicarelli numbers this verse 21:31 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention).
 
 ### Verse 37 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἷμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
-  - `Swete-Amicarelli` *(numbered 21:32 in this witness)*: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἷμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
-  - `1st1K-LXX` *(numbered 21:32 in this witness)*: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἶμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
-  - `Swete (B/A/א)` *(numbered 21:32 in this witness)*: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἶμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
+  - `Swete-Amicarelli`: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἷμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
+  - `1st1K-LXX`: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἶμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
+  - `Swete (B/A/א)`: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἶμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
   - `Sixtine/Brenton`: Ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἷμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
   - `LXX-Orthodox (Οʹ)` *(numbered 21:32 in this witness)*: ἐν πυρὶ ἔσῃ κατάβρωμα, τὸ αἷμά σου ἔσται ἐν μέσῳ τῆς γῆς σου· οὐ μὴ γένηταί σου μνεία, διότι ἐγὼ Κύριος λελάληκα.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention). Versification: 1st1K-LXX numbers this verse 21:32; Swete (B/A/א) numbers this verse 21:32; Swete-Amicarelli numbers this verse 21:32 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention).

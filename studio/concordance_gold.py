@@ -1083,6 +1083,7 @@ def build_gold_concordance(
     say("Rebuilding postings")
     stats["postings"] = rebuild_concordance_postings(conn)
     stats["usage"] = _usage_aggregates(conn)
+    stats["corpus_coverage"] = _corpus_coverage(conn)
     stats["seconds"] = round(time.time() - t0, 1)
     conn.execute(
         "INSERT INTO concordance_build_log (scope, started_at, seconds, stats_json) VALUES (?, strftime('%Y-%m-%dT%H:%M:%SZ','now'), ?, ?)",
@@ -1128,9 +1129,148 @@ def _usage_aggregates(conn: sqlite3.Connection) -> Dict[str, Any]:
     }
 
 
+def _corpus_coverage(conn: sqlite3.Connection) -> Dict[str, Dict[str, Any]]:
+    """Measure full-corpus coverage across all saved critical texts and indexed ``stream_tokens``
+    directly from live database tables (never from a single-book build-log entry)."""
+    from .concordance import make_anchor_verse_id
+    from .lexica import tokenize_verse
+
+    vs = _versification()
+
+    # 1. Live indexed-token totals grouped by language from stream_tokens + word_anchors
+    indexed_by_lang: Dict[str, Dict[str, int]] = {}
+    for r in conn.execute(
+        """
+        SELECT
+            CASE wa.lang_stream
+                WHEN 'heb_ot' THEN 'hebrew'
+                WHEN 'grc_ot' THEN 'greek'
+                WHEN 'grc_nt' THEN 'greek'
+                WHEN 'lat_bible' THEN 'latin'
+                ELSE wa.lang_stream
+            END AS lang_grp,
+            COUNT(*) AS indexed,
+            SUM(CASE WHEN st.is_content = 1 THEN 1 ELSE 0 END) AS content_words,
+            SUM(CASE WHEN st.is_content = 0 THEN 1 ELSE 0 END) AS function_words,
+            SUM(CASE WHEN mc.morph_code IS NOT NULL
+                      AND mc.morph_code NOT IN ('H:WORD', 'A:WORD', 'G:WORD', 'L:WORD')
+                     THEN 1 ELSE 0 END) AS with_morph
+        FROM stream_tokens st
+        JOIN word_anchors wa ON wa.slot_id = st.slot_id
+        LEFT JOIN morpheme_catalog mc ON mc.morph_id = st.infl_morph_id
+        GROUP BY lang_grp
+        """
+    ):
+        indexed_by_lang[str(r[0])] = {
+            "indexed": int(r[1] or 0),
+            "content_words": int(r[2] or 0),
+            "function_words": int(r[3] or 0),
+            "with_morph": int(r[4] or 0),
+        }
+
+    # 2. Live critical-text token & verse counts across the full saved corpus
+    text_by_lang: Dict[str, Dict[str, int]] = {}
+    for lang_name in ("hebrew", "greek", "latin"):
+        tokens = verses_n = extra_v = dup_v = dup_tok = unmapped_v = unmapped_tok = oor_tok = 0
+        for slug, ch, vnum, txt in conn.execute(
+            """
+            SELECT c.book_slug, c.chapter, v.verse, v.critical_text
+            FROM verses v
+            JOIN chapters c ON c.id = v.chapter_id
+            WHERE c.language = ?
+            """,
+            (lang_name,),
+        ):
+            slug_s = str(slug)
+            if slug_s not in BOOKS_BY_SLUG:
+                continue
+            text = str(txt or "")
+            if not text.strip():
+                continue
+            nt = len(tokenize_verse(text, lang_name))
+            tokens += nt
+            ch_i, v_i = int(ch), int(vnum)
+            book = BOOKS_BY_SLUG[slug_s]
+            targets = vs.to_saints(lang_name, slug_s, ch_i, v_i)
+            if targets:
+                sc, sv = targets[0]
+                sub = 0
+            else:
+                extra = vs.to_extra_site_anchor(lang_name, slug_s, ch_i, v_i)
+                if extra is None:
+                    if vs.is_duplicate_or_placeholder(lang_name, slug_s, ch_i, v_i):
+                        dup_v += 1
+                        dup_tok += nt
+                    else:
+                        unmapped_v += 1
+                        unmapped_tok += nt
+                    continue
+                sc, sv = extra
+                sub = vs.EXTRA_SITE_SUBVERSE
+                extra_v += 1
+            verses_n += 1
+            try:
+                make_anchor_verse_id(book.order, sc, sv, sub)
+            except ValueError:
+                oor_tok += nt
+        if tokens or lang_name in indexed_by_lang:
+            text_by_lang[lang_name] = {
+                "tokens": tokens,
+                "verses": verses_n,
+                "extra_site_verses": extra_v,
+                "skipped_duplicate_verses": dup_v,
+                "tokens_in_duplicate_verses": dup_tok,
+                "unmapped_verses": unmapped_v,
+                "tokens_in_unmapped_verses": unmapped_tok,
+                "tokens_out_of_range": oor_tok,
+            }
+
+    coverage: Dict[str, Dict[str, Any]] = {}
+    for lang_name in ("hebrew", "greek", "latin"):
+        if lang_name not in text_by_lang and lang_name not in indexed_by_lang:
+            continue
+        tinfo = text_by_lang.get(lang_name, {})
+        iinfo = indexed_by_lang.get(lang_name, {})
+        indexed = int(iinfo.get("indexed", 0))
+        content = int(iinfo.get("content_words", 0))
+        func = int(iinfo.get("function_words", 0))
+        with_morph = int(iinfo.get("with_morph", 0))
+        dup_tok = int(tinfo.get("tokens_in_duplicate_verses", 0))
+        unmapped_tok = int(tinfo.get("tokens_in_unmapped_verses", 0))
+        oor_tok = int(tinfo.get("tokens_out_of_range", 0))
+        tokens = int(tinfo.get("tokens", 0))
+        if tokens == 0 and indexed > 0:
+            tokens = indexed
+        untagged = max(0, tokens - indexed - dup_tok - unmapped_tok - oor_tok)
+        tok_den = max(tokens, 1)
+        idx_den = max(indexed, 1)
+        entry: Dict[str, Any] = {
+            "tokens": tokens,
+            "verses": int(tinfo.get("verses", 0)),
+            "indexed": indexed,
+            "content_words": content,
+            "function_words": func,
+            "with_morph": with_morph,
+            "untagged": untagged,
+            "extra_site_verses": int(tinfo.get("extra_site_verses", 0)),
+            "skipped_duplicate_verses": int(tinfo.get("skipped_duplicate_verses", 0)),
+            "tokens_in_duplicate_verses": dup_tok,
+            "unmapped_verses": int(tinfo.get("unmapped_verses", 0)),
+            "tokens_in_unmapped_verses": unmapped_tok,
+            "indexed_share_of_tokens": round(indexed / tok_den, 4),
+            "content_share_of_tokens": round(content / tok_den, 4),
+            "morph_share_of_indexed": round(with_morph / idx_den, 4),
+            "untagged_share_of_tokens": round(untagged / tok_den, 4),
+        }
+        if oor_tok:
+            entry["tokens_out_of_range"] = oor_tok
+        coverage[lang_name] = entry
+    return coverage
+
+
 def gold_stats(conn: sqlite3.Connection) -> Dict[str, Any]:
-    """Counts from the tables plus the last build's coverage figures (aggregates cached by the build
-    and recomputed only when the token count no longer matches)."""
+    """Counts from the tables plus full-corpus coverage figures (aggregates cached by the build
+    and recomputed whenever the token count no longer matches or full-corpus coverage is absent)."""
     ensure_gold_schema(conn)
     q = lambda sql, *a: conn.execute(sql, a).fetchone()[0]  # noqa: E731
     last = conn.execute("SELECT stats_json, seconds, started_at, scope FROM concordance_build_log ORDER BY build_id DESC LIMIT 1").fetchone()
@@ -1139,11 +1279,19 @@ def gold_stats(conn: sqlite3.Connection) -> Dict[str, Any]:
     usage = (last_stats or {}).get("usage")
     if not usage or int(usage.get("tokens_total", -1)) != tokens_now:
         usage = _usage_aggregates(conn)
+    coverage = (last_stats or {}).get("corpus_coverage")
+    if (
+        not isinstance(coverage, dict)
+        or not coverage
+        or sum(int(c.get("indexed", 0)) for c in coverage.values()) != tokens_now
+    ):
+        coverage = _corpus_coverage(conn)
     return {
         **usage,
         "tokens_total": tokens_now,
         "alignments": int(q("SELECT COUNT(*) FROM trilingual_alignments")),
         "human_locked_tokens": int(q("SELECT COUNT(*) FROM stream_tokens WHERE human_locked = 1")),
+        "coverage": coverage,
         "last_build": last_stats,
         "last_build_seconds": float(last[1]) if last else None,
         "last_build_at": str(last[2]) if last else None,
@@ -1580,12 +1728,16 @@ def export_gold_pack(conn: sqlite3.Connection, out_dir: Optional[Any] = None,
             removed_old.append(old)
 
     stats = gold_stats(conn)
+    # Always recompute full-corpus coverage live from DB tables during pack export so a single-book
+    # incremental build in concordance_build_log can never overwrite full-corpus pack statistics.
+    live_coverage = _corpus_coverage(conn)
+    stats["coverage"] = live_coverage
     manifest = {
         "schema": PACK_SCHEMA,
         "files": {k: Path(v).name for k, v in written.items()},
         "licences": {Path(written[k]).name: PACK_LICENCES[k] for k in written if k in PACK_LICENCES},
         "measured": measured,
-        "coverage": (stats.get("last_build") or {}).get("languages"),
+        "coverage": live_coverage,
         "attribution": ATTRIBUTION + _alignment_attribution(),
         "changes": CHANGES_NOTE,
     }
@@ -1648,7 +1800,7 @@ def _write_hub_csv(conn: sqlite3.Connection, csv_path: Any) -> int:
 def _report_markdown(measured: Dict[str, Any], stats: Dict[str, Any]) -> str:
     lines = ["# Saints Concordance — build report", "",
              "Every number below is measured from the database and the files just written.", ""]
-    cov = (stats.get("last_build") or {}).get("languages") or {}
+    cov = stats.get("coverage") or (stats.get("last_build") or {}).get("languages") or {}
     if cov:
         lines += ["## Coverage of the critical texts", "",
                   "| Language | Tokens | Indexed (all tagged) | Content words | Function words | Parsed (morph) | Untagged | Extra-site verses (studio.db) | Skipped dup/placeholder tokens |",

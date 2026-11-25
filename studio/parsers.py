@@ -351,12 +351,19 @@ def _place_swete_verses(seq: List[Tuple[str, str, str]], book: BookSpec) -> Book
             base = int(v_id) if v_id.isdigit() else int(m.group(1))
             if not ch_id.isdigit() or int(ch_id) < 1 or base < 1:
                 continue  # deliberately skipped: prologues (Sirach 0.0) and Odes' "iva"/"ivb" are not verses
-            if v_id.isdigit() and cur is None and prev and base == prev[1] > 1 and book.slug not in _CHAPTER_TITLE_BOOKS:
-                # Swete Clean's form of the same continuation: the end of the previous chapter's last verse,
-                # labelled with that verse's number at the head of the next chapter (Job 16 "35", Song 7 "12")
-                verses[prev[0]][prev[1]].append(text)
-                last = prev
-                continue
+            if v_id.isdigit() and cur is None and prev and base == prev[1] > 1:
+                if book.slug in _CHAPTER_TITLE_BOOKS and next_plain[i] == 1:
+                    # Swete Clean prints chapter/psalm titles before verse 1 under the previous chapter's
+                    # last verse number (Ps 14 "7", Ps 25 "22" … Ps 150 "9"): hold them in front of verse 1,
+                    # matching _parse_first1k_tei, Swete CSV, and Brenton.
+                    held.append(text)
+                    continue
+                if book.slug not in _CHAPTER_TITLE_BOOKS:
+                    # Swete Clean's form of the same continuation: the end of the previous chapter's last verse,
+                    # labelled with that verse's number at the head of the next chapter (Job 16 "35", Song 7 "12")
+                    verses[prev[0]][prev[1]].append(text)
+                    last = prev
+                    continue
             if v_id.isdigit():
                 v, run = base, False
             elif cur is not None and (run or base < cur or (next_plain[i] is not None and base >= next_plain[i])):
@@ -965,11 +972,31 @@ def _mam_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
         if not usfm:
             continue
         v_xml = re.sub(r"<note\b.*?</note>", "", m.group(4), flags=re.DOTALL)
-        # Large/small/suspended letters are inline <seg>s, sometimes nested inside a ketiv: unwrap
-        # them first so the ketiv seg is matched whole.
-        v_xml = re.sub(r'</?seg type="x-(?:big|small|suspended|large|reversednun|symbol|space)"[^>]*>', "", v_xml)
+        # Large/small/suspended letters are inline <seg>s, sometimes nested inside a ketiv (Job 7:5):
+        # unwrap paired tags cleanly first so closing </seg> never truncates an enclosing x-ketiv.
+        _inline_seg = re.compile(
+            r'<seg\s+type="x-(?:big|small|suspended|large|reversednun|symbol|space)"[^>]*>(.*?)</seg>',
+            re.DOTALL,
+        )
+        while True:
+            _nxt = _inline_seg.sub(r"\1", v_xml)
+            if _nxt == v_xml:
+                break
+            v_xml = _nxt
+        v_xml = re.sub(r'<seg\s+type="x-(?:big|small|suspended|large|reversednun|symbol|space)"[^>]*/>', "", v_xml)
         v_xml = v_xml.replace("♫", " ")
-        v_xml = re.sub(r'<seg type="x-ketiv">(.*?)</seg>', lambda k: "(" + " ".join(re.sub(r"<[^>]+>", "", k.group(1)).split()) + ")", v_xml, flags=re.DOTALL)
+
+        def _fmt_ketiv(k: re.Match[str]) -> str:
+            inner = " ".join(re.sub(r"<[^>]+>", "", k.group(1)).split())
+            trail = ""
+            if inner.endswith("־"):
+                inner = inner[:-1].strip()
+                trail = "־"
+            if inner.startswith("(") and inner.endswith(")") and "(" not in inner[1:-1] and ")" not in inner[1:-1]:
+                return inner + trail
+            return f"({inner}){trail}"
+
+        v_xml = re.sub(r'<seg type="x-ketiv">(.*?)</seg>', _fmt_ketiv, v_xml, flags=re.DOTALL)
         v_xml = re.sub(r"</?seg\b[^>]*>", "", v_xml)  # inline: large/small/suspended letters stay in the word
         v_txt = norm_ws(_strip_hebrew_layout(re.sub(r"<[^>]+>", " ", v_xml)))
         if v_txt:
@@ -1295,10 +1322,32 @@ _LEGACY_HOLAM_VAV = re.compile(
 )
 
 
+# Bare niqqud/cantillation runs with no Hebrew consonants (e.g. Letteris Qere-wela-Ketiv vowel-only marks,
+# both standalone and attached after a maqaf as in 2 Sam 8:3 'בִּנְהַר־ְָֽ׃').
+_MAQAF_BARE_NIQQUD = re.compile(r"־[\u0591-\u05C2\u05C4-\u05C7]+(?=\s|׃|$)")
+
+
 def _normalize_legacy_hebrew_verse(raw: str) -> str:
     s = raw.replace("\u05AF", "").replace("\xa0", " ")
+    s = re.sub(r"[\u200c\u200e\u200f\u0323]", "", s)  # strip ZWNJ/LRM/RLM and Latin punctum below (Ps 27:13)
+    s = re.sub(r":(?=\s|$)", "׃", s)  # stray ASCII colon used as sof pasuq (BenChayyim Exod 2:5)
+    s = s.replace(" ׀)", ")").replace("׀)", ")")  # BenChayyim paseq inside closing qere paren (Josh 18:19 etc.)
+    s = re.sub(r"(?:^|\s)\(\)(?=\s|$)", " ", s)  # empty ketiv-wela-qere parens (BenChayyim Ruth 3:12, 2 Kgs 5:18)
+    s = s.replace("*", "")  # BenChayyim ketiv/qere asterisk marker (prevents '*הַמֶּלַח' & bare '*' leaks)
+    s = _MAQAF_BARE_NIQQUD.sub("", s)
     s = _LEGACY_HOLAM_VAV.sub(lambda m: m.group(1) + m.group(2) + "\u05D5\u05B9", s)
-    return norm_ws(_strip_hebrew_layout(s))
+    # Drop standalone bare-niqqud tokens (Letteris Qere-wela-Ketiv vowels), preserving any trailing sof pasuq.
+    cleaned_toks: List[str] = []
+    for tok in _strip_hebrew_layout(s).split():
+        if tok == "׀":
+            cleaned_toks.append(tok)
+            continue
+        if not any("\u05d0" <= ch <= "\u05ea" for ch in tok):
+            if "׃" in tok and cleaned_toks and not cleaned_toks[-1].endswith("׃"):
+                cleaned_toks[-1] += "׃"
+            continue
+        cleaned_toks.append(tok)
+    return norm_ws(" ".join(cleaned_toks))
 
 
 def _parse_ebible_hebrew_usfm_dir(base_dir: Path, book: BookSpec) -> BookText:
@@ -2434,8 +2483,8 @@ def _bhsa_tf_index(path_str: str, _mtime: int) -> Dict[str, BookText]:
         usfm = books_by_slot[bi][2]
         ch = chaps_by_slot[ci][2]
         raw_v = "".join(gword.get(s, "") + trailer.get(s, "") for s in range(lo, hi + 1))
-        # Strip BHSA Masoretic parashah (פ / ס) and inverted-nun (נ) section markers (both mid-verse and final).
-        txt = norm_ws(re.sub(r"(?:^|\s)[פסנ](?=\s|$)", " ", raw_v))
+        # Strip BHSA Masoretic parashah (פ / ס) and inverted-nun (׆ / U+05C6) section markers (both mid-verse and final).
+        txt = norm_ws(re.sub(r"(?:^|\s)[פסנ\u05c6](?=\s|$)", " ", raw_v))
         if txt:
             out.setdefault(usfm, {}).setdefault(ch, {})[int(vs)] = txt
     return out
@@ -2552,9 +2601,11 @@ def _clean_dss_word_stream(raw_chunks: List[Tuple[str, str]]) -> str:
         if "[" in w or "]" in w or "ε" in w or "◦" in w:
             out.append(GAP_WORD)
             continue
-        # Keep supralinear scribal insertions (^ ... ^), strip markup punctuation & morpheme geresh.
+        # Keep supralinear scribal insertions (^ ... ^), strip markup punctuation, morpheme geresh,
+        # and ETCBC DSS marginal/scribal footnote anchors (-א-, -ב-, -ג-, -ד-).
         w = w.replace("(^", "").replace("^)", "")
-        w = re.sub(r"[׳#?╱\\/<>(){}\s]+", "", w)
+        w = re.sub(r"-[\u05d0-\u05ea]+-", "", w)
+        w = re.sub(r"[׳#?╱\\/<>(){}\-\s]+", "", w)
         if not any("\u05d0" <= ch <= "\u05ea" for ch in w):
             continue
         out.append(unicodedata.normalize("NFC", w))

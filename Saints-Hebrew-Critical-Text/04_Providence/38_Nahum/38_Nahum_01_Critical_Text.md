@@ -1,6 +1,6 @@
 # Nahum 01 — Saints Hebrew Critical Text
 
-**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:47Z`
+**Division:** `04_Providence` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:08:05Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,22 +28,59 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): Source import repair, 1:2: 'נֹקֵ֤ם יְהוָֹה֙' → 'נֹקֵ֤ם יְהֹוָה֙' (misplaced holam on waw in upstream MAPM_Masorah.xml (corroborated by יְהֹוָה twice in same verse & WLC/BHSA)). verified import repair applied. Original file unchanged.
+- MAM (Aleppo): 2:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 2:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 2:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 2:14 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
 ## Section II — Continuous Hebrew Critical Text
 
 **1** מַשָּׂ֖א נִֽינְוֵ֑ה סֵ֧פֶר חֲז֛וֹן נַח֖וּם הָאֶלְקֹשִֽׁי׃
-**2** אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהוָֹה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
+**2** אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהֹוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
 **3** יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ (וגדול) וּגְדׇל־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהֹוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכּ֔וֹ וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
 **4** גּוֹעֵ֤ר בַּיָּם֙ וַֽיַּבְּשֵׁ֔הוּ וְכׇל־הַנְּהָר֖וֹת הֶחֱרִ֑יב אֻמְלַ֤ל בָּשָׁן֙ וְכַרְמֶ֔ל וּפֶ֥רַח לְבָנ֖וֹן אֻמְלָֽל׃
 **5** הָרִים֙ רָעֲשׁ֣וּ מִמֶּ֔נּוּ וְהַגְּבָע֖וֹת הִתְמֹגָ֑גוּ וַתִּשָּׂ֤א הָאָ֙רֶץ֙ מִפָּנָ֔יו וְתֵבֵ֖ל וְכׇל־י֥וֹשְׁבֵי בָֽהּ׃
@@ -64,7 +101,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Nahum 1:2
 - *Disregarded Surface Variant:* kept `יְהֹוָ֔ה` over `יְהוָ֔ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `יְהֹוָ֖ה` over `יְהוָ֖ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `יְהוָֹה֙` over `יְהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
+- *Disregarded Surface Variant:* kept `יְהֹוָה֙` over `יְהוָה֙` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Nahum 1:3
 - *Disregarded Surface Variant:* kept `(וגדול)` over `וגדול־` (WLC (L)) — *Punctuation / spacing difference only*
@@ -120,8 +157,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Philological Rationale:** Unanimous witness agreement across MAM (Aleppo), WLC (L) (2 admitted witnesses; zero substantive divergence).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהוָֹה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
-  - `MAM (Aleppo)`: אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהוָֹה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
+- **Critical Text:** אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהֹוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
+  - `MAM (Aleppo)`: אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהֹוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
   - `WLC (L)`: אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהוָ֔ה נֹקֵ֥ם יְהוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
   - `BenChayyim (1525)`: אֵ֣ל קַנֹּ֤וא וְנֹקֵם֙ יְהוָ֔ה נֹקֵ֥ם יְהוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹיְבָֽיו׃
   - `Letteris (1852)`: אֵ֣ל קַנּ֤וֹא וְנֹקֵם֙ יְהֹוָ֔ה נֹקֵ֥ם יְהֹוָ֖ה וּבַ֣עַל חֵמָ֑ה נֹקֵ֤ם יְהֹוָה֙ לְצָרָ֔יו וְנוֹטֵ֥ר ה֖וּא לְאֹֽיְבָֽיו׃
@@ -131,7 +168,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ (וגדול) וּגְדׇל־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהֹוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכּ֔וֹ וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
   - `MAM (Aleppo)`: יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ (וגדול) וּגְדׇל־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהֹוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכּ֔וֹ וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
   - `WLC (L)`: יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ וגדול־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכּ֔וֹ וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
-  - `BenChayyim (1525)`: יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ *וּגְדוֹל־(וּגְדָל)־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכֹּ֔ו וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
+  - `BenChayyim (1525)`: יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֙יִם֙ וּגְדוֹל־(וּגְדָל)־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכֹּ֔ו וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
   - `Letteris (1852)`: יְהֹוָ֗ה אֶ֤רֶךְ אַפַּ֨יִם֙ וּגְדָול־כֹּ֔חַ וְנַקֵּ֖ה לֹ֣א יְנַקֶּ֑ה יְהֹוָ֗ה בְּסוּפָ֤ה וּבִשְׂעָרָה֙ דַּרְכּ֔וֹ וְעָנָ֖ן אֲבַ֥ק רַגְלָֽיו׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 

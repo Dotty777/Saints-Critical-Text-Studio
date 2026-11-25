@@ -1,6 +1,6 @@
 # Ecclesiastes 09 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:32Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:34Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -26,14 +26,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Swete-Amicarelli: Source import repair, 9:9: 'πᾶσαι ἡμέραι ἡμέραι ἀτμοῦ' → 'πᾶσαι ἡμέραι ἀτμοῦ' (Swete prints πᾶσαι ἡμέραι ἀτμοῦ (a word typed twice)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Swete-Amicarelli: Source import repair, 9:12: 'ἀμφιβλήστρῳ καλῷ,' → 'ἀμφιβλήστρῳ […]' (Swete prints ἀμφιβλήστρῳ κακῷ). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 9:9: 'πᾶσαι ἡμέραι ἡμέραι ἀτμοῦ' → 'πᾶσαι ἡμέραι ἀτμοῦ' (Swete prints πᾶσαι ἡμέραι ἀτμοῦ (a word typed twice)). verified import repair applied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 9:12: 'ἀμφιβλήστρῳ καλῷ,' → 'ἀμφιβλήστρῳ […]' (Swete prints ἀμφιβλήστρῳ κακῷ). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
 - Swete-Amicarelli: Source division repair: 'ματαιότης ἐν τοῖς πᾶσιν.' moved from 9:1 to 9:2 (Swete's verse divisions in 7:24–25, 8:2–3 and 9:1–2 differ from Brenton's). No word added or dropped. Original file unchanged.
 - Swete-Amicarelli: 8:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:2 kept in its own chapter (stronger match to its own reference verse)
@@ -52,6 +50,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 8:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 10:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:4 kept in its own chapter (stronger match to its own reference verse)
@@ -73,6 +72,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 10:20 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): verse 9:1 runs into its neighbour across the anchor's division between 8:17 and 9:1; re-divided there
 - LXX-Orthodox (Οʹ): verse 9:1 runs into its neighbour across the anchor's division between 9:1 and 9:2; re-divided there
+- LXX-Orthodox (Οʹ): 8:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:3 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:4 kept in its own chapter (stronger match to its own reference verse)

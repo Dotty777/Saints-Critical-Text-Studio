@@ -1177,7 +1177,7 @@ def get_concordance_dashboard_stats(conn: sqlite3.Connection) -> Dict[str, Any]:
     pack_files = sorted(pack_dir.glob("saints-concordance-*.json.gz")) if pack_dir.exists() else []
     exported_gz_bytes = sum(p.stat().st_size for p in pack_files)
     coverage = {}
-    for lang, c in ((gs.get("last_build") or {}).get("languages") or {}).items():
+    for lang, c in (gs.get("coverage") or (gs.get("last_build") or {}).get("languages") or {}).items():
         coverage[lang] = {
             "tokens": c.get("tokens", 0),
             "indexed": c.get("indexed", 0),

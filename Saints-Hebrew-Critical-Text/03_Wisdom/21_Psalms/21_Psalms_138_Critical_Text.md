@@ -1,6 +1,6 @@
 # Psalms 138 — Saints Hebrew Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:48Z`
+**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:59Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,109 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 137:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 137:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:20 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:21 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:22 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:23 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 139:24 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 137:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:20 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:21 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:22 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:23 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 139:24 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 137:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:20 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:21 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:22 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:23 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 139:24 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -61,7 +155,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Psalms 138:2
 - *Disregarded Surface Variant:* kept `קׇדְשְׁךָ֡` over `קָדְשְׁךָ֡` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-- *Disregarded Surface Variant:* kept `(adopted text)` over ` / ׀` (Letteris (1852)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 
 ### Psalms 138:3
 - *Disregarded Surface Variant:* kept `קָ֭רָ֥אתִי` over `קָ֭רָֽאתִי` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -77,9 +170,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 ### Psalms 138:6
 - *Disregarded Surface Variant:* kept `יְ֭הֹוָה` over `יְ֭הוָה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
-
-### Psalms 138:7
-- *Disregarded Surface Variant:* kept `(adopted text)` over `׀ / `, `׀ / ` (Letteris (1852)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 
 ### Psalms 138:8
 - *Disregarded Surface Variant:* kept `יְהֹוָה֮` over `יְהוָה֮` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*

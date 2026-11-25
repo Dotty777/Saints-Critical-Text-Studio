@@ -1,6 +1,6 @@
 # Psalms 102 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:41Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:28Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 101:1 kept in its own chapter (stronger match to its own reference verse)
@@ -56,6 +54,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 101:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 101:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 101:22 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 101:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 101:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 101:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 101:26 kept in its own chapter (stronger match to its own reference verse)
@@ -71,12 +70,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 103:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 103:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 103:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 103:20 kept in its own chapter (stronger match to its own reference verse)
@@ -117,6 +118,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 101:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 101:21 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 101:22 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 101:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 101:24 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 101:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 101:26 kept in its own chapter (stronger match to its own reference verse)
@@ -132,12 +134,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 103:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 103:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:16 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 103:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 103:20 kept in its own chapter (stronger match to its own reference verse)
@@ -178,6 +182,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 101:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 101:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 101:22 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 101:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 101:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 101:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 101:26 kept in its own chapter (stronger match to its own reference verse)
@@ -193,12 +198,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 103:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 103:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 103:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 103:20 kept in its own chapter (stronger match to its own reference verse)
@@ -224,6 +231,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 101:5 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 101:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 101:7 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 101:8 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 101:9 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 101:10 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 101:11 kept in its own chapter (stronger match to its own reference verse)
@@ -266,6 +274,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 103:19 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 103:20 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 103:21 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 103:22 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 103:23 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 103:24 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 103:25 kept in its own chapter (stronger match to its own reference verse)
@@ -306,16 +315,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **20** εὐλογεῖτε τὸν κύριον, πάντες οἱ ἄγγελοι αὐτοῦ, δυνατοὶ ἰσχύι, ποιοῦντες τὸν λόγον αὐτοῦ, τοῦ ἀκοῦσαι τῆς φωνῆς τῶν λόγων αὐτοῦ.
 **21** εὐλογεῖτε τὸν κύριον, πᾶσαι αἱ δυνάμεις αὐτοῦ, λειτουργοὶ αὐτοῦ ποιοῦντες τὰ θελήματα αὐτοῦ.
 **22** εὐλογεῖτε τὸν κύριον, πάντα τὰ ἔργα αὐτοῦ ἐν παντὶ τόπῳ τῆς δυναστείας αὐτοῦ· εὐλόγει, ἡ ψυχή μου, τὸν κύριον.
-**29** Τῷ Δαυίδ.
 
 ---
 
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Psalms 102:1
-- *Disregarded Surface Variant:* kept `Τῷ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυίδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `ψυχή` over `ψυχὴ` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `κύριον,` over `Κύριον,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `τὸ` over `τό` (Swete-Amicarelli) — *Accentuation / capitalisation / breathing convention*
@@ -432,9 +438,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `μου,` over `μου` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `κύριον.` over `Κύριον.` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
-### Psalms 102:29
-- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (Swete (B/A/א)) — *Diplomatic uncial orthography normalised to standard critical form*
-
 ---
 
 ## Section IV — Verse-by-Verse Text-Critical Rationale & Witness Matrix
@@ -443,10 +446,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Τῷ Δαυίδ. Εὐλόγει ἡ ψυχή μου τὸν κύριον, καὶ πάντα τὰ ἐντός μου τὸ ὄνομα τὸ ἅγιον αὐτοῦ.
   - `Swete-Amicarelli`: Τῷ Δαυείδ. Εὐλόγει ἡ ψυχή μου τὸν κύριον, καὶ πάντα τὰ ἐντός μου τό ὄνομα τὸ ἅγιον αὐτοῦ.
   - `1st1K-LXX`: Τῷ Δαυείδ. Εὐλόγει ἡ ψυχὴ μου τὸν κύριον. καὶ πάντα τὰ ἐντός μου τὸ ὄνομα τὸ ἅγιον αὐτοῦ.
-  - `Swete (B/A/א)`: Εὐλόγει ἡ ψυχὴ μου τὸν κύριον. καὶ πάντα τὰ ἐντός μου τὸ ὄνομα τὸ ἅγιον αὐτοῦ.
+  - `Swete (B/A/א)`: Τῷ Δαυείδ. Εὐλόγει ἡ ψυχὴ μου τὸν κύριον. καὶ πάντα τὰ ἐντός μου τὸ ὄνομα τὸ ἅγιον αὐτοῦ.
   - `Sixtine/Brenton`: Τῷ Δαυίδ. Εὐλόγει ἡ ψυχή μου τὸν Κύριον, καὶ πάντα τὰ ἐντός μου τὸ ὄνομα τὸ ἅγιον αὐτοῦ.
   - `LXX-Orthodox (Οʹ)`: Τῷ Δαυΐδ. ΕΥΛΟΓΕΙ, ἡ ψυχή μου, τὸν Κύριον καί, πάντα τὰ ἐντός μου, τὸ ὄνομα τὸ ἅγιον αὐτοῦ·
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence)).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** εὐλόγει ἡ ψυχή μου τὸν κύριον, καὶ μὴ ἐπιλανθάνου πάσας τὰς αἰνέσεις αὐτοῦ·
@@ -639,8 +642,3 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Sixtine/Brenton`: Εὐλογεῖτε τὸν Κύριον πάντα τὰ ἔργα αὐτοῦ, ἐν παντὶ τόπῳ τῆς δυναστείας αὐτοῦ· εὐλόγει ἡ ψυχή μου τὸν Κύριον.
   - `LXX-Orthodox (Οʹ)`: εὐλογεῖτε τὸν Κύριον, πάντα τὰ ἔργα αὐτοῦ, ἐν παντὶ τόπῳ τῆς δεσποτείας αὐτοῦ· εὐλόγει, ἡ ψυχή μου, τὸν Κύριον.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 7 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
-
-### Verse 29 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Τῷ Δαυίδ.
-  - `Swete (B/A/א)`: Τῷ Δαυείδ.
-- **Philological Rationale:** Substantively unanimous across Swete (B/A/א). Normalised 1 surface variation(s) (Diplomatic uncial orthography normalised to standard critical form).

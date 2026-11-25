@@ -1,6 +1,6 @@
 # Psalms 123 — Saints Hebrew Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:48Z`
+**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:59Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,61 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 122:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 122:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 124:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 122:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 124:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 122:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 124:8 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -63,12 +109,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `כִּי־` over `כִּֽי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Psalms 123:4
-- **Apparatus:** `לִגְאֵ֥י יוֹנִֽים׃` MAM (Aleppo) WLC (L) **]** **om.** BenChayyim (1525) Letteris (1852)
 - *Disregarded Surface Variant:* kept `לָּ֢הּ` over `לָּ֪הּ` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `הַשַּֽׁאֲנַנִּ֑ים` over `הַשַּׁאֲנַנִּ֑ים` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(לגאיונים)` over `לִגְאֵ֥יוֹנִֽים׃` (WLC (L)) — *Pointing convention, Aleppo tradition (MAM) vs Leningrad (WLC): bare consonants (ketiv) against the pointed form*
 - *Disregarded Surface Variant:* kept `לִגְאֵ֥י` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `יוֹנִֽים׃` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
+- *Disregarded Surface Variant:* kept `(adopted text)` over `לִגְאֵ֥י יוֹנִֽים׃ / `, `לִגְאֵ֥י יוֹנִֽים׃ / `, `לִגְאֵ֥י יוֹנִֽים׃ / ` (BenChayyim (1525), Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (edition prints the written form only)*
 
 ---
 

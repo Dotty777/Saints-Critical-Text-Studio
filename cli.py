@@ -20,7 +20,7 @@ from typing import List
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-from studio.catalog import BOOKS_BY_SLUG
+from studio.catalog import BOOKS_BY_SLUG, chapters_for_language
 from studio.engine import CriticalTextEngine
 
 
@@ -115,9 +115,10 @@ def main() -> int:
             print(f"Unknown book slug '{slug}'. Available slugs include: {', '.join(list(BOOKS_BY_SLUG)[:15])}...", file=sys.stderr)
             return 2
         book = BOOKS_BY_SLUG[slug]
-        chapters = _parse_chapter_range(args.chapters, book.chapters)
+        max_ch = chapters_for_language(book, args.lang)
+        chapters = _parse_chapter_range(args.chapters, max_ch)
         if not chapters:
-            print(f"No valid chapters in '{args.chapters}' ({book.title} has {book.chapters}).", file=sys.stderr)
+            print(f"No valid chapters in '{args.chapters}' ({book.title} has {max_ch}).", file=sys.stderr)
             return 2
         if args.brain:
             engine.config.provider_id = args.brain

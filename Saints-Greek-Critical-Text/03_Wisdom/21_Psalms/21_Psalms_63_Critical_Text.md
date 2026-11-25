@@ -1,6 +1,6 @@
 # Psalms 63 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:40Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:30Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 62:1 kept in its own chapter (stronger match to its own reference verse)
@@ -72,6 +70,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 62:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 62:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 62:12 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 64:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 64:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 64:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 64:4 kept in its own chapter (stronger match to its own reference verse)
@@ -85,8 +84,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 64:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 64:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 64:14 kept in its own chapter (stronger match to its own reference verse)
-- 1st1K-LXX: 63:1 not collated (no verse of the reference matches its wording)
-- 1st1K-LXX: 1 verse(s) re-aligned by content (1←64:1)
 - Swete (B/A/א): 62:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 62:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 62:3 kept in its own chapter (stronger match to its own reference verse)
@@ -99,6 +96,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 62:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 62:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 62:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 64:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 64:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 64:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 64:4 kept in its own chapter (stronger match to its own reference verse)
@@ -112,13 +110,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 64:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 64:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 64:14 kept in its own chapter (stronger match to its own reference verse)
-- Swete (B/A/א): 63:1 not collated (no verse of the reference matches its wording)
-- Swete (B/A/א): 1 verse(s) re-aligned by content (1←64:1)
 - LXX-Orthodox (Οʹ): 62:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:3 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:4 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:5 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 62:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:7 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:8 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 62:9 kept in its own chapter (stronger match to its own reference verse)
@@ -127,6 +124,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 62:12 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 64:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 64:3 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 64:4 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 64:5 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 64:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 64:7 kept in its own chapter (stronger match to its own reference verse)
@@ -159,9 +157,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Psalms 63:1
+- *Disregarded Surface Variant:* kept `Εἰς` over `Bἰς` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `τέλος·` over `τέλος,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.`, `Δαυείδ,` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
-- *Disregarded Surface Variant:* kept `om.` over `ᾠδή` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 
 ### Psalms 63:2
 - **Apparatus:** `προσευχῆς` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **φωνῆς** LXX-Orthodox (Οʹ)
@@ -223,11 +221,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Verse 1 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** Εἰς τὸ τέλος· ψαλμὸς τῷ Δαυίδ.
   - `Swete-Amicarelli`: Εἰς τὸ τέλος· ψαλμὸς τῷ Δαυείδ.
-  - `1st1K-LXX` *(numbered 64:1 in this witness)*: Εἰς τὸ τέλος· ψαλμὸς τῷ Δαυείδ, ᾠδή.
-  - `Swete (B/A/א)` *(numbered 64:1 in this witness)*: Εἰς τὸ τέλος· ψαλμὸς τῷ Δαυείδ, ᾠδή.
+  - `1st1K-LXX`: Bἰς τὸ τέλος· ψαλμὸς τῷ Δαυείδ.
+  - `Swete (B/A/א)`: Bἰς τὸ τέλος· ψαλμὸς τῷ Δαυείδ.
   - `Sixtine/Brenton`: Εἰς τὸ τέλος, ψαλμὸς τῷ Δαυίδ.
   - `LXX-Orthodox (Οʹ)`: Εἰς τὸ τέλος· ψαλμὸς τῷ Δαυΐδ.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only). Versification: 1st1K-LXX numbers this verse 64:1; Swete (B/A/א) numbers this verse 64:1 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** Εἰσάκουσον, ὁ θεός, τῆς προσευχῆς μου ἐν τῷ δέεσθαί με πρὸς σέ, ἀπὸ φόβου ἐχθροῦ ἐξελοῦ τὴν ψυχήν μου.

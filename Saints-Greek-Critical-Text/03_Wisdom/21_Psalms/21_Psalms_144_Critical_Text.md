@@ -1,6 +1,6 @@
 # Psalms 144 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:41Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: verse 144:14 runs into its neighbour across the anchor's division between 144:13 and 144:14; re-divided there
@@ -100,9 +98,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 143:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 143:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 143:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 143:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 143:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 143:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 143:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 145:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 145:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 145:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 145:4 kept in its own chapter (stronger match to its own reference verse)
@@ -169,10 +169,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Psalms 144:1
-- *Disregarded Surface Variant:* kept `Αἴνεσις` over `Ανεσις`, `om.` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `τοῦ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυίδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
+- *Disregarded Surface Variant:* kept `Αἴνεσις` over `Ανεσις` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `θεός` over `Θεός` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `αἰῶνος·` over `αἰῶνος.` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
@@ -249,7 +247,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `κατερραγμένους.` over `κατεῤῥαγμένους.` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 
 ### Psalms 144:15
-- *Disregarded Surface Variant:* kept `om.` over `Ανεσις τοῦ Δαυείδ` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `οἱ` over `Οἱ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `σὲ` over `σε` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἐλπίζουσιν,` over `ἐλπίζουσι,` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
@@ -289,10 +286,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Αἴνεσις τοῦ Δαυίδ. Ὑψώσω σε, ὁ θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος·
   - `Swete-Amicarelli`: Αἴνεσις τοῦ Δαυείδ. Ὑψώσω σε, ὁ θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος·
   - `1st1K-LXX`: Ανεσις τοῦ Δαυείδ. Ὑψώσω σε, ὁ θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος·
-  - `Swete (B/A/א)`: Ὑψώσω σε, ὁ θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος·
+  - `Swete (B/A/א)`: Ανεσις τοῦ Δαυείδ. Ὑψώσω σε, ὁ θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος·
   - `Sixtine/Brenton`: Αἴνεσις τοῦ Δαυίδ. Ὑψώσω σε, ὁ Θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος.
   - `LXX-Orthodox (Οʹ)`: Αἴνεσις τοῦ Δαυΐδ. ΥΨΩΣΩ σε, ὁ Θεός μου ὁ βασιλεύς μου, καὶ εὐλογήσω τὸ ὄνομά σου εἰς τὸν αἰῶνα καὶ εἰς τὸν αἰῶνα τοῦ αἰῶνος.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Punctuation / spacing difference only; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
 ### Verse 2 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καθ᾽ ἑκάστην ἡμέραν εὐλογήσω σε, καὶ αἰνέσω τὸ ὄνομά σου.
@@ -417,10 +414,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** οἱ ὀφθαλμοὶ πάντων εἰς σὲ ἐλπίζουσιν, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ·
   - `Swete-Amicarelli`: οἱ ὀφθαλμοὶ πάντων εἰς σὲ ἐλπίζουσιν, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ·
   - `1st1K-LXX`: οἱ ὀφθαλμοὶ πάντων εἰς σε ἐλπίζουσιν, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ·
-  - `Swete (B/A/א)`: Ανεσις τοῦ Δαυείδ. οἱ ὀφθαλμοὶ πάντων εἰς σε ἐλπίζουσιν, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ·
+  - `Swete (B/A/א)`: οἱ ὀφθαλμοὶ πάντων εἰς σε ἐλπίζουσιν, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ·
   - `Sixtine/Brenton`: Οἱ ὀφθαλμοὶ πάντων εἰς σὲ ἐλπίζουσι, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ.
   - `LXX-Orthodox (Οʹ)`: οἱ ὀφθαλμοὶ πάντων εἰς σὲ ἐλπίζουσι, καὶ σὺ δίδως τὴν τροφὴν αὐτῶν ἐν εὐκαιρίᾳ.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
 ### Verse 16 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἀνοίγεις σὺ τὰς χεῖράς σου, καὶ ἐμπιπλᾷς πᾶν ζῶον εὐδοκίας.

@@ -1,6 +1,6 @@
 # Nehemiah 07 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:39Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:25Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,39 +28,43 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Sixtine/Brenton: Source import repair, 7:8: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:9: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:10: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:11: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:12: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:13: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:14: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:15: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:16: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:17: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:18: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:19: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:20: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:21: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:22: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:23: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:24: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:25: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:26: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:27: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:35: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:36: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:37: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:38: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:42: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:57: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
-- Sixtine/Brenton: Source import repair, 7:62: 'γἱοὶ' → 'υἱοὶ' (Swete prints υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). the words typed twice are kept once; no word was supplied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 7:41: 'ας᾽ τεσσεράκοντα' → '͵ασ᾽ τεσσεράκοντα' (Swete prints ͵ασ᾽ = 1,200 (Swete dropped lower keraia ͵ and printed stigma ς for σ; Brenton, Rahlfs, & Orthodox read χίλιοι διακόσιοι)). verified import repair applied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 7:70: 'χρυσοῦς, α, φιάλας' → 'χρυσοῦς, ͵α, φιάλας' (Swete prints ͵α = 1,000 (Swete-Amicarelli dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χιλίους)). verified import repair applied. Original file unchanged.
+- 1st1K-LXX: Source import repair, 7:41: 'ας΄ τεσσεράκοντα' → '͵ασ΄ τεσσεράκοντα' (Swete prints ͵ασ΄ = 1,200 (Swete OCR dropped lower keraia ͵ and printed stigma ς for σ; Brenton, Rahlfs, & Orthodox read χίλιοι διακόσιοι)). verified import repair applied. Original file unchanged.
+- 1st1K-LXX: Source import repair, 7:70: 'χρυσοῦς α, φιάλας' → 'χρυσοῦς ͵α, φιάλας' (Swete prints ͵α = 1,000 (Swete OCR dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χιλίους)). verified import repair applied. Original file unchanged.
+- Swete (B/A/א): Source import repair, 7:41: 'ας΄ τεσσεράκοντα' → '͵ασ΄ τεσσεράκοντα' (Swete prints ͵ασ΄ = 1,200 (Swete OCR dropped lower keraia ͵ and printed stigma ς for σ; Brenton, Rahlfs, & Orthodox read χίλιοι διακόσιοι)). verified import repair applied. Original file unchanged.
+- Swete (B/A/א): Source import repair, 7:70: 'χρυσοῦς α, φιάλας' → 'χρυσοῦς ͵α, φιάλας' (Swete prints ͵α = 1,000 (Swete OCR dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χιλίους)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:8: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:9: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:10: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:11: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:12: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:13: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:14: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:15: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:16: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:17: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:18: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:19: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:20: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:21: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:22: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:23: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:24: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:25: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:26: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:27: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:35: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:36: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:37: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:38: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:42: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:57: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 7:62: 'γἱοὶ' → 'υἱοὶ' (υἱοὶ (Brenton USFM OCR slip 'γἱοὶ' with impossible post-consonant rough breathing; corroborated by LXX-Orthodox & Rahlfs)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 6:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:3 kept in its own chapter (stronger match to its own reference verse)
@@ -70,6 +74,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 6:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 6:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 6:13 kept in its own chapter (stronger match to its own reference verse)
@@ -82,6 +87,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 8:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 8:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:7 kept in its own chapter (stronger match to its own reference verse)
@@ -106,6 +112,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 6:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 6:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 6:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 6:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 6:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 6:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 6:13 kept in its own chapter (stronger match to its own reference verse)
@@ -118,12 +125,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 8:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 8:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:10 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 8:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:14 kept in its own chapter (stronger match to its own reference verse)
@@ -142,6 +151,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 6:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 6:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 6:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 6:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 6:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 6:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 6:13 kept in its own chapter (stronger match to its own reference verse)
@@ -154,12 +164,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 8:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 8:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 8:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:14 kept in its own chapter (stronger match to its own reference verse)
@@ -254,7 +266,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **38** υἱοὶ Σανανάτ, ἐννακόσιοι τριάκοντα.
 **39** οἱ ἱερεῖς, υἱοὶ Ἰωδᾶε εἰς οἶκον Ἰησοῦ, ἐννακόσιοι ἑβδομήκοντα τρεῖς·
 **40** υἱοὶ χίλιοι πεντήκοντα δύο·
-**41** υἱοὶ Φασεδούρ, ας᾽ τεσσεράκοντα ἑπτά·
+**41** υἱοὶ Φασεδούρ, ͵ασ᾽ τεσσεράκοντα ἑπτά·
 **42** υἱοὶ Ἡράμ, χίλιοι δέκα ἑπτά.
 **43** οἱ Λευεί, υἱοὶ Ἰησοῦ τῷ Καβδιὴλ τοῖς υἱοῖς τοῦ Θουδουιά, ἑβδομήκοντα τέσσαρες·
 **44** οἱ ᾄδοντες, υἱοὶ Ἀσάφ, ἑκατὸν τεσσεράκοντα ὀκτώ·
@@ -282,7 +294,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **66** καὶ ἐγένετο πᾶσα ἡ ἐκκλησία ὡσεὶ τέσσαρες μυριάδες δισχίλιοι τριακόσιοι ὀκτώ,
 **67** παρὲξ δούλων αὐτῶν καὶ παιδισκῶν αὐτῶν, οὗτοι τριακόσιοι τριάκοντα ἑπτά· καὶ ᾄδοντες καὶ ᾄδουσαι διακόσιοι τεσσεράκοντα πέντε·
 **69** ὄνοι δισχίλιοι ἑπτακόσιοι.
-**70** καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
+**70** καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, χιλίους, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
 **71** καὶ ἀπὸ ἀρχηγῶν τῶν πατριῶν ἔθηκαν εἰς θησαυρὸν τοῦ ἔτους, τοῦ χρυσίου δύο μυριάδας, καὶ ἀργυρίου μνᾶς δισχιλίας διακοσίας,
 **72** καὶ μεχωνὼθ τῶν ἱερέων ἑξήκοντα ἑπτά.
 **73** καὶ ἐκάθισαν οἱ ἱερεῖς καὶ οἱ Λευεῖται καὶ οἱ πυλωροὶ καὶ οἱ ᾄδοντες καὶ οἱ ἀπὸ τοῦ λαοῦ καὶ οἱ Ναθεινεὶμ καὶ πᾶς Ἰσραὴλ ἐν πόλεσιν αὐτῶν.
@@ -546,17 +558,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `υἱοὶ` over `υἱρὶ` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 
 ### Nehemiah 7:41
-- **Apparatus:** `Φασεδούρ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **Φασεοὺρ** Sixtine/Brenton LXX-Orthodox (Οʹ) *(proper-name spelling)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- **Apparatus:** `ας` Swete-Amicarelli **]** **χίλιοι** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- **Apparatus:** `τεσσεράκοντα ἑπτά` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **διακόσιοι τεσσαρακονταεπτά** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
+- **Apparatus:** `Φασεδούρ ͵ασ τεσσεράκοντα ἑπτά` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **Φασεοὺρ χίλιοι διακόσιοι τεσσαρακονταεπτά** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `υἱοὶ` over `Υἱοὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `ας` over `ας΄` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the base copy is kept); not counted as a variant*
 
 ### Nehemiah 7:42
 - *Disregarded Surface Variant:* kept `Ἡράμ,` over `Ἠρὰμ,` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
@@ -789,15 +794,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ὄνοι` over `Ὄνοι` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Nehemiah 7:70
-- **Apparatus:** `α` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **χιλίους** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
-  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
-  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - **Apparatus:** `μεχωνὼθ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **χωθωνὼθ** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἔργον` over `ἐργον` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `χρυσοῦς,` over `χρυσοῦς` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Punctuation / spacing difference only*
+- *Disregarded Surface Variant:* kept `χιλίους,` over `͵α,` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Letter-numeral abbreviation matched to an attested number of the same value*
 - *Disregarded Surface Variant:* kept `πεντήκοντα` over `πεντήκοντα,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Nehemiah 7:71
@@ -1204,15 +1207,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Philological Rationale:** [Variation unit spanning several words] Adopted 'χίλιοι πεντήκοντα δύο' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἐμμὴρ χίλιοι πεντηκονταδύο (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
-### Verse 41 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** υἱοὶ Φασεδούρ, ας᾽ τεσσεράκοντα ἑπτά·
-  - `Swete-Amicarelli`: υἱοὶ Φασεδούρ, ας᾽ τεσσεράκοντα ἑπτά·
-  - `1st1K-LXX`: υἱοὶ Φασεδούρ, ας΄ τεσσεράκοντα ἑπτά·
-  - `Swete (B/A/א)`: υἱοὶ Φασεδούρ, ας΄ τεσσεράκοντα ἑπτά·
+### Verse 41 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** υἱοὶ Φασεδούρ, ͵ασ᾽ τεσσεράκοντα ἑπτά·
+  - `Swete-Amicarelli`: υἱοὶ Φασεδούρ, ͵ασ᾽ τεσσεράκοντα ἑπτά·
+  - `1st1K-LXX`: υἱοὶ Φασεδούρ, ͵ασ΄ τεσσεράκοντα ἑπτά·
+  - `Swete (B/A/א)`: υἱοὶ Φασεδούρ, ͵ασ΄ τεσσεράκοντα ἑπτά·
   - `Sixtine/Brenton`: Υἱοὶ Φασεοὺρ, χίλιοι διακόσιοι τεσσαρακονταεπτά.
   - `LXX-Orthodox (Οʹ)`: υἱοὶ Φασεοὺρ χίλιοι διακόσιοι τεσσαρακονταεπτά·
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'Φασεδούρ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Φασεοὺρ (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'ας' [Swete-Amicarelli] (weight 0.93, confidence 53%) over χίλιοι (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'τεσσεράκοντα ἑπτά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over διακόσιοι τεσσαρακονταεπτά (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).
-- *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
+- **Philological Rationale:** [Variation unit spanning several words] Adopted 'Φασεδούρ ͵ασ τεσσεράκοντα ἑπτά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Φασεοὺρ χίλιοι διακόσιοι τεσσαρακονταεπτά (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
+- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 42 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** υἱοὶ Ἡράμ, χίλιοι δέκα ἑπτά.
@@ -1478,15 +1481,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `LXX-Orthodox (Οʹ)`: ὄνοι δισχίλιοι ἑπτακόσιοι.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 1 surface variation(s) (Accentuation / capitalisation / breathing convention). Versification: 1st1K-LXX numbers this verse 7:79; Swete (B/A/א) numbers this verse 7:79 (re-aligned by content).
 
-### Verse 70 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
-  - `Swete-Amicarelli`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
-  - `1st1K-LXX`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
-  - `Swete (B/A/א)`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
+### Verse 70 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, χιλίους, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
+  - `Swete-Amicarelli`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς, ͵α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
+  - `1st1K-LXX`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς ͵α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
+  - `Swete (B/A/א)`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς ͵α, φιάλας πεντήκοντα καὶ μεχωνὼθ τῶν ἱερέων τριάκοντα.
   - `Sixtine/Brenton`: Καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἐργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς χιλίους, φιάλας πεντήκοντα, καὶ χωθωνὼθ τῶν ἱερέων τριάκοντα.
   - `LXX-Orthodox (Οʹ)`: καὶ ἀπὸ μέρους ἀρχηγῶν τῶν πατριῶν ἔδωκαν εἰς τὸ ἔργον τῷ Νεεμίᾳ εἰς θησαυρὸν χρυσοῦς χιλίους, φιάλας πεντήκοντα καὶ χωθωνὼθ τῶν ἱερέων τριάκοντα.
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'α' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over χιλίους (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'μεχωνὼθ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over χωθωνὼθ (Sixtine/Brenton). Also normalised 4 orthographic/surface variation(s).
-- *confidence:* Verse confidence 28% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'μεχωνὼθ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over χωθωνὼθ (Sixtine/Brenton). Also normalised 5 orthographic/surface variation(s).
+- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 71 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ ἀπὸ ἀρχηγῶν τῶν πατριῶν ἔθηκαν εἰς θησαυρὸν τοῦ ἔτους, τοῦ χρυσίου δύο μυριάδας, καὶ ἀργυρίου μνᾶς δισχιλίας διακοσίας,

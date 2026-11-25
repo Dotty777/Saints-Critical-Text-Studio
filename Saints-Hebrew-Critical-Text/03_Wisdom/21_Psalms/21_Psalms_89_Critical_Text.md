@@ -1,6 +1,6 @@
 # Psalms 89 — Saints Hebrew Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:48Z`
+**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:59Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,117 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 88:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 88:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 90:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 88:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 90:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 88:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 90:17 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -134,8 +236,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 
 ### Psalms 89:18
-- **Apparatus:** `תָּר֥וּם` MAM (Aleppo) WLC (L) BenChayyim (1525) **]** **om.** Letteris (1852)
-- **Apparatus:** `תָּר֥וּם קַרְנֵֽינוּ` MAM (Aleppo) BenChayyim (1525) Letteris (1852) **]** **קַרְנֵֽנוּ** WLC (L) *(lexical substitution)*
+- **Apparatus:** `תָּר֥וּם קַרְנֵֽינוּ` MAM (Aleppo) BenChayyim (1525) **]** **קַרְנֵֽנוּ** WLC (L) Letteris (1852) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Aleppo tradition (MAM); other reading(s): Leningrad Codex (WLC).
   - *external: two-stream policy:* Aleppo tradition (MAM) against the Leningrad Codex (WLC): a codex-level difference within the Masoretic text. MAM is followed.
 - *Disregarded Surface Variant:* kept `כִּי־` over `כִּֽי־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -354,7 +455,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** כִּי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצוֹנְךָ֗ (תרים) תָּר֥וּם קַרְנֵֽינוּ׃
   - `MAM (Aleppo)`: כִּי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצוֹנְךָ֗ (תרים) תָּר֥וּם קַרְנֵֽינוּ׃
   - `WLC (L)`: כִּֽי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצֹנְךָ֗ תרים קַרְנֵֽנוּ׃
-  - `BenChayyim (1525)`: כִּֽי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצֹנְךָ֗ *תָּרִים (תָּר֥וּם) קַרְנֵֽנוּ׃
+  - `BenChayyim (1525)`: כִּֽי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצֹנְךָ֗ תָּרִים (תָּר֥וּם) קַרְנֵֽנוּ׃
   - `Letteris (1852)`: כִּֽי־תִפְאֶ֣רֶת עֻזָּ֣מוֹ אָ֑תָּה וּ֝בִרְצֽוֹנְךָ֗ תָּר֥יּם קַרְנֵֽנוּ׃
 - **Philological Rationale:** [Variation unit spanning several words] Adopted 'תָּר֥וּם קַרְנֵֽינוּ' [MAM (Aleppo)] (weight 0.98, confidence 51%) over קַרְנֵֽנוּ (WLC (L)). Also normalised 3 orthographic/surface variation(s).
 - *confidence:* Verse confidence 51% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure). 1 unit(s) are one witness against one, where any choice is weakly supported.
@@ -443,7 +544,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** לְ֭עוֹלָם (אשמור) אֶשְׁמׇר־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶאֱמֶ֥נֶת לֽוֹ׃
   - `MAM (Aleppo)`: לְ֭עוֹלָם (אשמור) אֶשְׁמׇר־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶאֱמֶ֥נֶת לֽוֹ׃
   - `WLC (L)`: לְ֭עוֹלָ֗ם אשמור־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶאֱמֶ֥נֶת לֽוֹ׃
-  - `BenChayyim (1525)`: לְ֭עוֹלָ֗ם *אֶשְׁמוֹר־(אֶשְׁמָר)־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶאֱמֶ֥נֶת לֽוֹ׃
+  - `BenChayyim (1525)`: לְ֭עוֹלָ֗ם אֶשְׁמוֹר־(אֶשְׁמָר)־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶאֱמֶ֥נֶת לֽוֹ׃
   - `Letteris (1852)`: לְ֭עוֹלָ֗ם אֶשְׁמָור־ל֣וֹ חַסְדִּ֑י וּ֝בְרִיתִ֗י נֶֽאֱמֶ֥נֶת לֽוֹ׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 

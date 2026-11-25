@@ -1,6 +1,6 @@
 # 1 Kings (3 Kingdoms) 22 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:28Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:23Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- 1st1K-LXX: Source import repair, 22:8: 'ὄτι' → 'ὅτι' (Swete prints ὅτι (smooth breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)). verified import repair applied. Original file unchanged.
+- Swete (B/A/א): Source import repair, 22:8: 'ὄτι' → 'ὅτι' (Swete prints ὅτι (smooth breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 22:8: 'ὄτι' → 'ὅτι' (ὅτι (smooth breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: verse 22:4 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
 - Swete-Amicarelli: 21:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:2 kept in its own chapter (stronger match to its own reference verse)
@@ -49,8 +49,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 21:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:21 kept in its own chapter (stronger match to its own reference verse)
@@ -77,6 +79,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 21:42 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 21:43 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: verse 22:4 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
+- 1st1K-LXX: 21:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:4 kept in its own chapter (stronger match to its own reference verse)
@@ -90,11 +93,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 21:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:14 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:16 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:17 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:21 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:22 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:24 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:26 kept in its own chapter (stronger match to its own reference verse)
@@ -116,6 +123,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 21:42 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 21:43 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): verse 22:4 runs into its neighbour across the anchor's division between 22:4 and 22:5; re-divided there
+- Swete (B/A/א): 21:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:4 kept in its own chapter (stronger match to its own reference verse)
@@ -129,11 +137,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 21:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:22 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 21:26 kept in its own chapter (stronger match to its own reference verse)
@@ -210,7 +222,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **5** καὶ εἶπεν Ἰωσαφάτ Καθὼς ἐγώ, καὶ σὺ οὕτως, καθὼς ὁ λαός μου ὁ λαός σου, καθὼς οἱ ἵπποι μου οἱ ἵπποι σου. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα πρὸς βασιλέα Ἰσραήλ Ἐπερωτήσατε δὴ σήμερον τὸν κύριον.
 **6** καὶ συνήθροισεν βασιλεὺς Ἰσραὴλ πάντας τοὺς προφήτας ὡς τετρακοσίους ἄνδρας, καὶ εἶπεν αὐτοῖς ὁ βασιλεύς Εἰ πορευθῶ εἰς Ῥεμμὰθ Γαλαὰδ εἰς πόλεμον ἢ ἐπέχω; καὶ εἶπαν Ἀνάβαινε, καὶ διδοὺς δώσει Κύριος εἰς χεῖρας τοῦ βασιλέως.
 **7** καὶ εἶπεν Ἰωσαφὰτ πρὸς βασιλέα Ἰσραήλ Οὐκ ἔστιν ὧδε προφήτης τοῦ κυρίου, καὶ ἐπερωτήσομεν τὸν κύριον δι᾽ αὐτοῦ;
-**8** καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἷς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτῆσαι τὸν κύριον δι᾽ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὄτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ᾽ ἢ κακά, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὕτως.
+**8** καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἷς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτῆσαι τὸν κύριον δι᾽ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ᾽ ἢ κακά, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὕτως.
 **9** καὶ ἐκάλεσεν ὁ βασιλεὺς Ἰσραὴλ εὐνοῦχον ἕνα καὶ εἶπεν Τάχος Μειχαίαν υἱὸν Ἰεμιά.
 **10** καὶ ὁ βασιλεὺς Ἰσραὴλ καὶ Ἰωσαφὰτ βασιλεὺς Ἰούδα ἐκάθηντο ἀνὴρ ἐπὶ τοῦ θρόνου αὐτοῦ ἔνοπλοι ἐν ταῖς πύλαις Σαμαρείας, καὶ πάντες οἱ προφῆται ἐπροφήτευον ἐνώπιον αὐτῶν.
 **11** καὶ ἐποίησεν ἑαυτῷ Σεδεκίας υἱὸς Χαανὰ κέρατα σιδηρᾶ καὶ εἶπεν Τάδε λέγει Κύριος Ἐν τούτοις κερατιεῖς τὴν Συρίαν ἕως συντελεσθῇ.
@@ -345,7 +357,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἐπερωτῆσαι` over `ἐπερωτὴσαι` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `κύριον` over `Κύριον,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `αὐτόν,` over `αὐτὸν,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `ὄτι` over `ὅτι` (Swete-Amicarelli) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `οὐ` over `αὐ` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `καλὰ` over `καλὰ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `ἀλλ᾽` over `ἀλλ’`, `ἀλλʼ` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Punctuation / spacing difference only*
@@ -897,13 +908,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 8 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἷς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτῆσαι τὸν κύριον δι᾽ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὄτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ᾽ ἢ κακά, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὕτως.
+- **Critical Text:** καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἷς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτῆσαι τὸν κύριον δι᾽ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ᾽ ἢ κακά, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὕτως.
   - `Swete-Amicarelli`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἷς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτῆσαι τὸν κύριον δι᾽ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ᾽ ἢ κακά, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὕτως.
-  - `1st1K-LXX`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἶς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτὴσαι τὸν κύριον δι’ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὄτι αὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ’ ἣ κακὰ, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὔτως.
-  - `Swete (B/A/א)`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἶς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτὴσαι τὸν κύριον δι’ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὄτι αὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ’ ἣ κακὰ, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὔτως.
-  - `Sixtine/Brenton`: Καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφὰτ, εἷς ἐστιν ἀνὴρ εἰς τὸ ἐπερωτῆσαι δὀ αὐτοῦ τὸν Κύριον, καὶ ἐγὼ μεμίσηκα αὐτὸν, ὄτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ, ἀλλʼ ἢ κακὰ, Μιχαίας υἱὸς Ἰεμβλαά· καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα, μὴ λεγέτω ὁ βασιλεὺς οὕτως.
+  - `1st1K-LXX`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἶς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτὴσαι τὸν κύριον δι’ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι αὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ’ ἣ κακὰ, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὔτως.
+  - `Swete (B/A/א)`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ Εἶς ἐστὶν ἀνὴρ εἰς τὸ ἐπερωτὴσαι τὸν κύριον δι’ αὐτοῦ, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι αὐ λαλεῖ περὶ ἐμοῦ καλὰ ἀλλ’ ἣ κακὰ, Μειχαίας υἱὸς Ἰεμιάς. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα Μὴ λεγέτω ὁ βασιλεὺς οὔτως.
+  - `Sixtine/Brenton`: Καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφὰτ, εἷς ἐστιν ἀνὴρ εἰς τὸ ἐπερωτῆσαι δὀ αὐτοῦ τὸν Κύριον, καὶ ἐγὼ μεμίσηκα αὐτὸν, ὅτι οὐ λαλεῖ περὶ ἐμοῦ καλὰ, ἀλλʼ ἢ κακὰ, Μιχαίας υἱὸς Ἰεμβλαά· καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα, μὴ λεγέτω ὁ βασιλεὺς οὕτως.
   - `LXX-Orthodox (Οʹ)`: καὶ εἶπεν ὁ βασιλεὺς Ἰσραὴλ πρὸς Ἰωσαφάτ· εἷς ἐστιν ἀνὴρ εἰς τὸ ἐπερωτῆσαι δι᾿ αὐτοῦ τὸν Κύριον, καὶ ἐγὼ μεμίσηκα αὐτόν, ὅτι οὐ λαλεῖ περὶ ἐμοῦ καλά, ἀλλ᾿ ἢ κακά, Μιχαίας υἱὸς Ἰεμβλαά. καὶ εἶπεν Ἰωσαφὰτ βασιλεὺς Ἰούδα· μὴ λεγέτω ὁ βασιλεὺς οὕτως.
-- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over δὀ αὐτοῦ (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'δι αὐτοῦ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'Ἰεμιάς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἰεμβλαά (Sixtine/Brenton). Also normalised 17 orthographic/surface variation(s).
+- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over δὀ αὐτοῦ (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'δι αὐτοῦ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'Ἰεμιάς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἰεμβλαά (Sixtine/Brenton). Also normalised 16 orthographic/surface variation(s).
 - *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 9 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)

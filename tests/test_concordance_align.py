@@ -345,7 +345,14 @@ class TestLiveHebrew(unittest.TestCase):
         st = self.gen["stats"]
         self.assertGreater(st["en_linked_t3"] / st["en_content"], 0.7)
         self.assertGreater(st["src_linked_t3"] / st["src_content"], 0.8)
-        self.assertEqual(self.gen["source"]["commit"][:7], al.PINNED["heb"][:7])
+        commit = self.gen["source"]["commit"]
+        self.assertTrue(commit and len(commit) == 40, commit)
+        self.assertEqual(commit, al.resolve_ref(self.A.repo, self.A.ref))
+        self.assertEqual(self.gen["source"]["pinned"], al.PINNED["heb"])
+        self.assertTrue(
+            al.is_ancestor(self.A.repo, al.PINNED["heb"], commit),
+            f"live commit {commit[:7]} is not at or descended from pinned {al.PINNED['heb']}",
+        )
         self.assertTrue(set(self.gen["export_tiers"]) <= {1, 2, 3})
 
 

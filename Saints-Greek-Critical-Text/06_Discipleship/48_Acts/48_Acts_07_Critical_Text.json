@@ -7,7 +7,7 @@
   "usfm_code": "ACT",
   "chapter": 7,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:30Z",
+  "updated_at": "2026-11-25T00:07:47Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "SBLGNT",
   "orthographic_base": "SBLGNT",
@@ -17,10 +17,10 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "BHP",
-      "title": "Bunning Heuristic Prototype GNT (CNTR)",
+      "siglum": "SRGNT",
+      "title": "Statistical Restoration Greek New Testament (CNTR 2022)",
       "tier": 1,
-      "weight": 0.88,
+      "weight": 0.95,
       "license": "CC BY 4.0"
     },
     {
@@ -31,10 +31,10 @@
       "license": "CC BY 4.0"
     },
     {
-      "siglum": "SRGNT",
-      "title": "Statistical Restoration Greek New Testament (CNTR 2022)",
+      "siglum": "BHP",
+      "title": "Bunning Heuristic Prototype GNT (CNTR)",
       "tier": 1,
-      "weight": 0.95,
+      "weight": 0.88,
       "license": "CC BY 4.0"
     },
     {
@@ -45,13 +45,6 @@
       "license": "Public Domain"
     },
     {
-      "siglum": "TR (KJTR)",
-      "title": "Textus Receptus (CNTR KJTR Collation)",
-      "tier": 3,
-      "weight": 0.6,
-      "license": "CC BY 4.0"
-    },
-    {
       "siglum": "RP2018 (Byz)",
       "title": "Robinson–Pierpont Byzantine Textform (2018)",
       "tier": 3,
@@ -59,17 +52,24 @@
       "license": "Public Domain / Unlicense"
     },
     {
-      "siglum": "א (01)",
-      "title": "Codex Sinaiticus Direct Transcription (CNTR Early MSS)",
-      "tier": 4,
-      "weight": 0.96,
-      "license": "CC BY-SA 4.0"
+      "siglum": "TR (KJTR)",
+      "title": "Textus Receptus (CNTR KJTR Collation)",
+      "tier": 3,
+      "weight": 0.6,
+      "license": "CC BY 4.0"
     },
     {
       "siglum": "B (03)",
       "title": "Codex Vaticanus Direct Transcription (CNTR Early MSS)",
       "tier": 4,
       "weight": 0.98,
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "siglum": "א (01)",
+      "title": "Codex Sinaiticus Direct Transcription (CNTR Early MSS)",
+      "tier": 4,
+      "weight": 0.96,
       "license": "CC BY-SA 4.0"
     }
   ],
@@ -89,13 +89,6 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
-      "siglum": "Tisch8",
-      "title": "Tischendorf 8th Edition Greek New Testament (1869–1872, OSIS v2.8)",
-      "tier": 2,
-      "license": "Public Domain",
-      "role": "apparatus only (recorded, not voting)"
-    },
-    {
       "siglum": "WH1881",
       "title": "Westcott & Hort Greek New Testament (1881, CNTR Unicode)",
       "tier": 2,
@@ -103,9 +96,9 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
-      "siglum": "PT1904 (Byz)",
-      "title": "1904 Ecumenical Patriarchal Greek New Testament (Basileios Antoniades)",
-      "tier": 3,
+      "siglum": "Tisch8",
+      "title": "Tischendorf 8th Edition Greek New Testament (1869–1872, OSIS v2.8)",
+      "tier": 2,
       "license": "Public Domain",
       "role": "apparatus only (recorded, not voting)"
     },
@@ -117,15 +110,8 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
-      "siglum": "TR-Boyd (Elz/Scr/Steph)",
-      "title": "Polytonic Textus Receptus (Stephanus 1550 / Elzevir 1624 / Scrivener 1894)",
-      "tier": 3,
-      "license": "Public Domain",
-      "role": "apparatus only (recorded, not voting)"
-    },
-    {
-      "siglum": "TR-Elzevir (1624)",
-      "title": "Elzevir Textus Receptus (1624 Leiden Edition, Robinson .UEL)",
+      "siglum": "PT1904 (Byz)",
+      "title": "1904 Ecumenical Patriarchal Greek New Testament (Basileios Antoniades)",
       "tier": 3,
       "license": "Public Domain",
       "role": "apparatus only (recorded, not voting)"
@@ -138,10 +124,31 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
+      "siglum": "TR-Boyd (Elz/Scr/Steph)",
+      "title": "Polytonic Textus Receptus (Stephanus 1550 / Elzevir 1624 / Scrivener 1894)",
+      "tier": 3,
+      "license": "Public Domain",
+      "role": "apparatus only (recorded, not voting)"
+    },
+    {
       "siglum": "TR-Stephanus (1550)",
       "title": "Stephanus Editio Regia Textus Receptus (Paris 1550, CNTR Unicode)",
       "tier": 3,
       "license": "Public Domain / CC BY-SA 4.0",
+      "role": "apparatus only (recorded, not voting)"
+    },
+    {
+      "siglum": "TR-Elzevir (1624)",
+      "title": "Elzevir Textus Receptus (1624 Leiden Edition, Robinson .UEL)",
+      "tier": 3,
+      "license": "Public Domain",
+      "role": "apparatus only (recorded, not voting)"
+    },
+    {
+      "siglum": "𝔓45",
+      "title": "Papyrus 45 — Chester Beatty I (CNTR Early MSS)",
+      "tier": 4,
+      "license": "CC BY-SA 4.0",
       "role": "apparatus only (recorded, not voting)"
     },
     {
@@ -159,17 +166,17 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
-      "siglum": "D (05)",
-      "title": "Codex Bezae Cantabrigiensis Direct Transcription (CNTR Early MSS)",
+      "siglum": "1739",
+      "title": "Minuscule 1739 — Mount Athos Codex (INTF NTVMR & IGNTP Paul XML)",
       "tier": 4,
-      "license": "CC BY-SA 4.0",
+      "license": "CC BY 4.0",
       "role": "apparatus only (recorded, not voting)"
     },
     {
-      "siglum": "𝔓45",
-      "title": "Papyrus 45 — Chester Beatty I (CNTR Early MSS)",
+      "siglum": "33",
+      "title": "Minuscule 33 — Queen of the Cursives (INTF NTVMR & IGNTP Paul XML)",
       "tier": 4,
-      "license": "CC BY-SA 4.0",
+      "license": "CC BY 4.0",
       "role": "apparatus only (recorded, not voting)"
     },
     {
@@ -180,22 +187,15 @@
       "role": "apparatus only (recorded, not voting)"
     },
     {
+      "siglum": "D (05)",
+      "title": "Codex Bezae Cantabrigiensis Direct Transcription (CNTR Early MSS)",
+      "tier": 4,
+      "license": "CC BY-SA 4.0",
+      "role": "apparatus only (recorded, not voting)"
+    },
+    {
       "siglum": "1 (f¹)",
       "title": "Minuscule 1 — Head of Family 1 / Lake Group (INTF NTVMR XML)",
-      "tier": 4,
-      "license": "CC BY 4.0",
-      "role": "apparatus only (recorded, not voting)"
-    },
-    {
-      "siglum": "1739",
-      "title": "Minuscule 1739 — Mount Athos Codex (INTF NTVMR & IGNTP Paul XML)",
-      "tier": 4,
-      "license": "CC BY 4.0",
-      "role": "apparatus only (recorded, not voting)"
-    },
-    {
-      "siglum": "33",
-      "title": "Minuscule 33 — Queen of the Cursives (INTF NTVMR & IGNTP Paul XML)",
       "tier": 4,
       "license": "CC BY 4.0",
       "role": "apparatus only (recorded, not voting)"
@@ -247,7 +247,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -255,7 +254,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -529,7 +527,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -537,7 +534,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -1092,7 +1088,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -1100,7 +1095,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -1858,7 +1852,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -1866,7 +1859,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -2756,7 +2748,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -2764,7 +2755,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -3595,7 +3585,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -3603,7 +3592,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -4238,7 +4226,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -4246,7 +4233,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -4934,7 +4920,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -4942,7 +4927,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -5580,7 +5564,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -5588,7 +5571,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -5895,7 +5877,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -5903,7 +5884,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -6681,7 +6661,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -6689,7 +6668,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -7104,7 +7082,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -7112,7 +7089,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -7564,7 +7540,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -7572,7 +7547,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -8144,7 +8118,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -8152,7 +8125,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -8792,7 +8764,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -8800,7 +8771,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -9243,7 +9213,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -9251,7 +9220,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -9872,7 +9840,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -9880,7 +9847,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -10410,7 +10376,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -10418,7 +10383,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -10807,7 +10771,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -10815,7 +10778,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -11388,7 +11350,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -11396,7 +11357,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -11889,7 +11849,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -11897,7 +11856,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -12549,7 +12507,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -12557,7 +12514,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -13109,7 +13065,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -13117,7 +13072,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -13675,7 +13629,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -13683,7 +13636,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -14080,7 +14032,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -14088,7 +14039,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -14667,7 +14617,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -14675,7 +14624,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -15505,7 +15453,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -15513,7 +15460,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -15861,7 +15807,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -15869,7 +15814,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -16288,7 +16232,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -16296,7 +16239,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -16713,7 +16655,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -16721,7 +16662,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -17300,7 +17240,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -17308,7 +17247,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -17920,7 +17858,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -17928,7 +17865,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -18709,7 +18645,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -18717,7 +18652,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -19434,7 +19368,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -19442,7 +19375,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -20165,7 +20097,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -20173,7 +20104,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -20949,7 +20879,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -20957,7 +20886,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -21684,7 +21612,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -21692,7 +21619,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -22443,7 +22369,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -22451,7 +22376,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -23125,7 +23049,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -23133,7 +23056,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -23864,7 +23786,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -23872,7 +23793,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -24430,7 +24350,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -24438,7 +24357,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -24925,7 +24843,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -24933,7 +24850,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -25801,7 +25717,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -25809,7 +25724,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -26464,7 +26378,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -26472,7 +26385,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -27335,7 +27247,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -27343,7 +27254,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -27937,7 +27847,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -27945,7 +27854,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -28314,7 +28222,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -28322,7 +28229,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -28546,7 +28452,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -28554,7 +28459,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -29014,7 +28918,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -29022,7 +28925,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -29662,7 +29564,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -29670,7 +29571,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -29899,7 +29799,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -29907,7 +29806,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)"
       ],
@@ -30602,7 +30500,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -30610,7 +30507,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -31277,7 +31173,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -31285,7 +31180,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -31562,7 +31456,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -31570,7 +31463,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -31997,7 +31889,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -32005,7 +31896,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -32657,7 +32547,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -32665,7 +32554,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -33196,7 +33084,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -33204,7 +33091,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -33519,7 +33405,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -33527,7 +33412,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -34128,7 +34012,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -34136,7 +34019,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"
@@ -34509,7 +34391,6 @@
         "D (05)",
         "NA28 (TAGNT)",
         "PT1904 (Byz)",
-        "Pickering-f35",
         "TCGNT (Byz)",
         "THGNT",
         "TR-Boyd (Elz/Scr/Steph)",
@@ -34517,7 +34398,6 @@
         "TR-Scrivener (1894)",
         "TR-Stephanus (1550)",
         "Tisch8",
-        "Tregelles (1879)",
         "WH1881",
         "Ψ (044)",
         "𝔓45"

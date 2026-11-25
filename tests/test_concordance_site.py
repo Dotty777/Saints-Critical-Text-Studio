@@ -290,7 +290,7 @@ class TestRealData(unittest.TestCase):
                 # every source verse with text appears exactly once (placed or unplaced)
                 n_src = sum(len(sv.src) for sv in layer.verses) + len(layer.unplaced)
                 n_out = sum(len(r[2].split(",")) for r in rows) + len(back["unplaced"])
-                extra = 1 if (code, slug) == ("grc", "sirach") and stats["prologue"] else 0
+                extra = 1 if slug == "sirach" and code in ("grc", "lat") and stats["prologue"] else 0
                 self.assertEqual(n_out, n_src + extra)
 
     def test_hebrew_psalm_in_mt_numbering(self):
@@ -332,11 +332,25 @@ class TestRealData(unittest.TestCase):
         self.assertNotIn("1:1", [u[2] for u in back["unplaced"]])
         self.assertIn(cs.CT_NOTES[("grc", "sirach")][0], back["notes"])
 
-    def test_latin_sirach_has_no_prologue(self):
+    def test_latin_sirach_prologue_split_on_real_text(self):
         layer = self.layers[("lat", "sirach")]
-        _, rows, stats = cs.critical_text_payload("lat", "sirach", 26, layer.verses, layer.unplaced)
-        self.assertEqual(stats["prologue"], 0)
-        self.assertTrue(rows[0][3].startswith("Omnis sapientia"))
+        raw = self.conn.execute(
+            "SELECT v.critical_text FROM verses v JOIN chapters c ON c.id = v.chapter_id "
+            "WHERE c.language = 'latin' AND c.book_slug = 'sirach' AND c.chapter = 1 AND v.verse = 1").fetchone()[0]
+        payload, rows, stats = cs.critical_text_payload("lat", "sirach", 26, layer.verses, layer.unplaced)
+        back = _roundtrip(payload)
+        self.assertEqual(stats["prologue"], 1)
+        pro = [u for u in back["unplaced"] if u[4] == "prologue"]
+        self.assertEqual(len(pro), 1)
+        self.assertEqual(pro[0][:3], [0, 0, "Prologue"])
+        self.assertTrue(pro[0][3].startswith("Multorum nobis et magnorum"))
+        self.assertTrue(pro[0][3].endswith("vitam agere."))
+        v11 = [r for r in cs.expand_compact_ct(back) if (r[0], r[1]) == (1, 1)]
+        self.assertEqual(len(v11), 1)
+        self.assertEqual(v11[0][2], "1:1")
+        self.assertTrue(v11[0][3].startswith("Omnis sapientia a Domino Deo est"))
+        self.assertEqual(pro[0][3] + " " + v11[0][3], raw.strip())
+        self.assertIn(cs.CT_NOTES[("lat", "sirach")][0], back["notes"])
 
     def test_john_greek_is_plain(self):
         layer = self.layers[("grc", "john")]

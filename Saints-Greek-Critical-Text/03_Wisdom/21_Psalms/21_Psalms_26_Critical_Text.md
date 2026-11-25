@@ -1,6 +1,6 @@
 # Psalms 26 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:40Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 25:1 kept in its own chapter (stronger match to its own reference verse)
@@ -62,6 +60,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 25:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 25:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 25:7 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 25:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 25:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 25:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 25:11 kept in its own chapter (stronger match to its own reference verse)
@@ -82,6 +81,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 25:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 25:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 25:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 25:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 25:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 25:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 25:11 kept in its own chapter (stronger match to its own reference verse)
@@ -141,10 +141,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Psalms 26:1
-- *Disregarded Surface Variant:* kept `Τοῦ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυὶδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
-- *Disregarded Surface Variant:* kept `πρὸ τοῦ χρισθῆναι` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
+- *Disregarded Surface Variant:* kept `Δαυίδ,` over `Δαυείδ,`, `Δαυὶδ,` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `σωτήρ` over `σώτηρ` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 
 ### Psalms 26:2
@@ -227,7 +224,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `νομοθέτησόν` over `Νομοθέτησόν` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Psalms 26:12
-- *Disregarded Surface Variant:* kept `om.` over `Τοῦ Δαυείδ πρὸ τοῦ χρισθῆναι` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `μὴ` over `Μὴ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `με,` over `με.` (1st1K-LXX, Swete (B/A/א)) — *Punctuation / spacing difference only*
 
@@ -249,10 +245,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Τοῦ Δαυίδ, πρὸ τοῦ χρισθῆναι. Κύριος φωτισμός μου καὶ σωτήρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
   - `Swete-Amicarelli`: Τοῦ Δαυείδ, πρὸ τοῦ χρισθῆναι. Κύριος φωτισμός μου καὶ σωτήρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
   - `1st1K-LXX`: Τοῦ Δαυείδ, πρὸ τοῦ χρισθῆναι. Κύριος φωτισμός μου καὶ σωτήρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
-  - `Swete (B/A/א)`: Κύριος φωτισμός μου καὶ σωτήρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
+  - `Swete (B/A/א)`: Τοῦ Δαυείδ, πρὸ τοῦ χρισθῆναι. Κύριος φωτισμός μου καὶ σωτήρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
   - `Sixtine/Brenton`: Τοῦ Δαυὶδ, πρὸ τοῦ χρισθῆναι. Κύριος φωτισμός μου καὶ σώτηρ μου, τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου, ἀπὸ τίνος δειλιάσω;
   - `LXX-Orthodox (Οʹ)`: Τοῦ Δαυΐδ· πρὸ τοῦ χρισθῆναι. ΚΥΡΙΟΣ φωτισμός μου καὶ σωτήρ μου· τίνα φοβηθήσομαι; Κύριος ὑπερασπιστὴς τῆς ζωῆς μου· ἀπὸ τίνος δειλιάσω;
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Koine/Uncial itacistic spelling (ει / ι equivalence)).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἐν τῷ ἐγγίζειν ἐπ᾽ ἐμὲ κακοῦντας τοῦ φαγεῖν τὰς σάρκας μου, οἱ θλίβοντές με καὶ οἱ ἐχθροί μου αὐτοὶ ἠσθένησαν καὶ ἔπεσαν.
@@ -351,10 +347,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με, ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
   - `Swete-Amicarelli`: μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με, ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
   - `1st1K-LXX`: μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με. ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
-  - `Swete (B/A/א)`: Τοῦ Δαυείδ, πρὸ τοῦ χρισθῆναι. μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με. ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
+  - `Swete (B/A/א)`: μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με. ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
   - `Sixtine/Brenton`: Μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με, ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
   - `LXX-Orthodox (Οʹ)`: μὴ παραδῷς με εἰς ψυχὰς θλιβόντων με, ὅτι ἐπανέστησάν μοι μάρτυρες ἄδικοι, καὶ ἐψεύσατο ἡ ἀδικία ἑαυτῇ.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 13 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** πιστεύσω τοῦ ἰδεῖν τὰ ἀγαθὰ Κυρίου ἐν γῇ ζώντων.

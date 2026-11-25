@@ -21,6 +21,7 @@ from studio.catalog import (
     CRITICAL_OUTPUT_ROOTS,
     DIVISIONS,
     BookSpec,
+    chapters_for_language,
     get_books_for_language,
 )
 from studio.engine import CriticalTextEngine
@@ -816,7 +817,7 @@ class CriticalTextDesktopApp:
             if not div_books:
                 continue
             div_saved_cnt = sum(len(saved_by_book.get(b.slug, [])) for b in div_books)
-            div_tot_cnt = sum(b.chapters for b in div_books)
+            div_tot_cnt = sum(chapters_for_language(b, lang) for b in div_books)
             div_iid = f"div:{div['id']}"
             self.lib_tree.insert(
                 "",
@@ -837,7 +838,7 @@ class CriticalTextDesktopApp:
                     "end",
                     iid=b_iid,
                     text=f"{b.order:02d} · {b.title}",
-                    values=(f"{len(b_saved)}/{b.chapters}", status_txt),
+                    values=(f"{len(b_saved)}/{chapters_for_language(b, lang)}", status_txt),
                     open=bool(b_saved),
                     tags=(b_tag,),
                 )
@@ -986,7 +987,7 @@ class CriticalTextDesktopApp:
             if b.slug == slug:
                 self.book_combo.current(idx)
                 self.current_book_slug.set(slug)
-                self.ch_spin.configure(to=b.chapters)
+                self.ch_spin.configure(to=chapters_for_language(b, self.current_lang.get()))
                 break
         self.current_chapter.set(ch_num)
         self.notebook.select(self.tab_workbench)
@@ -999,7 +1000,7 @@ class CriticalTextDesktopApp:
             return
         book = BOOKS_BY_SLUG[slug]
         saved_nums = {int(r["chapter"]) for r in self.engine.list_saved_chapters(lang) if r["book_slug"] == slug}
-        next_ch = next((c for c in range(1, book.chapters + 1) if c not in saved_nums), 1)
+        next_ch = next((c for c in range(1, chapters_for_language(book, lang) + 1) if c not in saved_nums), 1)
 
         def _work() -> Dict[str, Any]:
             return self.engine.collate_and_adjudicate(lang, slug, next_ch, preserve_human_locks=True)
@@ -1098,7 +1099,7 @@ class CriticalTextDesktopApp:
         if self.books_in_div:
             self.book_combo.current(0)
             self.current_book_slug.set(self.books_in_div[0].slug)
-            self.ch_spin.configure(to=self.books_in_div[0].chapters)
+            self.ch_spin.configure(to=chapters_for_language(self.books_in_div[0], lang))
             self.current_chapter.set(1)
 
     def _on_division_changed(self, _event: Any = None) -> None:
@@ -1110,7 +1111,7 @@ class CriticalTextDesktopApp:
         if 0 <= idx < len(self.books_in_div):
             b = self.books_in_div[idx]
             self.current_book_slug.set(b.slug)
-            self.ch_spin.configure(to=b.chapters)
+            self.ch_spin.configure(to=chapters_for_language(b, self.current_lang.get()))
             self.current_chapter.set(1)
             self._on_chapter_selected()
 
@@ -1161,9 +1162,10 @@ class CriticalTextDesktopApp:
         lang = self.current_lang.get()
         slug = self.current_book_slug.get()
         book = BOOKS_BY_SLUG[slug]
+        total_ch = chapters_for_language(book, lang)
         if not messagebox.askyesno(
             "Batch Collate Book",
-            f"Collate and adjudicate all {book.chapters} chapters of {book.title} ({lang.title()}) offline and save them into Saints-{lang.title()}-Critical-Text?",
+            f"Collate and adjudicate all {total_ch} chapters of {book.title} ({lang.title()}) offline and save them into Saints-{lang.title()}-Critical-Text?",
             parent=self.root,
         ):
             return
@@ -1171,10 +1173,10 @@ class CriticalTextDesktopApp:
         def _work() -> tuple[int, List[str]]:
             count = 0
             skipped: List[str] = []
-            for c in range(1, book.chapters + 1):
+            for c in range(1, total_ch + 1):
                 self.ui_queue.put(
                     lambda ch_n=c: self.status_var.set(
-                        f"Batch Collating {book.title}: Chapter {ch_n} of {book.chapters}..."
+                        f"Batch Collating {book.title}: Chapter {ch_n} of {total_ch}..."
                     )
                 )
                 try:
@@ -1191,7 +1193,7 @@ class CriticalTextDesktopApp:
             skipped_txt = ("\n\nSkipped:\n" + "\n".join(skipped[:12])) if skipped else ""
             messagebox.showinfo(
                 "Batch Collation Complete",
-                f"Collated {done_count} of {book.chapters} chapters of {book.title} ({lang.title()}).\n\nSaved inside Studio at:\n{CRITICAL_OUTPUT_ROOTS[lang] / book.division / book.folder_name}{skipped_txt}",
+                f"Collated {done_count} of {total_ch} chapters of {book.title} ({lang.title()}).\n\nSaved inside Studio at:\n{CRITICAL_OUTPUT_ROOTS[lang] / book.division / book.folder_name}{skipped_txt}",
                 parent=self.root,
             )
 
@@ -2557,7 +2559,7 @@ class CriticalTextDesktopApp:
             if b.slug == slug:
                 self.book_combo.current(idx)
                 self.current_book_slug.set(slug)
-                self.ch_spin.configure(to=b.chapters)
+                self.ch_spin.configure(to=chapters_for_language(b, lang))
                 break
         self.current_chapter.set(ch_num)
         self.notebook.select(self.tab_workbench)

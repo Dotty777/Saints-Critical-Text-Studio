@@ -1,6 +1,6 @@
 # Deuteronomy 23 — Saints Greek Critical Text
 
-**Division:** `01_Law` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:31Z`
+**Division:** `01_Law` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:19Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Sixtine/Brenton: Source import repair, 23:3: 'ἐκκλησίαν Κύριου.' → 'ἐκκλησίαν Κυρίου.' (Κυρίου (impossible proparoxytone with long ultima in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 22:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 22:3 kept in its own chapter (stronger match to its own reference verse)
@@ -88,6 +86,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 24 verse(s) re-aligned by content (1←22:30, 2←23:1, 4←23:3, 5←23:4, 6←23:5, 7←23:6…)
 - 1st1K-LXX: 22:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:2 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 22:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 22:6 kept in its own chapter (stronger match to its own reference verse)
@@ -139,6 +138,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 24 verse(s) re-aligned by content (1←22:30, 2←23:1, 4←23:3, 5←23:4, 6←23:5, 7←23:6…)
 - Swete (B/A/א): 22:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 22:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 22:6 kept in its own chapter (stronger match to its own reference verse)
@@ -246,7 +246,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 
 **1** Οὐ λήμψεται ἄνθρωπος τὴν γυναῖκα τοῦ πατρὸς αὐτοῦ, καὶ οὐκ ἀποκαλύψει συνκάλυμμα τοῦ πατρὸς αὐτοῦ.
 **2** Οὐκ εἰσελεύσονται θλαδίας οὐδὲ ἀποκεκομμένος εἰς ἐκκλησίαν Κυρίου.
-**3** Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κύριου.
+**3** Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κυρίου.
 **4** οὐκ εἰσελεύσεται Ἀμμανείτης οὐδὲ Μωαβείτης εἰς ἐκκλησίαν Κυρίου· καὶ ἕως δεκάτης γενεᾶς οὐκ εἰσελεύσεται εἰς ἐκκλησίαν Κυρίου καὶ ἕως εἰς τὸν αἰῶνα,
 **5** παρὰ τὸ μὴ συναντῆσαι αὐτοὺς ὑμῖν μετὰ ἄρτων καὶ ὕδατος ἐν τῇ ὁδῷ ἐκπορευομένων ὑμῶν ἐξ Αἰγύπτου, καὶ ὅτι ἐμισθώσαντο ἐπὶ σὲ τὸν Βαλαὰμ υἱὸν Βεὼρ ἐκ τῆς Μεσοποταμίας καταρᾶσθαι·
 **6** καὶ οὐκ ἠθέλησεν Κύριος ὁ θεός σου εἰσακοῦσαι τοῦ Βαλαάμ, καὶ μετέστρεψεν Κύριος ὁ θεός σου τὰς κατάρας εἰς εὐλογίαν, ὅτι ἠγάπησέν σε Κύριος ὁ θεός σου.
@@ -488,8 +488,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 3 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κύριου.
-  - `Sixtine/Brenton`: Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κύριου.
+- **Critical Text:** Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κυρίου.
+  - `Sixtine/Brenton`: Οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κυρίου.
   - `LXX-Orthodox (Οʹ)`: οὐκ εἰσελεύσεται ἐκ πόρνης εἰς ἐκκλησίαν Κυρίου.
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 

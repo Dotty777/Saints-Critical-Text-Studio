@@ -1,6 +1,6 @@
 # Micah 06 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:39Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:43Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,24 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source import repair, 6:5: 'κατὰ σοῦ βαλὰκ' → 'κατὰ σοῦ Βαλὰκ' (Swete prints Βαλὰκ (proper name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)). verified import repair applied. Original file unchanged.
+- Swete-Amicarelli: 5:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 5:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 7:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 7:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 7:3 kept in its own chapter (stronger match to its own reference verse)
@@ -54,6 +66,20 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 7:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 7:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 7:20 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:2 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:4 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:5 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:6 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:7 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:8 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:10 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:11 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:12 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:14 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 5:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:3 kept in its own chapter (stronger match to its own reference verse)
@@ -67,12 +93,27 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 7:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 7:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 7:20 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 5:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:3 kept in its own chapter (stronger match to its own reference verse)
@@ -86,6 +127,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 7:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 7:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 7:17 kept in its own chapter (stronger match to its own reference verse)
@@ -135,7 +177,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **2** ἀκούσατε, λαοί, τὴν κρίσιν τοῦ κυρίου, καὶ αἱ φάραγγες θεμέλια τῆς γῆς, ὅτι κρίσις τῷ κυρίῳ πρὸς τὸν λαὸν αὐτοῦ, καὶ μετὰ τοῦ Ἰσραὴλ διελεγχθήσεται.
 **3** λαός μου, τί ἐποίησά σοι, ἢ τί ἐλύπησά σε, ἢ τί παρηνώχλησά σοι; ἀποκρίθητί μοι.
 **4** διότι ἀνήγαγόν σε ἐκ γῆς Αἰγύπτου, καὶ ἐξ οἴκου δουλίας ἐλυτρωσάμην σε, καὶ ἐξαπέστειλα πρὸ προσώπου σου τὸν Μωσῆν καὶ Ἀαρὼν καὶ Μαριάμ.
-**5** λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
+**5** λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
 **6** ἐν τίνι καταλάβω τὸν κύριον, ἀντιλήμψομαι θεοῦ μου Ὑψίστου; εἰ καταλήμψομαι αὐτὸν ἐν ὁλοκαυτώμασιν ἐν μόσχοις ἐνιαυσίοις;
 **7** εἰ προσδέξεται Κύριος ἐν χιλιάσιν κριῶν ἢ ἐν μυριάσιν χειμάρρων πιόνων; εἰ δῶ πρωτότοκά μου ἀσεβείας, καρπὸν κοιλίας μου ὑπὲρ ἁμαρτίας ψυχῆς μου;
 **8** εἰ ἀνηγγέλη σοι, ἄνθρωπε, τί καλόν; ἢ τί Κύριος ἐκζητεῖ παρὰ σοῦ ἀλλ᾽ ἢ τοῦ ποιεῖν κρίμα καὶ ἀγαπᾷν ἔλεον καὶ ἕτοιμον εἶναι τοῦ πορεύεσθαι μετὰ Κυρίου θεοῦ σου;
@@ -188,7 +230,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `λαός` over `Λαός` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `μου,` over `μου` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `δὴ` over `δὴ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
-- *Disregarded Surface Variant:* kept `βαλὰκ` over `Βαλὰκ` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Μωάβ,` over `Μωὰβ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Βαλαὰμ` over `Βαλαὰμ,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `Γαλγάλ,` over `Γαλγὰλ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -335,13 +376,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 5 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
-  - `Swete-Amicarelli`: λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
+- **Critical Text:** λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
+  - `Swete-Amicarelli`: λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
   - `1st1K-LXX`: λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
   - `Swete (B/A/א)`: λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωάβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ κυρίου.
   - `Sixtine/Brenton`: Λαός μου μνήσθητι δὴ, τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωὰβ, καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ, υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγὰλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ Κυρίου.
   - `LXX-Orthodox (Οʹ)`: λαός μου, μνήσθητι δὴ τί ἐβουλεύσατο κατὰ σοῦ Βαλὰκ βασιλεὺς Μωὰβ καὶ τί ἀπεκρίθη αὐτῷ Βαλαὰμ υἱὸς τοῦ Βεὼρ ἀπὸ τῶν σχοίνων ἕως τοῦ Γαλγάλ, ὅπως γνωσθῇ ἡ δικαιοσύνη τοῦ Κυρίου.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 8 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 7 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 6 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ἐν τίνι καταλάβω τὸν κύριον, ἀντιλήμψομαι θεοῦ μου Ὑψίστου; εἰ καταλήμψομαι αὐτὸν ἐν ὁλοκαυτώμασιν ἐν μόσχοις ἐνιαυσίοις;

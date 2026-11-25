@@ -1059,10 +1059,13 @@ class TestRealCorpus(unittest.TestCase):
     def test_latin_genesis(self) -> None:
         lat = self.engine.collate_and_adjudicate("latin", "genesis", 1)
         self.assertEqual(lat["verse_count"], 31)
-        self.assertIn("erant", self.verse(lat, 2)["critical_text"])  # Amiatinus' own reading, not Stuttgart's
-        self.assertGreaterEqual(lat["variant_verse_count"], 1)
+        # Under D2 (Amiatinus apparatus-only), critical text follows Clementine (Clem1598-USFX)
+        # and Amiatinus (A) is recorded cleanly in the apparatus.
+        self.assertIn("erat inanis", self.verse(lat, 2)["critical_text"])
+        self.assertIn("Amiatinus (A)", self.verse(lat, 2)["witness_readings"])
         g50 = self.engine.collate_and_adjudicate("latin", "genesis", 50)
-        self.assertNotIn("explicit", self.verse(g50, 26)["critical_text"])
+        self.assertEqual(g50["verse_count"], 25)  # native Vulgate Genesis 50 has 25 verses
+        self.assertNotIn("explicit", self.verse(g50, 25)["critical_text"])
         lam1 = self.engine.collate_and_adjudicate("latin", "lamentations", 1)
         non_stut = [a for a in self.verse(lam1, 1)["apparatus"]
                     if not all(w == "Stuttgart-BSV" for x in a["variants"] for w in x["witnesses"])]
@@ -1215,9 +1218,8 @@ class TestRealCorpus(unittest.TestCase):
 
     def test_latin_restored_verses_and_editorial_cleanup(self) -> None:
         jhn6 = self.engine.collate_and_adjudicate("latin", "john", 6)
-        v51 = self.verse(jhn6, 51)
-        self.assertIn("Ego sum panis vivus", v51["critical_text"])
-        self.assertIn("Si quis manducaverit", v51["critical_text"])
+        self.assertIn("Ego sum panis vivus", self.verse(jhn6, 51)["critical_text"])
+        self.assertIn("Si quis manducaverit", self.verse(jhn6, 52)["critical_text"])
 
         mat11 = self.engine.collate_and_adjudicate("latin", "matthew", 11)
         self.assertIn("Joannes autem", self.verse(mat11, 2)["critical_text"])
@@ -1226,25 +1228,25 @@ class TestRealCorpus(unittest.TestCase):
         num6 = self.engine.collate_and_adjudicate("latin", "numbers", 6)
         v23 = self.verse(num6, 23)["critical_text"]
         self.assertTrue(v23.startswith("Loquere Aaron"), v23)
-        self.assertIn("Invocabuntque nomen meum", v23)
+        self.assertIn("Invocabuntque nomen meum", self.verse(num6, 27)["critical_text"])
 
-        exo36 = self.engine.collate_and_adjudicate("latin", "exodus", 36)
-        v10 = self.verse(exo36, 10)
-        self.assertIn("Clem1598-USFX", v10["witness_readings"])
-        self.assertEqual(v10["witness_refs"].get("Clem1598-USFX"), "39:3")
+        exo39 = self.engine.collate_and_adjudicate("latin", "exodus", 39)
+        v3 = self.verse(exo39, 3)
+        self.assertIn("Clem1598-USFX", v3["witness_readings"])
+        self.assertNotIn("Clem1598-USFX", v3["witness_refs"])
 
         sng1 = self.engine.collate_and_adjudicate("latin", "song-of-songs", 1)
-        self.assertTrue(self.verse(sng1, 2)["critical_text"].startswith("Osculetur me"))
+        self.assertTrue(self.verse(sng1, 1)["critical_text"].startswith("Osculetur me"))
 
-        jol4_col = self.engine.build_collation("latin", "joel", 4)
-        self.assertEqual(jol4_col["base_siglum"], "Clem1598-USFX")
-        jol4 = self.engine.collate_and_adjudicate("latin", "joel", 4)
-        self.assertFalse(self.verse(jol4, 21)["critical_text"].endswith("]"))
+        jol3_col = self.engine.build_collation("latin", "joel", 3)
+        self.assertEqual(jol3_col["base_siglum"], "Clem1598-USFX")
+        jol3 = self.engine.collate_and_adjudicate("latin", "joel", 3)
+        self.assertFalse(self.verse(jol3, 21)["critical_text"].endswith("]"))
 
         gen25 = self.engine.collate_and_adjudicate("latin", "genesis", 25)
-        self.assertIn("filii Dodan fuerunt", self.verse(gen25, 3)["critical_text"])
+        self.assertIn("Filii Dadan fuerunt", self.verse(gen25, 3)["critical_text"])
         gen44 = self.engine.collate_and_adjudicate("latin", "genesis", 44)
-        self.assertIn("(necdum enim de loco abierant)", self.verse(gen44, 14)["critical_text"])
+        self.assertIn("(necdum enim de loco abierat)", self.verse(gen44, 14)["critical_text"])
 
     def test_trilingual_majority_witnesses_loaded_and_collated(self) -> None:
         # 1. Greek NT: Robinson-Pierpont, Boyd TCGNT, Antoniades 1904, KJTR, Scrivener 1894, Boyd TR
@@ -1780,27 +1782,29 @@ class TestOpenAIReview(unittest.TestCase):
         from studio.engine import CriticalTextEngine
         engine = CriticalTextEngine()
         engine.config = BrainConfig(provider_id="textual_analysis")
-        baseline = engine.collate_and_adjudicate("latin", "genesis", 1, preserve_human_locks=False)
+        baseline = engine.collate_and_adjudicate("greek", "matthew", 1, preserve_human_locks=False)
         engine.config = BrainConfig(provider_id="openai_review", offline_locked=False)
         def transport(cfg, payload):
             return self.response(self.answer(payload, 1))
         with patch("studio.brains.openai_review._request_review", side_effect=transport):
-            reviewed = engine.collate_and_adjudicate("latin", "genesis", 1)
+            reviewed = engine.collate_and_adjudicate("greek", "matthew", 1)
             self.assertEqual([v["critical_text"] for v in baseline["verses"]],
                              [v["critical_text"] for v in reviewed["verses"]])
             self.assertIn("OpenAI review", Path(reviewed["local_md_path"]).read_text(encoding="utf-8"))
             exported = json.loads(Path(reviewed["local_json_path"]).read_text(encoding="utf-8"))
             self.assertTrue(any(f.get("response_id") == "test-response"
                                 for v in exported["verses"] for a in v["apparatus"] for f in a["analysis"]))
-            engine.override_verse("latin", "genesis", 1, 9, "Human chosen wording", "Keep this decision.")
-            again = engine.collate_and_adjudicate("latin", "genesis", 1)
+            engine.override_verse("greek", "matthew", 1, 9, "Human chosen wording", "Keep this decision.")
+            again = engine.collate_and_adjudicate("greek", "matthew", 1)
             locked = next(v for v in again["verses"] if v["verse"] == 9)
             self.assertEqual(locked["critical_text"], "Human chosen wording")
             self.assertTrue(locked["human_locked"])
             self.assertFalse(locked["needs_review"])
-        # Leave the shared sandbox chapter in its baseline state for unrelated tests.
+        # Leave the shared sandbox chapter and parallel index in their baseline state for unrelated tests.
         engine.config = BrainConfig()
-        engine.collate_and_adjudicate("latin", "genesis", 1, preserve_human_locks=False)
+        engine.collate_and_adjudicate("greek", "matthew", 1, preserve_human_locks=False)
+        from studio.brains import textual_analysis as _ta
+        _ta._PARALLELS = _ta.ParallelIndex()
 
 
 @unittest.skipUnless(HAVE_CORPORA, "research corpora not present")
@@ -1880,33 +1884,35 @@ class TestV9AccuracyAuditRepairs(unittest.TestCase):
                 self.assertNotIn(marker, n10)
 
     def test_latin_sirach_and_genesis_repairs(self):
-        # Latin Sirach 29:13: sole truncated verse in the 34,446-verse Latin Bible restored from Clem1598-USFX
+        # Latin Sirach 29:16-18: native Vulgate (Clem1598-USFX) 3-verse structure preserved without truncation
         s29 = self._gen("latin", "sirach", 29)
-        self.assertEqual(s29[13], "Super scutum potentis et super lanceam adversus inimicum tuum pugnabit.")
-        # Latin Genesis 5: Roman numerals normalised to spelled-out Latin numbers
+        self.assertEqual(s29[16], "Super scutum potentis")
+        self.assertEqual(s29[17], "et super lanceam")
+        self.assertEqual(s29[18], "adversus inimicum tuum pugnabit.")
+        # Latin Genesis 5: spelled-out Latin numerals in Clementine Vulgate
         g5 = self._gen("latin", "genesis", 5)
         self.assertIn("centum triginta", g5[3])
         self.assertIn("nongenti triginta", g5[5])
         self.assertIn("octingentis septem", g5[7])
         self.assertIn("nongenti decem", g5[14])
         self.assertIn("octingenti nonaginta quinque", g5[17])
-        # Gen 7:5 double-pronoun conflation removed; Gen 12:7 & 26:12 vowel-u verbs untouched
+        # Gen 7:5 clean Clementine; Gen 12:7 & 26:12 clean verb forms
         self.assertNotIn("ei Dominus illi", self._gen("latin", "genesis", 7)[5])
-        self.assertIn("Apparuitque", self._gen("latin", "genesis", 12)[7])
-        self.assertIn("Seruit", self._gen("latin", "genesis", 26)[12])
-        # Gen 14, 15, 30, 36, 39, 44: e-caudata, safe u→v, proper-name capitalisation, broken XML word
-        self.assertIn("servierant Godorlahomor", self._gen("latin", "genesis", 14)[4])
-        self.assertIn("Cetmonæos", self._gen("latin", "genesis", 15)[19])
+        self.assertIn("Apparuit autem", self._gen("latin", "genesis", 12)[7])
+        self.assertIn("Sevit autem", self._gen("latin", "genesis", 26)[12])
+        # Gen 14, 15, 30, 36, 39, 44: uniform Clementine orthography (Amiatinus apparatus-only under D2)
+        self.assertIn("servierunt Chodorlahomor", self._gen("latin", "genesis", 14)[4])
+        self.assertIn("Cedmonæos", self._gen("latin", "genesis", 15)[19])
         g30 = self._gen("latin", "genesis", 30)
-        self.assertIn("fulvum", g30[32])
-        self.assertIn("fulva", g30[33])
+        self.assertIn("furvum", g30[32])
+        self.assertIn("furva", g30[33])
         g36 = self._gen("latin", "genesis", 36)
-        self.assertIn("Omor", g36[15])
-        self.assertIn("Sephum", g36[15])
-        self.assertIn("Horrei et Theman", g36[22])
-        self.assertIn("Alvam", g36[23])
+        self.assertIn("Omra", g36[15])
+        self.assertIn("Sepho", g36[15])
+        self.assertIn("Hori et Heman", g36[22])
+        self.assertIn("Alvan", g36[23])
         self.assertIn("hebræum", self._gen("latin", "genesis", 39)[14])
-        self.assertIn("parvum", self._gen("latin", "genesis", 44)[25])
+        self.assertIn("parum", self._gen("latin", "genesis", 44)[25])
 
 
 class TestPhase2ZeroScuffAudit(unittest.TestCase):
@@ -2253,21 +2259,22 @@ class TestPhase2ZeroScuffAudit(unittest.TestCase):
                 saved = eng.collate_and_adjudicate(lang, book, ch)
                 return {v["verse"]: v for v in saved["verses"]}
 
-            # Latin live P0/P1 & Phase 3 regression
+            # Latin live P0/P1 & Stage 1 D1/D2 regressions (native Vulgate Clem1598-USFX)
             g40 = ch_map("latin", "genesis", 40)
             self.assertTrue(g40[13]["critical_text"].endswith("consueveras."))
             g45 = ch_map("latin", "genesis", 45)
             self.assertNotIn("post ausi sunt", g45[15]["critical_text"])
             g30 = ch_map("latin", "genesis", 30)
-            self.assertIn("ut habeam:", g30[26]["critical_text"])
+            self.assertIn("ut abeam:", g30[26]["critical_text"])
             g41 = ch_map("latin", "genesis", 41)
-            self.assertIn("terra Ægypti: aperuitque", g41[56]["critical_text"])
+            self.assertIn("in omni terra: aperuitque", g41[56]["critical_text"])
             g50 = ch_map("latin", "genesis", 50)
-            self.assertIn("in terram, adoraverunt et dixerunt:", g50[18]["critical_text"])
+            self.assertIn("in terram, dixerunt:", g50[18]["critical_text"])
             self.assertNotIn("et, dixerunt", g50[18]["critical_text"])
             num1 = ch_map("latin", "numbers", 1)
-            self.assertIn("Zabulon", num1[28]["critical_text"])
-            self.assertIn("Ephraim", num1[30]["critical_text"])
+            self.assertIn("Issachar", num1[28]["critical_text"])
+            self.assertIn("Zabulon", num1[30]["critical_text"])
+            self.assertIn("Ephraim", num1[32]["critical_text"])
 
             # Greek live P0/P1 & Phase 3 regressions
             neh7 = ch_map("greek", "nehemiah", 7)

@@ -76,16 +76,17 @@ class TokenTag:
 _HEB_LETTER = re.compile(r"[א-ת]")
 _GRC_LETTER = re.compile(r"[Ͱ-Ͽἀ-῿]")
 _LAT_LETTER = re.compile(r"[A-Za-zÀ-ÿĀ-žæœÆŒ]")
-_KETIV = re.compile(r"\([^()]*\)")          # Hebrew only: the Studio prints the ketiv in parentheses after the qere
+_KETIV = re.compile(r"\([^()]*\)")          # Hebrew only: the Studio prints the ketiv in parentheses (before the qere, or after a maqaf-bound qere)
 _EDGE_PUNCT = ".,;·:!?;׃׀«»\"'“”‘’()[]{}⟦⟧—–-_‍‌"
 
 
 def tokenize_verse(text: str, lang: str) -> List[str]:
     """Split a Studio critical-text verse into word tokens.
 
-    Hebrew: the parenthesised ketiv is dropped (the pointed qere before it is kept), words are split
-    at spaces and maqqef.  Greek/Latin: parentheses are ordinary punctuation (they enclose real text),
-    so nothing inside them is dropped; the Greek elision mark (᾽ ’ ') stays on its word.
+    Hebrew: the parenthesised ketiv is dropped (the pointed qere is kept, whether it stands after the
+    ketiv or before it on a maqaf compound), and words are split at spaces and maqqef.  Greek/Latin:
+    parentheses are ordinary punctuation (they enclose real text), so nothing inside them is dropped;
+    the Greek elision mark (᾽ ’ ') stays on its word.
     """
     if not text:
         return []

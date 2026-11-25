@@ -1,6 +1,6 @@
 # Psalms 140 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:41Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 139:1 kept in its own chapter (stronger match to its own reference verse)
@@ -45,6 +43,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 139:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 139:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 139:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 139:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 139:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 139:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 141:1 kept in its own chapter (stronger match to its own reference verse)
@@ -68,6 +67,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 139:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 139:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 139:14 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 141:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 141:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 141:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 141:4 kept in its own chapter (stronger match to its own reference verse)
@@ -88,6 +88,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 139:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 139:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 139:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 141:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 141:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 141:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 141:4 kept in its own chapter (stronger match to its own reference verse)
@@ -105,6 +106,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 139:8 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 139:9 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 139:10 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 139:11 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 139:12 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 139:13 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 139:14 kept in its own chapter (stronger match to its own reference verse)
@@ -116,7 +118,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 141:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 141:7 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 141:8 kept in its own chapter (stronger match to its own reference verse)
-- Swete (B/A/א): verse 14 left out as a versification/conversion duplicate (Swete-Amicarelli prints these words at 140:1)
 
 ---
 
@@ -146,9 +147,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - *variant type: transposition:* Units 'om.', 'ἐκέκραξα' together form one word-order variant (Sixtine/Brenton transpose).
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- *Disregarded Surface Variant:* kept `Ψαλμὸς τῷ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυίδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `Κύριε,` over `Κύριε` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `σὲ` over `σέ` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `δεήσεώς` over `δεήσεως` (1st1K-LXX, Swete (B/A/א)) — *Accent or breathing differs between accented editions (editorial interpretation)*
@@ -219,10 +218,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Ψαλμὸς τῷ Δαυίδ. Κύριε, πρὸς σὲ ἐκέκραξα, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεώς μου ἐν τῷ κεκραγέναι με πρὸς σέ.
   - `Swete-Amicarelli`: Ψαλμὸς τῷ Δαυείδ. Κύριε, πρὸς σὲ ἐκέκραξα, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεώς μου ἐν τῷ κεκραγέναι με πρὸς σέ.
   - `1st1K-LXX`: Ψαλμὸς τῷ Δαυείδ. Κύριε, πρὸς σέ ἐκέκραξα, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεως μου ἐν τῷ κεκραγέναι με πρὸς σέ.
-  - `Swete (B/A/א)`: Κύριε, πρὸς σέ ἐκέκραξα, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεως μου ἐν τῷ κεκραγέναι με πρὸς σέ.
+  - `Swete (B/A/א)`: Ψαλμὸς τῷ Δαυείδ. Κύριε, πρὸς σέ ἐκέκραξα, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεως μου ἐν τῷ κεκραγέναι με πρὸς σέ.
   - `Sixtine/Brenton`: Ψαλμὸς τῷ Δαυίδ. Κύριε ἐκέκραξα πρὸς σὲ, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεώς μου, ἐν τῷ κεκραγέναι με πρὸς σέ.
   - `LXX-Orthodox (Οʹ)`: Ψαλμὸς τῷ Δαυΐδ. ΚΥΡΙΕ, ἐκέκραξα πρὸς σέ, εἰσάκουσόν μου· πρόσχες τῇ φωνῇ τῆς δεήσεώς μου ἐν τῷ κεκραγέναι με πρὸς σέ.
-- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐκέκραξα (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ἐκέκραξα' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 7 orthographic/surface variation(s).
+- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἐκέκραξα (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ἐκέκραξα' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 5 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); 1 split-transposition duplicate(s) counted once; not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 2 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)

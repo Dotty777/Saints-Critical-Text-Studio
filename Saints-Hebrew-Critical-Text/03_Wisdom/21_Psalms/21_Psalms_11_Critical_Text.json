@@ -7,11 +7,92 @@
   "usfm_code": "PSA",
   "chapter": 11,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:48Z",
+  "updated_at": "2026-11-25T00:07:58Z",
   "versification": "Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions.",
   "versification_anchor": "WLC (L)",
   "orthographic_base": "MAM (Aleppo)",
-  "versification_notes": [],
+  "versification_notes": [
+    "MAM (Aleppo): 10:1 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:2 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:3 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:4 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:5 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:6 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:7 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:8 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:9 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:10 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:11 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:12 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:13 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:14 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:15 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:16 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:17 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 10:18 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:1 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:2 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:3 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:4 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:5 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:6 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:7 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:8 kept in its own chapter (stronger match to its own reference verse)",
+    "MAM (Aleppo): 12:9 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:1 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:2 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:3 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:4 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:5 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:6 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:7 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:8 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:9 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:11 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:12 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:13 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:14 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:15 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:16 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:17 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 10:18 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:1 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:2 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:3 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:4 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:5 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:6 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:7 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:8 kept in its own chapter (stronger match to its own reference verse)",
+    "BenChayyim (1525): 12:9 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:1 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:3 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:4 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:6 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:7 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:9 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:10 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:12 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:13 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:14 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:15 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:16 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:17 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 10:18 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:1 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:3 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:4 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:6 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:7 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Letteris (1852): 12:9 kept in its own chapter (stronger match to its own reference verse)"
+  ],
   "admitted_witnesses": [
     {
       "siglum": "MAM (Aleppo)",
@@ -54,45 +135,16 @@
       "witness_readings": {
         "MAM (Aleppo)": "לַמְנַצֵּ֗חַ לְדָ֫וִ֥ד בַּֽיהֹוָ֨ה ׀ חָסִ֗יתִי אֵ֭יךְ תֹּאמְר֣וּ לְנַפְשִׁ֑י (נודו) נ֝֗וּדִי הַרְכֶ֥ם צִפּֽוֹר׃",
         "WLC (L)": "לַמְנַצֵּ֗חַ לְדָ֫וִ֥ד בַּֽיהוָ֨ה ׀ חָסִ֗יתִי אֵ֭יךְ תֹּאמְר֣וּ לְנַפְשִׁ֑י נודו הַרְכֶ֥ם צִפּֽוֹר׃",
-        "BenChayyim (1525)": "לַמְנַצֵּ֗חַ לְדָ֫וִ֥ד בַּֽיהוָ֨ה ׀ חָסִ֗יתִי אֵ֭יךְ תֹּאמְר֣וּ לְנַפְשִׁ֑י *נוּדוּ (נ֝֗וּדִי) הַרְכֶ֥ם צִפֹּֽור׃",
+        "BenChayyim (1525)": "לַמְנַצֵּ֗חַ לְדָ֫וִ֥ד בַּֽיהוָ֨ה ׀ חָסִ֗יתִי אֵ֭יךְ תֹּאמְר֣וּ לְנַפְשִׁ֑י נוּדוּ (נ֝֗וּדִי) הַרְכֶ֥ם צִפֹּֽור׃",
         "Letteris (1852)": "לַֽמְֿנַצֵּ֗חַ לְדָ֫וִ֥ד בַּֽיהֹוָ֨ה ׀ חָסִ֗יתִי אֵ֭יךְ תֹּֽאמְר֣וּ לְנַפְשִׁ֑י נ֝֗וּדִו הַרְכֶ֥ם צִפֹּֽר׃"
       },
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
-      "apparatus": [
-        {
-          "slot_index": -1,
-          "lemma": "נ֝֗וּדִי",
-          "lemma_witnesses": [
-            "MAM (Aleppo)",
-            "WLC (L)",
-            "BenChayyim (1525)"
-          ],
-          "variants": [
-            {
-              "reading": "om.",
-              "witnesses": [
-                "Letteris (1852)"
-              ],
-              "weight_sum": 0.0
-            }
-          ],
-          "note": "Reading of an apparatus witness (recorded in the apparatus; it does not vote on the text).",
-          "word_index": 9,
-          "word_count": 1,
-          "kind": "word",
-          "variant_type": "",
-          "analysis": [],
-          "lemma_key": "נוּדִי",
-          "confidence": 0.99,
-          "credited_witnesses": []
-        }
-      ],
+      "apparatus": [],
       "disregarded": [
         {
           "slot_index": 2,
@@ -126,6 +178,18 @@
             "WLC (L)"
           ],
           "reason": "Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only"
+        },
+        {
+          "slot_index": -1,
+          "kept_form": "(adopted text)",
+          "disregarded_forms": [
+            "נ֝֗וּדִי / ",
+            "נ֝֗וּדִי / "
+          ],
+          "witnesses": [
+            "Letteris (1852)"
+          ],
+          "reason": "Apparatus witness, not a variant: Ketiv / qere presentation (edition prints the written form only)"
         }
       ],
       "rationale": "Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).",
@@ -148,7 +212,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
@@ -174,7 +237,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
@@ -212,7 +274,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
@@ -283,7 +344,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
@@ -332,7 +392,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],
@@ -370,7 +429,6 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "BHS (BHSA)",
         "BenChayyim (1525)",
         "Letteris (1852)"
       ],

@@ -1,6 +1,6 @@
 # 2 Kings (4 Kingdoms) 03 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:29Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:23Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,24 +28,28 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: verse 4:40 runs into its neighbour across the anchor's division between 4:39 and 4:40; re-divided there
+- Swete-Amicarelli: 2:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 2:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 2:21 kept in its own chapter (stronger match to its own reference verse)
@@ -72,9 +76,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 4:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:19 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 4:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:23 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 4:24 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 4:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:26 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:28 kept in its own chapter (stronger match to its own reference verse)
@@ -85,6 +92,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 4:33 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:35 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 4:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:37 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:38 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:39 kept in its own chapter (stronger match to its own reference verse)
@@ -94,16 +102,23 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 4:43 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 4:44 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: verse 4:40 runs into its neighbour across the anchor's division between 4:39 and 4:40; re-divided there
+- 1st1K-LXX: 2:2 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:4 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:10 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:17 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 2:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 2:21 kept in its own chapter (stronger match to its own reference verse)
@@ -130,9 +145,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 4:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:19 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 4:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:21 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:22 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:23 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 4:24 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 4:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:26 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:27 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:28 kept in its own chapter (stronger match to its own reference verse)
@@ -143,6 +161,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 4:33 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:34 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:35 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 4:36 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:37 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:38 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:39 kept in its own chapter (stronger match to its own reference verse)
@@ -152,16 +171,23 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 4:43 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 4:44 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): verse 4:40 runs into its neighbour across the anchor's division between 4:39 and 4:40; re-divided there
+- Swete (B/A/א): 2:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 2:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 2:21 kept in its own chapter (stronger match to its own reference verse)
@@ -188,9 +214,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 4:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:19 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 4:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:23 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 4:24 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 4:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:26 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:28 kept in its own chapter (stronger match to its own reference verse)
@@ -201,6 +230,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 4:33 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:35 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 4:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:37 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:38 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 4:39 kept in its own chapter (stronger match to its own reference verse)

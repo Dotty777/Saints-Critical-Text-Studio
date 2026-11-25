@@ -95,6 +95,7 @@ CT_NOTES = {
     ("grc", "daniel"): ["Theodotion; the Saints English beside it follows the Old Greek."],
     ("grc", "judges"): ["B text; the site follows the A text."],
     ("grc", "sirach"): ["The translator's Prologue stands before 1:1, without a verse number."],
+    ("lat", "sirach"): ["The translator's Prologue stands before 1:1, without a verse number."],
 }
 CT_CREDITS = {
     "heb": ["Miqra according to the Masorah (MAM, Aleppo Codex tradition): spelling and pointing",
@@ -121,15 +122,18 @@ CT_ABOUT = ("Eclectic editions made with the Saints Critical Text Studio from op
             "the text are the edition's own numbering; verses the Saints.Bible text has no place for are "
             "listed after the verse they follow.")
 CT_LICENCE_NOTE = "The licence of the edition texts has not been set yet."
-# Studio Greek Sir 1:1 = the translator's Prologue followed by 1:1, which starts with these words
+# Studio Greek & native Vulgate Latin Sir 1:1 = the translator's Prologue followed by 1:1
 SIRACH_SPLIT = "Πᾶσα σοφία παρὰ Κυρίου"
+SIRACH_SPLIT_LAT = "Omnis sapientia a Domino Deo est"
+SIRACH_SPLIT_BY_LANG = {"grc": SIRACH_SPLIT, "lat": SIRACH_SPLIT_LAT}
 
 
-def split_sirach_prologue(text: str) -> Optional[tuple]:
-    """(prologue, verse 1:1) of the Studio Greek Sir 1:1, or None when the 1:1 opening is not found once
-    after some Prologue text."""
-    i = text.find(SIRACH_SPLIT)
-    if i <= 0 or text.find(SIRACH_SPLIT, i + 1) != -1:
+def split_sirach_prologue(text: str, code: str = "grc") -> Optional[tuple]:
+    """(prologue, verse 1:1) of the Studio Greek or native Vulgate Latin Sir 1:1, or None when the
+    1:1 opening is not found once after some Prologue text."""
+    marker = SIRACH_SPLIT_BY_LANG.get(code, SIRACH_SPLIT)
+    i = text.find(marker)
+    if i <= 0 or text.find(marker, i + 1) != -1:
         return None
     prologue, rest = text[:i].strip(), text[i:].strip()
     return (prologue, rest) if prologue and rest else None
@@ -156,8 +160,8 @@ def critical_text_rows(code: str, slug: str, verses: Sequence[Any], unplaced: Se
     un_rows: List[list] = []
     stats = {"prologue": 0}
     for u in unplaced:
-        if code == "grc" and slug == "sirach" and (u.chapter, u.verse) == (1, 1):
-            parts = split_sirach_prologue(u.text)
+        if code in SIRACH_SPLIT_BY_LANG and slug == "sirach" and (u.chapter, u.verse) == (1, 1):
+            parts = split_sirach_prologue(u.text, code)
             if parts:
                 un_rows.append([0, 0, "Prologue", parts[0], "prologue"])
                 stats["prologue"] += 1
@@ -165,7 +169,7 @@ def critical_text_rows(code: str, slug: str, verses: Sequence[Any], unplaced: Se
                     by_key[(1, 1)] = [1, 1, "1:1", parts[1]]
                 continue
         un_rows.append([u.after[0], u.after[1], u.src, u.text, u.reason])
-    if code == "grc" and slug == "sirach" and not stats["prologue"]:
+    if code in SIRACH_SPLIT_BY_LANG and slug == "sirach" and not stats["prologue"]:
         # Sir 1:1 placed at site 1:1 (versification changed): keep the Prologue out of the verse anyway
         row = by_key.get((1, 1))
         if row:
@@ -173,7 +177,7 @@ def critical_text_rows(code: str, slug: str, verses: Sequence[Any], unplaced: Se
             segs = row[3] if isinstance(row[3], list) else [row[3]]
             if "1:1" in srcs:
                 k = srcs.index("1:1")
-                parts = split_sirach_prologue(segs[k])
+                parts = split_sirach_prologue(segs[k], code)
                 if parts:
                     segs = list(segs)
                     segs[k] = parts[1]

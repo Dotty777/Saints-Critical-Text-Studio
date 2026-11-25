@@ -1,6 +1,6 @@
 # 1 Samuel (1 Kingdoms) 19 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:29Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:21Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source import repair, 19:21: 'αὐτοί·.' → 'αὐτοί.' (Swete prints αὐτοί. (double stop ·. in Swete-Amicarelli; 1st1K-LXX, Swete Clean, & Brenton have single stop)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: verse 20:15 runs into its neighbour across the anchor's division between 20:15 and 20:16; re-divided there
 - Swete-Amicarelli: verse 20:38 runs into its neighbour across the anchor's division between 20:37 and 20:38; re-divided there
 - Swete-Amicarelli: 18:6 kept in its own chapter (stronger match to its own reference verse)
@@ -85,9 +83,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 20:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:31 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 20:32 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:33 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:35 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 20:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:37 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:38 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 20:39 kept in its own chapter (stronger match to its own reference verse)
@@ -115,6 +115,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 18:27 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 18:28 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 18:29 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 20:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:4 kept in its own chapter (stronger match to its own reference verse)
@@ -138,14 +139,17 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 20:22 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:24 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 20:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:27 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:28 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:29 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:30 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:31 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 20:32 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:33 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:34 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:35 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 20:36 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:37 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:38 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 20:39 kept in its own chapter (stronger match to its own reference verse)
@@ -173,6 +177,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 18:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 18:28 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 18:29 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 20:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:4 kept in its own chapter (stronger match to its own reference verse)
@@ -196,14 +201,17 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 20:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:24 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 20:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:28 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:31 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 20:32 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:33 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:35 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 20:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:37 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:38 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 20:39 kept in its own chapter (stronger match to its own reference verse)
@@ -222,6 +230,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 18:16 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:20 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:21 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 18:22 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:23 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:24 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 18:25 kept in its own chapter (stronger match to its own reference verse)
@@ -296,7 +305,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **18** Καὶ Δαυὶδ ἔφυγεν καὶ διεσώθη, καὶ παραγίνεται πρὸς Σαμουὴλ εἰς Ἁρμαθάιμ, καὶ ἀπαγγέλλει αὐτῷ πάντα ὅσα ἐποίησεν αὐτῷ Σαούλ· καὶ ἐπορεύθη Δαυὶδ καὶ Σαμουήλ, καὶ ἐκάθισαν ἐν Ἀυὰθ ἐν Ῥαμά.
 **19** καὶ ἀπηγγέλη τῷ Σαοὺλ λέγοντες Ἰδοὺ Δαυὶδ ἐν Ἀυὰθ ἐν Ῥαμά.
 **20** καὶ ἀπέστειλεν Σαοὺλ ἀγγέλους λαβεῖν τὸν Δαυίδ· καὶ εἶδαν τὴν ἐκκλησίαν τῶν προφητῶν, καὶ Σαμουὴλ εἱστήκει καθεστηκὼς ἐπ᾽ αὐτῶν. καὶ ἐγενήθη ἐπὶ τοὺς ἀγγέλους τοῦ Σαοὺλ πνεῦμα θεοῦ, καὶ προφητεύουσιν.
-**21** καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί·.
+**21** καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί.
 **22** καὶ ἐθυμώθη ὀργῇ Σαούλ, καὶ ἐπορεύθη καὶ αὐτὸς εἰς Ἁρμαθάιμ, καὶ ἔρχεται ἕως τοῦ φρέατος τοῦ ἅλω τοῦ ἐν τῷ Σεφεί, καὶ ἠρώτησεν καὶ εἶπεν Ποῦ Σαμουὴλ καὶ Δαυίδ; καὶ εἶπεν Ἰδοὺ ἐν Ἀυὰθ ἐν Ῥαμά.
 **23** καὶ ἐπορεύθη ἐκεῖθεν ἐν Ἀυὰθ ἐν Ῥαμά, καὶ ἐγενήθη καὶ ἐπ᾽ αὐτῷ πνεῦμα θεοῦ, καὶ ἐπορεύετο προφητεύων ἕως τοῦ ἐλθεῖν αὐτὸν εἰς Ἀυὰθ ἐν Ῥαμά.
 **24** καὶ ἐξεδύσατο τὰ ἱμάτια αὐτοῦ καὶ ἐπροφήτευσεν ἐνώπιον αὐτῶν, καὶ ἔπεσεν γυμνὸς ὅλην τὴν ἡμέραν ἐκείνην καὶ ὅλην τὴν νύκτα· διὰ τοῦτο ἔλεγον Εἰ καὶ Σαοὺλ ἐν προφήταις;
@@ -519,7 +528,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Σαούλ,` over `Σαοὺλ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `ἐπροφήτευσαν` over `ἀπροφήτευσαν` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `αὐτοί·.` over `αὐτοί.` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Punctuation / spacing difference only*
 
 ### 1 Samuel (1 Kingdoms) 19:22
 - **Apparatus:** `εἶπεν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **εἶπαν** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
@@ -760,13 +768,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 21 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί·.
-  - `Swete-Amicarelli`: καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί·.
+- **Critical Text:** καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί.
+  - `Swete-Amicarelli`: καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί.
   - `1st1K-LXX`: καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἀπροφήτευσαν καὶ αὐτοί.
   - `Swete (B/A/א)`: καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἀπροφήτευσαν καὶ αὐτοί.
   - `Sixtine/Brenton`: Καὶ ἀπηγγέλη τῷ Σαοὺλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί· καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καὶ ἐπροφήτευσαν καὶ αὐτοί.
   - `LXX-Orthodox (Οʹ)`: καὶ ἀπηγγέλη τῷ Σαούλ, καὶ ἀπέστειλεν ἀγγέλους ἑτέρους, καὶ ἐπροφήτευσαν καὶ αὐτοί. καὶ προσέθετο Σαοὺλ ἀποστεῖλαι ἀγγέλους τρίτους, καί ἐπροφήτευσαν καὶ αὐτοί.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant).
 
 ### Verse 22 (Confidence: `14.8%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ ἐθυμώθη ὀργῇ Σαούλ, καὶ ἐπορεύθη καὶ αὐτὸς εἰς Ἁρμαθάιμ, καὶ ἔρχεται ἕως τοῦ φρέατος τοῦ ἅλω τοῦ ἐν τῷ Σεφεί, καὶ ἠρώτησεν καὶ εἶπεν Ποῦ Σαμουὴλ καὶ Δαυίδ; καὶ εἶπεν Ἰδοὺ ἐν Ἀυὰθ ἐν Ῥαμά.

@@ -1,6 +1,6 @@
 # Nehemiah 12 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:39Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:26Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,21 +28,37 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Sixtine/Brenton: Source division repair: 'Τῷ Ἰωαρὶβ,' moved from 12:18 to 12:19 (Brenton USFM ran 12:18 into the tail of 12:17 and split 12:19 across 12:18 ('Τῷ Ἰωαρὶβ,') and 12:19; restored to the standard LXX/Rahlfs/Orthodox verse boundaries). No word added or dropped. Original file unchanged.
-- Sixtine/Brenton: Source division repair: 'τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·' moved from 12:17 to 12:18 (Brenton USFM ran 12:18 into the tail of 12:17 and split 12:19 across 12:18 ('Τῷ Ἰωαρὶβ,') and 12:19; restored to the standard LXX/Rahlfs/Orthodox verse boundaries). No word added or dropped. Original file unchanged.
+- Swete-Amicarelli: Source division repair: 'εἰς τὰς ἐφημερίας.' moved from 12:8 to 12:9 (Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19). No word added or dropped. Original file unchanged.
+- 1st1K-LXX: Source division repair: 'εἰς τὰς ἐφημερίας.' moved from 12:8 to 12:9 (Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19). No word added or dropped. Original file unchanged.
+- Swete (B/A/א): Source division repair: 'εἰς τὰς ἐφημερίας.' moved from 12:8 to 12:9 (Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19). No word added or dropped. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 12:17: 'τῷ βαλγὰς,' → 'τῷ Βαλγὰς,' (Βαλγὰς (proper name capitalised in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 12:19: 'Ματθαναΐ τῷ Ἐδίῳ,' → 'Ματθαναΐ· τῷ Ἐδίῳ,' (Ματθαναΐ· (missing raised-dot separator in Brenton USFM; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 12:20: 'Τῷ Σαλαῒ, καλλαΐ·' → 'Τῷ Σαλαῒ, Καλλαΐ·' (Καλλαΐ (proper name capitalised in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
+- Sixtine/Brenton: Source division repair: 'Τῷ Ἰωαρὶβ,' moved from 12:18 to 12:19 (Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19). No word added or dropped. Original file unchanged.
+- Sixtine/Brenton: Source division repair: 'τῷ Βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·' moved from 12:17 to 12:18 (Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19). No word added or dropped. Original file unchanged.
 - Swete-Amicarelli: 11:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:19 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:26 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:27 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:30 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:3 kept in its own chapter (stronger match to its own reference verse)
@@ -71,6 +87,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 13:26 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:28 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 13:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:31 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 12:2 not collated (no verse of the reference matches its wording)
@@ -78,10 +95,22 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 11:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:4 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:6 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:10 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:11 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:12 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:14 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:19 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:22 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:24 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:25 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:26 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:27 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:30 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:36 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:3 kept in its own chapter (stronger match to its own reference verse)
@@ -110,6 +139,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 13:26 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:27 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:28 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 13:29 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:30 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:31 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 12:2 not collated (no verse of the reference matches its wording)
@@ -117,10 +147,22 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 11:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:19 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:24 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:25 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:26 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:27 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:30 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:3 kept in its own chapter (stronger match to its own reference verse)
@@ -149,6 +191,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 13:26 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:27 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:28 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 13:29 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:31 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 12:2 not collated (no verse of the reference matches its wording)
@@ -215,7 +258,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 13:30 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 13:31 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): has verse(s) 38, 40, 41 that no voting edition prints here (an apparatus witness: not printed)
-- Sixtine/Brenton: the words of verse 9 are also printed by Swete-Amicarelli at 12:8 (numbering differs; kept at the anchor's number)
 
 ---
 
@@ -225,7 +267,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **2** τῷ Μαλούχ.
 **3** Σεχενιά·
 **7** οὗτοι ἄρχοντες τῶν ἱερέων καὶ ἀδελφοὶ αὐτῶν ἐν ἡμέραις Ἰησοῖ.
-**8** καὶ οἱ Λευεῖται· Ἰησοῦ, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ εἰς τὰς ἐφημερίας.
+**8** καὶ οἱ Λευεῖται· Ἰησοῦ, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ
 **9** εἰς τὰς ἐφημερίας.
 **10** καὶ Ἰησοῦς ἐγέννησεν τὸν Ἰωακείμ, καὶ Ἰωακεὶμ ἐγέννησεν τὸν Ἐλιασείβ, καὶ Ἐλειασεὶβ τὸν Ἰωδά,
 **11** καὶ Ἰωδὰ ἐγέννησεν τὸν Ἰωναθάν, καὶ Ἰωναθὰν ἐγέννησεν τὸν Ἰαδού.
@@ -235,9 +277,9 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **15** Τῷ Ἀρὲ, Μαννάς· τῷ Μαριὼθ, Ἐλκαΐ·
 **16** τῷ Ἀδαδαῒ, Ζαχαρία· τῷ Γαναθὼθ, Μεσολάμ·
 **17** Τῷ Ἀβιὰ, Ζεχρί· τῷ Μιαμὶν, Μααδαί· τῷ Φελετὶ,
-**18** τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
-**19** Τῷ Ἰωαρὶβ, Ματθαναΐ τῷ Ἐδίῳ, Ὀζί.
-**20** Τῷ Σαλαῒ, καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
+**18** τῷ Βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
+**19** Τῷ Ἰωαρὶβ, Ματθαναΐ· τῷ Ἐδίῳ, Ὀζί.
+**20** Τῷ Σαλαῒ, Καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
 **21** Τῷ Ἐλκίᾳ, Ἀσαβίας· τῷ Ἰσδεϊοὺ, Ναθαναήλ
 **22** οἱ Λευεῖται ἐν ἡμέραις Ἐλιασείβ, Ἰωαδὰ καὶ Ἰωὰ καὶ Ἰωανὰν καὶ Ἰαδού, γεγραμμένοι ἄρχοντες πατριῶν, καὶ οἱ ἱερεῖς ἐν βασιλείᾳ Δαρείου τοῦ Πέρσου·
 **23** υἱοὶ Λευεὶ ἄρχοντες τῶν πατριῶν γεγραμμένοι ἐπὶ βιβλίῳ λόγων τῶν ἡμερῶν καὶ ἕως ἡμερῶν Ἰωανὰν υἱοῦ Ἐλεισοῦε.
@@ -302,7 +344,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Apparatus:** `Ἰουδά Μαχανιά` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **Ἰωδαὲ Ματθανία** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- **Apparatus:** `αὐτοῦ εἰς τὰς ἐφημερίας` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **αὐτῶν** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
+- **Apparatus:** `αὐτοῦ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **αὐτῶν** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -650,20 +692,23 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 8 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ οἱ Λευεῖται· Ἰησοῦ, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ εἰς τὰς ἐφημερίας.
-  - `Swete-Amicarelli`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ εἰς τὰς ἐφημερίας.
-  - `1st1K-LXX`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ εἰς τὰς ἐφημερίας.
-  - `Swete (B/A/א)`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ εἰς τὰς ἐφημερίας.
+- **Critical Text:** καὶ οἱ Λευεῖται· Ἰησοῦ, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ
+  - `Swete-Amicarelli`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ
+  - `1st1K-LXX`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ
+  - `Swete (B/A/א)`: καὶ οἱ Λευεῖται· Ἰησού, Βανουί, Καδμιήλ, Σαραβιά, Ἰουδά, Μαχανιά· ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτοῦ
   - `Sixtine/Brenton`: Καὶ οἱ Λευῖται, Ἰησοῦ, Βανουὶ, Καδμιὴλ, Σαραβία, Ἰωδαὲ, Ματθανία, ἐπὶ τῶν χειρῶν αὐτὸς, καὶ οἱ ἀδελφοὶ αὐτῶν
   - `LXX-Orthodox (Οʹ)`: καὶ οἱ Λευῖται, Ἰησοῦ, Βανουΐ, Καδμιήλ, Σαραβία, Ἰωδαέ, Ματθανία, ἐπὶ τῶν χειρῶν αὐτὸς καὶ οἱ ἀδελφοὶ αὐτῶν
-- **Philological Rationale:** [Variation unit spanning several words] Adopted 'Ἰουδά Μαχανιά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἰωδαὲ Ματθανία (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'αὐτοῦ εἰς τὰς ἐφημερίας' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over αὐτῶν (Sixtine/Brenton). Also normalised 7 orthographic/surface variation(s).
+- **Philological Rationale:** [Variation unit spanning several words] Adopted 'Ἰουδά Μαχανιά' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over Ἰωδαὲ Ματθανία (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'αὐτοῦ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over αὐτῶν (Sixtine/Brenton). Also normalised 7 orthographic/surface variation(s).
 - *confidence:* Verse confidence 28% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 9 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** εἰς τὰς ἐφημερίας.
+  - `Swete-Amicarelli`: εἰς τὰς ἐφημερίας.
+  - `1st1K-LXX`: εἰς τὰς ἐφημερίας.
+  - `Swete (B/A/א)`: εἰς τὰς ἐφημερίας.
   - `Sixtine/Brenton`: εἰς τὰς ἐφημερίας.
   - `LXX-Orthodox (Οʹ)`: εἰς τὰς ἐφημερίας.
-- **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
+- **Philological Rationale:** Unanimous witness agreement across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton (4 admitted witnesses; zero substantive divergence).
 
 ### Verse 10 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** καὶ Ἰησοῦς ἐγέννησεν τὸν Ἰωακείμ, καὶ Ἰωακεὶμ ἐγέννησεν τὸν Ἐλιασείβ, καὶ Ἐλειασεὶβ τὸν Ἰωδά,
@@ -730,20 +775,20 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 
 ### Verse 18 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
-  - `Sixtine/Brenton`: τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
+- **Critical Text:** τῷ Βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
+  - `Sixtine/Brenton`: τῷ Βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·
   - `LXX-Orthodox (Οʹ)`: τῷ Βαλγὰς Σαμουέ, τῷ Σεμίᾳ Ἰωνάθαν,
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 
 ### Verse 19 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Τῷ Ἰωαρὶβ, Ματθαναΐ τῷ Ἐδίῳ, Ὀζί.
-  - `Sixtine/Brenton`: Τῷ Ἰωαρὶβ, Ματθαναΐ τῷ Ἐδίῳ, Ὀζί.
+- **Critical Text:** Τῷ Ἰωαρὶβ, Ματθαναΐ· τῷ Ἐδίῳ, Ὀζί.
+  - `Sixtine/Brenton`: Τῷ Ἰωαρὶβ, Ματθαναΐ· τῷ Ἐδίῳ, Ὀζί.
   - `LXX-Orthodox (Οʹ)`: τῷ Ἰωαρὶβ Ματθαναΐ, τῷ Ἐδίῳ Ὀζί,
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 
 ### Verse 20 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Τῷ Σαλαῒ, καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
-  - `Sixtine/Brenton`: Τῷ Σαλαῒ, καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
+- **Critical Text:** Τῷ Σαλαῒ, Καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
+  - `Sixtine/Brenton`: Τῷ Σαλαῒ, Καλλαΐ· τῷ Ἀμὲκ, Ἀβέδ·
   - `LXX-Orthodox (Οʹ)`: τῷ Σαλαΐ Καλλαΐ, τῷ Ἀμὲκ Ἀβέδ,
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 

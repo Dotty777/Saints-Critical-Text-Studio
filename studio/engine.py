@@ -26,6 +26,7 @@ from .catalog import (
     VERSIFICATION_ANCHORS,
     WITNESS_BOOK_EXCLUSIONS,
     BookSpec,
+    chapters_for_language,
     is_apparatus_only,
     get_books_for_language,
     stream_of,
@@ -676,8 +677,9 @@ class CriticalTextEngine:
         if book_slug not in BOOKS_BY_SLUG:
             raise KeyError(f"Unknown book '{book_slug}'.")
         book = BOOKS_BY_SLUG[book_slug]
-        if not 1 <= int(chapter) <= book.chapters:
-            raise ValueError(f"{book.title} has {book.chapters} chapters; chapter {chapter} does not exist.")
+        max_ch = chapters_for_language(book, lang)
+        if not 1 <= int(chapter) <= max_ch:
+            raise ValueError(f"{book.title} ({lang.title()}) has {max_ch} chapters; chapter {chapter} does not exist.")
 
         scope_witnesses = [w for w in self.list_witnesses(lang) if _in_scope(w, book)]
         admitted = [w for w in scope_witnesses if w["status"] == "ADMITTED"]
@@ -739,7 +741,7 @@ class CriticalTextEngine:
                 # the Saints Latin column and the Clementine number Jeremiah 25–51 differently.
                 same_edition = witness_family(w) == witness_family(anchor)
                 neighbour_reference = None
-                if lang == "greek" and book.testament == "OT":
+                if lang == "hebrew" or (lang == "greek" and book.testament == "OT"):
                     neighbour_reference = {(c, v): _strip_doubtful(t)
                         for c in range(chapter - width, chapter + width + 1) if c != chapter
                         for v, t in book_texts[anchor_sig].get(c, {}).items()}
@@ -1215,7 +1217,7 @@ class CriticalTextEngine:
             "edition_title": f"Saints {lang.title()} Critical Text",
             "home_path": str(CRITICAL_OUTPUT_ROOTS[lang]),
             "total_books": len(books),
-            "total_chapters_in_canon": sum(b.chapters for b in books),
+            "total_chapters_in_canon": sum(chapters_for_language(b, lang) for b in books),
             "saved_chapter_count": len(saved),
             "saved_verse_count": sum(int(r.get("verse_count", 0)) for r in saved),
             "locked_verse_count": sum(int(r.get("locked_count", 0)) for r in saved),

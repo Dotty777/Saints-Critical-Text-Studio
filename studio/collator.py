@@ -1658,12 +1658,21 @@ def align_versification(
     notes: List[str] = []
     used: Set[Tuple[int, int]] = set()
     # Formulaic verses can resemble a different chapter more than a damaged
-    # same-numbered transcription does. A strong, better match to the neighbour's
-    # own anchor verse protects it from being borrowed here (Josh 19:16/18:28).
-    # Editions can differ even at the correct location: 2 Kgs 13:13 has 0.8
-    # overlap with its anchor, versus 0.615 with 14:29. Requiring 0.9 steals it.
-    own_scores = {ck: verse_similarity(txt, (neighbour_reference or {}).get(ck, ""), language)
-                  for ck, txt in candidates.items() if ck[0] != chapter}
+    # same-numbered transcription does. A strong, better match to any verse in
+    # the neighbour's own anchor chapter (even when that chapter has an internal
+    # verse-number offset, e.g. Exod 40:8 -> 40:10, 1 Chr 6:20 -> 6:5, or DSS
+    # scrolls Deut 5:16 / Ps 149:9) protects it from being stolen across chapters.
+    nb_by_ch: Dict[int, List[str]] = {}
+    for (nc, _nv), ntxt in (neighbour_reference or {}).items():
+        if ntxt:
+            nb_by_ch.setdefault(nc, []).append(ntxt)
+    own_scores: Dict[Tuple[int, int], float] = {}
+    for ck, txt in candidates.items():
+        if ck[0] != chapter and txt:
+            same_num = (neighbour_reference or {}).get(ck, "")
+            s_exact = verse_similarity(txt, same_num, language) if same_num else 0.0
+            s_ch = max((verse_similarity(txt, ntxt, language) for ntxt in nb_by_ch.get(ck[0], ())), default=0.0)
+            own_scores[ck] = max(s_exact, s_ch)
     cross_nb_scores: Dict[Tuple[int, int], float] = {}
     if neighbour_reference:
         same_ch_v = [v for c, v in candidates if c == chapter and candidates[(c, v)]]
@@ -1685,7 +1694,7 @@ def align_versification(
                 continue
             same = ck == (chapter, v)
             s = verse_similarity(ref_txt, txt, language)
-            if own_scores.get(ck, 0.0) >= 0.8 and own_scores[ck] > s + SAME_NUMBER_BONUS:
+            if own_scores.get(ck, 0.0) >= 0.6 and own_scores[ck] > s:
                 protected.add(ck)
                 continue
             if cross_nb_scores.get(ck, 0.0) >= 0.85 and s < 0.5 and cross_nb_scores[ck] > s + SAME_NUMBER_BONUS:
@@ -1789,9 +1798,19 @@ def align_versification(
         else:
             notes.append(f"{chapter}:{v} not collated (wording does not match the reference verse)")
 
-    # Verses of this chapter the reference does not have at all (e.g. Romans 16:25–27); never a "verse 0"
+    # Verses of this chapter the reference does not have at all (e.g. Romans 16:25–27); never a "verse 0".
+    # Skip chapter-boundary leftovers whose wording already appears as an anchor verse in an adjacent
+    # chapter (e.g. Swete 1 Sam 20:43 = Brenton 21:1, Num 16:44 = 17:9, Ezek 20:45 = 21:1, Joel 3:15 = 4:15).
     for (c, v), txt in candidates.items():
         if c == chapter and v > 0 and (c, v) not in used and v not in reference and v not in mapped:
+            if neighbour_reference and txt:
+                nb_hit = max(
+                    (verse_similarity(txt, nb_t, language) for nb_t in neighbour_reference.values() if nb_t),
+                    default=0.0,
+                )
+                if nb_hit >= 0.65:
+                    notes.append(f"{c}:{v} kept for its neighbouring chapter (matches anchor verse there)")
+                    continue
             mapped[v] = txt
             used.add((c, v))
     # Nothing disappears silently: a verse of this chapter that found no place is logged.

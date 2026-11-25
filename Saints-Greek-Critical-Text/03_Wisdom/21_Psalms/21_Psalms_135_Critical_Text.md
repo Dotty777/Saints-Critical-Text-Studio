@@ -1,6 +1,6 @@
 # Psalms 135 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:41Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 134:1 kept in its own chapter (stronger match to its own reference verse)
@@ -45,9 +43,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 134:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 134:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 134:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 134:19 kept in its own chapter (stronger match to its own reference verse)
@@ -59,6 +59,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 136:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 136:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 136:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 136:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 136:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 136:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:1 kept in its own chapter (stronger match to its own reference verse)
@@ -72,9 +73,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 134:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:11 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 134:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:15 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 134:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 134:19 kept in its own chapter (stronger match to its own reference verse)
@@ -86,6 +89,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 136:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 136:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 136:6 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 136:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 136:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 136:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:1 kept in its own chapter (stronger match to its own reference verse)
@@ -99,9 +103,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 134:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 134:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 134:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 134:19 kept in its own chapter (stronger match to its own reference verse)
@@ -113,6 +119,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 136:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 136:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 136:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 136:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 136:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 136:9 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 134:1 kept in its own chapter (stronger match to its own reference verse)
@@ -185,7 +192,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Apparatus:** `χρηστός` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **ἀγαθὸς** Sixtine/Brenton LXX-Orthodox (Οʹ) *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- *Disregarded Surface Variant:* kept `Ἁλληλουιά` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
+- *Disregarded Surface Variant:* kept `Ἁλληλουιά.` over `Ἀλληλούϊα.` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `κυρίῳ,` over `Κυρίῳ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Psalms 135:2
@@ -286,7 +293,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `αὐτοῦ·` over `αὐτοῦ.` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Psalms 135:21
-- *Disregarded Surface Variant:* kept `om.` over `Ἁλληλουιά` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `καὶ` over `Καὶ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `αὐτοῦ,` over `αὐτοῦ·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
@@ -315,7 +321,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Ἁλληλουιά. Ἐξομολογεῖσθε τῷ κυρίῳ, ὅτι χρηστός, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
   - `Swete-Amicarelli`: Ἁλληλουιά. Ἐξομολογεῖσθε τῷ κυρίῳ, ὅτι χρηστός, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
   - `1st1K-LXX`: Ἁλληλουιά. Ἐξομολογεῖσθε τῷ κυρίῳ, ὅτι χρηστός. ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
-  - `Swete (B/A/א)`: Ἐξομολογεῖσθε τῷ κυρίῳ, ὅτι χρηστός. ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
+  - `Swete (B/A/א)`: Ἁλληλουιά. Ἐξομολογεῖσθε τῷ κυρίῳ, ὅτι χρηστός. ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
   - `Sixtine/Brenton`: Ἀλληλούϊα. Ἐξομολογεῖσθε τῷ Κυρίῳ, ὅτι ἀγαθὸς, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.
   - `LXX-Orthodox (Οʹ)`: Ἀλληλούΐα. ΕΞΟΜΟΛΟΓΕΙΣΘΕ τῷ Κυρίῳ, ὅτι ἀγαθός, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ·
 - **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'χρηστός' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀγαθὸς (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).
@@ -502,10 +508,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
   - `Swete-Amicarelli`: καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
   - `1st1K-LXX`: καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
-  - `Swete (B/A/א)`: Ἁλληλουιά. καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
+  - `Swete (B/A/א)`: καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
   - `Sixtine/Brenton`: Καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ·
   - `LXX-Orthodox (Οʹ)`: καὶ δόντι τὴν γῆν αὐτῶν κληρονομίαν, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ,
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
 
 ### Verse 22 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** κληρονομίαν Ἰσραὴλ δούλῳ αὐτοῦ, ὅτι εἰς τὸν αἰῶνα τὸ ἔλεος αὐτοῦ.

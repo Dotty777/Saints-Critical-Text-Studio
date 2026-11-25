@@ -1,6 +1,6 @@
 # Psalms 27 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:40Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,13 +28,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Swete-Amicarelli: Source import repair, 27:1: 'ἐπ᾽ ἑμοί·' → 'ἐπ᾽ […]' (Swete prints ἐπ᾽ ἐμοί·). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 27:1: 'ἐπ᾽ ἑμοί·' → 'ἐπ᾽ […]' (Swete prints ἐπ᾽ ἐμοί·). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
 - Swete-Amicarelli: 26:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 26:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 26:3 kept in its own chapter (stronger match to its own reference verse)
@@ -56,6 +54,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 28:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 28:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 28:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 28:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 28:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 28:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 28:11 kept in its own chapter (stronger match to its own reference verse)
@@ -80,6 +79,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 28:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 28:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 28:7 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 28:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 28:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 28:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 28:11 kept in its own chapter (stronger match to its own reference verse)
@@ -104,6 +104,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 28:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 28:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 28:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 28:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 28:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 28:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 28:11 kept in its own chapter (stronger match to its own reference verse)
@@ -146,7 +147,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **7** Κύριος βοηθός μου καὶ ὑπερασπιστής μου· ἐπ᾽ αὐτῷ ἤλπισεν ἡ καρδία μου, καὶ ἐβοηθήθην, καὶ ἀνέθαλεν ἡ σάρξ μου· καὶ ἐκ θελήματός μου ἐξομολογήσομαι αὐτῷ.
 **8** Κύριος κραταίωμα τοῦ λαοῦ αὐτοῦ, καὶ ὑπερασπιστὴς τῶν σωτηρίων τοῦ χριστοῦ αὐτοῦ ἐστιν.
 **9** σῶσον τὸν λαόν σου καὶ εὐλόγησον τὴν κληρονομίαν σου, καὶ ποίμανον αὐτοὺς καὶ ἔπαρον αὐτοὺς ἕως τοῦ αἰῶνος.
-**14** Τοῦ Δαυίδ.
 
 ---
 
@@ -155,9 +155,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Psalms 27:1
 - **Apparatus:** `ἐπ᾽ ἐμοί μή ποτε` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **ἀπ᾿ ἐμοῦ, μήποτε** LXX-Orthodox (Οʹ)
 - **Apparatus:** `ἐπ᾽ ἐμοὶ` 1st1K-LXX Sixtine/Brenton Swete (B/A/א) Swete-Amicarelli **]** **ἀπ᾿ ἐμοῦ** LXX-Orthodox (Οʹ)
-- *Disregarded Surface Variant:* kept `Τοῦ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυίδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `σέ,` over `σὲ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `Κύριε,` over `Κύριε` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `θεός` over `Θεός` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -207,9 +205,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `σου` over `σου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `αὐτοὺς` over `αὐτοὺς,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
-### Psalms 27:14
-- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (Swete (B/A/א)) — *Diplomatic uncial orthography normalised to standard critical form*
-
 ---
 
 ## Section IV — Verse-by-Verse Text-Critical Rationale & Witness Matrix
@@ -218,10 +213,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Τοῦ Δαυίδ. Πρὸς σέ, Κύριε, ἐκέκραξα, ὁ θεός μου, μὴ παρασιωπήσῃς ἐπ᾽ ἐμοί μή ποτε παρασιωπήσῃς ἐπ᾽ ἐμοὶ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
   - `Swete-Amicarelli`: Τοῦ Δαυείδ. Πρὸς σέ, Κύριε, ἐκέκραξα, ὁ θεός μου, μὴ παρασιωπήσῃς ἐπ᾽ […] μή ποτε παρασιωπήσῃς ἐπ᾽ ἐμοὶ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
   - `1st1K-LXX`: Τοῦ Δαυείδ. Πρὸς σέ, Κύριε, ἐκέκραξα, ὁ θεός μου. μὴ παρασιωπήσῃς ἐπʼ ἐμοί μή ποτε παρασιωπήσῃς ἐπʼ ἐμοὶ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
-  - `Swete (B/A/א)`: Πρὸς σέ, Κύριε, ἐκέκραξα, ὁ θεός μου. μὴ παρασιωπήσῃς ἐπʼ ἐμοί μή ποτε παρασιωπήσῃς ἐπʼ ἐμοὶ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
+  - `Swete (B/A/א)`: Τοῦ Δαυείδ. Πρὸς σέ, Κύριε, ἐκέκραξα, ὁ θεός μου. μὴ παρασιωπήσῃς ἐπʼ ἐμοί μή ποτε παρασιωπήσῃς ἐπʼ ἐμοὶ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
   - `Sixtine/Brenton`: Τοῦ Δαυίδ. Πρὸς σὲ Κύριε ἐκέκραξα, ὁ Θεός μου μὴ παρασιωπήσῃς ἐπʼ ἑμοὶ, μήποτε παρασιωπήσῃς ἐπʼ ἐμοὶ, καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
   - `LXX-Orthodox (Οʹ)`: Τοῦ Δαυΐδ. ΠΡΟΣ σέ, Κύριε, ἐκέκραξα, ὁ Θεός μου, μὴ παρασιωπήσῃς ἀπ᾿ ἐμοῦ, μήποτε παρασιωπήσῃς ἀπ᾿ ἐμοῦ καὶ ὁμοιωθήσομαι τοῖς καταβαίνουσιν εἰς λάκκον.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 12 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Punctuation / spacing difference only; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus; Word division differs (same letters written as one word or two)).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 10 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only; Word division differs (same letters written as one word or two)).
 
 ### Verse 2 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** εἰσάκουσον τῆς φωνῆς τῆς δεήσεώς μου ἐν τῷ δέεσθαί με πρὸς σέ, ἐν τῷ με αἴρειν χεῖράς μου εἰς ναὸν ἅγιόν σου.
@@ -295,8 +290,3 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `Sixtine/Brenton`: Σῶσον τὸν λαόν σου, καὶ εὐλόγησον τὴν κληρονομίαν σου, καὶ ποίμανον αὐτοὺς, καὶ ἔπαρον αὐτοὺς ἕως τοῦ αἰῶνος.
   - `LXX-Orthodox (Οʹ)`: σῶσον τὸν λαόν σου καὶ εὐλόγησον τὴν κληρονομίαν σου καὶ ποίμανον αὐτοὺς καὶ ἔπαρον αὐτοὺς ἕως τοῦ αἰῶνος.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).
-
-### Verse 14 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Τοῦ Δαυίδ.
-  - `Swete (B/A/א)`: Τοῦ Δαυείδ.
-- **Philological Rationale:** Substantively unanimous across Swete (B/A/א). Normalised 1 surface variation(s) (Diplomatic uncial orthography normalised to standard critical form).

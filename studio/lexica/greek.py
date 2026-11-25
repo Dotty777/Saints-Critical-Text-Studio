@@ -483,6 +483,8 @@ class _FormTable:
                 out.extend(sorted(self.by_bare.get(full, ())))
             return out
         if ak == bare:                       # the token carries no breathing or accent at all
+            if len(bare) == 1 or _has_elision(token) or any(m in token for m in ("͵", "ʹ", "ʹ", "΄")):
+                return out                   # bare single letter (α = 1000) or keraia numeral (ας᾽ = 1200) is never ἅ / ἅς (G3739)
             for b in [bare] + _nu_variants(bare):
                 out.extend(sorted(self.by_bare.get(b, ())))
         return out
@@ -2758,24 +2760,54 @@ _CONTRACTED_REFLEXIVE_BARE = frozenset({
     "αυτων", "αυτοισ", "αυταισ", "αυτουσ", "αυτασ",
 })
 
-# Milesian (alphabetic) Greek numerals printed with keraia in Swete (e.g. μ᾽ = 40, ιδ᾽ = 14)
-# -> canonical TBESG numeral lemma key.  Only unambiguous single-word numerals absent from _ELIDED.
+# Milesian (alphabetic) Greek numerals printed with keraia in Swete (e.g. μ᾽ = 40, ιδ᾽ = 14,
+# γ᾽ = 3 before consonant/pause, δ᾽ = 4 before consonant, ͵α = 1,000, ͵ασ᾽ = 1,200) -> canonical
+# TBESG numeral lemma key.
 _GREEK_NUMERALS: Dict[str, str] = {
-    "α": "G1520", "β": "G1417", "ε": "G4002", "ζ": "G2033", "η": "G3638", "θ": "G1767",
+    "α": "G1520", "β": "G1417", "γ": "G5140", "δ": "G5064", "ε": "G4002", "ζ": "G2033",
+    "η": "G3638", "θ": "G1767",
     "ι": "G1176", "ια": "G1733", "ιβ": "G1427", "ιδ": "G1180", "ιε": "G1178",
     "κ": "G1501", "λ": "G5144", "μ": "G5062", "ν": "G4004", "ξ": "G1835",
     "ο": "G1440", "π": "G3589", "ρ": "G1540", "σ": "G1250", "υ": "G5071",
     "φ": "G4001", "χ": "G1812",
 }
+_GREEK_THOUSAND_NUMERALS: Dict[str, str] = {
+    "α": "G5507",    # ͵α = 1,000 (χίλιοι)
+    "ασ": "G5507",   # ͵ασ = 1,200 (χίλιοι διακόσιοι, Neh 7:41)
+    "β": "G1367",    # ͵β = 2,000 (δισχίλιοι)
+}
+_NUMERAL_KERAIA_MARKS = _ELISION_MARKS + "ʹʹ΄"
 
 
-def _milesian_numeral_key(token: str) -> Optional[str]:
-    """If ``token`` is an unaccented Greek alphabetic numeral with keraia (e.g. μ᾽, ιδ᾽, χ᾽),
-    return its canonical TBESG lemma key; else None."""
-    if not _has_elision(token):
+def _starts_greek_vowel(token: str) -> bool:
+    for ch in unicodedata.normalize("NFD", token.lower()):
+        if unicodedata.category(ch) != "Mn" and ch.isalpha():
+            return ch in "αεηιουω"
+    return False
+
+
+def _milesian_numeral_key(token: str, next_token: str = "", *, at_end: bool = False) -> Optional[str]:
+    """If ``token`` is an unaccented Greek alphabetic numeral with keraia (e.g. μ᾽, ιδ᾽, χ᾽,
+    ͵α, ͵ασ᾽, or consonant-followed / clause-final γ᾽ = 3 / δ᾽ = 4), return its canonical TBESG
+    lemma key; else None. Without a following token (``next_token == ""`` and ``at_end=False``),
+    ambiguous elisions like ``δ᾽`` return None."""
+    if not token:
         return None
     b = greek_bare(token)
-    if not b or b in _ELIDED or accent_key(token) != b:
+    if not b or accent_key(token) != b:
+        return None
+    if token.startswith("͵"):
+        return _GREEK_THOUSAND_NUMERALS.get(b)
+    if token[-1] not in _NUMERAL_KERAIA_MARKS:
+        return None
+    if b == "ασ":
+        # Swete Neh 7:41 ας᾽/ας΄ (dropped lower keraia ͵ on ͵ασ = 1,200); never G3739 ἅς.
+        return "G5507"
+    if b in _ELIDED:
+        # γ᾽ (Job 1:17 'κεφαλὰς γ᾽, καὶ') and δ᾽ (Judg 19:2 'ἡμέρας δ᾽ μηνῶν') before a consonant
+        # or at verse end are alphabetic numerals 3 / 4, never elided γέ (G1065) / δέ (G1161).
+        if b in ("γ", "δ") and ((next_token and not _starts_greek_vowel(next_token)) or at_end):
+            return _GREEK_NUMERALS[b]
         return None
     return _GREEK_NUMERALS.get(b)
 
@@ -3556,9 +3588,16 @@ class GreekTagger:
 
     # -- Septuagint ---------------------------------------------------------------------------
     def _slot_score(self, token: str, tbare: str, gkey: str, lkey: str, known: Set[str],
-                    excl: Set[str] = frozenset()) -> Tuple[float, str]:
+                    excl: Set[str] = frozenset(), next_token: str = "", at_end: bool = False) -> Tuple[float, str]:
         if excl and (lkey in excl or "*" in excl):
             return 0.0, "stem"
+        num_k = _milesian_numeral_key(token, next_token, at_end=at_end)
+        if num_k is not None:
+            return (1.0, "stem") if num_k == lkey else (0.0, "stem")
+        if tbare == "α" and accent_key(token) == "α":
+            # Bare unaccented α (dropped thousands-keraia ͵α = 1,000 in Ezra 2:37-38, Neh 7:70):
+            # matches χίλιοι (G5507) if in gold slots, never G3739 ἅ.
+            return (1.0, "stem") if lkey == "G5507" else (0.0, "stem")
         lb = _lemma_bare(gkey)
         if lkey in known:
             if tbare == lb and self.is_closed_class(lkey) and not self.head_accents_agree(token, gkey):
@@ -3572,9 +3611,6 @@ class GreekTagger:
             return 0.95, "stem"
         if tbare in _EPIDON_BARE:
             return (0.95, "stem") if lkey == "G1896" else (0.0, "stem")
-        num_k = _milesian_numeral_key(token)
-        if num_k is not None:
-            return (1.0, "stem") if num_k == lkey else (0.0, "stem")
         closed = self.is_closed_class(lkey)
         if closed or len(lb) <= 3:
             # function words, prepositions and three-letter lemmas are paired only by an attested
@@ -3636,11 +3672,13 @@ class GreekTagger:
         K: List[List[str]] = [[""] * m for _ in range(n)]
         for i in range(n):
             memo: Dict[str, Tuple[float, str]] = {}
+            nxt_tok = tokens[i + 1] if i + 1 < n else ""
+            is_last = i == n - 1
             for j in range(m):
                 gk, lk, _, wt = slots[j]
                 got = memo.get(gk)
                 if got is None:
-                    got = memo[gk] = self._slot_score(tokens[i], tb[i], gk, lk, known[i], excl[i])
+                    got = memo[gk] = self._slot_score(tokens[i], tb[i], gk, lk, known[i], excl[i], nxt_tok, is_last)
                 s, kind = got
                 attested = kind == "known"
                 if attested or s >= self.STEM_ACCEPT:
@@ -3785,7 +3823,8 @@ class GreekTagger:
             for i, tok in enumerate(tokens):
                 if tags[i] is not None or "*" in excl[i]:
                     continue
-                num_k = _milesian_numeral_key(tok)
+                nxt_tok = tokens[i + 1] if i + 1 < len(tokens) else ""
+                num_k = _milesian_numeral_key(tok, nxt_tok, at_end=(i == len(tokens) - 1))
                 if num_k is not None:
                     self.lex.ensure_entry(num_k, source=SRC_TAGNT)
                     tags[i] = TokenTag(index=i + 1, surface=tok, lemma_key=num_k, method="gold-form",

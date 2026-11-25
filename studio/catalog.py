@@ -68,14 +68,14 @@ CRITICAL_OUTPUT_ROOTS = {
 # content, so editions that number chapters differently (Joel, Malachi, Daniel,
 # Sirach, 1 Samuel 17, the Vulgate generally) are never collated verse-against-
 # the-wrong-verse. Greek OT: Brenton/eBible (Saints.Bible numbering); NT: SBLGNT;
-# Hebrew: WLC (MT numbering); Latin: the Saints Clementine JSON, which follows
-# Saints.Bible numbering and records the Vulgate reference where it differs.
+# Hebrew: WLC (MT numbering); Latin: Sixto-Clementine USFX (native Vulgate numbering;
+# parallel alignment to Saints.Bible lives strictly in studio/lexica/versification.py).
 VERSIFICATION_ANCHORS = {
     ("greek", "OT"): ["brenton_usfm", "swete_csv", "swete_clean", "first1k_tei"],
     ("greek", "NT"): ["sblgnt_txt", "nestle_csv", "cntr_edition"],
     ("hebrew", "OT"): ["wlc_tsv", "mam_osis"],
-    ("latin", "OT"): ["latin_saints_json", "usfx_xml"],
-    ("latin", "NT"): ["latin_saints_json", "usfx_xml"],
+    ("latin", "OT"): ["usfx_xml", "scrollmapper_csv", "latin_saints_json"],
+    ("latin", "NT"): ["usfx_xml", "scrollmapper_csv", "latin_saints_json"],
 }
 
 # Which witness supplies spelling, accentuation, capitalisation and punctuation
@@ -229,8 +229,9 @@ APPARATUS_ONLY = frozenset({
     "heb-benchayyim-1525", "heb-letteris-1852", "heb-bhsa-bhs", "heb-samaritan-tf",
     "heb-dss-1qisaa", "heb-dss-1qisab", "heb-dss-4qsama", "heb-dss-4qjer",
     "heb-dss-11qpsa", "heb-dss-torah",
-    # Latin OT & NT apparatus witnesses (Vulgate variants, Stuttgart critical, Pianum Psalter,
-    # Amiatinus NT, Codex Bezae Latin, Vetus Latina John & COMPAUL Old Latin Pauline MSS)
+    # Latin OT & NT apparatus witnesses (Vulgate variants, Saints-column reference, Stuttgart critical,
+    # Pianum Psalter, Amiatinus OT Genesis & NT, Codex Bezae Latin, Vetus Latina John & COMPAUL Pauline MSS)
+    "lat-amiatinus", "lat-saints-staging",
     "lat-vulg-hetzenauer", "lat-vulg-conte", "lat-vulg-sistina",
     "lat-quarantine-stuttgart", "lat-psalter-pianum", "lat-amiatinus-nt",
     "lat-nt-vl5-bezae",
@@ -270,7 +271,7 @@ def stream_of(siglum: str) -> str:
 VERSIFICATION_NOTES = {
     "greek": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
     "hebrew": "Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions.",
-    "latin": "Saints.Bible numbering (the Latin column's Greek/Hebrew numbering). Where the Clementine Vulgate numbers a verse differently it is re-aligned by content.",
+    "latin": "Native Sixto-Clementine Vulgate numbering (Esther 1–16, Daniel 1–14, Joel 1–3, Malachi 1–4, Psalms 1–150). Parallel alignment to Saints.Bible numbering is handled in studio/lexica/versification.py.",
 }
 
 # Google Drive parent folders inside "Saints Website" (1V_ObdWyPF8Z8JmfdC6XYSsZN8AGCyYnc)
@@ -479,6 +480,20 @@ BOOKS: List[BookSpec] = [
 
 BOOKS_BY_SLUG: Dict[str, BookSpec] = {b.slug: b for b in BOOKS}
 BOOKS_BY_USFM: Dict[str, BookSpec] = {b.usfm_code: b for b in BOOKS}
+
+# Books whose native chapter count in a language differs from BookSpec.chapters
+# (which defaults to the Septuagint / Saints.Bible chapter count).
+LANGUAGE_CHAPTER_COUNTS: Dict[tuple[str, str], int] = {
+    ("latin", "esther"): 16,     # Vulgate Additions A–E in chapters 11–16
+    ("latin", "daniel"): 14,     # Vulgate Susanna (ch. 13) and Bel & the Dragon (ch. 14)
+    ("latin", "joel"): 3,        # Vulgate Joel 1–3 (LXX/MT 3:1–5 = 2:28–32; LXX/MT 4 = ch. 3)
+    ("latin", "malachi"): 4,     # Vulgate Malachi 1–4 (LXX/MT 3:19–24 = ch. 4:1–6)
+}
+
+
+def chapters_for_language(book: BookSpec, language: str) -> int:
+    """Return the canonical chapter count of ``book`` in ``language``'s native edition."""
+    return LANGUAGE_CHAPTER_COUNTS.get((language.lower(), book.slug), book.chapters)
 
 
 def get_books_for_language(language: str) -> List[BookSpec]:

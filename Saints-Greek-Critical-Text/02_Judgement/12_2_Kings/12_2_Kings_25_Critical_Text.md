@@ -1,6 +1,6 @@
 # 2 Kings (4 Kingdoms) 25 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:30Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:23Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,18 +28,17 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Swete-Amicarelli: Source import repair, 25:22: 'κατέιλπεν' → '[…]' (Swete prints κατέλιπεν). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
-- 1st1K-LXX: Source import repair, 25:22: 'οὓς Ναβουχοδονοσὸρ' → 'οὓς […] Ναβουχοδονοσὸρ' (Swete prints οὓς κατέλιπεν (a word lost in the OCR)). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
-- Swete (B/A/א): Source import repair, 25:22: 'οὓς Ναβουχοδονοσὸρ' → 'οὓς […] Ναβουχοδονοσὸρ' (Swete prints οὓς κατέλιπεν (a word lost in the OCR)). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 25:22: 'κατέιλπεν' → '[…]' (Swete prints κατέλιπεν). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
+- 1st1K-LXX: Source import repair, 25:22: 'οὓς Ναβουχοδονοσὸρ' → 'οὓς […] Ναβουχοδονοσὸρ' (Swete prints οὓς κατέλιπεν (a word lost in the OCR)). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
+- Swete (B/A/א): Source import repair, 25:22: 'οὓς Ναβουχοδονοσὸρ' → 'οὓς […] Ναβουχοδονοσὸρ' (Swete prints οὓς κατέλιπεν (a word lost in the OCR)). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
+- Sixtine/Brenton: Source import repair, 25:10: 'τῶν χαλδαίων.' → 'τῶν Χαλδαίων.' (Χαλδαίων (proper gentilic capitalised; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 24:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 24:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:7 kept in its own chapter (stronger match to its own reference verse)
@@ -52,12 +51,14 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 24:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 24:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: verse 24:20 runs into its neighbour across the anchor's division between 24:20 and 25:1; re-divided there
 - 1st1K-LXX: 24:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:7 kept in its own chapter (stronger match to its own reference verse)
@@ -69,11 +70,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 24:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:15 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:16 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:18 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 24:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 24:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): verse 24:20 runs into its neighbour across the anchor's division between 24:20 and 25:1; re-divided there
 - Swete (B/A/א): 24:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:7 kept in its own chapter (stronger match to its own reference verse)
@@ -85,7 +90,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 24:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:18 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 24:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:20 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 24:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 24:2 kept in its own chapter (stronger match to its own reference verse)
@@ -121,7 +129,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **7** καὶ τοὺς υἱοὺς Σεδεκίου ἔσφαξεν κατ᾽ ὀφθαλμοὺς αὐτοῦ, καὶ τοὺς ὀφθαλμοὺς Σεδεκίου ἐξετύφλωσεν· καὶ ἔδησεν αὐτὸν ἐν πέδαις καὶ ἤγαγεν εἰς Βαβυλῶνα.
 **8** Καὶ ἐν τῷ μηνὶ τῷ πέμπτῳ, ἑβδόμῃ τοῦ μηνός, αὐτὸς ἐνιαυτὸς ἐννεακαιδέκατος τῷ Ναβουχοδονοσὸρ βασιλεῖ Βαβυλῶνος, ἦλθεν Ναβουζαρδὰν ὁ ἀρχιμάγειρος ἑστὼς ἐνώπιον βασιλέως Βαβυλῶνος εἰς Ἰερουσαλήμ.
 **9** καὶ ἐνέπρησεν τὸν οἶκον Κυρίου καὶ τὸν οἶκον τοῦ βασιλέως καὶ πάντας τοὺς οἴκους Ἰερουσαλήμ, καὶ πᾶν οἶκον ἐνέπρησεν ὁ ἀρχιμάγειρος.
-**10** Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν χαλδαίων.
+**10** Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν Χαλδαίων.
 **11** καὶ τὸ περισσὸν τοῦ λαοῦ τὸ καταλειφθὲν ἐν τῇ πόλει καὶ τοὺς ἐνπεπτωκότας οἳ ἐνέπεσον πρὸς βασιλέα Βαβυλῶνος καὶ τὸ λοιπὸν τοῦ στηρίγματος μετῆρεν Ναβουζαρδὰν ὁ ἀρχιμάγειρος.
 **12** καὶ ἀπὸ τῶν πτωχῶν τῆς γῆς ὑπέλιπεν ὁ ἀρχιμάγειρος εἰς ἀμπελουργοὺς καὶ εἰς ταβείν.
 **13** καὶ τοὺς στύλους τοὺς χαλκοῦς τοὺς ἐν οἴκῳ Κυρίου καὶ τοὺς μεχωνὼθ καὶ τὴν θάλασσαν τὴν χαλκῆν τὴν ἐν οἴκῳ Κυρίου συνέτριψαν οἱ Χαλδαῖοι, καὶ ἦραν τὸν χαλκὸν αὐτῶν εἰς Βαβυλῶνα.
@@ -526,8 +534,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation; Punctuation / spacing difference only).
 
 ### Verse 10 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν χαλδαίων.
-  - `Sixtine/Brenton`: Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν χαλδαίων.
+- **Critical Text:** Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν Χαλδαίων.
+  - `Sixtine/Brenton`: Καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν Χαλδαίων.
   - `LXX-Orthodox (Οʹ)`: καὶ τὸ τεῖχος Ἱερουσαλὴμ κυκλόθεν κατέσπασεν ἡ δύναμις τῶν Χαλδαίων.
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 

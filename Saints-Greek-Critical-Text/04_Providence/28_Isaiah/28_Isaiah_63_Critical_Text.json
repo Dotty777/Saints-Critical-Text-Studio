@@ -7,7 +7,7 @@
   "usfm_code": "ISA",
   "chapter": 63,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:34Z",
+  "updated_at": "2026-11-25T00:07:40Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -25,6 +25,17 @@
     "Swete-Amicarelli: 62:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 62:11 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 62:12 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:3 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:4 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:6 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:7 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:9 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:10 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 64:12 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 64:1 folded into verse 19 (the reference prints these words there)",
     "1st1K-LXX: 62:1 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 62:2 kept in its own chapter (stronger match to its own reference verse)",
@@ -38,17 +49,41 @@
     "1st1K-LXX: 62:10 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 62:11 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 62:12 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:2 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:3 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:4 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:5 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:6 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:7 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:8 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:9 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:10 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:11 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 64:12 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 64:1 folded into verse 19 (the reference prints these words there)",
     "A-Ottley (Isaiah): 62:1 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:2 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:3 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 62:4 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:5 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:6 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:7 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:8 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 62:9 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:10 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:11 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 62:12 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:2 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:3 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:4 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:5 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:6 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:7 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:8 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:9 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:10 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:11 kept in its own chapter (stronger match to its own reference verse)",
+    "A-Ottley (Isaiah): 64:12 kept in its own chapter (stronger match to its own reference verse)",
     "A-Ottley (Isaiah): 64:1 folded into verse 19 (the reference prints these words there)",
     "LXX-Orthodox (Οʹ): 62:1 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 62:2 kept in its own chapter (stronger match to its own reference verse)",
@@ -62,22 +97,33 @@
     "LXX-Orthodox (Οʹ): 62:10 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 62:11 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 62:12 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:2 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:3 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:4 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:5 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:6 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:7 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:8 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:9 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:10 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:11 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 64:12 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 64:1 folded into verse 19 (the reference prints these words there)"
   ],
   "admitted_witnesses": [
-    {
-      "siglum": "1st1K-LXX",
-      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
-      "tier": 1,
-      "weight": 0.92,
-      "license": "CC BY-SA 4.0"
-    },
     {
       "siglum": "Swete-Amicarelli",
       "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
       "tier": 1,
       "weight": 0.93,
       "license": "GPL-3.0"
+    },
+    {
+      "siglum": "1st1K-LXX",
+      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
+      "tier": 1,
+      "weight": 0.92,
+      "license": "CC BY-SA 4.0"
     },
     {
       "siglum": "Sixtine/Brenton",
@@ -121,9 +167,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -273,9 +317,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -324,9 +366,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -472,9 +512,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -579,9 +617,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -715,9 +751,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -777,9 +811,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -923,9 +955,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1047,9 +1077,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1228,9 +1256,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1347,9 +1373,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1506,9 +1530,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1659,9 +1681,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1793,9 +1813,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1884,9 +1902,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2036,9 +2052,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2363,9 +2377,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2533,9 +2545,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2590,9 +2600,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "A-Ottley (Isaiah)",
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {

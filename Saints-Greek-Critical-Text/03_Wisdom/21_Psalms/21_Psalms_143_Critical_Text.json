@@ -7,7 +7,7 @@
   "usfm_code": "PSA",
   "chapter": 143,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:41Z",
+  "updated_at": "2026-11-25T00:07:29Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -15,6 +15,7 @@
     "Swete-Amicarelli: verse 144:14 runs into its neighbour across the anchor's division between 144:13 and 144:14; re-divided there",
     "Swete-Amicarelli: 142:1 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 142:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 142:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 142:4 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 142:5 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 142:6 kept in its own chapter (stronger match to its own reference verse)",
@@ -29,6 +30,7 @@
     "Swete-Amicarelli: 144:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 144:4 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 144:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 144:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 144:7 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 144:8 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 144:9 kept in its own chapter (stronger match to its own reference verse)",
@@ -48,6 +50,7 @@
     "1st1K-LXX: verse 144:14 runs into its neighbour across the anchor's division between 144:13 and 144:14; re-divided there",
     "1st1K-LXX: 142:1 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 142:2 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 142:3 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 142:4 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 142:5 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 142:6 kept in its own chapter (stronger match to its own reference verse)",
@@ -62,6 +65,7 @@
     "1st1K-LXX: 144:3 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 144:4 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 144:5 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 144:6 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 144:7 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 144:8 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 144:9 kept in its own chapter (stronger match to its own reference verse)",
@@ -79,7 +83,9 @@
     "1st1K-LXX: 144:21 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): verse 143:11 runs into its neighbour across the anchor's division between 143:10 and 143:11; re-divided there",
     "Swete (B/A/א): verse 144:14 runs into its neighbour across the anchor's division between 144:13 and 144:14; re-divided there",
+    "Swete (B/A/א): 142:1 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 142:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 142:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 142:4 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 142:5 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 142:6 kept in its own chapter (stronger match to its own reference verse)",
@@ -94,6 +100,7 @@
     "Swete (B/A/א): 144:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 144:4 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 144:5 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 144:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 144:7 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 144:8 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 144:9 kept in its own chapter (stronger match to its own reference verse)",
@@ -145,18 +152,18 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "1st1K-LXX",
-      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
-      "tier": 1,
-      "weight": 0.92,
-      "license": "CC BY-SA 4.0"
-    },
-    {
       "siglum": "Swete-Amicarelli",
       "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
       "tier": 1,
       "weight": 0.93,
       "license": "GPL-3.0"
+    },
+    {
+      "siglum": "1st1K-LXX",
+      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
+      "tier": 1,
+      "weight": 0.92,
+      "license": "CC BY-SA 4.0"
     },
     {
       "siglum": "Swete (B/A/א)",
@@ -192,58 +199,37 @@
       "witness_readings": {
         "Swete-Amicarelli": "Τῷ Δαυείδ, πρὸς τὸν Γολιάδ. Εὐλογητὸς Κύριος ὁ θεός μου, ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·",
         "1st1K-LXX": "Τῷ Δαυείδ, πρὺς τὸν Γολιάδ. Εὐλογητὸς Κύριος ὁ θεός μου, ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·",
-        "Swete (B/A/א)": "Εὐλογητὸς Κύριος ὁ θεός μου, ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·",
+        "Swete (B/A/א)": "Τῷ Δαυείδ, πρὺς τὸν Γολιάδ. Εὐλογητὸς Κύριος ὁ θεός μου, ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·",
         "Sixtine/Brenton": "Τῷ Δαυὶδ πρὸς τὸν Γολιάδ. Εὐλογήτος Κύριος ὁ Θεός μου, ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·",
         "LXX-Orthodox (Οʹ)": "Τῷ Δαυΐδ, πρὸς τὸν Γολιάδ. ΕΥΛΟΓΗΤΟΣ Κύριος ὁ Θεός μου ὁ διδάσκων τὰς χεῖράς μου εἰς παράταξιν, τοὺς δακτύλους μου εἰς πόλεμον·"
       },
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
         {
-          "slot_index": 0,
-          "kept_form": "Τῷ",
-          "disregarded_forms": [
-            "om."
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
           "slot_index": 1,
-          "kept_form": "Δαυείδ",
+          "kept_form": "Δαυίδ,",
           "disregarded_forms": [
-            "om."
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant"
-        },
-        {
-          "slot_index": 1,
-          "kept_form": "Δαυείδ",
-          "disregarded_forms": [
+            "Δαυείδ,",
             "Δαυὶδ"
           ],
           "witnesses": [
-            "Sixtine/Brenton"
+            "1st1K-LXX",
+            "Sixtine/Brenton",
+            "Swete (B/A/א)",
+            "Swete-Amicarelli"
           ],
-          "reason": "Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus"
+          "reason": "Koine/Uncial itacistic spelling (ει / ι equivalence)"
         },
         {
           "slot_index": 2,
           "kept_form": "πρὸς",
           "disregarded_forms": [
-            "πρὺς",
-            "om."
+            "πρὺς"
           ],
           "witnesses": [
             "1st1K-LXX",
@@ -252,18 +238,7 @@
           "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
         },
         {
-          "slot_index": 3,
-          "kept_form": "τὸν Γολιάδ",
-          "disregarded_forms": [
-            "om."
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
-          "slot_index": 4,
+          "slot_index": 5,
           "kept_form": "Εὐλογητὸς",
           "disregarded_forms": [
             "Εὐλογήτος"
@@ -274,7 +249,7 @@
           "reason": "Accent or breathing differs between accented editions (editorial interpretation)"
         },
         {
-          "slot_index": 7,
+          "slot_index": 8,
           "kept_form": "θεός",
           "disregarded_forms": [
             "Θεός"
@@ -285,7 +260,7 @@
           "reason": "Accentuation / capitalisation / breathing convention"
         }
       ],
-      "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 7 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus).",
+      "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Koine/Uncial itacistic spelling (ει / ι equivalence)).",
       "human_locked": false,
       "analysis": [],
       "needs_review": false
@@ -306,9 +281,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -475,9 +448,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -565,9 +536,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -615,9 +584,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -683,9 +650,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -733,9 +698,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -795,9 +758,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -834,9 +795,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -910,9 +869,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -995,9 +952,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1049,20 +1004,18 @@
       "witness_readings": {
         "Swete-Amicarelli": "ὧν οἱ υἱοὶ ὡς νεόφυτα ἡδρυμμένα ἐν τῇ νεότητι αὐτῶν, αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίωμα ναοῦ·",
         "1st1K-LXX": "ὧν οἱ υἱοὶ ὡς νεόφυτα ἡδρυμμένα ἐν τῇ νεότητι αὐτῶν, αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίαμα ναοῦ·",
-        "Swete (B/A/א)": "Τῷ Δαυείδ, πρὺς τὸν Γολιάδ. ὧν οἱ υἱοὶ ὡς νεόφυτα ἡδρυμμένα ἐν τῇ νεότητι αὐτῶν, αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίαμα ναοῦ·",
+        "Swete (B/A/א)": "ὧν οἱ υἱοὶ ὡς νεόφυτα ἡδρυμμένα ἐν τῇ νεότητι αὐτῶν, αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίαμα ναοῦ·",
         "Sixtine/Brenton": "ὧν οἱ υἱοὶ ὡς νεόφυτα ἱδρυμένα ἐν τῇ νεότητι αὐτῶν· αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίωμα ναοῦ.",
         "LXX-Orthodox (Οʹ)": "ὧν οἱ υἱοὶ ὡς νεόφυτα ἱδρυμένα ἐν τῇ νεότητι αὐτῶν, αἱ θυγατέρες αὐτῶν κεκαλλωπισμέναι, περικεκοσμημέναι ὡς ὁμοίωμα ναοῦ,"
       },
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
-          "slot_index": 6,
+          "slot_index": 5,
           "lemma": "ἡδρυμμένα",
           "lemma_witnesses": [
             "Swete-Amicarelli",
@@ -1110,18 +1063,7 @@
       ],
       "disregarded": [
         {
-          "slot_index": 0,
-          "kept_form": "om.",
-          "disregarded_forms": [
-            "Τῷ Δαυείδ πρὺς τὸν Γολιάδ"
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
-          "slot_index": 10,
+          "slot_index": 9,
           "kept_form": "αὐτῶν,",
           "disregarded_forms": [
             "αὐτῶν·"
@@ -1132,7 +1074,7 @@
           "reason": "Punctuation / spacing difference only"
         },
         {
-          "slot_index": 17,
+          "slot_index": 16,
           "kept_form": "ὁμοίωμα",
           "disregarded_forms": [
             "ὁμοίαμα"
@@ -1144,7 +1086,7 @@
           "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
         },
         {
-          "slot_index": 18,
+          "slot_index": 17,
           "kept_form": "ναοῦ·",
           "disregarded_forms": [
             "ναοῦ."
@@ -1155,7 +1097,7 @@
           "reason": "Punctuation / spacing difference only"
         }
       ],
-      "rationale": "[Lexical, morphological, or word-order variant] Adopted 'ἡδρυμμένα' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἱδρυμένα (Sixtine/Brenton). Also normalised 4 orthographic/surface variation(s).",
+      "rationale": "[Lexical, morphological, or word-order variant] Adopted 'ἡδρυμμένα' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἱδρυμένα (Sixtine/Brenton). Also normalised 3 orthographic/surface variation(s).",
       "human_locked": false,
       "analysis": [
         {
@@ -1185,9 +1127,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1275,9 +1215,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1376,9 +1314,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [

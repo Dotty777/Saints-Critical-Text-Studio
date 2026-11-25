@@ -1,6 +1,6 @@
 # Judges 09 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:36Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:20Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- 1st1K-LXX: Source import repair, 9:33: 'ὅσα ἀν’ εὕρῃ' → 'ὅσα ἂν εὕρῃ' (Swete prints ὅσα ἂν εὕρῃ (stray apostrophe & accent slip on unelided ἂν in OCR; corroborated by Brenton, Rahlfs, & Orthodox)). verified import repair applied. Original file unchanged.
+- Swete (B/A/א): Source import repair, 9:33: 'ὅσα ἀν’ εὕρῃ' → 'ὅσα ἂν εὕρῃ' (Swete prints ὅσα ἂν εὕρῃ (stray apostrophe & accent slip on unelided ἂν in OCR; corroborated by Brenton, Rahlfs, & Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 8:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:3 kept in its own chapter (stronger match to its own reference verse)
@@ -70,6 +70,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 8:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 8:35 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 10:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 10:5 kept in its own chapter (stronger match to its own reference verse)
@@ -97,10 +98,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 8:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:11 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 8:12 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:13 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:16 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 8:17 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:20 kept in its own chapter (stronger match to its own reference verse)
@@ -116,9 +119,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 8:30 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:31 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:32 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 8:33 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:34 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 8:35 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:1 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 10:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:5 kept in its own chapter (stronger match to its own reference verse)
@@ -134,6 +139,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 10:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 10:17 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 10:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:3 kept in its own chapter (stronger match to its own reference verse)
@@ -145,10 +151,12 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 8:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 8:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 8:17 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:20 kept in its own chapter (stronger match to its own reference verse)
@@ -164,9 +172,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 8:30 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:31 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:32 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 8:33 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 8:35 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 10:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:5 kept in its own chapter (stronger match to its own reference verse)
@@ -182,6 +192,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 10:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 10:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 10:18 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 8:3 kept in its own chapter (stronger match to its own reference verse)
@@ -272,7 +283,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **30** καὶ ἤκουσεν Ζεβοὺλ ἄρχων τῆς πόλεως τοὺς λόγους Γάλααδ υἱοῦ Ἰώβηλ, καὶ ὠργίσθη θυμῷ αὐτός.
 **31** καὶ ἀπέστειλεν ἀγγέλους πρὸς Ἀβειμέλεχ ἐν κρυφῇ λέγων Ἰδοὺ Γάλααδ υἱὸς Ἰώβηλ καὶ οἱ ἀδελφοὶ αὐτοῦ ἔρχονται εἰς Συχέμ, καὶ ἰδοὺ αὐτοὶ περικάθηνται τὴν πόλιν ἐπὶ σέ.
 **32** καὶ νῦν ἀναστὰς νυκτὸς σὺ καὶ ὁ λαὸς ὁ μετὰ σοῦ, καὶ ἐνέδρευσον ἐν τῷ ἀγρῷ·
-**33** καὶ ἔσται τὸ πρωὶ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν’ εὕρῃ ἡ χείρ σου.
+**33** καὶ ἔσται τὸ πρωὶ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου.
 **34** καὶ ἀνέστη Ἀβειμέλεχ καὶ πᾶς ὁ λαὸς μετ᾽ αὐτοῦ νυκτός, καὶ ἐνήδρευσαν ἐπὶ Συχὲμ τέτρασιν ἀρχαῖς.
 **35** καὶ ἐξῆλθεν Γάλααδ υἱὸς Ἰώβηλ καὶ ἔστη πρὸς τῇ θύρᾳ τῆς πύλης τῆς πόλεως, καὶ ἀνέστη Ἀβειμέλεχ καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἀπὸ τοῦ ἐνέδρου.
 **36** καὶ εἶδεν Γάλααδ υἱὸς Ἰώβηλ τὸν λαόν, καὶ εἶπεν πρὸς Ζεβούλ Ἰδοὺ λαὸς καταβαίνει ἀπὸ κεφαλῶν τῶν ὀρέων· καὶ εἶπεν πρὸς αὐτὸν Ζεβούλ Τὴν σκιὰν τῶν ὀρέων σὺ βλέπεις ὡς ἄνδρας.
@@ -632,7 +643,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `πόλιν,` over `πόλιν·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `μετ᾽` over `μετ’`, `μετʼ` (1st1K-LXX, Sixtine/Brenton, Swete (B/A/א)) — *Punctuation / spacing difference only*
 - *Disregarded Surface Variant:* kept `σέ,` over `σὲ,` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
-- *Disregarded Surface Variant:* kept `ἀν` over `om.` (Swete-Amicarelli) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
+- *Disregarded Surface Variant:* kept `ἂν` over `om.` (Swete-Amicarelli) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `σου.` over `σου·` (1st1K-LXX, Swete (B/A/א)) — *Punctuation / spacing difference only*
 
 ### Judges 9:34
@@ -1192,10 +1203,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 28% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 33 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἔσται τὸ πρωὶ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν’ εὕρῃ ἡ χείρ σου.
+- **Critical Text:** καὶ ἔσται τὸ πρωὶ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου.
   - `Swete-Amicarelli`: καὶ ἔσται τὸ πρωὶ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾽ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα εὕρῃ ἡ χείρ σου.
-  - `1st1K-LXX`: καὶ ἱστᾶι τὸ πρωὶ ὁμὰ τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ’ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἀν’ εὕρῃ ἡ χείρ σου·
-  - `Swete (B/A/א)`: καὶ ἱστᾶι τὸ πρωὶ ὁμὰ τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ’ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἀν’ εὕρῃ ἡ χείρ σου·
+  - `1st1K-LXX`: καὶ ἱστᾶι τὸ πρωὶ ὁμὰ τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ’ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου·
+  - `Swete (B/A/א)`: καὶ ἱστᾶι τὸ πρωὶ ὁμὰ τῷ ἀνατεῖλαι τὸν ἥλιον ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ’ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου·
   - `Sixtine/Brenton`: Καὶ ἔσται τοπρωῒ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον, ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν· καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετʼ αὐτοῦ ἐκπορεύονται πρὸς σὲ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου.
   - `LXX-Orthodox (Οʹ)`: καὶ ἔσται τὸ πρωΐ ἅμα τῷ ἀνατεῖλαι τὸν ἥλιον, ὀρθριεῖς καὶ ἐκτενεῖς ἐπὶ τὴν πόλιν, καὶ ἰδοὺ αὐτὸς καὶ ὁ λαὸς ὁ μετ᾿ αὐτοῦ ἐκπορεύονται πρὸς σέ, καὶ ποιήσεις αὐτῷ ὅσα ἂν εὕρῃ ἡ χείρ σου.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 10 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only; Word division differs (same letters written as one word or two)).

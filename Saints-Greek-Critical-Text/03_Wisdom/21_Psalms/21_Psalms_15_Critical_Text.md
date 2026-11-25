@@ -1,6 +1,6 @@
 # Psalms 15 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:40Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:29Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 14:1 kept in its own chapter (stronger match to its own reference verse)
@@ -79,6 +77,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 14:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 14:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 14:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 16:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 16:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 16:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 16:4 kept in its own chapter (stronger match to its own reference verse)
@@ -136,9 +135,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ## Section III — Critical Apparatus & Disregarded Surface Noise
 
 ### Psalms 15:1
-- *Disregarded Surface Variant:* kept `Στηλογραφία τῷ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `om.` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant*
-- *Disregarded Surface Variant:* kept `Δαυείδ` over `Δαυίδ` (Sixtine/Brenton) — *Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus*
+- *Disregarded Surface Variant:* kept `Δαυίδ.` over `Δαυείδ.` (1st1K-LXX, Swete (B/A/א), Swete-Amicarelli) — *Koine/Uncial itacistic spelling (ει / ι equivalence)*
 - *Disregarded Surface Variant:* kept `Φύλαξόν` over `Φύλαξον` (Sixtine/Brenton) — *Accent or breathing differs between accented editions (editorial interpretation)*
 - *Disregarded Surface Variant:* kept `με,` over `με` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
@@ -165,7 +162,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Apparatus:** `ἡ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **om.** Sixtine/Brenton LXX-Orthodox (Οʹ) *(omission / addition)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
-- *Disregarded Surface Variant:* kept `om.` over `Στηλογραφία τῷ Δαυείδ` (Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 - *Disregarded Surface Variant:* kept `μου·` over `μου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
 ### Psalms 15:6
@@ -215,10 +211,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Στηλογραφία τῷ Δαυίδ. Φύλαξόν με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
   - `Swete-Amicarelli`: Στηλογραφία τῷ Δαυείδ. Φύλαξόν με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
   - `1st1K-LXX`: Στηλογραφία τῷ Δαυείδ. Φύλαξόν με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
-  - `Swete (B/A/א)`: Φύλαξόν με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
+  - `Swete (B/A/א)`: Στηλογραφία τῷ Δαυείδ. Φύλαξόν με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
   - `Sixtine/Brenton`: Στηλογραφία τῷ Δαυίδ. Φύλαξον με Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
   - `LXX-Orthodox (Οʹ)`: Στηλογραφία τῷ Δαυΐδ. ΦΥΛΑΞΟΝ με, Κύριε, ὅτι ἐπὶ σοὶ ἤλπισα.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 5 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant; Punctuation / spacing difference only; Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accent or breathing differs between accented editions (editorial interpretation); Koine/Uncial itacistic spelling (ει / ι equivalence); Punctuation / spacing difference only).
 
 ### Verse 2 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** εἶπα τῷ κυρίῳ Κύριός μου εἶ σύ.
@@ -252,10 +248,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** Κύριος ἡ μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
   - `Swete-Amicarelli`: Κύριος ἡ μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
   - `1st1K-LXX`: Κύριος ἡ μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
-  - `Swete (B/A/א)`: Στηλογραφία τῷ Δαυείδ. Κύριος ἡ μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
+  - `Swete (B/A/א)`: Κύριος ἡ μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
   - `Sixtine/Brenton`: Κύριος μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου, σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
   - `LXX-Orthodox (Οʹ)`: Κύριος μερὶς τῆς κληρονομίας μου καὶ τοῦ ποτηρίου μου· σὺ εἶ ὁ ἀποκαθιστῶν τὴν κληρονομίαν μου ἐμοί.
-- **Philological Rationale:** [Omission in some witnesses] Adopted 'ἡ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).
+- **Philological Rationale:** [Omission in some witnesses] Adopted 'ἡ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 6 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)

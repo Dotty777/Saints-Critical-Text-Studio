@@ -1,6 +1,6 @@
 # 1 Samuel (1 Kingdoms) 20 — Saints Greek Critical Text
 
-**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:29Z`
+**Division:** `02_Judgement` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:21Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,13 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
-- Swete-Amicarelli: Source import repair, 20:42: 'σηέρματός' → '[…]' (Swete prints σπέρματός). '[…]' casts no vote, so the other copies of Swete decide; no word was supplied. Original file unchanged.
+- Swete-Amicarelli: Source import repair, 20:42: 'σηέρματός' → '[…]' (Swete prints σπέρματός). '[…]' casts no vote, so the other copies of Swete decide. Original file unchanged.
 - Swete-Amicarelli: verse 20:15 runs into its neighbour across the anchor's division between 20:15 and 20:16; re-divided there
 - Swete-Amicarelli: verse 20:38 runs into its neighbour across the anchor's division between 20:37 and 20:38; re-divided there
 - Swete-Amicarelli: 19:1 kept in its own chapter (stronger match to its own reference verse)
@@ -48,6 +45,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 19:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 19:12 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:13 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:15 kept in its own chapter (stronger match to its own reference verse)
@@ -57,8 +55,25 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 19:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:21 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 19:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 19:24 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 21:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 20:43 kept for its neighbouring chapter (matches anchor verse there)
 - 1st1K-LXX: verse 20:14 runs into its neighbour across the anchor's division between 20:14 and 20:15; re-divided there
 - 1st1K-LXX: verse 20:38 runs into its neighbour across the anchor's division between 20:37 and 20:38; re-divided there
 - 1st1K-LXX: 19:1 kept in its own chapter (stronger match to its own reference verse)
@@ -66,17 +81,40 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 19:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:5 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:7 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:8 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:16 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:17 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:18 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:19 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:20 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:21 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 19:22 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:23 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 19:24 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:1 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:2 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:4 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:5 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:6 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:7 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:8 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:9 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:10 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:11 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:12 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:14 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 21:15 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 20:43 kept for its neighbouring chapter (matches anchor verse there)
 - Swete (B/A/א): verse 20:14 runs into its neighbour across the anchor's division between 20:14 and 20:15; re-divided there
 - Swete (B/A/א): verse 20:38 runs into its neighbour across the anchor's division between 20:37 and 20:38; re-divided there
 - Swete (B/A/א): 19:1 kept in its own chapter (stronger match to its own reference verse)
@@ -84,17 +122,40 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 19:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:8 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:16 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:18 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:20 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:21 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 19:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:23 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 19:24 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:1 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:2 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:4 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:5 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:6 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:7 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:9 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:10 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:11 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:12 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:14 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 21:15 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 20:43 kept for its neighbouring chapter (matches anchor verse there)
 - LXX-Orthodox (Οʹ): verse 20:15 runs into its neighbour across the anchor's division between 20:15 and 20:16; re-divided there
 - LXX-Orthodox (Οʹ): verse 20:22 runs into its neighbour across the anchor's division between 20:21 and 20:22; re-divided there
 - LXX-Orthodox (Οʹ): verse 21:3 runs into its neighbour across the anchor's division between 21:3 and 21:4; re-divided there
@@ -197,7 +258,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **40** καὶ Ἰωναθὰν ἔδωκεν τὰ σκεύη αὐτοῦ ἐπὶ τὸ παιδάριον αὐτοῦ, καὶ εἶπεν τῷ παιδαρίῳ αὐτοῦ Πορεύου, εἴσελθε εἰς τὴν πόλιν.
 **41** καὶ ὡς εἰσῆλθεν τὸ παιδάριον, καὶ Δαυὶδ ἀνέστη ἀπὸ τοῦ ἀργὰβ καὶ ἔπεσεν ἐπὶ πρόσωπον αὐτοῦ καὶ προσεκύνησεν αὐτῷ τρίς, καὶ κατεφίλησεν ἕκαστος τὸν πλησίον αὐτοῦ, καὶ ἔκλαυσεν ἕκαστος τῷ πλησίον αὐτοῦ ἕως συντελείας μεγάλης.
 **42** καὶ εἶπεν Ἰωναθάν Πορεύου εἰς εἰρήνην, καὶ ὡς ὀμωμόκαμεν ἡμεῖς ἀμφότεροι ἐν ὀνόματι Κυρίου λέγοντες Κύριος ἔσται μάρτυς ἀνὰ μέσον ἐμοῦ καὶ σοῦ, καὶ ἀνὰ μέσον τοῦ σπέρματός σου ἕως αἰῶνος.
-**43** καὶ ἀνέστη Δαυὶδ καὶ ἀπῆλθεν, καὶ Ἰωναθὰν εἰσῆλθεν εἰς τὴν πόλιν.
 
 ---
 
@@ -622,9 +682,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ἀνὰ μέσον` over `ἀνὰμέσον` (Sixtine/Brenton) — *Word division differs (same letters written as one word or two)*
 - *Disregarded Surface Variant:* kept `αἰῶνος.` over `αἰῶνος·` (Sixtine/Brenton) — *Punctuation / spacing difference only*
 
-### 1 Samuel (1 Kingdoms) 20:43
-- *Disregarded Surface Variant:* kept `Δαυὶδ` over `Δαυεὶδ` (Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)) — *Diplomatic uncial orthography normalised to standard critical form*
-
 ---
 
 ## Section IV — Verse-by-Verse Text-Critical Rationale & Witness Matrix
@@ -1023,10 +1080,3 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `LXX-Orthodox (Οʹ)`: καὶ εἶπεν Ἰωνάθαν τῷ Δαυίδ· πορεύου εἰς εἰρήνην, καὶ ὡς ὀμωμόκαμεν ἡμεῖς ἀμφότεροι ἐν ὀνόματι Κυρίου λέγοντες· Κύριος ἔσται μάρτυς ἀνὰ μέσον ἐμοῦ καί σοῦ καὶ ἀνὰ μέσον τοῦ σπέρματός μου καὶ ἀνὰ μέσον τοῦ σπέρματός σου ἕως αἰῶνος.
 - **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τῷ Δαυὶδ (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'ἀνὰ μέσον' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over ἀνὰμέσον τοῦ σηέρματός μου καὶ ἀναμέσον (Sixtine/Brenton). [Lexical, morphological, or word-order variant] Adopted 'σου' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over σον (Sixtine/Brenton). Also normalised 8 orthographic/surface variation(s).
 - *confidence:* Verse confidence 15% = product of 3 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
-
-### Verse 43 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** καὶ ἀνέστη Δαυὶδ καὶ ἀπῆλθεν, καὶ Ἰωναθὰν εἰσῆλθεν εἰς τὴν πόλιν.
-  - `Swete-Amicarelli`: καὶ ἀνέστη Δαυεὶδ καὶ ἀπῆλθεν, καὶ Ἰωναθὰν εἰσῆλθεν εἰς τὴν πόλιν.
-  - `1st1K-LXX`: καὶ ἀνέστη Δαυεὶδ καὶ ἀπῆλθεν, καὶ Ἰωναθὰν εἰσῆλθεν εἰς τὴν πόλιν.
-  - `Swete (B/A/א)`: καὶ ἀνέστη Δαυεὶδ καὶ ἀπῆλθεν, καὶ Ἰωναθὰν εἰσῆλθεν εἰς τὴν πόλιν.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א). Normalised 1 surface variation(s) (Diplomatic uncial orthography normalised to standard critical form).

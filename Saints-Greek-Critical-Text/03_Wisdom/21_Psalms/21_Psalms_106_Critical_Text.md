@@ -1,6 +1,6 @@
 # Psalms 106 — Saints Greek Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:41Z`
+**Division:** `03_Wisdom` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:28Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Swete-Amicarelli: Source import repair, 106:24: 'εἶδοσαν' → 'εἴδοσαν' (Swete prints εἴδοσαν (impossible antepenult circumflex in Swete; corroborated by Rahlfs εἴδοσαν)). verified import repair applied. Original file unchanged.
+- 1st1K-LXX: Source import repair, 106:24: 'εἶδοσαν' → 'εἴδοσαν' (Swete prints εἴδοσαν (impossible antepenult circumflex in Swete; corroborated by Rahlfs εἴδοσαν)). verified import repair applied. Original file unchanged.
+- Swete (B/A/א): Source import repair, 106:24: 'εἶδοσαν' → 'εἴδοσαν' (Swete prints εἴδοσαν (impossible antepenult circumflex in Swete; corroborated by Rahlfs εἴδοσαν)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 105:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:3 kept in its own chapter (stronger match to its own reference verse)
@@ -67,6 +68,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 105:31 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:32 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:33 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 105:34 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:35 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:36 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:37 kept in its own chapter (stronger match to its own reference verse)
@@ -81,6 +83,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 105:46 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:47 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 105:48 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 107:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:4 kept in its own chapter (stronger match to its own reference verse)
@@ -88,6 +91,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 107:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 107:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 107:12 kept in its own chapter (stronger match to its own reference verse)
@@ -140,6 +144,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 105:46 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 105:47 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 105:48 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 107:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:3 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:4 kept in its own chapter (stronger match to its own reference verse)
@@ -147,6 +152,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 107:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:7 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:8 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 107:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:11 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 107:12 kept in its own chapter (stronger match to its own reference verse)
@@ -199,6 +205,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 105:46 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 105:47 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 105:48 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 107:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:3 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:4 kept in its own chapter (stronger match to its own reference verse)
@@ -206,6 +213,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 107:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:7 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:8 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 107:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:11 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 107:12 kept in its own chapter (stronger match to its own reference verse)
@@ -220,6 +228,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 105:7 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 105:8 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 105:9 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 105:10 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 105:11 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 105:12 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 105:13 kept in its own chapter (stronger match to its own reference verse)
@@ -300,7 +309,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **21** ἐξομολογησάσθωσαν τῷ κυρίῳ τὰ ἐλέη αὐτοῦ καὶ τὰ θαυμάσια αὐτοῦ τοῖς υἱοῖς τῶν ἀνθρώπων,
 **22** καὶ θυσάτωσαν θυσίαν αἰνέσεως, καὶ ἐξαγγειλάτωσαν τὰ ἔργα αὐτοῦ ἐν ἀγαλλιάσει.
 **23** οἱ καταβαίνοντες εἰς τὴν θάλασσαν ἐν πλοίοις, ποιοῦντες ἐργασίαν ἐν ὕδασι πολλοῖς,
-**24** αὐτοὶ εἶδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
+**24** αὐτοὶ εἴδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
 **25** εἶπεν, καὶ ἔστη πνεῦμα καταιγίδος, καὶ ὑψώθη τὰ κύματα αὐτῆς·
 **26** ἀναβαίνουσιν ἕως τῶν οὐρανῶν, καὶ καταβαίνουσιν ἕως τῶν ἀβύσσων· ἡ ψυχὴ αὐτῶν ἐν κακοῖς ἐτήκετο,
 **27** ἐταράχθησαν, ἐσαλεύθησαν ὡς ὁ μεθύων, καὶ πᾶσα ἡ σοφία αὐτῶν κατεπόθη.
@@ -458,7 +467,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `οἱ` over `Οἱ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 
 ### Psalms 106:24
-- **Apparatus:** `εἶδοσαν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **εἶδον** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
+- **Apparatus:** `εἴδοσαν` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **εἶδον** Sixtine/Brenton LXX-Orthodox (Οʹ) *(inflection or spelling (same stem))*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `Κυρίου` over `Κυρίου,` (Sixtine/Brenton) — *Punctuation / spacing difference only*
@@ -789,13 +798,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 24 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** αὐτοὶ εἶδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
-  - `Swete-Amicarelli`: αὐτοὶ εἶδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
-  - `1st1K-LXX`: αὐτοὶ εἶδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
-  - `Swete (B/A/א)`: αὐτοὶ εἶδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
+- **Critical Text:** αὐτοὶ εἴδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
+  - `Swete-Amicarelli`: αὐτοὶ εἴδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
+  - `1st1K-LXX`: αὐτοὶ εἴδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
+  - `Swete (B/A/א)`: αὐτοὶ εἴδοσαν τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
   - `Sixtine/Brenton`: αὐτοὶ εἶδον τὰ ἔργα Κυρίου, καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
   - `LXX-Orthodox (Οʹ)`: αὐτοὶ εἶδον τὰ ἔργα Κυρίου καὶ τὰ θαυμάσια αὐτοῦ ἐν τῷ βυθῷ.
-- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'εἶδοσαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over εἶδον (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
+- **Philological Rationale:** [Lexical, morphological, or word-order variant] Adopted 'εἴδοσαν' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over εἶδον (Sixtine/Brenton). Also normalised 1 orthographic/surface variation(s).
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 25 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)

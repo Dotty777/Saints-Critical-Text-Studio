@@ -1,6 +1,6 @@
 # Deuteronomy 25 — Saints Greek Critical Text
 
-**Division:** `01_Law` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:31Z`
+**Division:** `01_Law` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:19Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,12 +28,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- Sixtine/Brenton: Source import repair, 25:16: 'σου πας ποιῶν ταῦτα, πας ποιῶν ἄδικον.' → 'σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.' (πᾶς … πᾶς (missing circumflex accents in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)). verified import repair applied. Original file unchanged.
 - Swete-Amicarelli: 24:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 24:3 kept in its own chapter (stronger match to its own reference verse)
@@ -115,6 +113,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 26:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 26:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 26:17 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 26:18 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 26:19 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): verse 25:18 runs into its neighbour across the anchor's division between 25:18 and 25:19; re-divided there
 - Swete (B/A/א): 24:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 24:2 kept in its own chapter (stronger match to its own reference verse)
@@ -155,6 +155,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 26:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 26:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 26:17 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 26:18 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 26:19 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 24:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 24:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 24:3 kept in its own chapter (stronger match to its own reference verse)
@@ -216,7 +218,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **13** Οὐκ ἔσται σοι ἐν τῷ μαρσίππῳ στάθμιον καὶ στάθμιον, μέγα ἢ μικρόν·
 **14** οὐκ ἔσται ἐν τῇ οἰκίᾳ σου μέτρον καὶ μέτρον, μέγα ἢ μικρόν·
 **15** στάθμιον ἀληθινὸν καὶ δίκαιον ἔσται σοι, ἵνα πολυήμερος γένῃ ἐπὶ τῆς γῆς ἧς Κύριος ὁ θεός σου δίδωσίν σοι ἐν κλήρῳ.
-**16** Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πας ποιῶν ταῦτα, πας ποιῶν ἄδικον.
+**16** Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.
 **17** Μνήσθητι ὅσα ἐποίησέν σοι Ἀμαλὴκ ἐν τῇ ὁδῷ ἐκπορευομένου σου ἐκ γῆς Αἰγύπτου,
 **18** πῶς ἀντέστη σοι ἐν τῇ ὁδῷ καὶ ἔκοψέν σου τὴν οὐραγίαν, τοὺς κοπιῶντας ὀπίσω σου, σὺ δὲ ἐπείνας καὶ ἐκοπίας, καὶ οὐκ ἐφοβήθη τὸν θεόν·
 **19** καὶ ἔσται ἡνίκα ἐὰν καταπαύσῃ σε Κύριος ὁ θεός σου ἀπὸ πάντων τῶν ἐχθρῶν σου τῶν κύκλῳ σου ἐν τῇ γῇ ᾗ Κύριος ὁ θεός σου δίδωσίν σοι κληρονομῆσαι, ἐξαλείψεις τὸ ὄνομα Ἀμαλὴκ ἐκ τῆς ὑπὸ τὸν οὐρανόν, καὶ οὐ μὴ ἐπιλάθῃ.
@@ -504,8 +506,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 16 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πας ποιῶν ταῦτα, πας ποιῶν ἄδικον.
-  - `Sixtine/Brenton`: Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πας ποιῶν ταῦτα, πας ποιῶν ἄδικον.
+- **Critical Text:** Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.
+  - `Sixtine/Brenton`: Ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.
   - `LXX-Orthodox (Οʹ)`: ὅτι βδέλυγμα Κυρίῳ τῷ Θεῷ σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.
 - **Philological Rationale:** Unanimous witness agreement across Sixtine/Brenton (1 admitted witnesses; zero substantive divergence).
 

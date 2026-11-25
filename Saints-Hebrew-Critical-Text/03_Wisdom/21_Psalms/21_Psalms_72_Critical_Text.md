@@ -1,6 +1,6 @@
 # Psalms 72 — Saints Hebrew Critical Text
 
-**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:48Z`
+**Division:** `03_Wisdom` · **Language:** `Hebrew` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:59Z`
 
 **Versification:** Masoretic (MT) numbering. Psalms 10–147 carry MT numbers, one higher than the Septuagint/Vulgate psalm numbers used by the Greek and Latin editions. Numbering anchor for this chapter: `WLC (L)`. Spelling and punctuation follow `MAM (Aleppo)` where it attests the adopted reading.
 
@@ -28,15 +28,164 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
 | Leningrad-USFX [DISREGARDED] | `DISREGARDED_CORRUPT` | AI GATEKEEPER CATCH — DISREGARDED (Corrupt Transcription): Word-boundary spaces were stripped during upstream USFX export and '/' morpheme dividers remain glued inside tokens (e.g., בִּ/שְׁנַ֤תשְׁתַּ֙יִם֙). Superseded by clean WLC TSV and MAM OSIS XML. |
-| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (11Q5) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 11QPsᵃ (Ps 151) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵃ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 1QIsaᵇ (1Q8) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QJerᵇ,ᵈ | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| 4QSamᵃ (4Q51) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| DSS-Torah (4Q) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (Abegg / ETCBC DSS — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| SP (Samaritan) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (CACCHT / ETCBC — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| BHS (BHSA) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC 4.0 (ETCBC / VU Amsterdam — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+
+### Versification & Alignment Notes
+- MAM (Aleppo): 71:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:20 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:21 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:22 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:23 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 71:24 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:1 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:2 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:3 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:4 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:5 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:6 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:7 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:8 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:9 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:10 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:11 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:12 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:13 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:14 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:15 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:16 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:17 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:18 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:19 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:20 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:21 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:22 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:23 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:24 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:25 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:26 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:27 kept in its own chapter (stronger match to its own reference verse)
+- MAM (Aleppo): 73:28 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:20 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:21 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:22 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:23 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 71:24 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:1 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:2 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:3 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:4 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:5 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:6 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:7 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:8 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:9 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:10 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:11 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:12 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:13 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:14 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:15 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:16 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:17 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:18 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:19 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:20 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:21 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:22 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:23 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:24 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:25 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:26 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:27 kept in its own chapter (stronger match to its own reference verse)
+- BenChayyim (1525): 73:28 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:20 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:21 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:22 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:23 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 71:24 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:1 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:2 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:3 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:4 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:5 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:6 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:7 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:8 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:9 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:10 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:11 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:12 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:13 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:14 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:15 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:16 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:17 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:18 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:19 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:20 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:21 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:22 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:24 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:25 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:26 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:27 kept in its own chapter (stronger match to its own reference verse)
+- Letteris (1852): 73:28 kept in its own chapter (stronger match to its own reference verse)
 
 ---
 
@@ -91,7 +240,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `יִנּ֢וֹן` over `om.` (WLC (L)) — *Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only*
 - *Disregarded Surface Variant:* kept `כׇּל־` over `כָּל־` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
 - *Disregarded Surface Variant:* kept `(adopted text)` over `(ינין) / `, `(ינין) / ` (Letteris (1852)) — *Apparatus witness, not a variant: Ketiv / qere presentation (one edition prints the written form in brackets)*
-- *Disregarded Surface Variant:* kept `(adopted text)` over ` / ׀` (Letteris (1852)) — *Apparatus witness, not a variant: Paseq / legarmeh stroke (an accent sign) printed by one edition only*
 
 ### Psalms 72:18
 - *Disregarded Surface Variant:* kept `יְהֹוָ֣ה` over `יְהוָ֣ה` (WLC (L)) — *Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention*
@@ -232,7 +380,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Critical Text:** יְהִ֤י שְׁמ֨וֹ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֮ (ינין) יִנּ֢וֹן שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כׇּל־גּוֹיִ֥ם יְאַשְּׁרֽוּהוּ׃
   - `MAM (Aleppo)`: יְהִ֤י שְׁמ֨וֹ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֮ (ינין) יִנּ֢וֹן שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כׇּל־גּוֹיִ֥ם יְאַשְּׁרֽוּהוּ׃
   - `WLC (L)`: יְהִ֤י שְׁמ֨וֹ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֮ ינין שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כָּל־גּוֹיִ֥ם יְאַשְּׁרֽוּהוּ׃
-  - `BenChayyim (1525)`: יְהִ֤י שְׁמ֨וֹ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֮ *יָנִין (יִנֹּ֪ון) שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כָּל־גֹּויִ֥ם יְאַשְּׁרֽוּהוּ׃
+  - `BenChayyim (1525)`: יְהִ֤י שְׁמ֨וֹ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֮ יָנִין (יִנֹּ֪ון) שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כָּל־גֹּויִ֥ם יְאַשְּׁרֽוּהוּ׃
   - `Letteris (1852)`: יְהִ֤י שְׁמ֨וֹ ׀ לְֽעוֹלָ֗ם לִפְנֵי־שֶׁמֶשׁ֘ יִנֹּ֪ין שְׁ֫מ֥וֹ וְיִתְבָּ֥רְכוּ ב֑וֹ כָּל־גּ֝וֹיִ֗ם יְאַשְּׁרֻֽהוּ׃
 - **Philological Rationale:** Substantively unanimous across MAM (Aleppo), WLC (L). Normalised 3 surface variation(s) (Ketiv / qere presentation: MAM prints both written and read forms; WLC export carries ketiv only; Masoretic cantillation / meteg / qamats-qatan / divine-name pointing convention; Punctuation / spacing difference only).
 

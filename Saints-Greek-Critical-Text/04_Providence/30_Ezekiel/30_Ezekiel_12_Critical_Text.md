@@ -1,6 +1,6 @@
 # Ezekiel 12 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:32Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:41Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,15 +28,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 11:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:7 kept in its own chapter (stronger match to its own reference verse)
@@ -44,6 +42,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 11:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete-Amicarelli: 11:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 11:17 kept in its own chapter (stronger match to its own reference verse)
@@ -78,11 +77,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete-Amicarelli: 13:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete-Amicarelli: 13:23 kept in its own chapter (stronger match to its own reference verse)
-- Swete-Amicarelli: 12:8 not collated (no verse of the reference matches its wording)
-- Swete-Amicarelli: 1 verse(s) re-aligned by content (8←11:14)
 - 1st1K-LXX: 11:1 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:2 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:3 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:4 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:5 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:6 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:7 kept in its own chapter (stronger match to its own reference verse)
@@ -90,6 +88,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 11:9 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:10 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:13 kept in its own chapter (stronger match to its own reference verse)
+- 1st1K-LXX: 11:14 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:15 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:16 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 11:17 kept in its own chapter (stronger match to its own reference verse)
@@ -124,11 +123,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - 1st1K-LXX: 13:21 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:22 kept in its own chapter (stronger match to its own reference verse)
 - 1st1K-LXX: 13:23 kept in its own chapter (stronger match to its own reference verse)
-- 1st1K-LXX: 12:8 not collated (no verse of the reference matches its wording)
-- 1st1K-LXX: 1 verse(s) re-aligned by content (8←11:14)
 - Swete (B/A/א): 11:1 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:2 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:3 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:4 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:5 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:6 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:7 kept in its own chapter (stronger match to its own reference verse)
@@ -136,6 +134,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 11:9 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:10 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:13 kept in its own chapter (stronger match to its own reference verse)
+- Swete (B/A/א): 11:14 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:15 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:16 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 11:17 kept in its own chapter (stronger match to its own reference verse)
@@ -170,11 +169,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - Swete (B/A/א): 13:21 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:22 kept in its own chapter (stronger match to its own reference verse)
 - Swete (B/A/א): 13:23 kept in its own chapter (stronger match to its own reference verse)
-- Swete (B/A/א): 12:8 not collated (no verse of the reference matches its wording)
-- Swete (B/A/א): 1 verse(s) re-aligned by content (8←11:14)
 - LXX-Orthodox (Οʹ): 11:1 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:2 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:3 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 11:4 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:5 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:6 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:7 kept in its own chapter (stronger match to its own reference verse)
@@ -182,6 +180,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 11:9 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:10 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:13 kept in its own chapter (stronger match to its own reference verse)
+- LXX-Orthodox (Οʹ): 11:14 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:15 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:16 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 11:17 kept in its own chapter (stronger match to its own reference verse)
@@ -216,8 +215,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - LXX-Orthodox (Οʹ): 13:21 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 13:22 kept in its own chapter (stronger match to its own reference verse)
 - LXX-Orthodox (Οʹ): 13:23 kept in its own chapter (stronger match to its own reference verse)
-- LXX-Orthodox (Οʹ): 12:8 not collated (no verse of the reference matches its wording)
-- LXX-Orthodox (Οʹ): 1 verse(s) re-aligned by content (8←11:14)
 
 ---
 
@@ -230,7 +227,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **5** ἐνώπιον αὐτῶν· διόρυξον σεαυτῷ εἰς τὸν τοῖχον, καὶ διεξελεύσῃ δι᾽ αὐτοῦ.
 **6** ἐνώπιον αὐτῶν ἐπ᾽ ὤμων ἀναλημφθήσῃ καὶ κεκρυμμένος ἐξελεύσῃ, τὸ πρόσωπόν σου συγκαλύψεις καὶ οὐ μὴ ἴδῃς τὴν γῆν· διότι τέρας δέδωκά σε τῷ οἴκῳ Ἰσραήλ.
 **7** καὶ ἐποίησα οὕτως κατὰ πάντα ὅσα ἐνετείλατό μοι, καὶ σκεύη ἐξήνεγκα αἰχμαλωσίας ἡμέρας, καὶ ἑσπέρας διώρυξα ἐμαυτῷ τὸν τοῖχον καὶ κεκρυμμένος ἐξῆλθον· ἐπ᾽ ὤμων ἀνελήμφθην ἐνώπιον αὐτῶν.
-**8** Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ λέγων
+**8** Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ τὸ πρωὶ λέγων
 **9** Υἱὲ ἀνθρώπου, οὐκ εἶπαν πρὸς σὲ ὁ οἶκος τοῦ Ἰσραήλ, οἶκος ὁ παραπικραίνων Τί σὺ ποιεῖς;
 **10** εἰπὸν πρὸς αὐτούς Τάδε λέγει κύριος Κύριος Ὁ ἄρχων καὶ ὁ ἀφηγούμενος ἐν Ἰερουσαλὴμ καὶ παντὶ οἴκῳ Ἰσραὴλ οἵ εἰσιν ἐν μέσῳ αὐτῶν,
 **11** εἰπὸν ὅτι ἐγὼ τέρατα ποιῶ, ὃν τρόπον πεποίηκα οὕτως ἔσται αὐτῷ· ἐν μετοικεσίᾳ καὶ ἐν αἰχμαλωσίᾳ πορεύσονται,
@@ -325,7 +322,10 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `(adopted text)` over `ἀνελήμφθην / ἀνελήφθην` (LXX-Orthodox (Οʹ)) — *Apparatus witness, not a variant: Nasal spelling (λημψ- / ληψ-)*
 
 ### Ezekiel 12:8
-- **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) LXX-Orthodox (Οʹ) **]** **τοπρωῒ** Sixtine/Brenton *(omission / addition)*
+- **Apparatus:** `om.` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **τοπρωῒ** Sixtine/Brenton LXX-Orthodox (Οʹ) *(omission / addition)*
+  - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
+  - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
+- **Apparatus:** `τὸ πρωὶ` Swete-Amicarelli 1st1K-LXX Swete (B/A/א) **]** **om.** Sixtine/Brenton LXX-Orthodox (Οʹ) *(omission / addition)*
   - *external: independent streams:* Adopted reading: Vaticanus-based LXX (Swete); other reading(s): Sixtine / Ecclesiastical LXX.
   - *external: two-stream policy:* Policy decision, not independent evidence: Swete (a diplomatic print of Codex Vaticanus) against the Sixtine/Brenton text, itself printed from Vaticanus. Close to a coin flip; the heavier edition is followed.
 - *Disregarded Surface Variant:* kept `μὲ` over `μέ` (1st1K-LXX, Swete (B/A/א)) — *Accentuation / capitalisation / breathing convention*
@@ -541,15 +541,15 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `LXX-Orthodox (Οʹ)`: καὶ ἐποίησα οὕτως κατὰ πάντα, ὅσα ἐνετείλατό μοι, καὶ σκεύη ἐξήνεγκα ὡς σκεύη αἰχμαλωσίας ἡμέρας καὶ ἑσπέρας διώρυξα ἐμαυτῷ τὸν τοῖχον καὶ κεκρυμμένος ἐξῆλθον, ἐπ᾿ ὤμων ἀνελήφθην ἐνώπιον αὐτῶν.
 - **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 6 surface variation(s) (Accentuation / capitalisation / breathing convention; Nasal spelling (λημψ- / ληψ-); Punctuation / spacing difference only).
 
-### Verse 8 (Confidence: `52.9%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ λέγων
-  - `Swete-Amicarelli` *(numbered 11:14 in this witness)*: Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ λέγων
-  - `1st1K-LXX` *(numbered 11:14 in this witness)*: Καὶ ἐγένετο λόγος Κυρίου πρὸς μέ λέγων
-  - `Swete (B/A/א)` *(numbered 11:14 in this witness)*: Καὶ ἐγένετο λόγος Κυρίου πρὸς μέ λέγων
+### Verse 8 (Confidence: `28.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
+- **Critical Text:** Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ τὸ πρωὶ λέγων
+  - `Swete-Amicarelli`: Καὶ ἐγένετο λόγος Κυρίου πρὸς μὲ τὸ πρωὶ λέγων
+  - `1st1K-LXX`: Καὶ ἐγένετο λόγος Κυρίου πρὸς μέ τὸ πρωὶ λέγων
+  - `Swete (B/A/א)`: Καὶ ἐγένετο λόγος Κυρίου πρὸς μέ τὸ πρωὶ λέγων
   - `Sixtine/Brenton`: Καὶ ἐγένετο λόγος Κυρίου τοπρωῒ πρὸς μὲ, λέγων,
-  - `LXX-Orthodox (Οʹ)` *(numbered 11:14 in this witness)*: Καὶ ἐγένετο λόγος Κυρίου πρός με λέγων·
-- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τοπρωῒ (Sixtine/Brenton). Versification: 1st1K-LXX numbers this verse 11:14; Swete (B/A/א) numbers this verse 11:14; Swete-Amicarelli numbers this verse 11:14 (re-aligned by content). Also normalised 2 orthographic/surface variation(s).
-- *confidence:* Verse confidence 53% = product of 1 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
+  - `LXX-Orthodox (Οʹ)`: Καὶ ἐγένετο λόγος Κυρίου τὸ πρωΐ πρός με λέγων·
+- **Philological Rationale:** [Addition / omission between witnesses] Adopted 'om.' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over τοπρωῒ (Sixtine/Brenton). [Variation unit spanning several words] Adopted 'τὸ πρωὶ' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 2 orthographic/surface variation(s).
+- *confidence:* Verse confidence 28% = product of 2 unit confidence(s); not calibrated for this corpus (same formula as the Greek NT; read it as a relative measure).
 
 ### Verse 9 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** Υἱὲ ἀνθρώπου, οὐκ εἶπαν πρὸς σὲ ὁ οἶκος τοῦ Ἰσραήλ, οἶκος ὁ παραπικραίνων Τί σὺ ποιεῖς;

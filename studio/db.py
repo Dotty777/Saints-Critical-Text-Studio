@@ -23,7 +23,7 @@ from .parsers import resolve_corpus_path
 DB_PATH = DATA_DIR / "studio.db"
 
 # Bump when the built-in witness descriptions or self-contained Studio paths below change.
-SEED_VERSION = 9
+SEED_VERSION = 10
 
 
 def utc_now() -> str:
@@ -1778,11 +1778,11 @@ def seed_default_witnesses(conn: sqlite3.Connection) -> None:
             "ADMITTED",
             "CC BY-SA 4.0 (Digital Latin Library transcription)",
             "c. 700 CE Northumbrian Hieronymian Pandect",
-            "Early Hieronymian Vulgate (Pre-Sixto-Clementine)",
+            "Early Hieronymian Vulgate (Pre-Sixto-Clementine, Apparatus Witness)",
             0.97,
             "amiatinus_tei",
             LATIN_RESEARCH_ROOT / "02_Tier2_Diplomatic_Critical_Vulgate_PD" / "OT_NT_Codex_Amiatinus_TEI" / "text",
-            "ADMITTED (Tier 2 Premier Early Vulgate Pandect — OT Genesis): Oldest surviving complete Latin Bible manuscript (c. 700 CE); the Digital Latin Library CC BY-SA 4.0 TEI OT transcription currently covers Genesis (Exodus–2 Maccabees contain chapter-list capitula only). Source sigla #c, #r and #s name printed editions (Hetzenauer 1906, Rome 1926–95, Stuttgart 2007), not scribal hands; the Studio reads the manuscript's own text (<lem>, <sic>/<orig>, scribal additions) and never substitutes an edition's reading or editor-supplied text.",
+            "ADMITTED (Tier 2 Apparatus Manuscript — OT Genesis): Oldest surviving complete Latin Bible manuscript (c. 700 CE); the Digital Latin Library CC BY-SA 4.0 TEI OT transcription currently covers Genesis (Exodus–2 Maccabees contain chapter-list capitula only). Kept in catalog.APPARATUS_ONLY (matching lat-amiatinus-nt) so unedited 7th-century diplomatic readings and <sic>/<surplus> forms are recorded systematically in the apparatus without altering the Sixto-Clementine critical text. Source sigla #c, #r and #s name printed editions (Hetzenauer 1906, Rome 1926–95, Stuttgart 2007), not scribal hands; the Studio reads the manuscript's own text (<lem>, <sic>/<orig>, scribal additions) and never substitutes an edition's reading or editor-supplied text.",
             {"license_safe": 0.99, "independence": 1.0, "quality": 0.98, "confidence": 0.99},
         ),
         (
@@ -1816,7 +1816,7 @@ def seed_default_witnesses(conn: sqlite3.Connection) -> None:
             0.88,
             "usfx_xml",
             LATIN_RESEARCH_ROOT / "latin-base" / "lat-clementine.usfx.xml",
-            "ADMITTED (Tier 1 Complete 70-Book Latin Majority Witness): Public-domain Sixto-Clementine Vulgate covering all 70 books; leads the clementine_edition family.",
+            "ADMITTED (Tier 1 Complete 70-Book Latin Base & Versification Anchor): Public-domain Sixto-Clementine Vulgate covering all 70 books in native Vulgate chapter and verse order (Esther 1–16, Daniel 1–14, Joel 1–3, Malachi 1–4); leads the clementine_edition family.",
             {"license_safe": 1.0, "independence": 0.92, "quality": 0.97, "confidence": 0.98},
         ),
         (
@@ -1850,7 +1850,7 @@ def seed_default_witnesses(conn: sqlite3.Connection) -> None:
             0.86,
             "latin_saints_json",
             LATIN_TRANSLATION_ROOT,
-            "ADMITTED (Tier 1 numbering anchor): The Clementine Latin as shown on Saints.Bible, numbered like the site. Same edition as Clem1598-USFX, so the family votes once together; it defines Latin verse numbering and other Latin witnesses are re-aligned to it by content.",
+            "ADMITTED (Tier 1 Apparatus Reference — Saints.Bible Latin Column): Clementine Latin renumbered to Saints.Bible slots. Kept in catalog.APPARATUS_ONLY after switching Latin to native Sixto-Clementine Vulgate numbering so Greek-aligned Saints.Bible renumbering never votes on or reorders the Latin critical text.",
             {"license_safe": 1.0, "independence": 0.80, "quality": 0.98, "confidence": 0.97},
         ),
         (
@@ -2248,7 +2248,10 @@ def seed_default_witnesses(conn: sqlite3.Connection) -> None:
             (
                 utc_now(),
                 f"Built-in witness descriptions refreshed to catalogue v{SEED_VERSION} "
-                "(v9: integrated Phase 1–3 open-licence corpora + owner-authorized Tier 5/NC apparatus witnesses — "
+                "(v10: switched Latin to native Sixto-Clementine Vulgate versification anchor [usfx_xml; Esther 1–16, "
+                "Daniel 1–14, Joel 1–3, Malachi 1–4] and moved lat-amiatinus [Genesis] and lat-saints-staging to "
+                "catalog.APPARATUS_ONLY for full 70-book consistency; "
+                "v9: integrated Phase 1–3 open-licence corpora + owner-authorized Tier 5/NC apparatus witnesses — "
                 "Greek OT: Rahlfs 1935, Codex Sinaiticus CSP-OT, OG Daniel, Ottley Codex A Isaiah; "
                 "Greek NT: NA28 & THGNT via STEPBible TAGNT CC BY 4.0, Tregelles 1879, Pickering-f35, TR-Elzevir 1624, "
                 "Codex Zacynthius 040, IGNTP Pauline MSS [Dᵖ/06, Fᵖ/010, Gᵖ/012, Ψ/044, 81, 1881 + full 33 & 1739], "

@@ -225,41 +225,62 @@ class HebrewRegressions(unittest.TestCase):
 
 class LatinRegressions(unittest.TestCase):
     CASES = [
-        ("genesis", (31, 55), [(32, 1)]),           # Latin keeps Vulgate numbering here
+        ("genesis", (31, 55), [(32, 1)]),           # native Vulgate numbering
         ("genesis", (32, 1), [(32, 2)]),
-        ("exodus", (36, 29), [(36, 31)]),
-        ("exodus", (39, 16), [(39, 15)]),           # golden altar, oil, incense
-        ("exodus", (39, 20), [(39, 14)]),           # ark, poles
+        ("exodus", (39, 22), [(36, 31)]),           # pomegranates of the robe (Vulgate 39:22 = MT 39:24)
+        ("exodus", (39, 24), [(36, 33)]),           # bell and pomegranate (Vulgate 39:24 = MT 39:26)
+        ("exodus", (39, 37), [(39, 15)]),           # golden altar, oil, incense (Vulgate 39:37 = MT 39:38)
+        ("exodus", (39, 34), [(39, 14)]),           # ark, poles (Vulgate 39:34 = MT 39:35)
         ("leviticus", (11, 5), [(11, 6)]),          # Choerogryllus
         ("leviticus", (11, 6), [(11, 5)]),          # Lepus
         ("leviticus", (11, 15), [(11, 15)]),        # corvini generis
-        ("numbers", (1, 28), [(1, 28)]),            # Studio Latin now matches Saints (1:28 Zabulon, 1:30 Ephraim)
-        ("numbers", (1, 30), [(1, 30)]),
-        ("numbers", (27, 3), [(27, 3), (27, 4), (27, 5), (27, 6), (27, 7), (27, 8)]),
-        ("deuteronomy", (5, 17), [(5, 17)]),        # Latin and site both have adultery first
-        ("deuteronomy", (29, 1), [(29, 1)]),
+        ("numbers", (1, 28), [(1, 26)]),            # native Vulgate MT order (1:28 Issachar -> Saints 1:26)
+        ("numbers", (1, 30), [(1, 28)]),            # 1:30 Zabulon -> Saints 1:28
+        ("numbers", (1, 32), [(1, 30)]),            # 1:32 Ephraim -> Saints 1:30
+        ("numbers", (6, 27), [(6, 23)]),            # Priestly blessing conclusion folded into Saints 6:23
+        ("numbers", (27, 3), [(27, 3), (27, 4)]),   # native Vulgate splits 27:3-8 cleanly
+        ("deuteronomy", (5, 17), [(5, 18)]),        # native Vulgate Non occides -> Saints 5:18
+        ("deuteronomy", (5, 18), [(5, 17)]),        # native Vulgate Neque moechaberis -> Saints 5:17
+        ("deuteronomy", (29, 1), [(28, 69)]),       # words of the covenant -> Saints 28:69
+        ("deuteronomy", (29, 2), [(29, 1)]),        # Moses called -> Saints 29:1
         ("nehemiah", (7, 68), [(7, 68)]),           # horses and mules: only the site has it
+        ("esther", (5, 2), [(5, 2)]),               # restored native Esth 5:2
+        ("esther", (11, 1), [(10, 3)]),             # Add F colophon
+        ("esther", (11, 2), [(1, 1)]),              # Add A dream
+        ("esther", (13, 1), [(3, 13)]),             # Add B decree
+        ("esther", (13, 8), [(4, 17)]),             # Add C Mordecai's prayer
+        ("esther", (15, 4), [(5, 1)]),              # Add D Esther before king
+        ("esther", (16, 1), [(8, 12)]),             # Add E second decree
         ("psalms", (12, 5), [(12, 5)]),
         ("daniel", (3, 54), [(3, 54)]),
         ("daniel", (3, 67), [(3, 67)]),
         ("daniel", (3, 98), [(4, 37)]),
-        ("daniel", (1, 22), []),                    # Susanna is not in the site's navigation
+        ("daniel", (13, 1), []),                    # Susanna (native Dan 13) is not in site navigation
+        ("daniel", (14, 1), []),                    # Bel & Dragon (native Dan 14) is not in site navigation
+        ("malachi", (4, 4), [(3, 24)]),             # native Mal 4:4-6 -> Saints 3:24, 3:22-23
+        ("malachi", (4, 5), [(3, 22)]),
         ("sirach", (31, 12), [(31, 12)]),           # Studio Greek 34:12
         ("sirach", (19, 1), [(19, 1)]),             # '-' rules re-tested by reading
         ("sirach", (42, 4), [(42, 4)]),
-        ("sirach", (6, 24), [(6, 24)]),
+        ("sirach", (6, 25), [(6, 24)]),
         ("sirach", (9, 1), [(9, 1)]),
         ("sirach", (14, 2), [(14, 2)]),
-        ("sirach", (47, 17), [(47, 17)]),
-        ("sirach", (3, 21), [(3, 21)]),
-        ("sirach", (22, 9), [(22, 9)]),
-        ("sirach", (38, 32), [(38, 32)]),
-        ("sirach", (43, 30), [(43, 30)]),
+        ("sirach", (47, 18), [(47, 17)]),
+        ("sirach", (3, 22), [(3, 21)]),
+        ("sirach", (22, 8), [(22, 9)]),
+        ("sirach", (38, 36), [(38, 32)]),
+        ("sirach", (43, 33), [(43, 30)]),
         ("sirach", (33, 22), [(33, 22)]),
-        ("sirach", (36, 19), [(36, 19)]),
-        ("sirach", (1, 15), []),                    # placeholder: no Latin text
+        ("sirach", (36, 21), [(36, 19)]),
+        ("sirach", (1, 15), []),                    # native Greek II plus (no longer an English placeholder)
+        ("sirach", (29, 16), [(29, 13)]),           # native Vulgate 3-verse split -> Saints 29:13
+        ("sirach", (29, 17), [(29, 13)]),
+        ("sirach", (29, 18), [(29, 13)]),
         ("luke", (4, 19), [(4, 18), (4, 19)]),
+        ("matthew", (5, 4), [(5, 5)]),              # native Vulgate beatitude order
+        ("matthew", (5, 5), [(5, 4)]),
         ("matthew", (17, 14), [(17, 15), (17, 14)]),  # 'dicens: Domine, miserere filio meo ...' = 17:15
+        ("matthew", (17, 20), []),                  # 'Hoc autem genus...' = TR 17:21 (extra-site)
         ("acts", (9, 6), []),
         ("john", (3, 16), [(3, 16)]),
     ]
@@ -283,27 +304,36 @@ jeremiah 7:28>7:27 25:13>25:13
 proverbs 31:26>31:28
 """,
     "latin": """
-1-chronicles 12:4>12:4
+1-chronicles 11:32>11:32 12:4>12:4 20:7>20:8
+1-maccabees 1:23>1:22 1:24>1:23 1:51>1:48
 2-corinthians 1:23>1:24
 2-timothy 4:8>4:8
 3-john 1:14>1:14
 acts 7:55>7:55 9:7>9:6 14:6>14:6
-deuteronomy 6:11>6:11
-exodus 39:2>39:3 39:7>39:9 39:19>39:19
-ezekiel 7:9>7:10
+deuteronomy 6:13>6:12
+exodus 37:18>38:15 38:30>39:9 39:17>36:24 39:18>36:26 39:39>39:15 39:40>39:21 40:13>40:15
+ezekiel 2:9>2:10 7:5>7:10
 genesis 5:31>5:31 50:22>50:23
-hosea 6:2>6:3
+hosea 6:3>6:3
+isaiah 40:8>40:8
+jeremiah 7:28>7:27 25:13>25:13 37:4>44:5
+job 42:16>42:16
 john 11:56>11:56
-luke 4:19>4:18 9:43>9:43
+joshua 21:36>21:36 21:37>21:38
+judges 21:24>21:25
+leviticus 26:45>26:45
+luke 4:19>4:18 9:44>9:44
 mark 4:40>4:41
 matthew 17:14>17:15
-nehemiah 7:44>7:43 7:48>7:47
-numbers 3:9>3:10 5:23>5:26 15:4>15:4 15:11>15:11 17:7>17:7 20:28>20:28 27:3>27:3 28:29>28:29 35:13>35:15 35:22>35:25 36:7>36:8
-proverbs 15:5>15:5 31:25>31:28
-psalms 4:6>4:6 4:7>4:7 12:1>12:2 15:10>15:11 43:22>43:23 55:11>55:11 72:23>72:22 108:17>108:18 110:7>110:7 129:4>129:5
+micah 5:11>5:10
+nehemiah 3:30>3:30 7:44>7:43 7:48>7:47 12:33>12:34
+numbers 3:10>3:10 11:34>11:34 27:3>27:3 28:30>28:31
+proverbs 15:5>15:5 31:26>31:28
+psalms 4:6>4:6 4:7>4:7 12:1>12:2 15:10>15:11 43:22>43:23 55:11>55:11 72:23>72:22 108:18>108:18 110:7>110:7 129:4>129:5
 revelation 20:7>20:8 20:9>20:10
-sirach 4:27>4:27 6:34>6:35 12:13>12:13 14:24>14:25 18:1>18:1 18:9>18:10 19:5>19:6 20:2>20:2 24:10>24:11 32:2>32:2 32:8>32:8 32:20>32:20 33:9>33:9 33:14>33:15 33:28>33:27 33:31>33:32 35:12>35:12 35:17>35:17 35:18>35:19 35:19>35:21 36:16>36:17 36:26>36:26 37:17>37:18 38:33>38:33 38:34>38:34 41:3>41:3 41:20>41:20 41:21>41:22 41:23>41:23 41:24>41:23 41:26>41:27 45:25>45:26 47:14>47:14 47:15>47:16 51:2>51:2 51:11>51:10
-wisdom-of-solomon 2:3>2:4
+sirach 4:32>4:27 6:35>6:35 12:13>12:13 14:25>14:25 18:1>18:1 18:8>18:10 19:5>19:6 20:1>20:2 24:15>24:11 32:2>32:2 32:11>32:8 32:25>32:20 33:10>33:9 33:15>33:15 33:28>33:27 33:31>33:32 35:15>35:12 35:21>35:17 35:22>35:19 35:23>35:21 36:19>36:17 36:28>36:26 37:21>37:18 38:37>38:33 38:38>38:34 41:5>41:3 41:24>41:20 41:25>41:22 41:26>41:23 41:27>41:23 42:1>41:27 45:31>45:26 47:16>47:14 47:17>47:16 51:2>51:2 51:15>51:10
+song-of-songs 7:1>7:2
+wisdom-of-solomon 2:3>2:4 19:13>19:14 19:20>19:22
 """,
     "greek": """
 1-chronicles 12:4>12:4 28:14>28:14
@@ -318,7 +348,7 @@ leviticus 8:18>8:18
 nehemiah 12:17>12:17
 numbers 21:19>21:20 21:21>21:21 27:3>27:3
 proverbs 15:5>15:6 31:24>31:25
-psalms 12:1>12:2 12:5>12:5
+psalms 12:1>12:2
 sirach 6:2>5:15 23:16>23:17 29:18>29:17 30:25>33:17 30:40>33:32 32:12>35:12 32:17>35:17 32:18>35:21 32:19>35:22 36:16>36:10 36:22>36:16 36:31>36:26 39:17>39:17 40:5>40:5 41:3>41:3 41:18>41:19 41:19>41:20 41:20>41:21 41:21>41:23 41:22>41:25 41:24>41:27 43:17>43:17 46:6>46:6 47:23>47:23 51:12>51:12
 wisdom-of-solomon 4:18>4:19
 """,
@@ -367,35 +397,35 @@ class FinalCheckRegressions(unittest.TestCase):
         ("hebrew", "proverbs", (31, 26), [(31, 28), (31, 25)]),  # 'wisely ... law ... mercy' = 31:28
         ("hebrew", "proverbs", (15, 5), [(15, 5)]),            # MT lacks the LXX plus that opens site 15:6
         ("hebrew", "jeremiah", (25, 13), [(25, 13), (25, 14)]),  # kept: site 25:13 holds it
-        # Latin verses straddling a Greek/site boundary
+        # Latin verses straddling a Greek/site boundary (native Vulgate numbering)
         ("latin", "psalms", (110, 7), [(110, 7), (110, 6)]),   # 'Opera manuum ejus veritas et judicium'
         ("latin", "psalms", (110, 8), [(110, 8)]),
         ("latin", "mark", (4, 40), [(4, 41), (4, 40)]),        # 'et timuerunt timore magno ...'
         ("latin", "genesis", (50, 22), [(50, 23), (50, 22)]),
-        ("latin", "psalms", (108, 17), [(108, 18), (108, 17)]),
-        ("latin", "hosea", (6, 2), [(6, 3), (6, 2)]),
+        ("latin", "psalms", (108, 18), [(108, 18), (108, 17)]),
+        ("latin", "hosea", (6, 3), [(6, 3), (6, 2)]),
         ("latin", "revelation", (20, 7), [(20, 8), (20, 7)]),
         ("latin", "revelation", (20, 9), [(20, 10), (20, 9)]),
-        ("latin", "numbers", (35, 13), [(35, 15), (35, 13), (35, 14)]),
-        ("latin", "numbers", (35, 22), [(35, 25), (35, 22), (35, 23), (35, 24)]),
-        ("latin", "sirach", (37, 17), [(37, 18), (37, 17), (37, 19)]),
-        ("latin", "sirach", (45, 25), [(45, 26), (45, 25)]),
-        ("latin", "exodus", (39, 2), [(39, 3), (39, 2)]),      # 'a viginti annis ... sexcentis tribus millibus'
-        ("latin", "exodus", (39, 3), [(39, 4)]),               # 'centum talenta argenti ... conflatae'
+        ("latin", "numbers", (35, 13), [(35, 13)]),            # native Vulgate un-merges 35:13-15 cleanly
+        ("latin", "numbers", (35, 22), [(35, 22)]),            # native Vulgate un-merges 35:22-25 cleanly
+        ("latin", "sirach", (37, 21), [(37, 18), (37, 17), (37, 19)]),
+        ("latin", "sirach", (45, 31), [(45, 26), (45, 25)]),
+        ("latin", "exodus", (38, 26), [(39, 3)]),              # 'a viginti annis ... sexcentis tribus millibus'
+        ("latin", "exodus", (38, 27), [(39, 4)]),              # 'centum talenta argenti ... conflatae'
         ("latin", "wisdom-of-solomon", (2, 3), [(2, 4), (2, 3)]),  # 'transibit vita nostra ... vestigium nubis'
-        ("latin", "proverbs", (31, 25), [(31, 28), (31, 25)]),
-        ("latin", "ezekiel", (7, 9), [(7, 10), (7, 9)]),       # = Hebrew 7:5
-        ("latin", "sirach", (41, 3), [(41, 3), (41, 4)]),      # Latin divides 41:3/4 unlike the Studio Greek
+        ("latin", "proverbs", (31, 26), [(31, 28), (31, 25)]),
+        ("latin", "ezekiel", (7, 5), [(7, 10), (7, 9)]),       # = Hebrew 7:5
+        ("latin", "sirach", (41, 5), [(41, 3), (41, 4)]),      # Latin divides 41:3/4 unlike the Studio Greek
         ("latin", "proverbs", (15, 5), [(15, 5), (15, 6)]),    # the Vulgate has the plus, but 15:5 holds most
-        ("latin", "sirach", (1, 1), [(1, 1)]),                 # no Prologue in the Latin verse
+        ("latin", "sirach", (1, 1), []),                       # native USFX Sir 1:1 carries the Prologue (233/247 wds)
         # kept after reading: the first target holds most of the Latin verse's indexed words
         ("latin", "1-samuel", (20, 22), [(20, 21)]),           # 9 words of site 20:21b vs 8 of 20:22
         ("latin", "luke", (4, 19), [(4, 18), (4, 19)]),
         ("latin", "john", (11, 56), [(11, 56), (11, 57)]),
         ("latin", "acts", (7, 55), [(7, 55), (7, 56)]),
         ("latin", "3-john", (1, 14), [(1, 14), (1, 15)]),
-        ("latin", "deuteronomy", (6, 11), [(6, 11), (6, 12), (6, 13)]),
-        ("latin", "sirach", (34, 17), [(34, 17)]),
+        ("latin", "deuteronomy", (6, 13), [(6, 12), (6, 13)]),
+        ("latin", "sirach", (34, 20), [(34, 17)]),
         ("latin", "sirach", (1, 2), [(1, 2)]),
         # Studio Greek spans and duplicates
         ("greek", "numbers", (21, 19), [(21, 20), (21, 19)]),  # Bamoth ... plain of Moab ... wilderness
@@ -403,8 +433,8 @@ class FinalCheckRegressions(unittest.TestCase):
         ("greek", "numbers", (27, 3), [(27, 3), (27, 4)]),
         ("greek", "leviticus", (8, 18), [(8, 18), (8, 19)]),
         ("greek", "psalms", (12, 1), [(12, 2), (12, 1)]),
-        ("greek", "psalms", (12, 4), []),                       # repeats the first half of Studio 12:5
-        ("greek", "psalms", (12, 5), [(12, 5), (12, 6)]),
+        ("greek", "psalms", (12, 4), [(12, 5)]),                # Stage 1 fixed Swete's 12:4/12:5 duplication
+        ("greek", "psalms", (12, 5), [(12, 6)]),
         ("greek", "psalms", (12, 6), [(12, 6)]),
         ("greek", "sirach", (1, 1), []),                        # the Prologue (no site verse number)
         ("greek", "sirach", (1, 2), [(1, 2)]),
@@ -431,7 +461,8 @@ class FinalCheckRegressions(unittest.TestCase):
         ("greek", "daniel", (6, 17), [(6, 17)]),
         ("hebrew", "daniel", (5, 25), [(5, 17)]),
         ("hebrew", "daniel", (6, 16), []),
-        ("latin", "daniel", (6, 16), []),
+        ("latin", "daniel", (6, 15), []),                       # native Vulgate 6:15 = MT/Theod 6:16 (not in OG)
+        ("latin", "daniel", (6, 16), [(6, 17)]),                # native Vulgate 6:16 = MT/OG 6:17
         # Judges: B text (Studio) and A text (site) share their verse divisions
         ("greek", "judges", (4, 10), [(4, 10)]),
         ("greek", "judges", (6, 7), [(6, 7)]),
@@ -448,7 +479,8 @@ class FinalCheckRegressions(unittest.TestCase):
         self.assertNotIn((8, 1), vz.from_saints("hebrew", "ecclesiastes", 7, 29))
         self.assertEqual(vz.from_saints("greek", "daniel", 5, 17), [(5, 17), (5, 25)])
         self.assertEqual(vz.from_saints("greek", "sirach", 1, 1), [])
-        self.assertEqual(vz.from_saints("latin", "sirach", 1, 1), [(1, 1)])
+        self.assertEqual(vz.from_saints("latin", "sirach", 1, 1), [])  # native USFX Sir 1:1 is Prologue+1:1
+        self.assertEqual(vz.to_extra_site_anchor("latin", "sirach", 1, 1), (1, 1))
 
 
 class LivePageRegressions(unittest.TestCase):
@@ -468,9 +500,9 @@ class LivePageRegressions(unittest.TestCase):
         ("hebrew", "exodus", (37, 17), [(38, 13)]),
         ("hebrew", "exodus", (37, 18), [(38, 15), (38, 14)]),  # 'three ... and three' = site 38:15
         ("hebrew", "exodus", (37, 19), [(38, 16)]),     # cups like almond blossoms = 'nut-shaped'
-        ("latin", "exodus", (38, 16), [(38, 16)]),      # 'tres scyphi in nucis modum'
-        ("latin", "exodus", (38, 15), [(38, 15)]),      # 'sex in utroque latere, tres ... et tres'
-        # Latin keyed by the site numbering but holding another Vulgate verse
+        ("latin", "exodus", (37, 19), [(38, 16)]),      # native Vulgate: 'tres scyphi in nucis modum'
+        ("latin", "exodus", (37, 18), [(38, 15), (38, 14)]),  # native Vulgate: 'sex in utroque latere, tres ... et tres'
+        # Latin native Vulgate matches Hebrew MT in Exodus 38
         ("latin", "exodus", (38, 1), [(38, 22)]),       # 'Fecit et altare holocausti' (not 'Bezalel made the ark')
         ("latin", "exodus", (38, 2), []),               # horns of the altar: no site verse (Hebrew 38:2 alike)
         ("latin", "exodus", (38, 6), []),               # the altar's poles
@@ -484,7 +516,7 @@ class LivePageRegressions(unittest.TestCase):
         ("latin", "genesis", (32, 1), [(32, 2)]),       # 'Jacob quoque abiit' = site 32:2, live row 32:1
         ("hebrew", "exodus", (20, 13), [(20, 15)]),     # 'You shall not murder' = site 20:15 (Greek order)
         ("hebrew", "deuteronomy", (5, 21), [(5, 21)]),  # live Hebrew numbers this 5:18 (17a-d division)
-        ("latin", "exodus", (36, 29), [(36, 31)]),      # pomegranates of the robe
+        ("latin", "exodus", (39, 22), [(36, 31)]),      # pomegranates of the robe (Vulgate 39:22 = MT 39:24)
         ("latin", "exodus", (38, 20), [(37, 18)]),      # the bronze pegs (the Hebrew 38:20 alike)
         ("latin", "1-kings", (7, 1), [(7, 38)]),        # 'Domum autem suam aedificavit Salomon'
         ("latin", "nehemiah", (7, 46), [(7, 45)]),      # the gatekeepers
@@ -566,12 +598,14 @@ class SiteEnglish(unittest.TestCase):
             ("latin", "sirach", (31, 12), "great table"),
             ("greek", "deuteronomy", (29, 1), "words of the covenant"),
             ("hebrew", "deuteronomy", (28, 69), "words of the covenant"),
-            ("latin", "deuteronomy", (29, 1), "Moses called"),
+            ("latin", "deuteronomy", (29, 1), "words of the covenant"),
+            ("latin", "deuteronomy", (29, 2), "Moses called"),
             ("hebrew", "leviticus", (11, 6), "hare"),
             ("hebrew", "leviticus", (11, 15), "raven"),
             ("hebrew", "deuteronomy", (14, 14), "raven"),
             ("hebrew", "2-chronicles", (3, 12), "cherub"),
-            ("latin", "numbers", (1, 30), "Ephraim"),
+            ("latin", "numbers", (1, 30), "Zebulun"),
+            ("latin", "numbers", (1, 32), "Ephraim"),
             ("greek", "numbers", (27, 4), "brought their case"),
             ("hebrew", "proverbs", (16, 6), "mercy and faithfulness"),
             ("hebrew", "proverbs", (16, 4), "evil day"),
@@ -596,12 +630,12 @@ class SiteEnglish(unittest.TestCase):
             ("hebrew", "proverbs", (31, 26), "wisely"),
             ("latin", "psalms", (110, 7), "works of his hands"),
             ("latin", "mark", (4, 40), "afraid"),
-            ("latin", "exodus", (39, 3), "hundred talents of silver"),
-            ("latin", "exodus", (39, 2), "twenty years"),
+            ("latin", "exodus", (38, 27), "hundred talents of silver"),
+            ("latin", "exodus", (38, 26), "twenty years"),
             ("latin", "wisdom-of-solomon", (2, 3), "cloud"),
-            ("latin", "sirach", (37, 17), "tongue"),
+            ("latin", "sirach", (37, 21), "tongue"),
             ("latin", "genesis", (50, 22), "machir"),
-            ("latin", "hosea", (6, 2), "dawn"),
+            ("latin", "hosea", (6, 3), "dawn"),
             ("latin", "revelation", (20, 7), "gog"),
             ("greek", "numbers", (21, 19), "plain of moab"),
             ("greek", "sirach", (23, 16), "heated soul"),
@@ -682,13 +716,14 @@ class LiveDatabase(unittest.TestCase):
             ("hebrew", "proverbs", (20, 20), (20, 9), "אמו", "μητερα"),
             ("hebrew", "1-kings", (7, 26), (7, 12), "כוס", "ποτηριου"),
             ("hebrew", "jeremiah", (25, 13), (25, 13), "בספר", "βιβλιω"),
-            ("latin", "deuteronomy", (5, 17), (5, 18), "moechaberis", "μοιχευσεισ"),
-            ("latin", "exodus", (36, 29), (36, 31), "punica", "ροασ"),
+            ("latin", "deuteronomy", (5, 17), (5, 17), "occides", "φονευσεισ"),
+            ("latin", "deuteronomy", (5, 18), (5, 18), "moechaberis", "μοιχευσεισ"),
+            ("latin", "exodus", (39, 22), (36, 31), "mala punica", "ροασ"),
             ("latin", "genesis", (31, 55), (32, 1), "laban", "λαβαν"),
             ("latin", "sirach", (31, 12), (34, 12), "mensam", "τραπεζησ"),
             ("latin", "sirach", (19, 1), (19, 1), "ebriosus", "μεθυσοσ"),
             ("latin", "esther", (10, 4), (10, 3), "mardochaeus", "μαρδοχαιοσ"),
-            ("latin", "numbers", (1, 30), (1, 30), "ephraim", "εφραιμ"),
+            ("latin", "numbers", (1, 32), (1, 30), "ephraim", "εφραιμ"),
             ("latin", "leviticus", (11, 6), (11, 5), "lepus", "δασυποδα"),
         ]
         from studio.lexica import latin_bare
@@ -708,9 +743,9 @@ class LiveDatabase(unittest.TestCase):
         self.assertIn("πολλωνκαιμεγαλων", self._greek("sirach", 1, 1))
         self.assertTrue(self._greek("sirach", 1, 1).endswith("πασασοφιαπαρακυριουκαιμεταυτουεστινειστοναιωνα"))
         self.assertEqual(vz.to_saints("greek", "sirach", 1, 1), [])
-        # Studio Greek Ps 12:4 repeats the opening of 12:5
+        # Studio Greek Ps 12:4-5 cleanly separated after Stage 1 repair (12:4 = site 12:5, 12:5 = site 12:6a)
         self.assertIn("ισχυσαπροσαυτον", self._greek("psalms", 12, 4))
-        self.assertIn("ισχυσαπροσαυτον", self._greek("psalms", 12, 5))
+        self.assertNotIn("ισχυσαπροσαυτον", self._greek("psalms", 12, 5))
         self.assertIn("ελεεισου", self._greek("psalms", 12, 5))
         # Theodotion Dan 5:25 is the inscription; 6:16 the law of the Medes and Persians
         self.assertIn("μανη", self._greek("daniel", 5, 25))
@@ -721,7 +756,7 @@ class LiveDatabase(unittest.TestCase):
         # Latin verses whose main content lies in the neighbouring site verse
         self.assertIn("operamanuum", latin_bare(self.text[("latin", "psalms", 110, 7)]))
         self.assertIn("timuerunttimoremagno", latin_bare(self.text[("latin", "mark", 4, 40)]))
-        self.assertIn("centumtalentaargenti", latin_bare(self.text[("latin", "exodus", 39, 3)]))
+        self.assertIn("detalentiscentum", latin_bare(self.text[("latin", "exodus", 38, 27)]))
         self.assertIn("uestigiumnubis", latin_bare(self.text[("latin", "wisdom-of-solomon", 2, 3)]))
 
 
@@ -746,7 +781,8 @@ class UnmappedVerseResolution(unittest.TestCase):
         ("hebrew", "1-kings", (22, 50), [(16, 28)]),
         ("latin", "exodus", (28, 24), [(28, 29)]),
         ("latin", "exodus", (35, 17), [(35, 12)]),
-        ("latin", "exodus", (40, 31), [(38, 27)]),
+        ("latin", "exodus", (40, 29), [(38, 27)]),
+        ("latin", "exodus", (40, 30), [(38, 27)]),
         ("latin", "1-kings", (4, 27), [(5, 1)]),
         ("latin", "1-kings", (4, 28), [(5, 1)]),
         ("latin", "1-kings", (14, 4), [(12, 24)]),
@@ -827,12 +863,13 @@ class UnmappedVerseResolution(unittest.TestCase):
         for lang, book, c, v in [
             ("greek", "psalms", 25, 22),
             ("greek", "romans", 14, 24),
-            ("latin", "sirach", 1, 15),
-            ("latin", "numbers", 16, 36),
-            ("latin", "jeremiah", 29, 30),
+            ("latin", "sirach", 19, 6),
         ]:
             self.assertTrue(vz.is_duplicate_or_placeholder(lang, book, c, v))
             self.assertIsNone(vz.to_extra_site_anchor(lang, book, c, v))
+        # Former Clem-Saints Latin placeholders/duplicates are real native Vulgate verses now
+        for book, c, v in [("sirach", 1, 15), ("numbers", 16, 36), ("jeremiah", 29, 30), ("ezekiel", 20, 45)]:
+            self.assertFalse(vz.is_duplicate_or_placeholder("latin", book, c, v))
 
 
 if __name__ == "__main__":

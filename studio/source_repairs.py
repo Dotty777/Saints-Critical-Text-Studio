@@ -21,13 +21,6 @@ _NT_KEYING_COPIES = {
     "grk-nt-kjtr": "cntr_edition",
     "grk-nt-sblgnt": "sblgnt_txt",
 }
-_LATIN_NUM1_COPIES = (
-    "lat-clementine-usfx",
-    "lat-vulg-hetzenauer",
-    "lat-vulg-conte",
-    "lat-vulg-sistina",
-    "lat-quarantine-stuttgart",
-)
 _LATIN_REPAIR_COPIES = {
     "lat-amiatinus": "amiatinus_tei",
     "lat-clementine-usfx": "usfx_xml",
@@ -44,6 +37,8 @@ _REPAIRABLE_COPIES = {**_SWETE_COPIES, **_ANCHOR_COPIES, **_NT_KEYING_COPIES, **
 # Digital files that leave out text their printed edition has: the gap is marked lost ("…"), so it is not
 # recorded as the edition's omission. (witness id, parser kind) -> [(book, chapter, verse, exact opening, what is lost)]
 _FILE_GAPS = {
+    ("lat-saints-staging", "latin_saints_json"): [("lamentations", 1, 1, "Quomodo sedet",
+                                                   "Jerome's prologue 'Et factum est, postquam in captivitatem …' and acrostic letter 'Aleph'")],
     ("lat-vulg-hetzenauer", "scrollmapper_csv"): [("lamentations", 1, 1, "Aleph Quomodo sedet",
                                                     "Jerome's prologue 'Et factum est, postquam in captivitatem …'")],
     ("lat-vulg-conte", "scrollmapper_csv"): [("lamentations", 1, 1, "Aleph Quomodo sedet",
@@ -212,6 +207,142 @@ _SLIPS: Tuple[Tuple[Tuple[str, ...], str, int, int, str, str, str], ...] = (
             ("isaiah", 17, 9, "νἱῶν", "υἱῶν"),
         )
     ),
+    # Stage 1 Accuracy Audit (24 Nov 2026) — Latin D2 verified digital/1598 non-word typos & orthography:
+    (("lat-clementine-usfx",), "genesis", 20, 2, "de Sara uxore suo:", "de Sara uxore sua:",
+     "uxore sua (grammatical gender slip in 1598 Clementine; corroborated by Codex Amiatinus & Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "nehemiah", 4, 18, "^ædificentium enim unusquisque", "ædificantium enim unusquisque",
+     "ædificantium (1598 printing slip for 1st-conj. participle; corroborated by Stuttgart-BSV aedificantium)"),
+    (("lat-clementine-usfx",), "daniel", 5, 2, "in Ierusalem,", "in Jerusalem,",
+     "Jerusalem (j-orthography consistency with all 795 other occurrences in Clem1598-USFX)"),
+    (("lat-clementine-usfx",), "daniel", 5, 3, "in Ierusalem:", "in Jerusalem:",
+     "Jerusalem (j-orthography consistency with all 795 other occurrences in Clem1598-USFX)"),
+    (("lat-clementine-usfx",), "hosea", 2, 13, "ornabatur in aure sua,", "ornabatur inaure sua,",
+     "inaure sua (word-split typo in Clem1598-USFX; corroborated by VulgHetzenauer, VulgConte, VulgSistina, Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "amos", 8, 8, "et ejicicetur,", "et ejicietur,",
+     "ejicietur (1598 doubled-syllable non-word typo; corroborated by Stuttgart-BSV eicietur)"),
+    (("lat-clementine-usfx",), "micah", 3, 7, "omnes vultos suos,", "omnes vultus suos,",
+     "vultus (1598 non-word 2nd-decl. typo for 4th-decl. acc. pl.; corroborated by Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "luke", 8, 2, "malignis et infirmatibus:", "malignis et infirmitatibus:",
+     "infirmitatibus (1598 haplography; corroborated by Codex Amiatinus NT & Stuttgart-BSV)"),
+    (("lat-clementine-usfx",), "2-corinthians", 1, 23, "dominamur fidei vestæ,", "dominamur fidei vestræ,",
+     "vestræ (1598 printing slip; corroborated by Codex Amiatinus NT, 9 COMPAUL Old Latin MSS, & Stuttgart-BSV)"),
+    # Stage 1 Accuracy Audit (24 Nov 2026) — Hebrew MAM double-vowel corruptions & verse-ending (ketiv)׃ sof pasuqs:
+    (("heb-mam-aleppo",), "numbers", 6, 2, "לַֽיהוָֹֽה׃", "לַֽיהֹוָֽה׃",
+     "misplaced holam on waw in upstream MAPM_Masorah.xml (corroborated by MAM normal יְהֹוָה & WLC/BHSA)"),
+    (("heb-mam-aleppo",), "2-chronicles", 24, 4, "בֵּ֥ית יְהוָֹֽה׃", "בֵּ֥ית יְהֹוָֽה׃",
+     "misplaced holam on waw in upstream MAPM_Masorah.xml (corroborated by MAM normal יְהֹוָה & WLC/BHSA)"),
+    (("heb-mam-aleppo",), "jonah", 4, 2, "אֶל־יְהוָֹ֜ה", "אֶל־יְהֹוָ֜ה",
+     "misplaced holam on waw in upstream MAPM_Masorah.xml (corroborated by יְהֹוָה in same verse & WLC/BHSA)"),
+    (("heb-mam-aleppo",), "nahum", 1, 2, "נֹקֵ֤ם יְהוָֹה֙", "נֹקֵ֤ם יְהֹוָה֙",
+     "misplaced holam on waw in upstream MAPM_Masorah.xml (corroborated by יְהֹוָה twice in same verse & WLC/BHSA)"),
+    (("heb-mam-aleppo",), "numbers", 11, 32, "הַֽמָׇּחֳרָ֗ת", "הַֽמׇּחֳרָ֗ת",
+     "stacked qamats+qamats-qatan in upstream MAPM_Masorah.xml (matches MAM 1 Sam 5:3, 5:4, 11:11; 1 Chr 10:8)"),
+    (("heb-mam-aleppo",), "jeremiah", 28, 4, "מֶלֶךְ־יְ֠הוּדָׇ֠ה", "מֶלֶךְ־יְ֠הוּדָ֠ה",
+     "stray qamats-qatan after qamats on dalet of Yehudah in upstream MAPM_Masorah.xml (corroborated by WLC/BHSA)"),
+    (("heb-mam-aleppo",), "ezekiel", 17, 7, "שָׇׁרָשֶׁ֣יהָ", "שׇׁרָשֶׁ֣יהָ",
+     "stacked qamats+qamats-qatan in upstream MAPM_Masorah.xml (matches MAM Ezek 17:9 & Dan 11:7)"),
+    (("heb-mam-aleppo",), "2-samuel", 3, 15, "בֶּן־לָֽיִשׁ (לוש)׃$", "בֶּן־לָֽיִשׁ׃ (לוש)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    (("heb-mam-aleppo",), "2-samuel", 19, 32, "אֶת־הַיַּרְדֵּֽן (בירדן)׃$", "אֶת־הַיַּרְדֵּֽן׃ (בירדן)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    (("heb-mam-aleppo",), "ezekiel", 16, 25, "אֶת־תַּזְנוּתָֽיִךְ (תזנותך)׃$", "אֶת־תַּזְנוּתָֽיִךְ׃ (תזנותך)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    (("heb-mam-aleppo",), "isaiah", 30, 32, "נִלְחַם־בָּֽם (בה)׃$", "נִלְחַם־בָּֽם׃ (בה)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    (("heb-mam-aleppo",), "nehemiah", 11, 17, "בֶּן־יְדוּתֽוּן (ידיתון)׃$", "בֶּן־יְדוּתֽוּן׃ (ידיתון)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    (("heb-mam-aleppo",), "psalms", 105, 28, "אֶת־דְּבָרֽוֹ (דבריו)׃$", "אֶת־דְּבָרֽוֹ׃ (דבריו)",
+     "move verse-ending sof pasuq from silent Ketiv onto Qere (D4)"),
+    # Stage 1 Accuracy Audit (24 Nov 2026) — Greek OT & NT P0 mechanical/polytonic/numeral typos & P1 proper names:
+    (("grk-brenton-sixtine",), "leviticus", 8, 29, "προσέῤῥνεν", "προσέρρανεν",
+     "προσέρρανεν (Brenton USFM OCR omission of α; corroborated by Swete, Rahlfs, & LXX-Orthodox)"),
+    (("grk-brenton-sixtine",), "numbers", 21, 20, "πρέαβεις", "πρέσβεις",
+     "πρέσβεις (Brenton USFM OCR α for σ; corroborated by Swete, Rahlfs, & LXX-Orthodox)"),
+    (_CSV, "exodus", 21, 22, "ἀξιώματος·.$", "ἀξιώματος·",
+     "ἀξιώματος· (double stop ·. in Swete-Amicarelli; 1st1K-LXX, Swete Clean, & Brenton have single stop)"),
+    (_CSV, "1-samuel", 19, 21, "αὐτοί·.$", "αὐτοί.",
+     "αὐτοί. (double stop ·. in Swete-Amicarelli; 1st1K-LXX, Swete Clean, & Brenton have single stop)"),
+    (_OCR, "judges", 9, 33, "ὅσα ἀν’ εὕρῃ", "ὅσα ἂν εὕρῃ",
+     "ὅσα ἂν εὕρῃ (stray apostrophe & accent slip on unelided ἂν in OCR; corroborated by Brenton, Rahlfs, & Orthodox)"),
+    (_OCR, "joel", 3, 15, "φέγγος αὐτῶυ.", "φέγγος αὐτῶν.",
+     "φέγγος αὐτῶν. (Swete OCR υ for ν in Joel 3:15 = 4:15; corroborated by Swete-Amicarelli, Brenton, Rahlfs, & LXX-Orthodox)"),
+    (("grk-nt-kjtr",), "matthew", 23, 14, "προσευχόμενοι: διὰ", "προσευχόμενοι· διὰ",
+     "προσευχόμενοι· διὰ (ASCII colon in CNTR KJTR; TR-Scrivener has Greek raised dot ·)"),
+    (_ALL, "psalms", 106, 24, "εἶδοσαν", "εἴδοσαν",
+     "εἴδοσαν (impossible antepenult circumflex in Swete; corroborated by Rahlfs εἴδοσαν)"),
+    (_CSV, "genesis", 25, 32, "εἶπεν δε Ἠσαύ", "εἶπεν δὲ Ἠσαύ",
+     "εἶπεν δὲ Ἠσαύ (missing grave accent in Swete-Amicarelli; corroborated by 1st1K-LXX, Swete Clean, & Rahlfs)"),
+    (_OCR, "sirach", 33, 37, "πολλὴν γαρ κακίαν", "πολλὴν γὰρ κακίαν",
+     "πολλὴν γὰρ κακίαν (missing grave accent in Swete OCR; corroborated by Swete-Amicarelli, Brenton, Rahlfs, & Orthodox)"),
+    (("grk-brenton-sixtine",), "deuteronomy", 25, 16, "σου πας ποιῶν ταῦτα, πας ποιῶν ἄδικον.", "σου πᾶς ποιῶν ταῦτα, πᾶς ποιῶν ἄδικον.",
+     "πᾶς … πᾶς (missing circumflex accents in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)"),
+    (("grk-brenton-sixtine",), "deuteronomy", 23, 3, "ἐκκλησίαν Κύριου.", "ἐκκλησίαν Κυρίου.",
+     "Κυρίου (impossible proparoxytone with long ultima in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_OCR + ("grk-brenton-sixtine",), "1-kings", 22, 8, "ὄτι", "ὅτι",
+     "ὅτι (smooth breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)"),
+    (_CSV, "2-kings", 11, 21, "ἐτῶν ἐπτὰ Ἰωὰς", "ἐτῶν ἑπτὰ Ἰωὰς",
+     "ἑπτὰ (smooth breathing typo in Swete-Amicarelli; corroborated by Rahlfs & LXX-Orthodox)"),
+    (("grk-brenton-sixtine",), "2-kings", 12, 1, "Υἱὸς ἐπτὰ ἐτῶν", "Υἱὸς ἑπτὰ ἐτῶν",
+     "ἑπτὰ (smooth breathing typo in Brenton USFM; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_ALL, "1-maccabees", 8, 13, "ἃν", "ἂν",
+     "ἂν (rough breathing typo in Swete; corroborated by Brenton, Rahlfs, & LXX-Orthodox)"),
+    (_OCR + ("grk-brenton-sixtine",), "1-maccabees", 15, 5, "νῦν οὗν", "νῦν οὖν",
+     "οὖν (rough breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)"),
+    (_OCR + ("grk-brenton-sixtine",), "jeremiah", 4, 13, "τὰ ἄρματα", "τὰ ἅρματα",
+     "ἅρματα (smooth breathing typo in OCR & Brenton; corroborated by Swete-Amicarelli, Rahlfs, & LXX-Orthodox)"),
+    (_CSV + ("grk-brenton-sixtine",), "genesis", 49, 1, "τῶν ἡμέρων.", "τῶν ἡμερῶν.",
+     "ἡμερῶν (1st-decl. gen. pl. perispomenon; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_ALL, "judges", 7, 9, "Ἀνάστας", "Ἀναστὰς",
+     "Ἀναστὰς (aorist active participle is oxytone; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_ALL, "1-chronicles", 28, 21, "τῶν Λευείτων", "τῶν Λευειτῶν",
+     "Λευειτῶν (1st-decl. gen. pl. perispomenon; matches Λευειτῶν 60x elsewhere in Swete)"),
+    (_ALL + ("grk-brenton-sixtine",), "nehemiah", 11, 26, "ἐν Ἰησοὺ", "ἐν Ἰησοῦ",
+     "Ἰησοῦ (grave for circumflex; matches Ἰησοῦ 367x elsewhere & LXX-Orthodox)"),
+    (_CSV, "nehemiah", 7, 41, "ας᾽ τεσσεράκοντα", "͵ασ᾽ τεσσεράκοντα",
+     "͵ασ᾽ = 1,200 (Swete dropped lower keraia ͵ and printed stigma ς for σ; Brenton, Rahlfs, & Orthodox read χίλιοι διακόσιοι)"),
+    (_OCR, "nehemiah", 7, 41, "ας΄ τεσσεράκοντα", "͵ασ΄ τεσσεράκοντα",
+     "͵ασ΄ = 1,200 (Swete OCR dropped lower keraia ͵ and printed stigma ς for σ; Brenton, Rahlfs, & Orthodox read χίλιοι διακόσιοι)"),
+    (_ALL, "ezra", 2, 37, "Ἐμμήρ, α πεντήκοντα", "Ἐμμήρ, ͵α πεντήκοντα",
+     "͵α = 1,000 (Swete dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χίλιοι)"),
+    (_ALL, "ezra", 2, 38, "Φασσούρ, α διακόσιοι", "Φασσούρ, ͵α διακόσιοι",
+     "͵α = 1,000 (Swete dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χίλιοι)"),
+    (_CSV, "nehemiah", 7, 70, "χρυσοῦς, α, φιάλας", "χρυσοῦς, ͵α, φιάλας",
+     "͵α = 1,000 (Swete-Amicarelli dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χιλίους)"),
+    (_OCR, "nehemiah", 7, 70, "χρυσοῦς α, φιάλας", "χρυσοῦς ͵α, φιάλας",
+     "͵α = 1,000 (Swete OCR dropped lower keraia ͵ on numeral 1,000; Brenton, Rahlfs, & Orthodox read χιλίους)"),
+    # Stage 1 Greek P1 safe lowercase proper names & NT proper-name diacritics:
+    (("grk-brenton-sixtine",), "2-kings", 25, 10, "τῶν χαλδαίων.", "τῶν Χαλδαίων.",
+     "Χαλδαίων (proper gentilic capitalised; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_CSV, "1-chronicles", 5, 12, "ἐν βασάν.", "ἐν Βασάν.",
+     "Βασάν (proper place name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)"),
+    (_CSV, "2-chronicles", 23, 18, "καὶ τῶν λευειτῶν,", "καὶ τῶν Λευειτῶν,",
+     "Λευειτῶν (proper tribal name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, & same verse)"),
+    (_CSV, "1-maccabees", 4, 9, "αὐτοὺς φαραὼ", "αὐτοὺς Φαραὼ",
+     "Φαραὼ (proper royal title capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)"),
+    (_CSV, "jeremiah", 43, 10, "ἀνεγίνωσκε βαροὺχ", "ἀνεγίνωσκε Βαροὺχ",
+     "Βαροὺχ (proper name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)"),
+    (_CSV, "micah", 6, 5, "κατὰ σοῦ βαλὰκ", "κατὰ σοῦ Βαλὰκ",
+     "Βαλὰκ (proper name capitalised; corroborated by 1st1K-LXX, Swete Clean, Brenton, Rahlfs, & Orthodox)"),
+    (("grk-brenton-sixtine",), "nehemiah", 12, 17, "τῷ βαλγὰς,", "τῷ Βαλγὰς,",
+     "Βαλγὰς (proper name capitalised in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)"),
+    (("grk-brenton-sixtine",), "nehemiah", 12, 19, "Ματθαναΐ τῷ Ἐδίῳ,", "Ματθαναΐ· τῷ Ἐδίῳ,",
+     "Ματθαναΐ· (missing raised-dot separator in Brenton USFM; corroborated by Rahlfs & LXX-Orthodox)"),
+    (("grk-brenton-sixtine",), "nehemiah", 12, 20, "Τῷ Σαλαῒ, καλλαΐ·", "Τῷ Σαλαῒ, Καλλαΐ·",
+     "Καλλαΐ (proper name capitalised in Brenton-only verse; corroborated by Rahlfs & LXX-Orthodox)"),
+    (_OCR, "1-chronicles", 1, 51, "ἠγεμὼν Θαιμάν", f"{_G} Θαιμάν",
+     "ἡγεμὼν (smooth breathing OCR slip in 1st1K/Swete Clean; Swete-Amicarelli reads ἡγεμὼν)"),
+    (_OCR, "numbers", 21, 21, "Ἀμορεἰρηνικοῖς ραίων", _G,
+     "Ἀμορραίων (OCR line-splice corruption in 1st1K/Swete Clean; Swete-Amicarelli reads Ἀμορραίων)"),
+    (_OCR, "sirach", 42, 1, "εὑρίσκαων", _G,
+     "εὑρίσκων (extra α OCR slip in 1st1K/Swete Clean; Swete-Amicarelli reads εὑρίσκων)"),
+    (_OCR, "1-kings", 6, 18, "κιβωτν", _G,
+     "κιβωτὸν (dropped ὸ OCR slip in 1st1K/Swete Clean; Swete-Amicarelli reads κιβωτὸν)"),
+    (("grk-nt-sblgnt",), "john", 19, 13, "Ἑβραϊστὶ δὲ Γαββαθα.", "Ἑβραϊστὶ δὲ Γαββαθᾶ.",
+     "Γαββαθᾶ (unaccented proper name in SBLGNT; corroborated by SRGNT, BHP, RP2018, & TR-Scrivener)"),
+    (("grk-nt-kjtr",), "john", 19, 13, "Ἑβραϊστὶ δὲ, Γαββαθα.", "Ἑβραϊστὶ δὲ, Γαββαθᾶ.",
+     "Γαββαθᾶ (unaccented proper name in CNTR KJTR; corroborated by SRGNT, BHP, RP2018, & TR-Scrivener)"),
+    (("grk-nt-sblgnt",), "john", 20, 16, "Ἑβραϊστί· Ραββουνι", "Ἑβραϊστί· Ῥαββουνί",
+     "Ῥαββουνί (missing rough breathing on initial Ρ & acute accent in SBLGNT; corroborated by Nestle1904, RP2018, THGNT, & TR-Scrivener)"),
 )
 
 # Swete divides some verses differently from Brenton, the numbering anchor, and the content
@@ -234,22 +365,66 @@ _DIVISIONS: Tuple[Tuple[Tuple[str, ...], str, Tuple[int, int], str, str, Tuple[i
     (_CSV, "song-of-songs", (7, 1), "head", "Τί ὄψεσθε ἐν τῇ Σουμανείτιδι; ἡ ἐρχομένη ὡς χοροὶ τῶν παρεμβολῶν.", (6, 12), "append"),
     (_OCR, "song-of-songs", (7, 1), "head", "Τί δψεοθε ἐν τῆ Σουμανείτιδις ἡ ἐρχομένη ὡς χοροὶ τῶν παρεμβολῶν.", (6, 12), "append"),
     (_CSV, "sirach", (1, 8), "tail", "Κύριος", (1, 9), "prepend"),
-    (("lat-clementine-usfx",), "sirach", (29, 17), "head", "et super lanceam", (29, 16), "append"),
-    (("lat-clementine-usfx",), "sirach", (29, 18), "head", "adversus inimicum tuum pugnabit.", (29, 16), "append"),
     (("grk-brenton-sixtine",), "nehemiah", (12, 18), "head", "Τῷ Ἰωαρὶβ,", (12, 19), "prepend"),
-    (("grk-brenton-sixtine",), "nehemiah", (12, 17), "tail", "τῷ βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·", (12, 18), "new"),
+    (("grk-brenton-sixtine",), "nehemiah", (12, 17), "tail", "τῷ Βαλγὰς, Σαμουέ· τῷ Σεμία, Ἰωνάθαν·", (12, 18), "new"),
+    # Stage 1 Accuracy Audit (24 Nov 2026) — Greek OT Swete-to-Brenton verse-division splits eliminating
+    # cross-chapter misalignments and merged-verse clause duplications:
+    (_ALL, "exodus", (39, 15), "head", "καὶ τὴν κιβωτὸν τῆς διαθήκης καὶ τοὺς διωστῆρας αὐτῆς,", (39, 14), "append"),
+    (_ALL, "exodus", (39, 16), "head", "καὶ τὸ θυσιαστήριον καὶ πάντα τὰ σκεύη αὐτοῦ,", (39, 15), "new"),
+    (_ALL, "numbers", (21, 18), "tail", "καὶ ἀπὸ φρέατος εἰς Μανθαναείν·", (21, 19), "prepend"),
+    (_ALL, "numbers", (21, 20), "head", "καὶ ἀπὸ Βαμὼθ εἰς Ἰανήν, ἥ ἐστιν ἐν τῷ πεδίῳ Μωὰβ ἀπὸ κορυφῆς τοῦ λελαξευμένου, τὸ βλέπον κατὰ πρόσωπον τῆς ἐρήμου.", (21, 19), "append"),
+    (_CSV, "numbers", (21, 21), "head", "Καὶ ἀπέστειλεν Μωυσῆς πρέσβεις πρὸς Σηὼν βασιλέα Ἀμορραίων λόγοις εἰρηνικοῖς λέγων", (21, 20), "new"),
+    (_OCR, "numbers", (21, 21), "head", f"καὶ ἀπέστειλεν Μωυσῆς πρέσβεις πρὸς Σηὼν βασιλέα {_G} λόγοις εἰρηνικοῖς λέγων", (21, 20), "new"),
+    (_ALL, "numbers", (21, 22), "head", "Παρελευσόμεθα διὰ τῆς γῆς σου· τῇ ὁδῷ πορευσόμεθα, οὐκ ἐκκλινοῦμεν οὔτε εἰς ἀγρὸν οὔτε εἰς ἀμπελῶνα,", (21, 21), "new"),
+    (_CSV, "numbers", (27, 4), "head", "μὴ ἐξαλειφθήτω τὸ ὄνομα τοῦ πατρὸς ἡμῶν ἐκ μέσου τοῦ δήμου αὐτοῦ, ὅτι οὐκ ἔστιν αὐτῷ υἱός· δότε ἡμῖν κατάσχεσιν ἐν μέσῳ ἀδελφῶν πατρὸς ἡμῶν.", (27, 3), "append"),
+    (_OCR, "numbers", (27, 4), "head", "μὴ ἐξαλειφθήτω τὸ ὄνομα τοῦ πατρὸς ἡμῶν ἐκ μέσου τοῦ δήμου αὐτοῦ, ὅτι οὐκ ἔστιν αὐτῷ υἱός· δότε ἡμῖν κατάσῳ ἀδελφῶν πατρὸς ἡμῶν.", (27, 3), "append"),
+    (_CSV, "numbers", (27, 5), "head", "καὶ προσήγαγεν Μωυσῆς τὴν κρίσιν αὐτῶν ἔναντι Κυρίου.", (27, 4), "new"),
+    (_OCR, "numbers", (27, 5), "head", "καὶ προσήγαγεν Μωυσῆς κρίσιν αὐτῶν ἔναντι Κυρίου.", (27, 4), "new"),
+    (_CSV, "numbers", (27, 6), "head", "καὶ ἐλάλησεν Κύριος πρὸς Μωυσῆν", (27, 5), "new"),
+    (_OCR, "numbers", (27, 6), "head", "καὶ ἐλάλησεν κύριος πρὸς Μωυσῆν", (27, 5), "new"),
+    (_CSV, "numbers", (27, 7), "head", "Ὀρθῶς θυγατέρες Σαλπαὰδ λελαλήκασιν· δόμα δώσεις αὐταῖς κατάσχεσιν κληρονομίας ἐν μέσῳ ἀδελφῶν πατρὸς αὐτῶν, καὶ περιθήσεις τὸν κλῆρον τοῦ πατρὸς αὐτῶν αὐταῖς.", (27, 6), "append"),
+    (_OCR, "numbers", (27, 7), "head", "δόμα δώσεις αὐταῖς κληρονομίας ἐν μέσῳ ἀδελφῶν πατρὸς αὐτῶν, καὶ περ θήσεις τὸν κλῆρον τοῦ πατρὸς αὐτῶν αὐταῖς.", (27, 6), "append"),
+    (_ALL, "numbers", (27, 8), "head", "καὶ τοῖς υἱοῖς Ἰσραὴλ λαλήσεις", (27, 7), "new"),
+    (_CSV, "1-kings", (6, 18), "tail", "δοῦναι ἐκεῖ τὴν κιβωτὸν διαθήκης Κυρίου.", (6, 19), "new"),
+    (_OCR, "1-kings", (6, 18), "tail", f"δοῦναι ἐκεῖ τὴν {_G} διαθήκης Κυρίου.", (6, 19), "new"),
+    (_CSV, "1-chronicles", (1, 51), "head", "καὶ ἀπέθανεν Ἁδδά, καὶ ἐβασίλευσεν ἀντ᾽ αὐτοῦ Σαμαὰ ἐκ Μασέκκας· καὶ ἀπέθανεν Σαμαά, καὶ ἐβασίλευσεν ἀντ᾽ αὐτοῦ Σαοὺλ ἐκ Ῥοβὼθ τῆς παρὰ ποταμόν. καὶ ἀπέθανεν Σαούλ.", (1, 48), "new"),
+    (_OCR, "1-chronicles", (1, 51), "head", "καὶ ἀπέθανεν Ἀδδά καὶ ἐβασίλευσεν ἀντʼ αὐτοῦ Σαμαὰ ἐκ Μασέκκας· καὶ ἀπέθανεν Σαμαά, καὶ ἐβασίλευσεν ἀντʼ αὐτοῦ Σαοὺλ ἐκ Ῥοβὼθ τῆς παρὰ ποταμόν. καὶ ἀπέθανεν Σαούλ.", (1, 48), "new"),
+    (_ALL, "1-chronicles", (12, 4), "tail", "Ἰερμίας καὶ Ἰεζὴλ καὶ Ἰωανὰν καὶ Ἰωαζαβὰβ ὁ Γαδαραθειείμ,", (12, 5), "new"),
+    (_ALL, "nehemiah", (12, 8), "tail", "εἰς τὰς ἐφημερίας.", (12, 9), "new"),
+    (_CSV, "job", (41, 1), "tail", "οὐδὲ δέδοικας ὅτι ἡτοίμασταί μοι;", (41, 2), "new"),
+    (_OCR, "job", (41, 1), "tail", "οὐδὲ δέδοικας ὅτι ἡτοίμασταί μοι", (41, 2), "new"),
+    (_ALL, "job", (41, 3), "head", "τίς γάρ ἐστιν ὁ ἐμοὶ ἀντιστάς;", (41, 2), "append"),
+    (_CSV, "psalms", (12, 2), "head", "Ἕως πότε, Κύριε, ἐπιλήσῃ μου εἰς τέλος; ἕως πότε ἀποστρέψεις τὸ πρόσωπόν σου ἀπ᾽ ἐμοῦ;", (12, 1), "append"),
+    (_OCR, "psalms", (12, 2), "head", "Ἕως πότε, Κύριε, ἐπιλήσῃ μου εἰς τέλος; ἕως πότε ἀποστρέψεις τὸ πρόσωπόν σου ἀπʼ ἐμοῦ;", (12, 1), "append"),
+    (_CSV, "psalms", (12, 3), "head", "ἕως τίνος θήσομαι βουλὰς ἐν ψυχῇ μου, ὀδύνας ἐν καρδίᾳ μου ἡμέρας; ἕως πότε ὑψωθήσεται ὁ ἐχθρός μου ἐπ᾽ ἐμέ;", (12, 2), "new"),
+    (_OCR, "psalms", (12, 3), "head", "ἕως τίνος θήσομαι βουλὰς ἐν ψυχῇ μου, ὀδύνας ἐν καρδίᾳ μου ἡμέρας; ἕως πότε ὑψωθήσεται ὁ ἐχθρός μου ἐπʼ ἐμέ;", (12, 2), "new"),
+    (_CSV, "psalms", (12, 4), "head", "ἐπίβλεψον, εἰσάκουσόν μου, Κύριε ὁ θεός μου· φώτισον τοὺς ὀφθαλμούς, μή ποτε ὑπνώσω εἰς θάνατον,", (12, 3), "new"),
+    (_OCR, "psalms", (12, 4), "head", "ἐπίβλεψον, εἰσάκουσόν μου, Κύριε ὁ θεός μου· φώτισον τοὺς ὀφθαλμούς, μὴ ποτε ὑπνώσω εἰς θάνατον,", (12, 3), "new"),
+    (_ALL, "psalms", (12, 5), "head", "μή ποτε εἴπῃ ὁ ἐχθρός μου Ἴσχυσα πρὸς αὐτόν· οἱ θλίβοντές με ἀγαλλιάσονται ἐὰν σαλευθῶ.", (12, 4), "new"),
+    (_ALL, "psalms", (12, 6), "head", "ἐγὼ δὲ ἐπὶ τῷ ἐλέει σου ἤλπισα· ἀγαλλιάσεται ἡ καρδία μου ἐν τῷ σωτηρίῳ σου·", (12, 5), "new"),
+    (_ALL, "sirach", (42, 1), "head", "ἀπὸ δευτερώσεως καὶ λόγου ἀκοῆς, καὶ ἀπὸ ἀποκαλύψεων λόγων κρυφίων·", (41, 23), "new"),
+    (_CSV, "sirach", (42, 1), "head", "καὶ ἔσῃ αἰσχυντηρὸς ἀληθινῶς, καὶ εὑρίσκων χάριν ἔναντι παντὸς ἀνθρώπου.", (41, 24), "new"),
+    (_OCR, "sirach", (42, 1), "head", f"καὶ ἔσῃ αἰσχυντηρὸς ἀληθινῶς, καὶ {_G} χάριν ἔναντι παντὸς ἀνθρώπου.", (41, 24), "new"),
+    (_ALL, "ezekiel", (21, 19), "head", "Καὶ σύ, υἱὲ ἀνθρώπου, διάταξον σεαυτῷ δύο ὁδοὺς", (21, 20), "prepend"),
+    (_CSV, "ezekiel", (21, 20), "tail", "τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμὼν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.", (21, 25), "new"),
+    (_OCR, "ezekiel", (21, 20), "tail", "τοῦ εἰσελθεῖν ῥομφαίαν ἐπὶ Ῥαββὰθ υἱῶν Ἀμμῶν καὶ ἐπὶ τὴν Ἰουδαίαν καὶ ἐπὶ Ἰερουσαλὴμ ἐν μέσῳ αὐτῆς.", (21, 25), "new"),
 )
 _DIVISION_WHY = {
-    "numbers": "Swete numbers Brenton's 17:1–15 as 16:36–50 and Brenton's 17:16–28 as 17:1–13; the formulaic "
-               "verse 'Καὶ ἐλάλησεν Κύριος πρὸς Μωυσῆν λέγων' was paired with Brenton's 17:1 by its number",
+    "exodus": "Swete places Brenton's 39:15 ('καὶ τὸ θυσιαστήριον …') at the start of 39:16; moving 39:15 onto 39:14 and 39:16a into 39:15 preserves the Ark clause and prevents cross-chapter mis-alignment with 40:8",
+    "leviticus": "Swete's 8:18–30 stand one verse ahead of Brenton's 8:18–29 (Codex B omits Brenton 8:30); aligning 8:18–30 to Brenton's verse divisions prevents 8:28 from absorbing 8:29 and 8:30 from being truncated",
+    "numbers": "Swete numbers Brenton's 17:1–15 as 16:36–50 and 17:16–28 as 17:1–13, and divides 21:18–22 and 27:3–8 differently from Brenton",
     "joshua": "the list of kings in 12:20–22 is divided differently in each copy and in Brenton",
     "judges": "Swete opens 2:15 with 'ἐν πᾶσιν οἷς ἐξεπορεύοντο', which Brenton ends 2:14 with",
-    "nehemiah": "Brenton USFM ran 12:18 into the tail of 12:17 and split 12:19 across 12:18 ('Τῷ Ἰωαρὶβ,') and 12:19; "
-                "restored to the standard LXX/Rahlfs/Orthodox verse boundaries",
+    "1-kings": "Swete attaches Brenton's 6:19 ('δοῦναι ἐκεῖ τὴν κιβωτὸν διαθήκης Κυρίου.') to the end of 6:18",
+    "1-chronicles": "Swete numbers 1 Chr 6:1–15 as Brenton 5:27–41 and 6:16–81 as 6:1–66, places Edomite king clauses in 1:51, and attaches Brenton's 12:5 to the tail of 12:4",
+    "nehemiah": "Swete ends 12:8 with Brenton's 12:9 ('εἰς τὰς ἐφημερίας.'); Brenton USFM ran 12:18 into 12:17 and split 12:19 across 12:18–19",
+    "job": "Swete divides 41:1–2 across Brenton's 41:1–3",
+    "psalms": "Swete's 12:1–6 stand one verse offset from Brenton's 12:1–6",
     "proverbs": "Swete prints Brenton's 31:27 ('τὸ στόμα δὲ ἀνοίγει … ἡ δὲ ἐλεημοσύνη αὐτῆς') inside its 29:45–46",
     "ecclesiastes": "Swete's verse divisions in 7:24–25, 8:2–3 and 9:1–2 differ from Brenton's",
     "song-of-songs": "Swete opens 7:1 with 'Τί ὄψεσθε … παρεμβολῶν', which Brenton ends 7:1 (Swete 6:12) with",
-    "sirach": "Swete ends 1:8 with 'Κύριος' opening 1:9; Clementine Vulgate splits Sirach 29:13 across 29:16–18",
+    "sirach": "Swete ends 1:8 with 'Κύριος' opening 1:9 and begins 42:1 with Brenton's 41:23–24",
+    "ezekiel": "Swete divides 21:19–20 across Brenton's 21:24–25",
     "daniel": "Swete prints the springs (3:77) before the seas and rivers (3:78); Brenton numbers them the other way round",
 }
 # Whole runs renumbered to Brenton's numbering, in order: (witness id, book) -> [(chapter, first, last,
@@ -257,6 +432,18 @@ _DIVISION_WHY = {
 _RENUMBER = {
     ("grk-swete-csv", "numbers"): [(17, 1, 13, 17, 16), (16, 36, 50, 17, 1)],
     ("grk-brenton-sixtine", "proverbs"): [(24, 35, 53, 30, 15), (24, 54, 62, 31, 1)],
+    ("grk-swete-csv", "1-chronicles"): [(6, 1, 15, 5, 27), (6, 16, 72, 6, 1), (6, 74, 81, 6, 59), (12, 5, 40, 12, 6)],
+    ("grk-1st1k-lxx", "1-chronicles"): [(6, 1, 15, 5, 27), (6, 16, 72, 6, 1), (6, 74, 81, 6, 59), (12, 5, 7, 12, 6), (12, 9, 40, 12, 10)],
+    ("grk-swete-lxx", "1-chronicles"): [(6, 1, 15, 5, 27), (6, 16, 72, 6, 1), (6, 74, 81, 6, 59), (12, 5, 7, 12, 6), (12, 9, 40, 12, 10)],
+    ("grk-swete-csv", "1-kings"): [(6, 19, 34, 6, 20)],
+    ("grk-1st1k-lxx", "1-kings"): [(6, 19, 34, 6, 20)],
+    ("grk-swete-lxx", "1-kings"): [(6, 19, 34, 6, 20)],
+    ("grk-swete-csv", "job"): [(41, 2, 25, 41, 3)],
+    ("grk-1st1k-lxx", "job"): [(41, 2, 25, 41, 3)],
+    ("grk-swete-lxx", "job"): [(41, 2, 25, 41, 3)],
+    ("grk-swete-csv", "ezekiel"): [(21, 21, 32, 21, 26)],
+    ("grk-1st1k-lxx", "ezekiel"): [(21, 21, 32, 21, 26)],
+    ("grk-swete-lxx", "ezekiel"): [(21, 21, 32, 21, 26)],
 }
 _RENUMBER_WHY = {
     ("grk-brenton-sixtine", "proverbs"): (
@@ -305,10 +492,11 @@ def _apply_slips(wid, book_slug, chapters, original, notes):
         result[ch][v] = text.replace(needle, new, 1)
         how = ("'[…]' casts no vote, so the other copies of Swete decide" if GAP_WORD in new else
                "'…' marks text this copy lost: its omissions in this verse are not evidence" if LACUNA_MARK in new else
-               "the words typed twice are kept once")
+               "verified import repair applied")
+        src_note = f"Swete prints {swete}" if wid in _ALL else swete
         notes.setdefault(ch, []).append(
-            f"Source import repair, {ch}:{v}: '{needle}' → '{new}' (Swete prints {swete}). "
-            f"{how}; no word was supplied. Original file unchanged.")
+            f"Source import repair, {ch}:{v}: '{needle}' → '{new}' ({src_note}). "
+            f"{how}. Original file unchanged.")
     return result
 
 
@@ -369,20 +557,32 @@ def _apply_divisions(wid, book_slug, chapters, original, notes):
             result[3][77], result[3][78] = b, a
             notes.setdefault(3, []).append(
                 f"Source division repair: 3:77 and 3:78 exchanged ({_DIVISION_WHY['daniel']}). Original file unchanged.")
-    if wid in _LATIN_NUM1_COPIES and book_slug == "numbers":
-        ch1 = result.get(1, {})
-        if (all(ch1.get(v) for v in range(24, 38))
-                and "Gad" in ch1[24] and "Juda" not in ch1[24] and "Iuda" not in ch1[24]
-                and "Zabulon" in ch1[30] and "Ephraim" in ch1[32]):
-            result = _copy_chapter(result, original, 1)
-            snap = {v: result[1][v] for v in range(24, 38)}
-            for v in range(26, 38):
-                result[1][v - 2] = snap[v]
-            result[1][36], result[1][37] = snap[24], snap[25]
-            notes.setdefault(1, []).append(
-                "Source division repair: verses 1:24–25 (Gad) moved to 1:36–37 and 1:26–37 (Juda–Benjamin) "
-                "renumbered 1:24–35 to match Clem-Saints's LXX tribe order (preventing formulaic census alignment "
-                "from swapping Zabulon 1:28 and Ephraim 1:30). Original file unchanged.")
+    if wid in _ALL and book_slug == "leviticus":
+        ch8 = result.get(8, {})
+        head_21 = next(
+            (h for h in (
+                "καὶ τὴν κοιλίαν καὶ τούς πόδας ἔπλυνεν ὕδατι,",
+                "καὶ τὴν κοιλίαν καὶ τοὺς πόδας ἔπλυνεν ὕδατι,",
+            ) if ch8.get(21, "").startswith(h + " ")),
+            "",
+        )
+        if (all(ch8.get(v) for v in range(18, 31))
+                and head_21
+                and ch8[19].startswith("καὶ ἔσφαξεν Μωυσῆς τὸν κριόν")
+                and "προσέρανεν" in ch8[30]):
+            result = _copy_chapter(result, original, 8)
+            result[8][18] = f"{ch8[18]} {ch8[19]}"
+            snap_20 = f"{ch8[20]} {head_21}"
+            snap_21 = ch8[21][len(head_21):].strip()
+            snap_rest = {v: ch8[v] for v in range(22, 31)}
+            result[8][19] = snap_20
+            result[8][20] = snap_21
+            for v in range(22, 31):
+                result[8][v - 1] = snap_rest[v]
+            del result[8][30]
+            notes.setdefault(8, []).append(
+                f"Source division repair: 8:18–30 aligned to Brenton's 8:18–29 ({_DIVISION_WHY['leviticus']}). "
+                "Original file unchanged.")
     for copies, book, (ch, v), part, clause, (tch, tv), how in _DIVISIONS:
         if wid not in copies or book != book_slug:
             continue

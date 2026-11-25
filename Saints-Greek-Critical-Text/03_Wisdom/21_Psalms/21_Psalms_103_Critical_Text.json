@@ -7,7 +7,7 @@
   "usfm_code": "PSA",
   "chapter": 103,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:41Z",
+  "updated_at": "2026-11-25T00:07:28Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -61,6 +61,7 @@
     "Swete-Amicarelli: 104:25 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 104:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 104:27 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 104:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 104:29 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 104:30 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 104:31 kept in its own chapter (stronger match to its own reference verse)",
@@ -127,6 +128,7 @@
     "1st1K-LXX: 104:25 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 104:26 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 104:27 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 104:28 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 104:29 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 104:30 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 104:31 kept in its own chapter (stronger match to its own reference verse)",
@@ -193,6 +195,7 @@
     "Swete (B/A/א): 104:25 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 104:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 104:27 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 104:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 104:29 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 104:30 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 104:31 kept in its own chapter (stronger match to its own reference verse)",
@@ -212,6 +215,7 @@
     "Swete (B/A/א): 104:45 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 102:1 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 102:2 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 102:3 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 102:4 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 102:5 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 102:6 kept in its own chapter (stronger match to its own reference verse)",
@@ -266,6 +270,7 @@
     "LXX-Orthodox (Οʹ): 104:33 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 104:34 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 104:35 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 104:36 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 104:37 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 104:38 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 104:39 kept in its own chapter (stronger match to its own reference verse)",
@@ -278,18 +283,18 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "1st1K-LXX",
-      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
-      "tier": 1,
-      "weight": 0.92,
-      "license": "CC BY-SA 4.0"
-    },
-    {
       "siglum": "Swete-Amicarelli",
       "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
       "tier": 1,
       "weight": 0.93,
       "license": "GPL-3.0"
+    },
+    {
+      "siglum": "1st1K-LXX",
+      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
+      "tier": 1,
+      "weight": 0.92,
+      "license": "CC BY-SA 4.0"
     },
     {
       "siglum": "Swete (B/A/א)",
@@ -325,16 +330,14 @@
       "witness_readings": {
         "Swete-Amicarelli": "Τῷ Δαυείδ. Εὐλόγει, ἡ ψυχή μου, τὸν κύριον· Κύριε, Κύριε, ὁ θεός μου, ὡς ἐμεγαλύνθης σφόδρα. ἐξομολόγησιν καὶ εὐπρέπειαν ἐνεδύσω,",
         "1st1K-LXX": "Τῷ Δαυείδ. Εὐλόγει, ἡ ψυχὴ μου, τὸν κύριον· Κύριε, Κύριε, ὁ θεός μου, ὡς ἐμεγαλύνθης σφόδρα. ἐξομολόγησιν καὶ εὐπρέπειαν ἐνεδύσω,",
-        "Swete (B/A/א)": "Εὐλόγει, ἡ ψυχὴ μου, τὸν κύριον· Κύριε, Κύριε, ὁ θεός μου, ὡς ἐμεγαλύνθης σφόδρα. ἐξομολόγησιν καὶ εὐπρέπειαν ἐνεδύσω,",
+        "Swete (B/A/א)": "Τῷ Δαυείδ. Εὐλόγει, ἡ ψυχὴ μου, τὸν κύριον· Κύριε, Κύριε, ὁ θεός μου, ὡς ἐμεγαλύνθης σφόδρα. ἐξομολόγησιν καὶ εὐπρέπειαν ἐνεδύσω,",
         "Sixtine/Brenton": "Τῷ Δαυίδ. Εὐλόγει ἡ ψυχή μου τὸν Κύριον. Κύριε ὁ Θεός μου ἐμεγαλύνθης σφόδρα· ἐξομολόγησιν καὶ εὐπρέπειαν ἐνεδύσω,",
         "LXX-Orthodox (Οʹ)": "Τῷ Δαυΐδ. ΕΥΛΟΓΕΙ, ἡ ψυχή μου, τὸν Κύριον. Κύριε ὁ Θεός μου, ἐμεγαλύνθης σφόδρα, ἐξομολόγησιν καὶ μεγαλοπρέπειαν ἐνεδύσω"
       },
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -468,37 +471,17 @@
       ],
       "disregarded": [
         {
-          "slot_index": 0,
-          "kept_form": "Τῷ",
-          "disregarded_forms": [
-            "om."
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
           "slot_index": 1,
-          "kept_form": "Δαυείδ",
+          "kept_form": "Δαυίδ.",
           "disregarded_forms": [
-            "om."
+            "Δαυείδ."
           ],
           "witnesses": [
-            "Swete (B/A/א)"
+            "1st1K-LXX",
+            "Swete (B/A/א)",
+            "Swete-Amicarelli"
           ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy is the other edition's reading in another spelling); not counted as a variant"
-        },
-        {
-          "slot_index": 1,
-          "kept_form": "Δαυείδ",
-          "disregarded_forms": [
-            "Δαυίδ"
-          ],
-          "witnesses": [
-            "Sixtine/Brenton"
-          ],
-          "reason": "Spelling variant pooled before the vote with the reading 'Δαυείδ' (same word, different spelling); whether that reading was adopted is shown in the apparatus"
+          "reason": "Koine/Uncial itacistic spelling (ει / ι equivalence)"
         },
         {
           "slot_index": 2,
@@ -590,7 +573,7 @@
           "reason": "Punctuation / spacing difference only"
         }
       ],
-      "rationale": "[Omission in some witnesses] Adopted 'Κύριε' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ὡς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 11 orthographic/surface variation(s).",
+      "rationale": "[Omission in some witnesses] Adopted 'Κύριε' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). [Omission in some witnesses] Adopted 'ὡς' [Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א)] (weight 0.93, confidence 53%) over om. (Sixtine/Brenton). Also normalised 9 orthographic/surface variation(s).",
       "human_locked": false,
       "analysis": [
         {
@@ -628,9 +611,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -667,9 +648,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -728,9 +707,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -807,9 +784,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -914,9 +889,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -964,9 +937,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1003,9 +974,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1121,9 +1090,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1228,9 +1195,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1345,9 +1310,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1384,9 +1347,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1446,9 +1407,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1485,9 +1444,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1602,9 +1559,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1664,9 +1619,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1771,9 +1724,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1877,9 +1828,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1945,9 +1894,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1995,9 +1942,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2056,9 +2001,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2195,16 +2138,14 @@
       "witness_readings": {
         "Swete-Amicarelli": "ἀνέτειλεν ὁ ἥλιος καὶ συναχθήσονται, καὶ ἐν ταῖς μάνδραις αὐτῶν κοιτασθήσονται·",
         "1st1K-LXX": "ἀνέτειλεν ὁ ἥλιος καὶ συναχθήσονται, καὶ ἐν ταῖς μάνδραις αὐτῶν κοιτασθήσονται·",
-        "Swete (B/A/א)": "Τῷ Δαυείδ. ἀνέτειλεν ὁ ἥλιος καὶ συναχθήσονται, καὶ ἐν ταῖς μάνδραις αὐτῶν κοιτασθήσονται·",
+        "Swete (B/A/א)": "ἀνέτειλεν ὁ ἥλιος καὶ συναχθήσονται, καὶ ἐν ταῖς μάνδραις αὐτῶν κοιτασθήσονται·",
         "Sixtine/Brenton": "Ἀνέτειλεν ὁ ἥλιος καὶ συναχθήσονται, καὶ ἐν ταῖς μάνδραις αὐτῶν κοιτασθήσονται.",
         "LXX-Orthodox (Οʹ)": "ἀνέτειλεν ὁ ἥλιος, καὶ συνήχθησαν καὶ εἰς τὰς μάνδρας αὐτῶν κοιτασθήσονται."
       },
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2295,17 +2236,6 @@
       "disregarded": [
         {
           "slot_index": 0,
-          "kept_form": "om.",
-          "disregarded_forms": [
-            "Τῷ Δαυείδ"
-          ],
-          "witnesses": [
-            "Swete (B/A/א)"
-          ],
-          "reason": "Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant"
-        },
-        {
-          "slot_index": 1,
           "kept_form": "ἀνέτειλεν",
           "disregarded_forms": [
             "Ἀνέτειλεν"
@@ -2316,7 +2246,7 @@
           "reason": "Accentuation / capitalisation / breathing convention"
         },
         {
-          "slot_index": 11,
+          "slot_index": 10,
           "kept_form": "κοιτασθήσονται·",
           "disregarded_forms": [
             "κοιτασθήσονται."
@@ -2327,7 +2257,7 @@
           "reason": "Punctuation / spacing difference only"
         }
       ],
-      "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Punctuation / spacing difference only).",
+      "rationale": "Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 2 surface variation(s) (Accentuation / capitalisation / breathing convention; Punctuation / spacing difference only).",
       "human_locked": false,
       "analysis": [],
       "needs_review": false
@@ -2348,9 +2278,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2387,9 +2315,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2460,9 +2386,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2521,9 +2445,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2632,9 +2554,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2734,9 +2654,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2890,9 +2808,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2962,9 +2878,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3001,9 +2915,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -3069,9 +2981,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3108,9 +3018,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -3237,9 +3145,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3287,9 +3193,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)",
-        "א (01) [CSP-OT]"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {

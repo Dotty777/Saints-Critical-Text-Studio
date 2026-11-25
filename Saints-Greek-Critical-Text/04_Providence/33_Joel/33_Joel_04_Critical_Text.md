@@ -1,6 +1,6 @@
 # Joel 04 — Saints Greek Critical Text
 
-**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:35Z`
+**Division:** `04_Providence` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:43Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `Sixtine/Brenton`. Spelling and punctuation follow `Swete-Amicarelli` where it attests the adopted reading.
 
@@ -13,8 +13,8 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete-Amicarelli** | Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV) | Tier 1 | `0.93` | GPL-3.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) — keyed transcription, not OCR |
+| **1st1K-LXX** | First1KGreek Septuagint EpiDoc TEI-XML (tlg0527) | Tier 1 | `0.92` | CC BY-SA 4.0 | Diplomatic Uncial TEI-XML with Marginal Witness Sigla |
 | **Swete (B/A/א)** | Swete Septuagint Diplomatic Uncial Text (Cambridge 1909–1930) | Tier 1 | `0.90` | Public Domain / CC BY-SA 4.0 | Diplomatic Uncial (Codex Vaticanus B; Alexandrinus A in Gen 1:1–46:28a) |
 | **Sixtine/Brenton** | Sixtine-Vaticanus Septuagint (1587 / Brenton 1851 USFM) | Tier 2 | `0.84` | Public Domain | Sixtine Ecclesiastical & Vaticanus Printed Tradition |
 
@@ -28,10 +28,8 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
 - Swete-Amicarelli: 21 verse(s) re-aligned by content (1←3:1, 2←3:2, 3←3:3, 4←3:4, 5←3:5, 6←3:6…)
@@ -178,7 +176,6 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *Disregarded Surface Variant:* kept `ὁ` over `Ὁ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `συσκοτάσουσιν,` over `συσκοτάσουσι,` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
 - *Disregarded Surface Variant:* kept `δύσουσιν` over `δύσουσι` (Sixtine/Brenton) — *Euphonic movable-nu (-ν) variation*
-- *Disregarded Surface Variant:* kept `αὐτῶν` over `αὐτῶυ` (1st1K-LXX, Swete (B/A/א)) — *Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant*
 
 ### Joel 4:16
 - *Disregarded Surface Variant:* kept `ὁ` over `Ὁ` (Sixtine/Brenton) — *Accentuation / capitalisation / breathing convention*
@@ -370,11 +367,11 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 ### Verse 15 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶν.
   - `Swete-Amicarelli` *(numbered 3:15 in this witness)*: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶν.
-  - `1st1K-LXX` *(numbered 3:15 in this witness)*: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶυ.
-  - `Swete (B/A/א)` *(numbered 3:15 in this witness)*: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶυ.
+  - `1st1K-LXX` *(numbered 3:15 in this witness)*: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶν.
+  - `Swete (B/A/א)` *(numbered 3:15 in this witness)*: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσιν, καὶ οἱ ἀστέρες δύσουσιν φέγγος αὐτῶν.
   - `Sixtine/Brenton`: Ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσι, καὶ οἱ ἀστέρες δύσουσι φέγγος αὐτῶν.
   - `LXX-Orthodox (Οʹ)`: ὁ ἥλιος καὶ ἡ σελήνη συσκοτάσουσι, καὶ οἱ ἀστέρες δύσουσι φέγγος αὐτῶν.
-- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 4 surface variation(s) (Accentuation / capitalisation / breathing convention; Encoding difference between digital copies of the same printed edition (the sister copy agrees with the other editions); not counted as a variant; Euphonic movable-nu (-ν) variation). Versification: 1st1K-LXX numbers this verse 3:15; Swete (B/A/א) numbers this verse 3:15; Swete-Amicarelli numbers this verse 3:15 (re-aligned by content).
+- **Philological Rationale:** Substantively unanimous across Swete-Amicarelli, 1st1K-LXX, Swete (B/A/א), Sixtine/Brenton. Normalised 3 surface variation(s) (Accentuation / capitalisation / breathing convention; Euphonic movable-nu (-ν) variation). Versification: 1st1K-LXX numbers this verse 3:15; Swete (B/A/א) numbers this verse 3:15; Swete-Amicarelli numbers this verse 3:15 (re-aligned by content).
 
 ### Verse 16 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
 - **Critical Text:** ὁ δὲ κύριος ἐκ Σειὼν ἀνακεκράξεται, καὶ ἐξ Ἰερουσαλὴμ δώσει φωνὴν αὐτοῦ, καὶ σεισθήσεται ὁ οὐρανὸς καὶ ἡ γῆ· ὁ δέ κύριος φείσεται τοῦ λαοῦ αὐτοῦ καὶ ἐνισχύσει τοὺς υἱοὺς Ἰσραήλ.

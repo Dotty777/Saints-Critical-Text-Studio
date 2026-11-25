@@ -7,7 +7,7 @@
   "usfm_code": "1KI",
   "chapter": 10,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:28Z",
+  "updated_at": "2026-11-25T00:07:22Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -26,12 +26,15 @@
     "Swete-Amicarelli: 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 9:12 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:13 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 9:14 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:27 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:1 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 11:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:5 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:7 kept in its own chapter (stronger match to its own reference verse)",
@@ -51,6 +54,7 @@
     "Swete-Amicarelli: 11:21 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:22 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:25 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 11:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:27 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:29 kept in its own chapter (stronger match to its own reference verse)",
@@ -65,6 +69,7 @@
     "Swete-Amicarelli: 11:38 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:40 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:41 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 11:42 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 11:43 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 10:25 folded into verse 22 (the reference prints these words there)",
     "Swete-Amicarelli: 10:30 folded into verse 26 (the reference prints these words there)",
@@ -84,14 +89,20 @@
     "1st1K-LXX: 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:11 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 9:12 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:13 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 9:14 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 9:26 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:27 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:28 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:1 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:2 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:3 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:5 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:6 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:7 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:8 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:9 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:10 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:11 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:12 kept in its own chapter (stronger match to its own reference verse)",
@@ -104,7 +115,10 @@
     "1st1K-LXX: 11:19 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:20 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:21 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:22 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:25 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:26 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:27 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:28 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:29 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:30 kept in its own chapter (stronger match to its own reference verse)",
@@ -115,8 +129,10 @@
     "1st1K-LXX: 11:35 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:36 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:37 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:38 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:40 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:41 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 11:42 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 11:43 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 10:25 folded into verse 22 (the reference prints these words there)",
     "1st1K-LXX: 10:30 folded into verse 26 (the reference prints these words there)",
@@ -136,14 +152,20 @@
     "Swete (B/A/א): 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:11 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 9:12 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:13 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 9:14 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 9:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:27 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:1 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:2 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:3 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:5 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:7 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:9 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:11 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:12 kept in its own chapter (stronger match to its own reference verse)",
@@ -156,7 +178,10 @@
     "Swete (B/A/א): 11:19 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:20 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:21 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:22 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:25 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:26 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:27 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:28 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:29 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:30 kept in its own chapter (stronger match to its own reference verse)",
@@ -167,8 +192,10 @@
     "Swete (B/A/א): 11:35 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:36 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:37 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:38 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:40 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:41 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 11:42 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 11:43 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 10:25 folded into verse 22 (the reference prints these words there)",
     "Swete (B/A/א): 10:30 folded into verse 26 (the reference prints these words there)",
@@ -217,6 +244,7 @@
     "LXX-Orthodox (Οʹ): 11:20 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 11:21 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 11:22 kept in its own chapter (stronger match to its own reference verse)",
+    "LXX-Orthodox (Οʹ): 11:25 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 11:26 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 11:27 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): 11:28 kept in its own chapter (stronger match to its own reference verse)",
@@ -237,18 +265,18 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "1st1K-LXX",
-      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
-      "tier": 1,
-      "weight": 0.92,
-      "license": "CC BY-SA 4.0"
-    },
-    {
       "siglum": "Swete-Amicarelli",
       "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
       "tier": 1,
       "weight": 0.93,
       "license": "GPL-3.0"
+    },
+    {
+      "siglum": "1st1K-LXX",
+      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
+      "tier": 1,
+      "weight": 0.92,
+      "license": "CC BY-SA 4.0"
     },
     {
       "siglum": "Swete (B/A/א)",
@@ -291,8 +319,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -363,8 +390,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -491,8 +517,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -564,8 +589,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -706,8 +730,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -835,8 +858,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -942,8 +964,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1072,8 +1093,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1159,8 +1179,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1283,8 +1302,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1389,8 +1407,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1528,8 +1545,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1692,8 +1708,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -1849,8 +1864,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -1933,8 +1947,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2015,8 +2028,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2076,8 +2088,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2194,8 +2205,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -2256,8 +2266,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2401,8 +2410,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2483,8 +2491,7 @@
       "absent_witnesses": [],
       "witness_refs": {},
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -2697,8 +2704,7 @@
         "Swete (B/A/א)": "10:24"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -3526,8 +3532,7 @@
         "Swete (B/A/א)": "10:26"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -3624,8 +3629,7 @@
         "Swete (B/A/א)": "10:27"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3688,8 +3692,7 @@
         "Swete (B/A/א)": "10:28"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -3869,8 +3872,7 @@
         "Swete (B/A/א)": "10:29"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [],
       "disregarded": [
@@ -3956,8 +3958,7 @@
         "Swete (B/A/א)": "10:31"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -4062,8 +4063,7 @@
         "Swete (B/A/א)": "10:32"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {
@@ -4234,8 +4234,7 @@
         "Swete (B/A/א)": "10:33"
       },
       "apparatus_witnesses": [
-        "LXX-Orthodox (Οʹ)",
-        "Rahlfs (1935)"
+        "LXX-Orthodox (Οʹ)"
       ],
       "apparatus": [
         {

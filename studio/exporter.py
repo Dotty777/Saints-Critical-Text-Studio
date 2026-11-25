@@ -1,16 +1,265 @@
 """Local (MD / JSON / TSV) & Optional Google Drive Exporter for Critical Text Editions."""
 
 from __future__ import annotations
+import copy
 import csv
 import json
+import re
 import shutil
 import subprocess
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Collection, Dict, Iterable, List, Optional, Set, Tuple
 
 from .catalog import CRITICAL_OUTPUT_ROOTS, DIVISIONS, GDRIVE_LANGUAGE_PARENTS, VERSIFICATION_NOTES, BookSpec
 from .db import utc_now
+
+TIER5_EXCLUDED_STATUS = "EXCLUDED_TIER5_OPEN_EXPORT"
+
+# Canonical Tier 5 / NonCommercial / Copyrighted study-only apparatus sigla held in the local Studio
+# only and strictly excluded from all public open-licence exports.
+KNOWN_TIER5_SIGLA: frozenset[str] = frozenset({
+    # Greek Tier 5
+    "Tregelles (1879)",
+    "Pickering-f35",
+    "Rahlfs (1935)",
+    "א (01) [CSP-OT]",
+    # Hebrew Tier 5
+    "BHS (BHSA)",
+    "SP (Samaritan)",
+    "1QIsaᵃ",
+    "1QIsaᵇ (1Q8)",
+    "4QSamᵃ (4Q51)",
+    "4QJerᵇ,ᵈ",
+    "11QPsᵃ (11Q5)",
+    "11QPsᵃ (Ps 151)",
+    "DSS-Torah (4Q)",
+    # Latin Tier 5
+    "Stuttgart-BSV",
+    "VL 2 (e)",
+    "VL 3 (a)",
+    "VL 4 (b)",
+    "VL 5 (d)",
+    "VL 6 (c)",
+    "VL 8 (ff²)",
+    "VL 10 (f)",
+    "VL 14 (r¹)",
+    "VL 15 (aur)",
+})
+
+_NON_OPEN_LICENSE_RE = re.compile(
+    r"\b(?:by-nc|nc-sa|nc-nd|non-?commercial|study-only|copyrighted)\b",
+    re.IGNORECASE,
+)
+
+
+def is_tier5_witness(witness: Dict[str, Any]) -> bool:
+    """Return True if a witness metadata dict is Tier 5, non-ADMITTED, or non-open-licensed."""
+    try:
+        tier = int(witness.get("tier", 0) or 0)
+    except (TypeError, ValueError):
+        tier = 0
+    if tier >= 5:
+        return True
+    status = str(witness.get("status", "ADMITTED") or "ADMITTED").upper()
+    if status != "ADMITTED":
+        return True
+    sig = str(witness.get("siglum", "") or "")
+    if sig in KNOWN_TIER5_SIGLA:
+        return True
+    lic = str(witness.get("license", "") or "")
+    if _NON_OPEN_LICENSE_RE.search(lic):
+        return True
+    return False
+
+
+def _collect_excluded_sigla(
+    admitted_witnesses: Iterable[Dict[str, Any]] = (),
+    apparatus_witnesses: Iterable[Dict[str, Any]] = (),
+    extra_excluded: Optional[Iterable[str]] = None,
+) -> Set[str]:
+    """Build the set of Tier-5 / non-open sigla to strip, preserving any explicitly open witness siglum."""
+    open_sigla: Set[str] = set()
+    excluded: Set[str] = set(KNOWN_TIER5_SIGLA)
+    for w in (*admitted_witnesses, *apparatus_witnesses):
+        sig = str(w.get("siglum", "") or "")
+        if not sig:
+            continue
+        if is_tier5_witness(w):
+            excluded.add(sig)
+        else:
+            open_sigla.add(sig)
+    if extra_excluded:
+        excluded.update(str(s) for s in extra_excluded if s)
+    excluded -= open_sigla
+    return excluded
+
+
+def _siglum_in_text(text: str, siglum: str) -> bool:
+    if not text or not siglum:
+        return False
+    prefix = r"(?<!\w)" if siglum[0].isalnum() or siglum[0] == "_" else ""
+    suffix = r"(?!\w)" if siglum[-1].isalnum() or siglum[-1] == "_" else ""
+    return bool(re.search(f"{prefix}{re.escape(siglum)}{suffix}", text))
+
+
+def _mentions_excluded(text: str, excluded_sigla: Collection[str]) -> bool:
+    if not text or not excluded_sigla:
+        return False
+    return any(_siglum_in_text(text, sig) for sig in excluded_sigla)
+
+
+def scrub_verse_for_open_export(
+    vr: Dict[str, Any],
+    excluded_sigla: Collection[str],
+) -> Dict[str, Any]:
+    """Return a deep-copied verse dict with all excluded (Tier-5/NC) sigla removed from every field."""
+    out = copy.deepcopy(vr)
+    if not excluded_sigla:
+        return out
+    excl = set(excluded_sigla)
+
+    if isinstance(out.get("witness_readings"), dict):
+        out["witness_readings"] = {
+            sig: txt for sig, txt in out["witness_readings"].items() if sig not in excl
+        }
+    if isinstance(out.get("absent_witnesses"), list):
+        out["absent_witnesses"] = [sig for sig in out["absent_witnesses"] if sig not in excl]
+    if isinstance(out.get("witness_refs"), dict):
+        out["witness_refs"] = {
+            sig: ref for sig, ref in out["witness_refs"].items() if sig not in excl
+        }
+    if isinstance(out.get("apparatus_witnesses"), list):
+        out["apparatus_witnesses"] = [sig for sig in out["apparatus_witnesses"] if sig not in excl]
+
+    if isinstance(out.get("apparatus"), list):
+        clean_app: List[Dict[str, Any]] = []
+        for unit in out["apparatus"]:
+            u = dict(unit)
+            if isinstance(u.get("lemma_witnesses"), list):
+                u["lemma_witnesses"] = [w for w in u["lemma_witnesses"] if w not in excl]
+            if isinstance(u.get("credited_witnesses"), list):
+                u["credited_witnesses"] = [w for w in u["credited_witnesses"] if w not in excl]
+            if isinstance(u.get("analysis"), list):
+                u["analysis"] = [
+                    note for note in u["analysis"]
+                    if not _mentions_excluded(str(note.get("note", "")), excl)
+                ]
+            clean_vars: List[Dict[str, Any]] = []
+            for var in u.get("variants") or []:
+                v = dict(var)
+                vw = [w for w in (v.get("witnesses") or []) if w not in excl]
+                if vw:
+                    v["witnesses"] = vw
+                    clean_vars.append(v)
+            if clean_vars:
+                u["variants"] = clean_vars
+                clean_app.append(u)
+        out["apparatus"] = clean_app
+
+    if isinstance(out.get("disregarded"), list):
+        clean_dis: List[Dict[str, Any]] = []
+        for dis in out["disregarded"]:
+            d = dict(dis)
+            dw = [w for w in (d.get("witnesses") or []) if w not in excl]
+            if dw:
+                d["witnesses"] = dw
+                clean_dis.append(d)
+        out["disregarded"] = clean_dis
+
+    if isinstance(out.get("analysis"), list):
+        out["analysis"] = [
+            note for note in out["analysis"]
+            if not _mentions_excluded(str(note.get("note", "")), excl)
+        ]
+
+    return out
+
+
+def scrub_chapter_for_open_export(
+    admitted_witnesses: List[Dict[str, Any]],
+    apparatus_witnesses: List[Dict[str, Any]] | None,
+    quarantined_witnesses: List[Dict[str, Any]],
+    versification_notes: List[str] | None,
+    verse_rows: List[Dict[str, Any]],
+    excluded_sigla: Optional[Iterable[str]] = None,
+) -> Dict[str, Any]:
+    """Scrub chapter metadata and every verse row for public open-licence (Tiers 1–4) export."""
+    app_list = list(apparatus_witnesses or [])
+    excl = _collect_excluded_sigla(admitted_witnesses, app_list, extra_excluded=excluded_sigla)
+
+    clean_admitted: List[Dict[str, Any]] = []
+    clean_apparatus: List[Dict[str, Any]] = []
+    stripped_meta: Dict[str, Dict[str, Any]] = {}
+
+    for w in admitted_witnesses:
+        sig = str(w.get("siglum", "") or "")
+        if sig in excl or is_tier5_witness(w):
+            if sig:
+                stripped_meta.setdefault(sig, w)
+        else:
+            clean_admitted.append(copy.deepcopy(w))
+
+    for w in app_list:
+        sig = str(w.get("siglum", "") or "")
+        if sig in excl or is_tier5_witness(w):
+            if sig:
+                stripped_meta.setdefault(sig, w)
+        else:
+            clean_apparatus.append(copy.deepcopy(w))
+
+    clean_quarantined = [copy.deepcopy(qw) for qw in quarantined_witnesses]
+    seen_q = {str(qw.get("siglum", "") or "") for qw in clean_quarantined}
+    for sig in sorted(stripped_meta):
+        if sig in seen_q:
+            continue
+        w = stripped_meta[sig]
+        tier = w.get("tier", 5)
+        lic = w.get("license", "NonCommercial / Copyrighted")
+        clean_quarantined.append({
+            "siglum": sig,
+            "status": TIER5_EXCLUDED_STATUS,
+            "gatekeeper_summary": (
+                f"Tier {tier} ({lic}) — held in local Studio only; excluded from public open-licence exports."
+            ),
+        })
+        seen_q.add(sig)
+
+    clean_notes = [
+        n for n in (versification_notes or [])
+        if not any(n.startswith(f"{s}:") or _siglum_in_text(n, s) for s in excl)
+    ]
+    clean_verses = [scrub_verse_for_open_export(vr, excl) for vr in verse_rows]
+
+    return {
+        "admitted_witnesses": clean_admitted,
+        "apparatus_witnesses": clean_apparatus,
+        "quarantined_witnesses": clean_quarantined,
+        "versification_notes": clean_notes,
+        "verse_rows": clean_verses,
+        "excluded_sigla": sorted(excl),
+    }
+
+
+def scrub_chapter_json_for_open_export(
+    payload: Dict[str, Any],
+    excluded_sigla: Optional[Iterable[str]] = None,
+) -> Dict[str, Any]:
+    """Return a deep-copied chapter JSON payload with all Tier-5/NC metadata and readings removed."""
+    scrubbed = scrub_chapter_for_open_export(
+        admitted_witnesses=list(payload.get("admitted_witnesses") or []),
+        apparatus_witnesses=list(payload.get("apparatus_witnesses") or []),
+        quarantined_witnesses=[],
+        versification_notes=list(payload.get("versification_notes") or []),
+        verse_rows=list(payload.get("verses") or []),
+        excluded_sigla=excluded_sigla,
+    )
+    out = copy.deepcopy(payload)
+    out["admitted_witnesses"] = scrubbed["admitted_witnesses"]
+    out["apparatus_witnesses"] = scrubbed["apparatus_witnesses"]
+    out["versification_notes"] = scrubbed["versification_notes"]
+    out["verses"] = scrubbed["verse_rows"]
+    return out
 
 LANGUAGE_PRIORITIES = {
     "greek": ("Priority 1 (Highest)", "Old Greek (LXX 43 Books) & Reasoned-Eclectic Greek NT (27 Books)"),
@@ -74,10 +323,37 @@ def export_chapter_files(
     base_siglum: str = "",
     versification_notes: List[str] | None = None,
     apparatus_witnesses: List[Dict[str, Any]] | None = None,
+    open_licence_only: bool = False,
+    excluded_sigla: Optional[Iterable[str]] = None,
+    output_root: Optional[Path] = None,
 ) -> Tuple[Path, Path, Path]:
-    """Write Markdown, JSON, and TSV files for a chapter into its canonical 7-division folder."""
-    ensure_repository_scaffold()
-    root = CRITICAL_OUTPUT_ROOTS[language.lower()]
+    """Write Markdown, JSON, and TSV files for a chapter into its canonical 7-division folder.
+
+    When ``open_licence_only=True``, all Tier-5 / NonCommercial / copyrighted witnesses are stripped
+    from chapter-level metadata AND every verse-level field (including ``verses[*].apparatus_witnesses``,
+    ``witness_readings``, ``absent_witnesses``, ``witness_refs``, ``apparatus``, ``disregarded``, and
+    ``versification_notes``) while local full exports (``open_licence_only=False``) stay intact.
+    """
+    if open_licence_only:
+        scrubbed = scrub_chapter_for_open_export(
+            admitted_witnesses=admitted_witnesses,
+            apparatus_witnesses=apparatus_witnesses,
+            quarantined_witnesses=quarantined_witnesses,
+            versification_notes=versification_notes,
+            verse_rows=verse_rows,
+            excluded_sigla=excluded_sigla,
+        )
+        admitted_witnesses = scrubbed["admitted_witnesses"]
+        apparatus_witnesses = scrubbed["apparatus_witnesses"]
+        quarantined_witnesses = scrubbed["quarantined_witnesses"]
+        versification_notes = scrubbed["versification_notes"]
+        verse_rows = scrubbed["verse_rows"]
+
+    if output_root is None:
+        ensure_repository_scaffold()
+        root = CRITICAL_OUTPUT_ROOTS[language.lower()]
+    else:
+        root = Path(output_root)
     book_dir = root / book.division / book.folder_name
     book_dir.mkdir(parents=True, exist_ok=True)
 

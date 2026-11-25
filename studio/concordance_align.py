@@ -431,6 +431,15 @@ def resolve_ref(repo: Path, ref: str) -> Optional[str]:
     return r.stdout.strip() if r.returncode == 0 else None
 
 
+def is_ancestor(repo: Path, ancestor_ref: str, descendant_ref: str) -> bool:
+    """True when ``ancestor_ref`` is the same commit as, or an ancestor of, ``descendant_ref``."""
+    r = subprocess.run(
+        [_git(), "-C", str(repo), "merge-base", "--is-ancestor", ancestor_ref, descendant_ref],
+        capture_output=True,
+    )
+    return r.returncode == 0
+
+
 def units_from_json(data, code: str) -> List[EnglishUnit]:
     """All units of one verses.json (dict with chapters, or the flat list of Leviticus-Deuteronomy)."""
     field_name = TEXT_FIELD[code]

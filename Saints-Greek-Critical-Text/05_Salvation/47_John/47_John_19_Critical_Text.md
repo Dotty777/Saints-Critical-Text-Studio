@@ -1,6 +1,6 @@
 # John 19 — Saints Greek Critical Text
 
-**Division:** `05_Salvation` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-22T12:03:36Z`
+**Division:** `05_Salvation` · **Language:** `Greek` · **Engine:** `Textual Analysis Brain (Claude-designed · internal evidence · offline)` · **Updated:** `2026-11-25T00:07:47Z`
 
 **Versification:** Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62. Numbering anchor for this chapter: `SBLGNT`. Spelling and punctuation follow `SBLGNT` where it attests the adopted reading.
 
@@ -13,14 +13,14 @@
 ### Admitted Collation Witnesses (Open-Source Tiers 1–4)
 | Siglum | Witness Title | Tier | Weight | License | Text-Type |
 | :--- | :--- | :---: | :---: | :--- | :--- |
-| **BHP** | Bunning Heuristic Prototype GNT (CNTR) | Tier 1 | `0.88` | CC BY 4.0 | Algorithmic Alexandrian/Early Witness Reconstruction |
-| **SBLGNT** | SBL Greek New Testament & Apparatus (Holmes 2010) | Tier 1 | `0.94` | CC BY 4.0 | Reasoned Eclectic Critical Edition |
 | **SRGNT** | Statistical Restoration Greek New Testament (CNTR 2022) | Tier 1 | `0.95` | CC BY 4.0 | Earliest-Manuscript Statistical Critical Edition |
+| **SBLGNT** | SBL Greek New Testament & Apparatus (Holmes 2010) | Tier 1 | `0.94` | CC BY 4.0 | Reasoned Eclectic Critical Edition |
+| **BHP** | Bunning Heuristic Prototype GNT (CNTR) | Tier 1 | `0.88` | CC BY 4.0 | Algorithmic Alexandrian/Early Witness Reconstruction |
 | **Nestle1904** | Eberhard Nestle Greek New Testament (1904) | Tier 2 | `0.90` | Public Domain | Tischendorf / Westcott-Hort / Weymouth Consensus |
-| **TR (KJTR)** | Textus Receptus (CNTR KJTR Collation) | Tier 3 | `0.60` | CC BY 4.0 | Reformation Textus Receptus Tradition |
 | **RP2018 (Byz)** | Robinson–Pierpont Byzantine Textform (2018) | Tier 3 | `0.72` | Public Domain / Unlicense | Byzantine / Majority Ecclesiastical Tradition |
-| **א (01)** | Codex Sinaiticus Direct Transcription (CNTR Early MSS) | Tier 4 | `0.96` | CC BY-SA 4.0 | Alexandrian / Western Mixed Uncial |
+| **TR (KJTR)** | Textus Receptus (CNTR KJTR Collation) | Tier 3 | `0.60` | CC BY 4.0 | Reformation Textus Receptus Tradition |
 | **B (03)** | Codex Vaticanus Direct Transcription (CNTR Early MSS) | Tier 4 | `0.98` | CC BY-SA 4.0 | Premier Alexandrian Uncial |
+| **א (01)** | Codex Sinaiticus Direct Transcription (CNTR Early MSS) | Tier 4 | `0.96` | CC BY-SA 4.0 | Alexandrian / Western Mixed Uncial |
 
 ### Apparatus Witnesses (Additional Editions & Direct Manuscripts — recorded, not voting)
 Collated against the adopted text and listed in the apparatus wherever they differ in substance; they do not vote on the text.
@@ -29,30 +29,30 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 | :--- | :--- | :---: | :--- | :--- |
 | **NA28 (TAGNT)** | Nestle–Aland 28th Edition Word-Stream (STEPBible TAGNT CC BY 4.0) | Tier 1 | CC BY 4.0 (STEPBible.org / Tyndale House) | Modern Standard Eclectic Critical Edition (NA28) |
 | **THGNT** | Tyndale House Greek New Testament (STEPBible TAGNT CC BY 4.0) | Tier 1 | CC BY 4.0 (STEPBible.org / Tyndale House Cambridge) | Documentarily-Grounded Modern Critical Edition (THGNT) |
-| **Tisch8** | Tischendorf 8th Edition Greek New Testament (1869–1872, OSIS v2.8) | Tier 2 | Public Domain | Sinaiticus-Weighted Critical Edition (Tischendorf 8th) |
 | **WH1881** | Westcott & Hort Greek New Testament (1881, CNTR Unicode) | Tier 2 | Public Domain / CC BY-SA 4.0 | Neutral / Alexandrian Critical Edition (Westcott–Hort) |
-| **PT1904 (Byz)** | 1904 Ecumenical Patriarchal Greek New Testament (Basileios Antoniades) | Tier 3 | Public Domain | Constantinopolitan Lectionary & Byzantine Ecclesiastical Majority |
+| **Tisch8** | Tischendorf 8th Edition Greek New Testament (1869–1872, OSIS v2.8) | Tier 2 | Public Domain | Sinaiticus-Weighted Critical Edition (Tischendorf 8th) |
 | **TCGNT (Byz)** | The Text-Critical Greek New Testament: Byzantine Text (Robert Adam Boyd) | Tier 3 | Public Domain | Byzantine Majority Manuscript Collation (TuT / ECM / Hoskier) |
-| **TR-Boyd (Elz/Scr/Steph)** | Polytonic Textus Receptus (Stephanus 1550 / Elzevir 1624 / Scrivener 1894) | Tier 3 | Public Domain | Reformation Printed Textus Receptus |
-| **TR-Elzevir (1624)** | Elzevir Textus Receptus (1624 Leiden Edition, Robinson .UEL) | Tier 3 | Public Domain | Classic Elzevir Textus Receptus |
+| **PT1904 (Byz)** | 1904 Ecumenical Patriarchal Greek New Testament (Basileios Antoniades) | Tier 3 | Public Domain | Constantinopolitan Lectionary & Byzantine Ecclesiastical Majority |
 | **TR-Scrivener (1894)** | Scrivener Textus Receptus (Cambridge 1894 Polytonic Edition) | Tier 3 | Public Domain / GPL-3.0 | Beza 1598 / KJV-Underlying Textus Receptus |
+| **TR-Boyd (Elz/Scr/Steph)** | Polytonic Textus Receptus (Stephanus 1550 / Elzevir 1624 / Scrivener 1894) | Tier 3 | Public Domain | Reformation Printed Textus Receptus |
 | **TR-Stephanus (1550)** | Stephanus Editio Regia Textus Receptus (Paris 1550, CNTR Unicode) | Tier 3 | Public Domain / CC BY-SA 4.0 | Reformation Printed Textus Receptus (Stephanus 1550) |
-| **A (02)** | Codex Alexandrinus Direct Transcription (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Byzantine (Gospels) / Premier Alexandrian (Acts, Epistles, Revelation) |
-| **W (032)** | Codex Washingtonianus / Freer Gospels (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Block-Mixed Gospels Uncial (Alexandrian, Western, Caesarean, Byzantine) |
-| **C (04)** | Codex Ephraemi Rescriptus Direct Transcription (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Mixed Alexandrian / Early Eclectic Palimpsest |
+| **TR-Elzevir (1624)** | Elzevir Textus Receptus (1624 Leiden Edition, Robinson .UEL) | Tier 3 | Public Domain | Classic Elzevir Textus Receptus |
 | **𝔓66** | Papyrus 66 — Bodmer II (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Early Proto-Alexandrian / Free Papyrus (Gospel of John) |
-| **Θ (038)** | Codex Koridethi Direct Transcription (INTF NTVMR XML) | Tier 4 | CC BY 4.0 | Caesarean Gospels Uncial (Anchor Witness in Mark) |
+| **A (02)** | Codex Alexandrinus Direct Transcription (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Byzantine (Gospels) / Premier Alexandrian (Acts, Epistles, Revelation) |
+| **C (04)** | Codex Ephraemi Rescriptus Direct Transcription (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Mixed Alexandrian / Early Eclectic Palimpsest |
+| **W (032)** | Codex Washingtonianus / Freer Gospels (CNTR Early MSS) | Tier 4 | CC BY-SA 4.0 | Block-Mixed Gospels Uncial (Alexandrian, Western, Caesarean, Byzantine) |
 | **33** | Minuscule 33 — Queen of the Cursives (INTF NTVMR & IGNTP Paul XML) | Tier 4 | CC BY 4.0 | Premier Alexandrian Minuscule (Gospels, Acts, Epistles) |
+| **Θ (038)** | Codex Koridethi Direct Transcription (INTF NTVMR XML) | Tier 4 | CC BY 4.0 | Caesarean Gospels Uncial (Anchor Witness in Mark) |
 
 ### Disregarded / Quarantined Sources (Excluded by AI Gatekeeper)
 | Source | Status | Reason Excluded from Open Critical Text |
 | :--- | :---: | :--- |
-| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| Rahlfs (1935) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (Copyrighted / Study-Only (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
-| א (01) [CSP-OT] | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; strictly excluded from public open-licence GitHub export. |
+| Pickering-f35 | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-ND (Tier 5 — Owner-Authorized Apparatus)) — held in local Studio only; excluded from public open-licence exports. |
+| Tregelles (1879) | `EXCLUDED_TIER5_OPEN_EXPORT` | Tier 5 (CC BY-NC-SA 3.0 (Owner-Authorized Apparatus Witness)) — held in local Studio only; excluded from public open-licence exports. |
 
 ### Versification & Alignment Notes
+- SBLGNT: Source import repair, 19:13: 'Ἑβραϊστὶ δὲ Γαββαθα.' → 'Ἑβραϊστὶ δὲ Γαββαθᾶ.' (Γαββαθᾶ (unaccented proper name in SBLGNT; corroborated by SRGNT, BHP, RP2018, & TR-Scrivener)). verified import repair applied. Original file unchanged.
+- TR (KJTR): Source import repair, 19:13: 'Ἑβραϊστὶ δὲ, Γαββαθα.' → 'Ἑβραϊστὶ δὲ, Γαββαθᾶ.' (Γαββαθᾶ (unaccented proper name in CNTR KJTR; corroborated by SRGNT, BHP, RP2018, & TR-Scrivener)). verified import repair applied. Original file unchanged.
 - C (04): 1 verse(s) re-aligned by content (9←18:33)
 
 ---
@@ -71,7 +71,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 **10** λέγει οὖν αὐτῷ ὁ Πιλᾶτος· Ἐμοὶ οὐ λαλεῖς; οὐκ οἶδας ὅτι ἐξουσίαν ἔχω ἀπολῦσαί σε καὶ ἐξουσίαν ἔχω σταυρῶσαί σε;
 **11** ἀπεκρίθη αὐτῷ Ἰησοῦς· Οὐκ εἶχες ἐξουσίαν κατʼ ἐμοῦ οὐδεμίαν εἰ μὴ ἦν δεδομένον σοι ἄνωθεν· διὰ τοῦτο ὁ παραδούς μέ σοι μείζονα ἁμαρτίαν ἔχει.
 **12** ἐκ τούτου ὁ Πιλᾶτος ἐζήτει ἀπολῦσαι αὐτόν· οἱ δὲ Ἰουδαῖοι ἐκραύγασαν λέγοντες· Ἐὰν τοῦτον ἀπολύσῃς, οὐκ εἶ φίλος τοῦ Καίσαρος· πᾶς ὁ βασιλέα ἑαυτὸν ποιῶν ἀντιλέγει τῷ Καίσαρι.
-**13** Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθα.
+**13** Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθᾶ.
 **14** ἦν δὲ παρασκευὴ τοῦ πάσχα, ὥρα ἦν ὡς ἕκτη. καὶ λέγει τοῖς Ἰουδαίοις· Ἴδε ὁ βασιλεὺς ὑμῶν.
 **15** Οἱ δὲ ἐκραύγασαν Ἆρον ἆρον, σταύρωσον αὐτόν. λέγει αὐτοῖς ὁ Πιλᾶτος· Τὸν βασιλέα ὑμῶν σταυρώσω; ἀπεκρίθησαν οἱ ἀρχιερεῖς· Οὐκ ἔχομεν βασιλέα εἰ μὴ Καίσαρα.
 **16** τότε οὖν παρέδωκεν αὐτὸν αὐτοῖς ἵνα σταυρωθῇ. Παρέλαβον δὲ τὸν Ἰησοῦν·
@@ -463,7 +463,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - **Apparatus:** `om.` B (03) א (01) SRGNT SBLGNT Nestle1904 BHP 33 A (02) NA28 (TAGNT) THGNT Tisch8 WH1881 **]** **τοῦ** RP2018 (Byz) TR (KJTR) PT1904 (Byz) TCGNT (Byz) TR-Boyd (Elz/Scr/Steph) TR-Elzevir (1624) TR-Scrivener (1894) TR-Stephanus (1550) W (032) Θ (038) *(omission / addition)*
   - *external: independent streams:* Adopted reading: early manuscripts, modern critical editions; other reading(s): Byzantine / ecclesiastical.
 - **Apparatus:** `Λιθόστρωτον,` B (03) BHP Nestle1904 RP2018 (Byz) SBLGNT SRGNT TR (KJTR) א (01) 33 A (02) NA28 (TAGNT) PT1904 (Byz) TCGNT (Byz) THGNT TR-Boyd (Elz/Scr/Steph) TR-Elzevir (1624) TR-Scrivener (1894) TR-Stephanus (1550) Tisch8 W (032) WH1881 𝔓66 **]** **λειθοστροτον** Θ (038)
-- **Apparatus:** `δὲ Γαββαθα` B (03) SRGNT BHP RP2018 (Byz) SBLGNT Nestle1904 TR (KJTR) 33 A (02) NA28 (TAGNT) PT1904 (Byz) TCGNT (Byz) THGNT TR-Boyd (Elz/Scr/Steph) TR-Elzevir (1624) TR-Scrivener (1894) TR-Stephanus (1550) Tisch8 W (032) WH1881 **]** **γολγοθα** א (01) ; **δε χαφβαθα** Θ (038) ; **δε λεγομεν ουν** 𝔓66 *(lexical substitution)*
+- **Apparatus:** `δὲ Γαββαθᾶ` B (03) SRGNT SBLGNT BHP RP2018 (Byz) TR (KJTR) Nestle1904 33 A (02) NA28 (TAGNT) PT1904 (Byz) TCGNT (Byz) THGNT TR-Boyd (Elz/Scr/Steph) TR-Elzevir (1624) TR-Scrivener (1894) TR-Stephanus (1550) Tisch8 W (032) WH1881 **]** **γολγοθα** א (01) ; **δε χαφβαθα** Θ (038) ; **δε λεγομεν ουν** 𝔓66 *(lexical substitution)*
   - *external: independent streams:* Adopted reading: Byzantine / ecclesiastical, early manuscripts, modern critical editions; other reading(s): early manuscripts.
 - *Disregarded Surface Variant:* kept `Ὁ` over `ο`, `ὁ` (B (03), BHP, א (01)) — *Accentuation / capitalisation / breathing convention*
 - *Disregarded Surface Variant:* kept `οὖν` over `ουν` (B (03), א (01)) — *Accentuation / capitalisation / breathing convention*
@@ -1588,13 +1588,13 @@ Collated against the adopted text and listed in the apparatus wherever they diff
 - *confidence:* Verse confidence 96% = product of 4 unit confidence(s); 1 split-transposition duplicate(s) counted once; calibrated on the Greek NT (probability that a modern critical edition agrees, fitted with a whole stream of witnesses held out).
 
 ### Verse 13 (Confidence: `97.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)
-- **Critical Text:** Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθα.
+- **Critical Text:** Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθᾶ.
   - `SRGNT`: Ὁ οὖν Πιλᾶτος, ἀκούσας τῶν λόγων τούτων, ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος, εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ, Γαββαθᾶ.
-  - `SBLGNT`: Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθα.
+  - `SBLGNT`: Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθᾶ.
   - `BHP`: ὁ οὖν Πειλᾶτος, ἀκούσας τῶν λόγων τούτων, ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος, εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ, Γαββαθᾶ.
   - `Nestle1904`: Ὁ οὖν Πειλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθα.
   - `RP2018 (Byz)`: Ὁ οὖν Πιλάτος ἀκούσας τοῦτον τὸν λόγον ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ τοῦ βήματος, εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθᾶ·
-  - `TR (KJTR)`: Ὁ οὖν Πιλάτος ἀκούσας τοῦτον τὸν λόγον, ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ τοῦ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ, Γαββαθα.
+  - `TR (KJTR)`: Ὁ οὖν Πιλάτος ἀκούσας τοῦτον τὸν λόγον, ἤγαγεν ἔξω τὸν Ἰησοῦν, καὶ ἐκάθισεν ἐπὶ τοῦ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ, Γαββαθᾶ.
   - `B (03)`: ο ουν πειλατοσ ακουσασ των λογων τουτων ηγαγεν εξω τον ιν̅ και εκαθισεν επι βηματοσ εισ τοπον λεγομενον λιθοστρωτον εβραιστι δε γαββαθα
   - `א (01)`: ο ουν πιλατοσ ακουσασ των λογων τουτων ηγαγεν εξω τον ιν̅ και εκαθισεν επι βηματοσ εισ τοπον λεγομενον λιθοστρωτον εβραιστι γολγοθα
   - `NA28 (TAGNT)`: Ὁ οὖν Πιλᾶτος ἀκούσας τῶν λόγων τούτων ἤγαγεν ἔξω τὸν Ἰησοῦν καὶ ἐκάθισεν ἐπὶ βήματος εἰς τόπον λεγόμενον Λιθόστρωτον, Ἑβραϊστὶ δὲ Γαββαθα.
@@ -1612,7 +1612,7 @@ Collated against the adopted text and listed in the apparatus wherever they diff
   - `W (032)`: ο ουν πειλατοσ ακουσασ των λογων τουτων ηγαγεν τον ιν̅ εξω και εκαθεισεν επι του βηματοσ εισ τοπον λεγομενον λιθοστρωτον εβραιστι δε γαββαθα
   - `33`: ο ουν πιλατος ακουσας των λογων τουτων ηγαγεν εξω τον ιν̅ και εκαθισεν επι βηματος εις τοπον λεγομενον λιθοστρωτον εβραιστι δε γαββαθα
   - `Θ (038)`: ο ουν πειλατος ακουσας τουτον των λογων ηγαγεν εξω τον ιν̅ και εκαθισεν επι του βηματος εις τοπον λεγομενον λειθοστροτον εβραιστι δε χαφβαθα
-- **Philological Rationale:** [Variation unit spanning several words] Adopted 'τῶν λόγων τούτων' [B (03), א (01), SRGNT, SBLGNT, Nestle1904, BHP] (weight 5.61, confidence 99%) over τοῦτον τὸν λόγον (RP2018 (Byz), TR (KJTR)). [Addition / omission between witnesses] Adopted 'om.' [B (03), א (01), SRGNT, SBLGNT, Nestle1904, BHP] (weight 5.73, confidence 99%) over τοῦ (RP2018 (Byz), TR (KJTR)). [Variation unit spanning several words] Adopted 'δὲ Γαββαθα' [B (03), SRGNT, BHP, RP2018 (Byz), SBLGNT, Nestle1904, TR (KJTR)] (weight 5.97, confidence 99%) over γολγοθα (א (01)). Also normalised 17 orthographic/surface variation(s).
+- **Philological Rationale:** [Variation unit spanning several words] Adopted 'τῶν λόγων τούτων' [B (03), א (01), SRGNT, SBLGNT, Nestle1904, BHP] (weight 5.61, confidence 99%) over τοῦτον τὸν λόγον (RP2018 (Byz), TR (KJTR)). [Addition / omission between witnesses] Adopted 'om.' [B (03), א (01), SRGNT, SBLGNT, Nestle1904, BHP] (weight 5.73, confidence 99%) over τοῦ (RP2018 (Byz), TR (KJTR)). [Variation unit spanning several words] Adopted 'δὲ Γαββαθᾶ' [B (03), SRGNT, SBLGNT, BHP, RP2018 (Byz), TR (KJTR), Nestle1904] (weight 5.97, confidence 99%) over γολγοθα (א (01)). Also normalised 17 orthographic/surface variation(s).
 - *confidence:* Verse confidence 97% = product of 3 unit confidence(s); calibrated on the Greek NT (probability that a modern critical edition agrees, fitted with a whole stream of witnesses held out).
 
 ### Verse 14 (Confidence: `99.0%` · Source: `Textual Analysis Brain (Claude-designed · internal evidence · offline)`)

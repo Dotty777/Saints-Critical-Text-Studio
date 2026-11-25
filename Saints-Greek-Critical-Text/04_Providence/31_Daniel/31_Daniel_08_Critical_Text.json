@@ -7,7 +7,7 @@
   "usfm_code": "DAN",
   "chapter": 8,
   "model_used": "Textual Analysis Brain (Claude-designed · internal evidence · offline)",
-  "updated_at": "2026-11-22T12:03:31Z",
+  "updated_at": "2026-11-25T00:07:42Z",
   "versification": "Septuagint numbering as in Brenton/eBible (the Saints.Bible numbering) for the OT; standard numbering for the NT. Witnesses that number differently (e.g. Swete in Joel and Malachi) are re-aligned by content. Proverbs is numbered as Saints.Bible numbers it: Hebrew chapter and verse numbers in the Greek order (24:1–22e, 30:1–14, 24:23–34, 30:15–33, 31:1–9, 25–29, 31:10–31), not as the Brenton e-text runs 30:1–31:9 on as 24:22–62.",
   "versification_anchor": "Sixtine/Brenton",
   "orthographic_base": "Swete-Amicarelli",
@@ -48,6 +48,7 @@
     "Swete-Amicarelli: 9:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:7 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:11 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:12 kept in its own chapter (stronger match to its own reference verse)",
@@ -60,6 +61,7 @@
     "Swete-Amicarelli: 9:19 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:20 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:21 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete-Amicarelli: 9:22 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:23 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:24 kept in its own chapter (stronger match to its own reference verse)",
     "Swete-Amicarelli: 9:25 kept in its own chapter (stronger match to its own reference verse)",
@@ -101,6 +103,7 @@
     "1st1K-LXX: 9:6 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:7 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:8 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:11 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:12 kept in its own chapter (stronger match to its own reference verse)",
@@ -113,6 +116,7 @@
     "1st1K-LXX: 9:19 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:20 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:21 kept in its own chapter (stronger match to its own reference verse)",
+    "1st1K-LXX: 9:22 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:23 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:24 kept in its own chapter (stronger match to its own reference verse)",
     "1st1K-LXX: 9:25 kept in its own chapter (stronger match to its own reference verse)",
@@ -154,6 +158,7 @@
     "Swete (B/A/א): 9:6 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:7 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:8 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 9:9 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:10 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:11 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:12 kept in its own chapter (stronger match to its own reference verse)",
@@ -166,13 +171,32 @@
     "Swete (B/A/א): 9:19 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:20 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:21 kept in its own chapter (stronger match to its own reference verse)",
+    "Swete (B/A/א): 9:22 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:23 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:24 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:25 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:26 kept in its own chapter (stronger match to its own reference verse)",
     "Swete (B/A/א): 9:27 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:2 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:3 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:4 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:9 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:10 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:11 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:13 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:16 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:17 kept in its own chapter (stronger match to its own reference verse)",
     "OG-Daniel: 7:18 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:22 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 7:25 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:3 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:4 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:8 kept in its own chapter (stronger match to its own reference verse)",
     "OG-Daniel: 9:11 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:14 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:16 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:19 kept in its own chapter (stronger match to its own reference verse)",
+    "OG-Daniel: 9:24 kept in its own chapter (stronger match to its own reference verse)",
     "LXX-Orthodox (Οʹ): verse 7:18 runs into its neighbour across the anchor's division between 7:17 and 7:18; re-divided there",
     "LXX-Orthodox (Οʹ): verse 7:28 runs into its neighbour across the anchor's division between 7:27 and 7:28; re-divided there",
     "LXX-Orthodox (Οʹ): 7:1 kept in its own chapter (stronger match to its own reference verse)",
@@ -233,18 +257,18 @@
   ],
   "admitted_witnesses": [
     {
-      "siglum": "1st1K-LXX",
-      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
-      "tier": 1,
-      "weight": 0.92,
-      "license": "CC BY-SA 4.0"
-    },
-    {
       "siglum": "Swete-Amicarelli",
       "title": "Swete Septuagint — Amicarelli transcription (BibleWorks text; LXX-Swete-1930 CSV)",
       "tier": 1,
       "weight": 0.93,
       "license": "GPL-3.0"
+    },
+    {
+      "siglum": "1st1K-LXX",
+      "title": "First1KGreek Septuagint EpiDoc TEI-XML (tlg0527)",
+      "tier": 1,
+      "weight": 0.92,
+      "license": "CC BY-SA 4.0"
     },
     {
       "siglum": "Swete (B/A/א)",
@@ -296,8 +320,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -542,8 +565,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -798,8 +820,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -1090,8 +1111,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -1567,8 +1587,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -1844,8 +1863,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -2077,8 +2095,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -2622,8 +2639,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -2956,8 +2972,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -3251,8 +3266,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -3493,8 +3507,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -3750,8 +3763,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -3963,8 +3975,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -4231,8 +4242,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -4401,8 +4411,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -4600,8 +4609,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -4794,8 +4802,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -5172,8 +5179,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -5416,8 +5422,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -5741,8 +5746,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -5902,8 +5906,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -6172,8 +6175,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -6373,8 +6375,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -6518,8 +6519,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -6715,8 +6715,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -7040,8 +7039,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
@@ -7243,8 +7241,7 @@
       "witness_refs": {},
       "apparatus_witnesses": [
         "LXX-Orthodox (Οʹ)",
-        "OG-Daniel",
-        "Rahlfs (1935)"
+        "OG-Daniel"
       ],
       "apparatus": [
         {
