@@ -102,13 +102,21 @@ class StudioGreekToSaints(unittest.TestCase):
         ("deuteronomy", (5, 17), [(5, 18)]),        # site has adultery first
         ("genesis", (32, 1), [(32, 1)]),            # identity where the site agrees
         ("genesis", (47, 4), [(47, 5), (47, 4)]),   # 29 of its 46 words are site 47:5
-        ("leviticus", (8, 19), [(8, 20)]),
+        ("exodus", (39, 14), [(39, 13), (39, 14)]),  # Stage 1 restored ark clause to 39:14 (majority = 39:13)
+        ("exodus", (39, 15), [(39, 15)]),           # Stage 1 repaired 39:15 to altar + utensils (= site 39:15a)
+        ("leviticus", (8, 19), [(8, 20), (8, 21)]), # Stage 1 moved washing clause into 8:19 (majority = 8:20)
         ("leviticus", (11, 15), [(11, 16)]),        # the Studio Greek lacks the raven verse
-        ("numbers", (21, 20), []),                  # Studio copy of 21:21a
+        ("numbers", (21, 20), [(21, 21)]),          # Stage 1 repaired 21:20 (envoys) = site 21:21
+        ("numbers", (21, 21), [(21, 22)]),          # Stage 1 removed duplicate envoys clause; 21:21 = site 21:22a
         ("numbers", (27, 4), [(27, 5)]),
         ("numbers", (16, 44), []),                  # Studio copy of 17:9
         ("1-samuel", (20, 43), []),                 # Studio copy of 21:1
         ("1-kings", (4, 33), [(5, 14)]),            # 'Solomon built Gezer' = site 5:14b
+        ("1-chronicles", (12, 4), [(12, 4)]),       # Stage 1 separated 12:4 and 12:5 cleanly
+        ("1-chronicles", (12, 5), [(12, 5)]),
+        ("nehemiah", (12, 17), [(12, 17)]),         # Stage 1 realigned priestly pairs 12:17-19 to identity
+        ("nehemiah", (12, 18), [(12, 18)]),
+        ("nehemiah", (12, 19), [(12, 19)]),
         ("psalms", (12, 2), [(12, 3)]),
         ("psalms", (25, 22), []),                   # stray title 'Tou Dauid'
         ("proverbs", (31, 25), [(31, 26)]),
@@ -117,6 +125,8 @@ class StudioGreekToSaints(unittest.TestCase):
         ("sirach", (30, 25), [(33, 17), (33, 16)]),  # 'en eulogiai Kyriou ephthasa' = 33:17
         ("sirach", (33, 1), [(36, 1)]),
         ("sirach", (19, 1), [(19, 1)]),
+        ("sirach", (41, 23), [(41, 26)]),           # Stage 1 separated 41:23 (= 41:26) and 41:24 (= 41:27)
+        ("sirach", (41, 24), [(41, 27)]),
         ("jeremiah", (25, 20), [(25, 14)]),         # site anchor '14-25-20'
         ("jeremiah", (23, 40), [(23, 8), (23, 40), (23, 7)]),  # most of its words are 23:8
         ("daniel", (3, 54), [(3, 55)]),             # Theodotion order vs the site's Old Greek order
@@ -336,20 +346,19 @@ song-of-songs 7:1>7:2
 wisdom-of-solomon 2:3>2:4 19:13>19:14 19:20>19:22
 """,
     "greek": """
-1-chronicles 12:4>12:4 28:14>28:14
+1-chronicles 28:14>28:14
 1-kings 6:17>6:17 22:5>22:5
 2-kings 25:9>25:9
 amos 8:1>8:2
-exodus 39:16>39:15 39:21>39:20
+exodus 39:14>39:13 39:16>39:15 39:21>39:20
 ezekiel 7:9>7:9
 genesis 47:4>47:5
 jeremiah 10:5>10:9 10:9>10:9 23:40>23:8
-leviticus 8:18>8:18
-nehemiah 12:17>12:17
-numbers 21:19>21:20 21:21>21:21 27:3>27:3
+leviticus 8:18>8:18 8:19>8:20
+numbers 21:19>21:20 27:3>27:3
 proverbs 15:5>15:6 31:24>31:25
 psalms 12:1>12:2
-sirach 6:2>5:15 23:16>23:17 29:18>29:17 30:25>33:17 30:40>33:32 32:12>35:12 32:17>35:17 32:18>35:21 32:19>35:22 36:16>36:10 36:22>36:16 36:31>36:26 39:17>39:17 40:5>40:5 41:3>41:3 41:18>41:19 41:19>41:20 41:20>41:21 41:21>41:23 41:22>41:25 41:24>41:27 43:17>43:17 46:6>46:6 47:23>47:23 51:12>51:12
+sirach 6:2>5:15 23:16>23:17 29:18>29:17 30:25>33:17 30:40>33:32 32:12>35:12 32:17>35:17 32:18>35:21 32:19>35:22 36:16>36:10 36:22>36:16 36:31>36:26 39:17>39:17 40:5>40:5 41:3>41:3 41:18>41:19 41:19>41:20 41:20>41:21 41:21>41:23 41:22>41:25 43:17>43:17 46:6>46:6 47:23>47:23 51:12>51:12
 wisdom-of-solomon 4:18>4:19
 """,
 }
@@ -410,8 +419,9 @@ class FinalCheckRegressions(unittest.TestCase):
         ("latin", "numbers", (35, 22), [(35, 22)]),            # native Vulgate un-merges 35:22-25 cleanly
         ("latin", "sirach", (37, 21), [(37, 18), (37, 17), (37, 19)]),
         ("latin", "sirach", (45, 31), [(45, 26), (45, 25)]),
-        ("latin", "exodus", (38, 26), [(39, 3)]),              # 'a viginti annis ... sexcentis tribus millibus'
-        ("latin", "exodus", (38, 27), [(39, 4)]),              # 'centum talenta argenti ... conflatae'
+        ("latin", "exodus", (38, 25), [(39, 3)]),              # 'a viginti annis ... sexcentis tribus millibus'
+        ("latin", "exodus", (38, 26), [(39, 4)]),              # 'centum talenta argenti e quibus conflatae sunt bases'
+        ("latin", "exodus", (38, 27), [(39, 4)]),              # 'Centum bases factae sunt de talentis centum'
         ("latin", "wisdom-of-solomon", (2, 3), [(2, 4), (2, 3)]),  # 'transibit vita nostra ... vestigium nubis'
         ("latin", "proverbs", (31, 26), [(31, 28), (31, 25)]),
         ("latin", "ezekiel", (7, 5), [(7, 10), (7, 9)]),       # = Hebrew 7:5
@@ -427,11 +437,22 @@ class FinalCheckRegressions(unittest.TestCase):
         ("latin", "deuteronomy", (6, 13), [(6, 12), (6, 13)]),
         ("latin", "sirach", (34, 20), [(34, 17)]),
         ("latin", "sirach", (1, 2), [(1, 2)]),
-        # Studio Greek spans and duplicates
+        ("latin", "sirach", (42, 1), [(41, 27), (41, 26), (42, 1)]),  # preserves all 3 clauses (41:26 + 41:27 + 42:1)
+        # Studio Greek spans and post-Stage-1 repairs
+        ("greek", "exodus", (39, 14), [(39, 13), (39, 14)]),
+        ("greek", "exodus", (39, 15), [(39, 15)]),
         ("greek", "numbers", (21, 19), [(21, 20), (21, 19)]),  # Bamoth ... plain of Moab ... wilderness
-        ("greek", "numbers", (21, 21), [(21, 21), (21, 22)]),  # 10 words of 21:21, 9 of 21:22
+        ("greek", "numbers", (21, 20), [(21, 21)]),            # Stage 1 separated envoys (21:20 = site 21:21)
+        ("greek", "numbers", (21, 21), [(21, 22)]),            # Stage 1 removed duplicate envoys; 21:21 = 21:22a
         ("greek", "numbers", (27, 3), [(27, 3), (27, 4)]),
         ("greek", "leviticus", (8, 18), [(8, 18), (8, 19)]),
+        ("greek", "leviticus", (8, 19), [(8, 20), (8, 21)]),   # Stage 1 moved washing clause into 8:19
+        ("greek", "1-chronicles", (12, 4), [(12, 4)]),
+        ("greek", "1-chronicles", (12, 5), [(12, 5)]),
+        ("greek", "nehemiah", (12, 17), [(12, 17)]),
+        ("greek", "nehemiah", (12, 18), [(12, 18)]),
+        ("greek", "sirach", (41, 23), [(41, 26)]),
+        ("greek", "sirach", (41, 24), [(41, 27)]),
         ("greek", "psalms", (12, 1), [(12, 2), (12, 1)]),
         ("greek", "psalms", (12, 4), [(12, 5)]),                # Stage 1 fixed Swete's 12:4/12:5 duplication
         ("greek", "psalms", (12, 5), [(12, 6)]),
@@ -630,8 +651,9 @@ class SiteEnglish(unittest.TestCase):
             ("hebrew", "proverbs", (31, 26), "wisely"),
             ("latin", "psalms", (110, 7), "works of his hands"),
             ("latin", "mark", (4, 40), "afraid"),
-            ("latin", "exodus", (38, 27), "hundred talents of silver"),
-            ("latin", "exodus", (38, 26), "twenty years"),
+            ("latin", "exodus", (38, 25), "twenty years"),
+            ("latin", "exodus", (38, 26), "hundred talents of silver"),
+            ("latin", "exodus", (38, 27), "talent per capital"),
             ("latin", "wisdom-of-solomon", (2, 3), "cloud"),
             ("latin", "sirach", (37, 21), "tongue"),
             ("latin", "genesis", (50, 22), "machir"),
@@ -756,7 +778,15 @@ class LiveDatabase(unittest.TestCase):
         # Latin verses whose main content lies in the neighbouring site verse
         self.assertIn("operamanuum", latin_bare(self.text[("latin", "psalms", 110, 7)]))
         self.assertIn("timuerunttimoremagno", latin_bare(self.text[("latin", "mark", 4, 40)]))
+        self.assertIn("sexcentistribusmillibus", latin_bare(self.text[("latin", "exodus", 38, 25)]))
+        self.assertIn("centumtalentaargenti", latin_bare(self.text[("latin", "exodus", 38, 26)]))
         self.assertIn("detalentiscentum", latin_bare(self.text[("latin", "exodus", 38, 27)]))
+        self.assertEqual(vz.to_studio_greek("latin", "exodus", 38, 25), [(39, 3)])
+        self.assertEqual(vz.to_studio_greek("latin", "exodus", 38, 26), [(39, 4)])
+        self.assertEqual(vz.to_studio_greek("latin", "exodus", 38, 27), [(39, 5)])
+        self.assertEqual(vz.from_saints("latin", "exodus", 39, 2), [])
+        self.assertEqual(vz.from_saints("latin", "exodus", 39, 3), [(38, 25)])
+        self.assertEqual(vz.from_saints("latin", "exodus", 39, 4), [(38, 26), (38, 27)])
         self.assertIn("uestigiumnubis", latin_bare(self.text[("latin", "wisdom-of-solomon", 2, 3)]))
 
 

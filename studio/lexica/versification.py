@@ -85,6 +85,20 @@ Lev 11:5-6, Exod 36 and 39 (Latin), 1 Kgs 7, Neh 7, Sirach 9, 12, 17; and the re
 (Ezek 7:5, Prov 31:26, Dan 5:25 and 6:16, 2 Kgs 25:10, the 1 Kings miscellanies the live page lists as
 unmatched, the one-to-several first targets).
 
+Follow-up reconciliation (25 Nov 2026):
+- Native Sixto-Clementine Vulgate (Clem1598-USFX) Exodus 38:25-27 audited clause-by-clause against
+  Studio Greek 39:2-5 and live Saints.Bible 39:2-4: Vulgate 38:25 ('a viginti annis et supra, de
+  sexcentis tribus millibus...') = Studio Greek 39:3 = Saints 39:3; Vulgate 38:26 ('centum talenta
+  argenti e quibus conflatae sunt bases sanctuarii...') = Studio Greek 39:4 = Saints 39:4a; Vulgate
+  38:27 ('Centum bases factae sunt de talentis centum...') = Studio Greek 39:5 = Saints 39:4b.
+  Saints 39:2 (the combined silver-contribution summary of 100 talents and 1,775 shekels) has no
+  full-verse Vulgate counterpart (from_saints('latin', 'exodus', 39, 2) == []).
+- Studio Greek post-Stage-1 rules reconciled against live studio.db and Saints.Bible: Exodus 39:14-15
+  (39:14 > 39:13-14, 39:15 = 39:15), Leviticus 8:19 (> 8:20-21), Numbers 21:20-21 (= 21:21-22),
+  1 Chronicles 12:4-5 (identity), Nehemiah 12:17-19 (identity), and Sirach 41:23-24 (= 41:26-27),
+  with Hebrew/Latin composition guards (including Latin Sirach 42:1 > 41:24,41:23,42:1 preserving
+  all three Vulgate clauses: 41:26 + 41:27 + 42:1).
+
 Saints references are integer (chapter, verse) pairs.  Lettered site verses (Esth 1:1a-s, 3 Kgdms 2:35a-o,
 Prov 15:27a, Dan 4:37a-c ...) are folded into their base verse, and a combined site anchor counts for its
 first verse (Jer 25 '13-32-13' -> 25:13, '14-25-20' -> 25:14; Esth 5 '1-1c' -> 5:1; Jer 7 '27-28',
@@ -459,7 +473,7 @@ numbers 6:27 = 6:23
 numbers 10:34 = 10:36
 numbers 10:35-36 = 10:34-35
 numbers 21:20 = 21:19
-numbers 21:21 > 21:20-21
+numbers 21:21 = 21:20
 numbers 21:22 > 21:21-22
 numbers 25:19 = 26:1
 numbers 26:15-18 = 26:24-27
@@ -520,7 +534,6 @@ joshua 24:31 = 24:29
 1-kings 20:4-43 = 21:4-43
 1-kings 21:1-29 = 20:1-29
 1-kings 22:47-50 in 16:28
-1-chronicles 12:5 > 12:4-5
 nehemiah 7:68-72 = 7:69-73
 psalms 10:1-18 = 9:22-39
 psalms 11:1-7 = 10:1-7
@@ -793,8 +806,9 @@ exodus 38:5 = 38:24
 exodus 38:6-7 -
 exodus 38:8 = 38:26
 exodus 38:9-23 = 37:7-21
-exodus 38:24-26 = 39:1-3
-exodus 38:27 > 39:4-5
+exodus 38:24 = 39:1
+exodus 38:25 = 39:3
+exodus 38:26-27 = 39:4-5
 exodus 38:28-29 = 39:6-7
 exodus 38:30 > 39:10,39:8
 exodus 38:31 = 39:9
@@ -846,7 +860,7 @@ numbers 16:36-50 = 17:1-15
 numbers 17:1-13 = 17:16-28
 numbers 20:29-30 = 20:28-29
 numbers 21:20 = 21:19
-numbers 21:21 > 21:20-21
+numbers 21:21 = 21:20
 numbers 21:22 > 21:21-22
 numbers 26:15-18 = 26:24-27
 numbers 26:19-27 = 26:15-23
@@ -1348,7 +1362,7 @@ sirach 41:23-24 = 41:18-19
 sirach 41:25-26 in 41:21
 sirach 41:27 > 41:22,41:21
 sirach 41:28 = 41:22
-sirach 42:1 > 41:24,42:1
+sirach 42:1 > 41:24,41:23,42:1
 sirach 42:22-26 = 42:21-25
 sirach 43:9-19 = 43:8-18
 sirach 43:20 > 43:17-18
@@ -1532,18 +1546,19 @@ revelation 20:9 > 20:10,20:9
 """,
     "greek": """
 genesis 47:4 > 47:5,47:4
-exodus 39:5-14 = 39:4-13
-exodus 39:15 -
+exodus 39:5-13 = 39:4-12
+exodus 39:14 > 39:13-14
 exodus 39:16 > 39:15-16
 exodus 39:17-20 = 39:16-19
 exodus 39:21 > 39:20-21,39:19
 leviticus 8:18 > 8:18-19
-leviticus 8:19-29 = 8:20-30
+leviticus 8:19 > 8:20-21
+leviticus 8:20-29 = 8:21-30
 leviticus 11:15 = 11:16
 numbers 6:27 = 6:23
 numbers 21:19 > 21:20,21:19
-numbers 21:20 -
-numbers 21:21 > 21:21-22
+numbers 21:20 = 21:21
+numbers 21:21 = 21:22
 numbers 27:3 > 27:3-4
 numbers 27:4-7 = 27:5-8
 deuteronomy 5:17 = 5:18
@@ -1555,11 +1570,7 @@ deuteronomy 29:2-29 = 29:1-28
 1-kings 22:5 > 22:5,22:4
 2-kings 25:9 > 25:9-10
 2-kings 25:10 -
-1-chronicles 12:4 > 12:4-5
-1-chronicles 12:5 -
 1-chronicles 28:14 > 28:14-15
-nehemiah 12:17 > 12:17-18
-nehemiah 12:18 = 12:19
 psalms 12:1 > 12:2,12:1
 psalms 12:2-5 = 12:3-6
 proverbs 15:5 > 15:6,15:5
@@ -1603,8 +1614,8 @@ sirach 41:19 > 41:20-21
 sirach 41:20 > 41:21-22
 sirach 41:21 > 41:23,41:22
 sirach 41:22 > 41:25,41:24
-sirach 41:23 -
-sirach 41:24 > 41:27,41:26
+sirach 41:23 = 41:26
+sirach 41:24 = 41:27
 sirach 43:17 > 43:17-18
 sirach 46:6 > 46:6,46:5
 sirach 47:23 > 47:23-24
@@ -1653,12 +1664,13 @@ romans 14:24-26 -
 _SITE_RULES = {
     "hebrew": """
 genesis 47:4 = 47:4
+exodus 39:33 = 39:13
 exodus 39:34 = 39:20
 exodus 39:35 = 39:14
 exodus 39:37 = 39:16
 exodus 39:38 = 39:15
 exodus 39:40 > 39:19,39:21
-leviticus 8:18-19 = 8:18-19
+leviticus 8:18-20 = 8:18-20
 leviticus 8:30 = 8:30
 leviticus 11:15 = 11:15
 numbers 21:19-22 = 21:19-22
@@ -1700,13 +1712,14 @@ amos 8:1 = 8:1
 """,
     "latin": """
 genesis 47:4 = 47:4
+exodus 39:32 = 39:13
 exodus 39:33 = 39:20
 exodus 39:34 = 39:14
 exodus 39:36 = 39:16
 exodus 39:37 = 39:15
 exodus 39:39 > 39:15,39:19
 exodus 39:40 > 39:21,39:19
-leviticus 8:18-19 = 8:18-19
+leviticus 8:18-20 = 8:18-20
 leviticus 8:30 = 8:30
 leviticus 11:15 = 11:15
 numbers 21:19-22 = 21:19-22
@@ -2007,13 +2020,11 @@ EXTRA_SITE_SUBVERSE = 9
 # editorial copies, and literal placeholder rows ("No aligned Latin source passage.").  These are never
 # indexed so no word is counted twice and no placeholder text enters the concordance.
 _DUPLICATE_OR_PLACEHOLDER = frozenset({
-    # Studio Greek duplicates, stray psalm headings, and Swete out-of-place Exod 39:15 (20 verses)
-    ("greek", "1-chronicles", 12, 5),
+    # Studio Greek duplicates and stray psalm-title headings (15 verses; Stage 1 repaired
+    # Exod 39:15, Num 21:20, 1 Chr 12:5, and Sir 41:23 into genuine distinct verses)
     ("greek", "1-samuel", 20, 43),
-    ("greek", "exodus", 39, 15),
     ("greek", "ezekiel", 20, 45),
     ("greek", "numbers", 16, 44),
-    ("greek", "numbers", 21, 20),
     ("greek", "psalms", 25, 22),
     ("greek", "psalms", 27, 14),
     ("greek", "psalms", 71, 24),
@@ -2026,7 +2037,6 @@ _DUPLICATE_OR_PLACEHOLDER = frozenset({
     ("greek", "romans", 14, 24),
     ("greek", "romans", 14, 25),
     ("greek", "romans", 14, 26),
-    ("greek", "sirach", 41, 23),
     # Studio Latin genuine Vulgate doublet (Sir 19:6 repeats 19:4b-5a); all old Clem-Saints
     # duplicates/placeholders (Ezek 20:45, Jer 29:30, Num 16:36/44, Prov 16:6, Sir 1:15/22:17/42:1)
     # are real native Vulgate verses under Clem1598-USFX.
